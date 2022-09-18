@@ -108,10 +108,67 @@ export function calculateVariableSizedSubnets(ipV4CIDRString, numberOfUserHosts)
         "\nnumberOfUserHosts: ", numberOfUserHosts
     );
 
+    const [ipV4Addr, cIDRNumber] = splitIpV4AndCidrString(ipV4CIDRString);
+    const maxNumberOfAddresses = 2**(32-cIDRNumber)
+  //  console.log(maxNumberOfAddresses)
+    numberOfUserHosts.sort( (a,b) => {
+        if (a < b) return 1 
+        if (a > b) return -1
+        if (a === b) return 0
+    })
+
+    //create subblock -> subblock needs to be a power of two
+
+    const subnetsArray = numberOfUserHosts.map( (item) => {
+        console.log("-----\n",
+            "nearest", 2**calculateNeededBitsForSubnets(item),
+            "\n", "requested:", item,
+            "\n", "nearest-requested", 2**calculateNeededBitsForSubnets(item) - item,
+            "\n", "next power: ", 2**(calculateNeededBitsForSubnets(item)+1),
+            "\n-----"
+        )
+        return {
+            requested: item,
+            nearest: (2**calculateNeededBitsForSubnets(item) - item > 2) ?
+                        2**calculateNeededBitsForSubnets(item) :
+                        2**(calculateNeededBitsForSubnets(item)+1),
+        }
+    })
+
+    console.log(numberOfUserHosts, "\n", subnetsArray, )
+    const results = [];
+    let ip = ipV4Addr.join(".");
+    let i = 1;
+    subnetsArray.forEach( (item, index) => {
+        let newCIDRNumber = +cIDRNumber + Math.log2(maxNumberOfAddresses/item.nearest);
+        console.log(ip, newCIDRNumber)
+        let tempResult = calculateEqualSizedSubnets(`${ip}/${newCIDRNumber}`, 1);
+
+        tempResult[0].requested = item.requested;
+        tempResult[0].number = i;
+        if (i === 3 || i===4) {
+            console.log("inside foreach: ", i, "\n", tempResult)
+        }
+        results.push(tempResult[0]);
+        ip = additionForBinaryStringArray( convertOctStringToBinaryStringArray(tempResult[0].broadcast), 1 )
+        i++;
+    })
+
+    // // originalsubnet + log2(Total / Subblock)
+    //console.log("results", results)
+/*    console.log(
+        "cidr", +cIDRNumber,
+        "\n log2(Total / Subblock):", Math.log2(maxNumberOfAddresses/subnetsArray[0]),
+        "\n equals=", +cIDRNumber + Math.log2(maxNumberOfAddresses/subnetsArray[0]),
+        calculateEqualSizedSubnets(
+            `${ipV4Addr.join(".")}/${+cIDRNumber + Math.log2(maxNumberOfAddresses/subnetsArray[0])}`, 1)
+
+    )
+*/
     // scenario 4
     const subnets = [];
     // Your implementation should go here.
-    return subnets;
+    return results;
 }
 
 
@@ -275,7 +332,7 @@ function additionForBinaryStringArray(binaryStringArray, numberToAdd) {
 
     newString = convertBinaryStringArrayToOctArray(newString).join(".")
   //  console.log("\nnewString:\n", newString,
-  //            "\n----");
+//            "\n----");
 
     return newString
 }
