@@ -23,50 +23,45 @@ export function inSameSubnet(ipV4Addr1String, ipV4Addr2String, subnetMaskString)
 
 export function calculateSubnetInfo(ipV4CIDRString) {
 
-    const subnetInfoObject = {}
-
     const [ipV4Addr, cIDRNumber] = splitIpV4AndCidrString(ipV4CIDRString);
 
     const ipV4AddrAsBinaryStringArray = convertOctStringToBinaryStringArray(ipV4Addr.join("."))
     const subnetMaskAsBinaryStringArray = convertCidrToBinaryStringArray(cIDRNumber)
 
     //Get network and host portions of the IPV4 address
-    const networkPortionBinaryString = getNetworkPortion(ipV4AddrAsBinaryStringArray.join(""), subnetMaskAsBinaryStringArray.join("")); 
-    const hostPortionBinaryString = getHostPortion(ipV4AddrAsBinaryStringArray.join(""), subnetMaskAsBinaryStringArray.join("")); 
+    const networkPortionBinaryString = getNetworkPortion(ipV4AddrAsBinaryStringArray, subnetMaskAsBinaryStringArray.join("")); 
+    const hostPortionBinaryString = getHostPortion(ipV4AddrAsBinaryStringArray, subnetMaskAsBinaryStringArray.join("")); 
 
     const minHost = networkPortionBinaryString.padEnd(MAX_BLOCK_SIZE, "0");
     const maxHost = networkPortionBinaryString.padEnd(MAX_BLOCK_SIZE, "1");
     const minNetworkPortionBinaryStringArray = splitBinaryStringToArray(minHost);
     const maxNetworkPortionBinaryStringArray = splitBinaryStringToArray(maxHost);
 
-    subnetInfoObject.netId = convertBinaryStringArrayToOctArray(minNetworkPortionBinaryStringArray).join(".");
+    return {
+        netId: convertBinaryStringArrayToOctArray(minNetworkPortionBinaryStringArray).join("."),
+        first: (() => {
+            const ip = convertBinaryStringArrayToOctArray(minNetworkPortionBinaryStringArray);
+            ip[3] += 1;
+            return ip.join(".");
+        })(),
 
-    subnetInfoObject.first = (() => {
-        const ip = convertBinaryStringArrayToOctArray(minNetworkPortionBinaryStringArray)
-        ip[3] += 1
-        return ip.join(".")
-        })();
+        last: (() => {
+            const ip = convertBinaryStringArrayToOctArray(maxNetworkPortionBinaryStringArray);
+            ip[3] -= 1;
+            return ip.join(".");
+        })(),
+        broadcast: convertBinaryStringArrayToOctArray(maxNetworkPortionBinaryStringArray).join("."),
+        subnetmask: convertBinaryStringArrayToOctArray(convertCidrToBinaryStringArray(cIDRNumber)).join("."),
 
-    subnetInfoObject.last = (() => {
-        const ip = convertBinaryStringArrayToOctArray(maxNetworkPortionBinaryStringArray);
-        ip[3] -= 1
-        return ip.join(".")
-        })();
+        //remove 2, due to broadcast and network ID
+        available: 2**hostPortionBinaryString.length-2
+    }
 
-    subnetInfoObject.broadcast = convertBinaryStringArrayToOctArray(maxNetworkPortionBinaryStringArray).join(".")
-
-    subnetInfoObject.subnetmask = convertBinaryStringArrayToOctArray(convertCidrToBinaryStringArray(cIDRNumber)).join(".");
-
-    //remove 2, due to broadcast and network ID
-    subnetInfoObject.available = 2**hostPortionBinaryString.length-2;
-
-    return subnetInfoObject;
 }
 
 
 
 export function calculateEqualSizedSubnets(ipV4CIDRString, numberOfSubnets) {
-    // scenario 3
 
     const [ipV4Addr, cIDRNumber] = splitIpV4AndCidrString(ipV4CIDRString);
     const neededBitsForSubnets = calculateNeededBitsForSubnets(numberOfSubnets);
@@ -78,103 +73,60 @@ export function calculateEqualSizedSubnets(ipV4CIDRString, numberOfSubnets) {
 
     for (let i = 0; i < numberOfSubnets; i++) {        
         let tempResult = calculateSubnetInfo(`${ip}/${cidr}`);
-   /*     console.log(
-            "\n-----",
-            "\ninside i:", i, 
-            "\ncidr: ", cidr,
-            "\nip: ", ip,
-            "\ntempresult:", tempResult,
-            "\n-----"
-        );
-        */
         tempResult.number = i+1;
 
-        ip = additionForBinaryStringArray( convertOctStringToBinaryStringArray(tempResult.broadcast), 1 );
-        
-        //console.log("new ip", ip)
-        
+        ip = additionForBinaryStringArray( convertOctStringToBinaryStringArray(tempResult.broadcast));
+
         resultList.push(tempResult)
     }
 
-   // console.log("\n----\nresultList:", resultList, "\n----")
     return resultList;
 
 }
 
 export function calculateVariableSizedSubnets(ipV4CIDRString, numberOfUserHosts) {
-    console.log("******* start***** calculateVariableSizedSubnets \n");
-    console.log(
-        "ipV4CIDRString: ", ipV4CIDRString,
-        "\nnumberOfUserHosts: ", numberOfUserHosts
-    );
 
     const [ipV4Addr, cIDRNumber] = splitIpV4AndCidrString(ipV4CIDRString);
-    const maxNumberOfAddresses = 2**(32-cIDRNumber)
-  //  console.log(maxNumberOfAddresses)
+    const maxNumberOfAddresses = 2**(MAX_BLOCK_SIZE-cIDRNumber)
+
+    //sort from highest to lowest, just in case
     numberOfUserHosts.sort( (a,b) => {
         if (a < b) return 1 
         if (a > b) return -1
         if (a === b) return 0
     })
 
-    //create subblock -> subblock needs to be a power of two
-
     const subnetsArray = numberOfUserHosts.map( (item) => {
-        console.log("-----\n",
-            "nearest", 2**calculateNeededBitsForSubnets(item),
-            "\n", "requested:", item,
-            "\n", "nearest-requested", 2**calculateNeededBitsForSubnets(item) - item,
-            "\n", "next power: ", 2**(calculateNeededBitsForSubnets(item)+1),
-            "\n-----"
-        )
+        
         return {
             requested: item,
+            // function needs to return correct number of "usable" hosts,
+            // and since each subnet apparently "loses" at least 1 IP to a router
+            // need 
             nearest: (2**calculateNeededBitsForSubnets(item) - item > 2) ?
                         2**calculateNeededBitsForSubnets(item) :
                         2**(calculateNeededBitsForSubnets(item)+1),
         }
     })
 
-    console.log(numberOfUserHosts, "\n", subnetsArray, )
     const results = [];
     let ip = ipV4Addr.join(".");
-    let i = 1;
-    subnetsArray.forEach( (item, index) => {
-        let newCIDRNumber = +cIDRNumber + Math.log2(maxNumberOfAddresses/item.nearest);
-        console.log(ip, newCIDRNumber)
-        let tempResult = calculateEqualSizedSubnets(`${ip}/${newCIDRNumber}`, 1);
+    let counter = 1;
 
-        tempResult[0].requested = item.requested;
-        tempResult[0].number = i;
-        if (i === 3 || i===4) {
-            console.log("inside foreach: ", i, "\n", tempResult)
-        }
-        results.push(tempResult[0]);
-        ip = additionForBinaryStringArray( convertOctStringToBinaryStringArray(tempResult[0].broadcast), 1 )
-        i++;
+    subnetsArray.forEach( (item) => {
+        let newCIDRNumber = +cIDRNumber + Math.log2(maxNumberOfAddresses/item.nearest);
+        let [tempResult] = calculateEqualSizedSubnets(`${ip}/${newCIDRNumber}`, 1);
+
+        tempResult.requested = item.requested;
+        tempResult.number = counter;
+        results.push(tempResult);
+
+        ip = additionForBinaryStringArray( convertOctStringToBinaryStringArray(tempResult.broadcast))
+        counter++;
     })
 
-    // // originalsubnet + log2(Total / Subblock)
-    //console.log("results", results)
-/*    console.log(
-        "cidr", +cIDRNumber,
-        "\n log2(Total / Subblock):", Math.log2(maxNumberOfAddresses/subnetsArray[0]),
-        "\n equals=", +cIDRNumber + Math.log2(maxNumberOfAddresses/subnetsArray[0]),
-        calculateEqualSizedSubnets(
-            `${ipV4Addr.join(".")}/${+cIDRNumber + Math.log2(maxNumberOfAddresses/subnetsArray[0])}`, 1)
-
-    )
-*/
-    // scenario 4
-    const subnets = [];
-    // Your implementation should go here.
     return results;
 }
-
-
-
-
-
 
 
 
@@ -197,18 +149,7 @@ function splitBinaryStringToArray(binaryString) {
  * takes a string of an octet block (e.g. 192) and return an 8 character long binary string representation of it
  */
 function convertOctStringToBinaryString(octNum) {
-    let accumulatorOctNum = octNum;
-    //potentially easier/better with "reduce"?
-    const binaryNumString = OCT_CHART.map( octValue => {
-        if ((accumulatorOctNum - octValue) >= 0) {
-            accumulatorOctNum -= octValue;
-            return 1;
-        }
-        else {
-            return 0;
-        }
-    })
-    return binaryNumString.join("");
+    return (+octNum).toString(2).padStart(8, "0");
 }
 
 // takes a string, e.g. "192.168.0.1" and returns the binary representation as a split array e.g.
@@ -219,7 +160,7 @@ function convertOctStringToBinaryString(octNum) {
 function convertOctStringToBinaryStringArray(octNum) {
     return octNum
             .split(".")
-            .map(octBlock => (+octBlock).toString(2).padStart(8,"0"));
+            .map(octBlock => (+octBlock).toString(2).padStart(8,"0")).join("");
 }
 
 // Convert CIDR Integer to a binary String -> subnet mas in binary form
@@ -272,7 +213,6 @@ function getNetworkPortion(ipV4AddrBinaryString, subnetMaskBinaryString) {
 
 function getSubnetPortion(ipV4AddrBinaryString, subnetMaskBinaryString, numberOfBitsNeeded) {
     const subnetHostPortionStartIndex = subnetMaskBinaryString.indexOf(0); //index
-
     return ipV4AddrBinaryString.slice(subnetHostPortionStartIndex, subnetHostPortionStartIndex+numberOfBitsNeeded) // slice -> end index needs to start from 0;
 }
 
@@ -301,38 +241,25 @@ function calculateNeededBitsForSubnets(numberOfRequiredSubnets) {
 function splitIpV4AndCidrString(ipV4CidrString) {
     // split the ipV4CIDRString into two chunks, the ip and the CIDR part
     // then use map to split the ip part into blocks and run another map on it to convert the strings to a Int
-    return ipV4CidrString.split("/").map( element => element.split(".").map(block => block*1));
+    return ipV4CidrString
+            .split("/")
+            .map( element => element.split(".").map(block => +block));
 }
 
 
 
-function additionForBinaryStringArray(binaryStringArray, numberToAdd) {
-  /*  console.log(
-        "in additionForBinaryStringArray---\n",
-        "binaryStringArray before:\n", binaryStringArray
-    )*/
+function additionForBinaryStringArray(binaryStringArray) {
+    // a bit primitive way of working with bits?
+    // searches for last zero in the binary string, then copies everything before it
+    // into a new string, inserts a "1" and copies everything after that as well
 
-    //TODO: clean up the mess below, rename variables to better names
-    const indexOfLastZero = binaryStringArray.join("").lastIndexOf("0");
-    let newString = binaryStringArray.join("").slice(0,indexOfLastZero) + "1";
+    const indexOfLastZero = binaryStringArray.lastIndexOf("0");
+    let partBefore = binaryStringArray.slice(0,indexOfLastZero);
+    let lastPart = binaryStringArray.slice(indexOfLastZero+1).length;
+    let partAfter = "".padStart(lastPart, "0");
+ 
+    let newString = splitBinaryStringToArray(`${partBefore}1${partAfter}`)
+   
+    return convertBinaryStringArrayToOctArray(newString).join(".")
 
-    let lastPart = binaryStringArray.join("").slice(indexOfLastZero+1).length;
-
-    let lastPart2 = "".padStart(lastPart.length, "0"); // does not seem to work for some reason
-
-    // todo: find a nicer, better way instead of looping
-    let abc="";
-    for (let m = 1; m <= lastPart; m++) {
-        abc += "0";
-
-    }
-
-    newString = splitBinaryStringToArray(newString+abc)
-  //  console.log("\nnewString:\n", newString);
-
-    newString = convertBinaryStringArrayToOctArray(newString).join(".")
-  //  console.log("\nnewString:\n", newString,
-//            "\n----");
-
-    return newString
 }
