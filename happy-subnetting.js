@@ -31,7 +31,6 @@ export function calculateSubnetInfo(ipV4CIDRString) {
 
         last: (() => {
             const ip = convertBinaryStringArrayToOctString(maxNetworkPortionBinaryStringArray).split(".");
-            console.log(ip, maxNetworkPortionBinaryStringArray)
             ip[3] -= 1;
             return ip.join(".");
         })(),
