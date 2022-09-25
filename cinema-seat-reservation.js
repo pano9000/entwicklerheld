@@ -10,6 +10,9 @@ export function reserve(seat, alreadyReservedSeats, cinemaHall){
 
     const occupiedSeatsInCinemaHall = getOccupiedSeatsInCinemaHall(cinemaHall);
 
+    const occupiedAndReservedSeatsCombined = [...occupiedSeatsInCinemaHall, ...alreadyReservedSeats];
+
+
     const indexOfSeatInReserved = findIndexOfSeat(alreadyReservedSeats, seat.row, seat.place);
     const indexofSeatInOccupied = findIndexOfSeat(occupiedSeatsInCinemaHall, seat.row, seat.place);
 
@@ -36,7 +39,6 @@ export function reserve(seat, alreadyReservedSeats, cinemaHall){
 
 
         // Single Place Handling -> needs refactoring, maybe move the conditions into the "moveSeat" function instead
-        const occupiedAndReservedSeatsCombined = [...occupiedSeatsInCinemaHall, ...alreadyReservedSeats];
         const checkIfSeatNeedsMovingResult = checkIfSeatNeedsMoving(seat, occupiedAndReservedSeatsCombined);
         //console.log("checkIfSeatNeedsMovingResult before everything", checkIfSeatNeedsMovingResult);
        
@@ -65,33 +67,27 @@ export function reserve(seat, alreadyReservedSeats, cinemaHall){
                     const movedSeat = moveSeat(arr, [first, last], lastPlaceOfRow, alreadyReservedSeats);
                     console.log("returning: ", [ ...movedSeat[0], ...movedSeat[1] ]);
                     return [ ...movedSeat[0], ...movedSeat[1] ];
-
-    //            } else {
-    //                console.log("hasempty seat before or after")
-    //                const movedSeat = moveSeat(arr, [first, last], lastPlaceOfRow, alreadyReservedSeats);
-    //                console.log("returning: ", [ ...movedSeat[0], ...movedSeat[1] ])
-    //                return [ ...movedSeat[0], ...movedSeat[1] ];
                 }
         }
         
         
         // oneBefore or oneAfter is an occupied or existing seat -> no need for moving
-        if (checkIfSeatNeedsMovingResult.oneBefore !== -1 || checkIfSeatNeedsMovingResult.oneAfter !== -1) {
+        if (checkIfSeatNeedsMovingResult.oneBefore.status !== -1 || checkIfSeatNeedsMovingResult.oneAfter.status !== -1) {
             return [ ...alreadyReservedSeats, seat ];
         }
 
         // if one before/after is empty
-        if (checkIfSeatNeedsMovingResult.oneBefore === -1 || checkIfSeatNeedsMovingResult.oneAfter === -1) {
-            //console.log(seat, checkIfSeatNeedsMovingResult.oneBefore, checkIfSeatNeedsMovingResult.oneAfter)
+        if (checkIfSeatNeedsMovingResult.oneBefore.status === -1 || checkIfSeatNeedsMovingResult.oneAfter.status === -1) {
+            //console.log(seat, checkIfSeatNeedsMovingResult.oneBefore.status, checkIfSeatNeedsMovingResult.oneAfter.status)
 
 
-            if (seat.place === 2 && checkIfSeatNeedsMovingResult.oneBefore === -1) {
+            if (seat.place === 2 && checkIfSeatNeedsMovingResult.oneBefore.status === -1) {
                 seat.place = seat.place - 1;
                 return [ ...alreadyReservedSeats, seat ];
     
             }
 
-            if (seat.place === lastPlaceOfRow - 1 && checkIfSeatNeedsMovingResult.oneAfter === -1 && checkIfSeatNeedsMovingResult.oneBefore === -1) {
+            if (seat.place === lastPlaceOfRow - 1 && checkIfSeatNeedsMovingResult.oneAfter.status === -1 && checkIfSeatNeedsMovingResult.oneBefore.status === -1) {
                 seat.place = seat.place - 1;
                 return [ ...alreadyReservedSeats, seat ];
             }
@@ -100,7 +96,6 @@ export function reserve(seat, alreadyReservedSeats, cinemaHall){
         if ( checkIfSeatNeedsMovingResult.hasEmptySeatBefore || checkIfSeatNeedsMovingResult.hasEmptySeatAfter ) {
             console.log("two after/before is a seat, but one after/before is empty -> not allowed")
             const movedSeat = moveSeat([seat], checkIfSeatNeedsMovingResult, lastPlaceOfRow, alreadyReservedSeats);
-//            return [ ...alreadyReservedSeats, ...movedSeat ];
             return [ ...movedSeat[0], ...movedSeat[1] ];
 
         }
@@ -128,7 +123,9 @@ export function reserve(seat, alreadyReservedSeats, cinemaHall){
         }
 
         // Only splice if the seat to check is part of the array
+        console.log("deselect, checkneedsmove: before", checkIfSeatNeedsMoving(seat, occupiedAndReservedSeatsCombined))
         alreadyReservedSeats.splice(indexOfSeatInReserved, 1);
+        console.log("deselect, checkneedsmove: after", checkIfSeatNeedsMoving(seat, occupiedAndReservedSeatsCombined))
         return [ ...alreadyReservedSeats];
 
     }
@@ -219,11 +216,14 @@ function findIndexOfSeat(array, row, place) {
  * @returns {Object}
  * 
  */
-//function hasEmptySeatNextToIt(seat, seats) {
-
 function checkIfSeatNeedsMoving(seat, seats) {
 
-
+    class SeatInfo {
+        constructor(seat, seats, num) {
+            this.type = (seat.connected !== undefined) ? "coupleSeat" : "regularSeat",
+            this.status = findIndexOfSeat(seats, seat.row, seat.place + num)
+        }
+    }
 
     class CheckResult {
         constructor(seat, seats) {
@@ -232,12 +232,16 @@ function checkIfSeatNeedsMoving(seat, seats) {
                 status: (findIndexOfSeat(seats, seat.row, seat.place - 1) > -1) ? "taken" : "empty"
             },
             */
-            this.oneBefore = findIndexOfSeat(seats, seat.row, seat.place - 1),
-            this.oneAfter = findIndexOfSeat(seats, seat.row, seat.place + 1),
-            this.twoBefore = findIndexOfSeat(seats, seat.row, seat.place - 2), 
-            this.twoAfter = findIndexOfSeat(seats, seat.row, seat.place + 2),
-            this.hasEmptySeatBefore = (this.oneBefore === -1 && this.twoBefore !== -1) ? true : false,
-            this.hasEmptySeatAfter = (this.oneAfter === -1 && this.twoAfter !== -1) ? true : false
+            //this.oneBefore = findIndexOfSeat(seats, seat.row, seat.place - 1),
+            //this.twoBefore = findIndexOfSeat(seats, seat.row, seat.place - 2), 
+            //this.oneAfter = findIndexOfSeat(seats, seat.row, seat.place + 1),
+            //this.twoAfter = findIndexOfSeat(seats, seat.row, seat.place + 2),
+            this.oneBefore = new SeatInfo(seat, seats, -1),
+            this.twoBefore = new SeatInfo(seat, seats, -2), 
+            this.hasEmptySeatBefore = (this.oneBefore.status === -1 && this.twoBefore.status !== -1) ? true : false,
+            this.oneAfter = new SeatInfo(seat, seats, 1),
+            this.twoAfter = new SeatInfo(seat, seats, 2),
+            this.hasEmptySeatAfter = (this.oneAfter.status === -1 && this.twoAfter.status !== -1) ? true : false
         }
     }
 
@@ -383,7 +387,7 @@ function moveSeat(originalSeat, checkIfSeatNeedsMovingResult, lastPlaceOfRow, al
                 firstCheckResult.hasEmptySeatBefore && 
                 secondCheckResult !== undefined && 
                 !secondCheckResult.hasEmptySeatAfter &&
-                secondCheckResult.oneAfter === -1 &&
+                secondCheckResult.oneAfter.status === -1 &&
                 seat.place !== lastPlaceOfRow
             ) 
             || 
@@ -403,12 +407,12 @@ function moveSeat(originalSeat, checkIfSeatNeedsMovingResult, lastPlaceOfRow, al
             firstCheckResult.hasEmptySeatBefore &&
             secondCheckResult !== undefined && 
             !secondCheckResult.hasEmptySeatAfter &&
-            secondCheckResult.oneAfter !== -1
+            secondCheckResult.oneAfter.status !== -1
         ) {
             return seat;
         }
 
-        if (firstCheckResult.hasEmptySeatBefore && secondCheckResult !== undefined && secondCheckResult.twoAfter !== -1) {
+        if (firstCheckResult.hasEmptySeatBefore && secondCheckResult !== undefined && secondCheckResult.twoAfter.status !== -1) {
             console.log("movedSeats case 1: firstCheckResult.hasEmptySeat + && secondCheckResult.twoAfter !== -1 ")
             movedSeat.place = movedSeat.place + 1;
             return movedSeat;
