@@ -17,7 +17,11 @@ export function reserve(seat, alreadyReservedSeats, cinemaHall){
     const indexofSeatInOccupied = findIndexOfSeat(occupiedSeatsInCinemaHall, seat.row, seat.place);
 
     const lastPlaceOfRow = getLastPlaceOfRow(seat, cinemaHall);
-   // console.log("lastPlaceOfRow", lastPlaceOfRow)
+    const firstPlaceOfRow = getFirstPlaceOfRow(seat, cinemaHall);
+    
+    const checkIfSeatNeedsMovingResult = checkIfSeatNeedsMoving(seat, occupiedAndReservedSeatsCombined, cinemaHall);
+    console.log("checkIfSeatNeedsMovingResult before everything", checkIfSeatNeedsMovingResult);
+    
     // seat is occupied, clicking on it gets ignored, return current user's previous selection instead
     if (indexofSeatInOccupied !== -1) {
         //console.log("trying to work with occupoied seat, exiting")
@@ -39,15 +43,11 @@ export function reserve(seat, alreadyReservedSeats, cinemaHall){
 
 
         // Single Place Handling -> needs refactoring, maybe move the conditions into the "moveSeat" function instead
-        const checkIfSeatNeedsMovingResult = checkIfSeatNeedsMoving(seat, occupiedAndReservedSeatsCombined, cinemaHall);
-        console.log("checkIfSeatNeedsMovingResult before everything", checkIfSeatNeedsMovingResult);
-       
-        //if (checkIfSeatNeedsMovingResult.hasEmptySeatAfter)
-        
+               
         if (alreadyReservedSeats.length > 0) {
             const consecutiveReservedSeats = getConsecutiveReservedSeats(seat, alreadyReservedSeats);
             console.log("cnsecSeats: ", consecutiveReservedSeats);
-            let arr = Array.from(consecutiveReservedSeats)
+            let arr = consecutiveReservedSeats
             let first = checkIfSeatNeedsMoving(arr[0], occupiedAndReservedSeatsCombined, cinemaHall);
             let last = checkIfSeatNeedsMoving(arr[arr.length-1], occupiedAndReservedSeatsCombined, cinemaHall);
             console.log("first: ", first);
@@ -81,7 +81,7 @@ export function reserve(seat, alreadyReservedSeats, cinemaHall){
             //console.log(seat, checkIfSeatNeedsMovingResult.oneBefore.status, checkIfSeatNeedsMovingResult.oneAfter.status)
 
 
-            if (seat.place === 2 && checkIfSeatNeedsMovingResult.oneBefore.status === -1) {
+            if (seat.place === firstPlaceOfRow + 1 && checkIfSeatNeedsMovingResult.oneBefore.status === -1) {
                 seat.place = seat.place - 1;
                 return [ ...alreadyReservedSeats, seat ];
     
@@ -122,11 +122,45 @@ export function reserve(seat, alreadyReservedSeats, cinemaHall){
 
         }
 
+        if (
+            checkIfSeatNeedsMovingResult.oneAfter.status !== -1 &&
+            checkIfSeatNeedsMovingResult.oneBefore.status !== -1
+           ) {
+            console.log("deselection caused empty seat")
+            
+            console.log("before", alreadyReservedSeats)
+            //alreadyReservedSeats.splice(indexOfSeatInReserved, 1);
+
+            const consecutiveReservedSeats = getConsecutiveReservedSeats(seat, alreadyReservedSeats);
+            console.log("consecresSeats", consecutiveReservedSeats)
+            //TODO: there must be a cleaner way to do this?
+            const occupiedAndReservedSeatsCombinedFiltered = occupiedAndReservedSeatsCombined
+                                                            .filter(item => {
+                                                                if (item.row !== seat.row) return true
+                                                                if (item.place !== seat.place) return true
+                                                                return false
+                                                            })
+            let arr = consecutiveReservedSeats.filter(item => item.place !== seat.place)
+            let first = checkIfSeatNeedsMoving(arr[0], occupiedAndReservedSeatsCombinedFiltered, cinemaHall);
+            let last = checkIfSeatNeedsMoving(arr[arr.length-1], occupiedAndReservedSeatsCombinedFiltered, cinemaHall);
+
+            console.log("first: ", first);
+            console.log("last: ", last);
+            console.log("occandreserved", occupiedAndReservedSeatsCombinedFiltered);
+            console.log("consecutiveReservedSeats/arr length", arr.length);
+
+            const movedSeat = moveSeat(arr, [first, last], lastPlaceOfRow, alreadyReservedSeats);
+            console.log("returning: ", [ ...movedSeat[0], ...movedSeat[1] ]);
+            return [ ...movedSeat[0], ...movedSeat[1] ];
+
+           }
+
         // Only splice if the seat to check is part of the array
-        console.log("deselect, checkneedsmove: before", checkIfSeatNeedsMoving(seat, occupiedAndReservedSeatsCombined, cinemaHall))
         alreadyReservedSeats.splice(indexOfSeatInReserved, 1);
-        console.log("deselect, checkneedsmove: after", checkIfSeatNeedsMoving(seat, occupiedAndReservedSeatsCombined, cinemaHall))
-        return [ ...alreadyReservedSeats];
+                    console.log("after2", alreadyReservedSeats)
+
+        console.log("returning: ", [ ...alreadyReservedSeats ])
+        return [ ...alreadyReservedSeats ];
 
     }
 
@@ -193,6 +227,23 @@ function getLastPlaceOfRow(seat, cinemaHall) {
     return lastPlaceInRow*1;
 }
 
+function getFirstPlaceOfRow(seat, cinemaHall) {
+    const placesInRow = Object.keys(cinemaHall[seat.row]);
+
+    //todo: check if this is faster than sorting then taking the last/first of the array -> in theory it should be?
+    // reduce and sort seem to be almost identical, but sort is easier to read -> change to using sort instead?
+    const firstPlaceInRow = placesInRow.reduce( (accumulator, currentValue, currentIndex, array) => {
+
+        if (currentValue < accumulator) {
+            accumulator = currentValue
+        }
+
+        return accumulator;
+
+    })
+    return firstPlaceInRow*1;
+}
+
 
 
 /**
@@ -217,46 +268,62 @@ function findIndexOfSeat(array, row, place) {
  * 
  */
 function checkIfSeatNeedsMoving(seat, seats, cinemaHall) {
-//console.log("checkIfSeatNeedsMoving seat, seats", seat, "\n", seats)
-//console.log("cinemahall seat", cinemaHall[seat.row][seat.place])
+
     class SeatInfo {
         constructor(seat, seats, num) {
-            //this.type = (seat.connected !== undefined) ? "coupleSeat" : "regularSeat",
             this.status = findIndexOfSeat(seats, seat.row, seat.place + num),
             this.type = (seat.place + num > 0) ?
                          ((cinemaHall[seat.row][seat.place + num]?.connected !== undefined ) ? "coupleSeat" : "regularSeat") :
-                         "out of bound"
-            
-            //(cinemaHall[seat.row][seat.place + num].hasOwnProperty("connected") ) ? "coup" : "reg" 
+                         "out of bound"            
         }
     }
 
     class CheckResult {
         constructor(seat, seats) {
-            /*           this.oneBefore = {
-                type: (seat.connected !== undefined) ? "coupleSeat" : "regularSeat", //regular or couple seat
-                status: (findIndexOfSeat(seats, seat.row, seat.place - 1) > -1) ? "taken" : "empty"
-            },
-            */
+
             this.oneBefore = new SeatInfo(seat, seats, -1),
             this.twoBefore = new SeatInfo(seat, seats, -2),
-            //TODO: properly format the thing below 
-            this.hasEmptySeatBefore = (
-                                        (
-                                            this.oneBefore.status === -1 && 
-                                            this.twoBefore.status > -1 &&
-                                            this.twoBefore.type !== "coupleSeat"
-
-                                        ) ||
-                                        (
-                                            this.oneBefore.status === -1 && 
-                                            this.twoBefore.type === "coupleSeat"
-                                        )
-                                       ) ?
-                                       true : false,
             this.oneAfter = new SeatInfo(seat, seats, 1),
             this.twoAfter = new SeatInfo(seat, seats, 2),
-            this.hasEmptySeatAfter = (this.oneAfter.status === -1 && this.twoAfter.status > -1  && this.twoAfter.type !== "coupleSeat") ? true : false
+            //TODO: properly format the thing below //TODO; decide which is more legible
+            
+            this.hasEmptySeatBefore = (
+                this.oneBefore.status === -1 &&
+                (
+                    (
+                        this.twoBefore.status > -1 &&
+                        this.twoBefore.type !== "coupleSeat"
+                    ) || 
+                    (
+                        this.twoBefore.type === "coupleSeat"
+                    )
+                )
+            ) ? true: false; 
+
+/*
+            this.hasEmptySeatBefore = (
+                (
+                    this.oneBefore.status === -1 && 
+                    this.twoBefore.status > -1 &&
+                    this.twoBefore.type !== "coupleSeat"
+                ) ||
+                (
+                    this.oneBefore.status === -1 && 
+                    this.twoBefore.type === "coupleSeat"
+                )
+            ) ? true : false,
+*/            
+            this.hasEmptySeatAfter = (
+                (
+                    this.oneAfter.status === -1 && 
+                    this.twoAfter.status > -1  &&
+                    this.twoAfter.type !== "coupleSeat"
+                ) ||
+                (
+                    this.oneAfter.status === -1 &&
+                    this.twoAfter.type === "coupleSeat"
+                )
+            ) ? true: false
         }
     }
 /* 
@@ -308,46 +375,25 @@ function getConsecutiveReservedSeats(seat, alreadyReserved) {
 
     //TODO: rename to somethign more useful
     const doStuff = (seat, currentRowsReservedSeats, direction, indexOfSeat) => {
-        //console.log("in dostuff --", direction);
         
         const results = [];
-        let i = (direction === "before") ? -1 : 1; 
+        let incrementor = (direction === "before") ? -1 : 1; 
         let j = indexOfSeat
         let stopLoop = false;
         while (stopLoop === false) {
 
-            let consecutiveSeat = (currentRowsReservedSeats[j + i]?.place === currentRowsReservedSeats[j].place + i);
+            let consecutiveSeat = (currentRowsReservedSeats[j + incrementor]?.place === currentRowsReservedSeats[j].place + incrementor);
 
-       /*     console.log(
-                "in while, j:", j, "i: ", i, "\n",
-                `currentRowsReservedSeats [${j+i}] j+i:`,
-                currentRowsReservedSeats[j + i], "\n",
-                `currentRowsReservedSeats [${j}] j:`,
-                currentRowsReservedSeats[j], "\n",
-                "consecutve seat?:", consecutiveSeat
-            )
-            */
-
-        //    if (currentRowsReservedSeats[j + i].place !== currentRowsReservedSeats[j].place + i) {
-            if (currentRowsReservedSeats[j + i] === undefined) {
-              //  console.log("stopping loop, no further seat before/after to check")
-                stopLoop = true;
-            }
-
-            if (!consecutiveSeat) {
-             //   console.log("stopping loop, not a consecutive seat")
+            if (currentRowsReservedSeats[j + incrementor] === undefined || !consecutiveSeat) {
                 stopLoop = true;
             }
 
             results.push(currentRowsReservedSeats[j])
-            
 
-            j += i;
+            j += incrementor;
         }
 
-       // console.log("results of the loop:", results)
         return results;
-        // increments or decrements, depening on i
     }
 
     //console.log("index of seat in getCOns:", indexOfSeat)
@@ -365,7 +411,7 @@ function getConsecutiveReservedSeats(seat, alreadyReserved) {
 //    let afterRes = doStuff(seat, currentRowsReservedSeats, "after", indexOfSeat)
 //    console.log("results after: ", results)
 
-    return results;
+    return Array.from(results);
 
 }
 
@@ -380,15 +426,17 @@ function moveSeat(originalSeat, checkIfSeatNeedsMovingResult, lastPlaceOfRow, al
     //const movedSeat = new Seat(originalSeat.row, originalSeat.place, originalSeat.reserved)
     //console.log("moveSeat checkIfSeatNeedsMovingResult", checkIfSeatNeedsMovingResult)
     originalSeat = (Array.isArray(originalSeat)) ? originalSeat : [originalSeat];
+    
     checkIfSeatNeedsMovingResult = (Array.isArray(checkIfSeatNeedsMovingResult)) ? checkIfSeatNeedsMovingResult : [checkIfSeatNeedsMovingResult];
     console.log("checkIfSeatNeedsMovingResult", checkIfSeatNeedsMovingResult)
-    //    const { hasEmptySeatAfter, hasEmptySeatBefore } = checkIfSeatNeedsMovingResult;
+
     console.log("akreayreserved in moveseatFunc before", alreadyReservedSeatsTmp)
     alreadyReservedSeatsTmp = Array.from( (alreadyReservedSeatsTmp === undefined) ? [] : Array.from(alreadyReservedSeatsTmp) );
     console.log("akreayreserved in moveseatFunc after", alreadyReservedSeatsTmp)
-    const [ firstCheckResult, secondCheckResult ] = checkIfSeatNeedsMovingResult;
+   
+    const [ firstCheckResult, lastCheckResult ] = checkIfSeatNeedsMovingResult;
 
-    const checkResultToUse = (secondCheckResult !== undefined && secondCheckResult.hasEmptySeatAfter !== false) ? secondCheckResult : firstCheckResult;
+    const checkResultToUse = (lastCheckResult !== undefined && lastCheckResult.hasEmptySeatAfter !== false) ? lastCheckResult : firstCheckResult;
 
     const movedSeats = originalSeat.map( seat => {
         let movedSeat = new Seat(seat.row, seat.place, seat.reserved);
@@ -403,15 +451,15 @@ function moveSeat(originalSeat, checkIfSeatNeedsMovingResult, lastPlaceOfRow, al
         if (
             (
                 firstCheckResult.hasEmptySeatBefore && 
-                secondCheckResult !== undefined && 
-                !secondCheckResult.hasEmptySeatAfter &&
-                secondCheckResult.oneAfter.status === -1 &&
+                lastCheckResult !== undefined && 
+                !lastCheckResult.hasEmptySeatAfter &&
+                lastCheckResult.oneAfter.status === -1 &&
                 seat.place !== lastPlaceOfRow
             ) 
             || 
             (
-                secondCheckResult !== undefined && 
-                secondCheckResult.hasEmptySeatAfter && 
+                lastCheckResult !== undefined && 
+                lastCheckResult.hasEmptySeatAfter && 
                 !firstCheckResult.hasEmptySeatBefore
             )
         ) {
@@ -423,20 +471,20 @@ function moveSeat(originalSeat, checkIfSeatNeedsMovingResult, lastPlaceOfRow, al
 
         if (
             firstCheckResult.hasEmptySeatBefore &&
-            secondCheckResult !== undefined && 
-            !secondCheckResult.hasEmptySeatAfter &&
-            secondCheckResult.oneAfter.status !== -1
+            lastCheckResult !== undefined && 
+            !lastCheckResult.hasEmptySeatAfter &&
+            lastCheckResult.oneAfter.status !== -1
         ) {
             return seat;
         }
 
-        if (firstCheckResult.hasEmptySeatBefore && secondCheckResult !== undefined && secondCheckResult.twoAfter.status !== -1) {
-            console.log("movedSeats case 1: firstCheckResult.hasEmptySeat + && secondCheckResult.twoAfter !== -1 ")
+        if (firstCheckResult.hasEmptySeatBefore && lastCheckResult !== undefined && lastCheckResult.twoAfter.status !== -1) {
+            console.log("movedSeats case 1: firstCheckResult.hasEmptySeat + && lastCheckResult.twoAfter !== -1 ")
             movedSeat.place = movedSeat.place + 1;
             return movedSeat;
         }
 
-        if (firstCheckResult.hasEmptySeatAfter && secondCheckResult === undefined) {
+        if (firstCheckResult.hasEmptySeatAfter && lastCheckResult === undefined) {
             movedSeat.place = movedSeat.place + 1;
             return movedSeat;
         }
@@ -456,12 +504,6 @@ function moveSeat(originalSeat, checkIfSeatNeedsMovingResult, lastPlaceOfRow, al
         return seat;
 
     });
-    console.log(
-        "MovedSeats:", "\n",
-        movedSeats, "\n",
-        "MovedSeats lgth:", "\n",
-        movedSeats.length, "\n"
-    )
 
     console.log("returning: ", [ movedSeats, alreadyReservedSeatsTmp ])
 
@@ -473,12 +515,12 @@ function moveSeat(originalSeat, checkIfSeatNeedsMovingResult, lastPlaceOfRow, al
  * @return {1|-1|0}
  */
 function calculateWhichWayIsCloserToCenter(seat, qtySeatsInRow) {
-    const middleSeat = Math.floor(qtySeatsInRow / 2);
-    //console.log("calculateWhichWayIsCloserToCenter", seat, qtySeatsInRow, middleSeat)
+    const centerSeat = Math.floor(qtySeatsInRow / 2);
+    console.log("calculateWhichWayIsCloserToCenter", seat, qtySeatsInRow, centerSeat)
     let result;
-    if (seat < middleSeat) result = 1 
-    if (seat > middleSeat) result = -1
-    if (seat === middleSeat) result = 0
+    if (seat < centerSeat) result = 1 
+    if (seat > centerSeat) result = -1
+    if (seat === centerSeat) result = 0
     console.log(result)
     return result
 }
