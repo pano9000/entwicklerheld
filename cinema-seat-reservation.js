@@ -55,8 +55,8 @@ export function reserve(seat, alreadyReservedSeats, cinemaHall){
             console.log("consecutiveReservedSeats/arr length", arr.length)
 
             if (
-                (first.hasEmptySeatBefore && !last.hasEmptySeatAfter && arr.length > 0) || 
-                (last.hasEmptySeatAfter && !first.hasEmptySeatBefore && arr.length > 0)
+                (first.hasGapBefore && !last.hasGapAfter && arr.length > 0) || 
+                (last.hasGapAfter && !first.hasGapBefore && arr.length > 0)
                 ) {
                     console.log("skipping, selection is already at a border")
                     console.log("sending into moveSeat:\n", 
@@ -104,7 +104,7 @@ export function reserve(seat, alreadyReservedSeats, cinemaHall){
             }
         }
 
-        if ( seatSurroundings.hasEmptySeatBefore || seatSurroundings.hasEmptySeatAfter ) {
+        if ( seatSurroundings.hasGapBefore || seatSurroundings.hasGapAfter ) {
             console.log("two after/before is a seat, but one after/before is empty -> not allowed")
             const movedSeat = moveSeat([seat], seatSurroundings, edgePlacesOfRow, alreadyReservedSeats);
             return [ ...movedSeat[0], ...movedSeat[1] ];
@@ -283,7 +283,7 @@ function getSeatSurroundings(seat, seats, cinemaHall) {
             this.twoAfter = new SeatInfo(seat, seats, 2),
             //TODO: properly format the thing below //TODO; decide which is more legible
             
-            this.hasEmptySeatBefore = (
+            this.hasGapBefore = (
                 this.oneBefore.status === -1 &&
                 (
                     (
@@ -297,7 +297,7 @@ function getSeatSurroundings(seat, seats, cinemaHall) {
             ) ? true: false; 
 
 /*
-            this.hasEmptySeatBefore = (
+            this.hasGapBefore = (
                 (
                     this.oneBefore.status === -1 && 
                     this.twoBefore.status > -1 &&
@@ -309,7 +309,7 @@ function getSeatSurroundings(seat, seats, cinemaHall) {
                 )
             ) ? true : false,
 */            
-            this.hasEmptySeatAfter = (
+            this.hasGapAfter = (
                 (
                     this.oneAfter.status === -1 && 
                     this.twoAfter.status > -1  &&
@@ -423,7 +423,7 @@ function moveSeat(seatsArray, seatSurroundingsResults, edgePlacesOfRow, alreadyR
     const [ firstPlaceOfRow, lastPlaceOfRow ] = edgePlacesOfRow;
     const [ firstSurroundingsResult, lastSurroundingsResult ] = seatSurroundingsResults;
 
-    const checkResultToUse = (lastSurroundingsResult !== undefined && lastSurroundingsResult.hasEmptySeatAfter !== false) ? lastSurroundingsResult : firstSurroundingsResult;
+    const checkResultToUse = (lastSurroundingsResult !== undefined && lastSurroundingsResult.hasGapAfter !== false) ? lastSurroundingsResult : firstSurroundingsResult;
 
     const movedSeats = seatsArray.map( seat => {
         let movedSeat = new Seat(seat.row, seat.place, seat.reserved);
@@ -460,17 +460,17 @@ function moveSeat(seatsArray, seatSurroundingsResults, edgePlacesOfRow, alreadyR
 
         if (
             (
-                firstSurroundingsResult.hasEmptySeatBefore && 
+                firstSurroundingsResult.hasGapBefore && 
                 lastSurroundingsResult !== undefined && 
-                !lastSurroundingsResult.hasEmptySeatAfter &&
+                !lastSurroundingsResult.hasGapAfter &&
                 lastSurroundingsResult.oneAfter.status === -1 &&
                 seat.place !== lastPlaceOfRow
             ) 
             || 
             (
                 lastSurroundingsResult !== undefined && 
-                lastSurroundingsResult.hasEmptySeatAfter && 
-                !firstSurroundingsResult.hasEmptySeatBefore
+                lastSurroundingsResult.hasGapAfter && 
+                !firstSurroundingsResult.hasGapBefore
             )
         ) {
             console.log("movedSeats case 0");
@@ -480,32 +480,32 @@ function moveSeat(seatsArray, seatSurroundingsResults, edgePlacesOfRow, alreadyR
         }
 
         if (
-            firstSurroundingsResult.hasEmptySeatBefore &&
+            firstSurroundingsResult.hasGapBefore &&
             lastSurroundingsResult !== undefined && 
-            !lastSurroundingsResult.hasEmptySeatAfter &&
+            !lastSurroundingsResult.hasGapAfter &&
             lastSurroundingsResult.oneAfter.status !== -1
         ) {
             return seat;
         }
 
-        if (firstSurroundingsResult.hasEmptySeatBefore && lastSurroundingsResult !== undefined && lastSurroundingsResult.twoAfter.status !== -1) {
+        if (firstSurroundingsResult.hasGapBefore && lastSurroundingsResult !== undefined && lastSurroundingsResult.twoAfter.status !== -1) {
             console.log("movedSeats case 1: firstSurroundingsResult.hasEmptySeat + && lastSurroundingsResult.twoAfter !== -1 ")
             movedSeat.place = movedSeat.place + 1;
             return movedSeat;
         }
 
-        if (firstSurroundingsResult.hasEmptySeatAfter && lastSurroundingsResult === undefined) {
+        if (firstSurroundingsResult.hasGapAfter && lastSurroundingsResult === undefined) {
             movedSeat.place = movedSeat.place + 1;
             return movedSeat;
         }
 
-        if (checkResultToUse.hasEmptySeatBefore && seat.place === lastPlaceOfRow) {
+        if (checkResultToUse.hasGapBefore && seat.place === lastPlaceOfRow) {
             console.log("movedSeats case 2")
             movedSeat.place = movedSeat.place - 1;
             return movedSeat;
         }
 
-        if (firstSurroundingsResult.hasEmptySeatBefore) {
+        if (firstSurroundingsResult.hasGapBefore) {
             console.log("movedSeats case 3")
             movedSeat.place = movedSeat.place - 1;
             return movedSeat;
