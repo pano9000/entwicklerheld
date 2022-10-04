@@ -245,6 +245,9 @@ function getSeatSurroundings(consecSeats, occAndResSeats, cinemaHall, edgePlaces
             this.isGroupSelection = (this.firstSeat.place === this.lastSeat.place) ? false : true;
             this.isSingleSelection = (this.firstSeat.place === this.lastSeat.place) ? true : false;
 
+            this.hasCoupleSeatBefore = (this.oneBefore.seatType === "coupleSeat") ? true : false;
+            this.hasCoupleSeatAfter = (this.oneAfter.seatType === "coupleSeat") ? true : false; 
+
             this.hasGapBefore = (
                 (
                     this.oneBefore.isEmpty === true 
@@ -357,7 +360,7 @@ function moveSeat(seatsArray, seatSurroundingsResult, edgePlacesOfRow, alreadyRe
     alreadyReservedSeats = Array.from( (alreadyReservedSeats === undefined) ? [] : alreadyReservedSeats );
 
     //console.log("seatsArray:", seatsArray)
-    //console.log("seatSurroundingsResult", seatSurroundingsResult)
+    console.log("seatSurroundingsResult in moveSeat:\n", seatSurroundingsResult, "\n----")
     //console.log("akreayreserved in moveseatFunc", alreadyReservedSeats)
 
     const [ firstPlaceOfRow, lastPlaceOfRow ] = edgePlacesOfRow;
@@ -389,6 +392,16 @@ function moveSeat(seatsArray, seatSurroundingsResult, edgePlacesOfRow, alreadyRe
     //TODO: clean up this mess, can be definitely be made a bit less cluttered
 
     const movedSeats = ( () => {
+
+        console.log(
+            (
+                    seatSurroundingsResult.hasGapBefore 
+                    && seatSurroundingsResult.oneAfter.isEmpty
+                    && !seatSurroundingsResult.hasEdgeSeatAfter
+                    && !seatSurroundingsResult.twoBefore.isEdgeLeft
+                    && !seatSurroundingsResult.twoBefore.seatType !== "coupleSeat"
+                ), seatSurroundingsResult.twoBefore.seatType !== "coupleSeat"
+        )
         
         // move right
         if (
@@ -401,17 +414,23 @@ function moveSeat(seatsArray, seatSurroundingsResult, edgePlacesOfRow, alreadyRe
                     && seatSurroundingsResult.oneAfter.isEmpty
                     && !seatSurroundingsResult.hasEdgeSeatAfter
                     && !seatSurroundingsResult.twoBefore.isEdgeLeft
+                    && seatSurroundingsResult.twoBefore.seatType !== "coupleSeat"
                 )
             ||  (
                     seatSurroundingsResult.hasGapAfter
                     && seatSurroundingsResult.lastSeat.isEdgeLeft
                 )
             ||  (
-                    seatSurroundingsResult.oneAfter.isEdgeRight
+                    seatSurroundingsResult.isGroupSelection
+                    && seatSurroundingsResult.oneAfter.isEdgeRight
                     && seatSurroundingsResult.oneAfter.isEmpty
                     && seatSurroundingsResult.oneBefore.isEmpty
-                    && seatSurroundingsResult.isGroupSelection
 
+                )
+            ||  (
+                    seatSurroundingsResult.isGroupSelection
+                    && seatSurroundingsResult.firstSeat.isEdgeLeft
+                    && seatSurroundingsResult.hasGapAfter
                 )
 
         ) {
@@ -437,7 +456,9 @@ function moveSeat(seatsArray, seatSurroundingsResult, edgePlacesOfRow, alreadyRe
             ||  (
                     seatSurroundingsResult.hasGapBefore
                     && seatSurroundingsResult.oneAfter.isEmpty
+                    && !seatSurroundingsResult.hasCoupleSeatBefore
                 )
+
 
         ) {
             return seatsArray.map(createMapMoveFunction(-1))
