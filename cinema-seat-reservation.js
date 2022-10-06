@@ -16,9 +16,6 @@ export function reserve(seat, alreadyReservedSeats, cinemaHall){
     const indexOfSeatInOccupied = findIndexOfSeat(occupiedSeatsInCinemaHall, seat.row, seat.place);
 
     const edgePlacesOfRow = getEdgePlacesOfRow(cinemaHall[seat.row]);
-    const [firstPlaceOfRow, lastPlaceOfRow] = edgePlacesOfRow;
-    
-
 
     console.log(visualizeSeatStatus(seat, [occupiedSeatsInCinemaHall, alreadyReservedSeats], cinemaHall))
     
@@ -206,24 +203,40 @@ function getSeatSurroundings(consecSeats, occAndResSeats, cinemaHall, edgePlaces
     class SeatInfo {
         constructor(seat, seats, num) {
 
+
+            [
+                "place", 
+                "isEmpty", 
+                "seatType", 
+                "edgePlace",
+                "isEdgeLeft",
+                "isEdgeRight",
+                "hasCoupleSeatBefore",
+                "hasCoupleSeatAfter"
+            ].forEach(prop => {
+                this[prop] = null;
+            });
+
+            
             // if seat is "out of bound" set to null (which makes comparison a bit easier than a string, due to type coercion)
             const checkedSeat = (seat.place + num >= edgePlaces[0] && seat.place + num <= edgePlaces[1]) ? 
                                 seat.place + num : null;
 
             if (checkedSeat !== null) {
                 this.place = checkedSeat;
-                this.isEmpty = (findIndexOfSeat(seats, seat.row, seat.place + num) === -1) ? true : false;
-                this.seatType = (cinemaHall[seat.row][seat.place + num]?.connected !== undefined ) ? "coupleSeat" : "regularSeat";
-                this.edgePlace = ( seat.place + num === edgePlaces[0] || seat.place + num === edgePlaces[1] ) ? true : false;
-                this.isEdgeLeft = ( seat.place + num === edgePlaces[0] ) ? true : false;
-                this.isEdgeRight = ( seat.place + num === edgePlaces[1] ) ? true : false;
+                this.isEmpty = (findIndexOfSeat(seats, seat.row, this.place) === -1) ? true : false;
+                this.seatType = (cinemaHall[seat.row][this.place]?.connected !== undefined ) ? "coupleSeat" : "regularSeat";
+                this.edgePlace = ( this.place === edgePlaces[0] || this.place === edgePlaces[1] ) ? true : false;
+                this.isEdgeLeft = ( this.place === edgePlaces[0] ) ? true : false;
+                this.isEdgeRight = ( this.place === edgePlaces[1] ) ? true : false;
+
+                this.hasCoupleSeatBefore = ( this.place - 1 === cinemaHall[seat.row][this.place - 1]?.connected !== undefined) ? true : false;
+                this.hasCoupleSeatAfter = ( this.place + 1 === cinemaHall[seat.row][this.place + 1]?.connected !== undefined) ? true : false;
+
+                this.hasReservedSeatBefore
             }
-            else {
-                this.place = null;
-                this.isEmpty = null;
-                this.seatType = null;
-                this.edgePlace = null;
-            }
+
+        
         }
     }
 
@@ -245,8 +258,8 @@ function getSeatSurroundings(consecSeats, occAndResSeats, cinemaHall, edgePlaces
             this.isGroupSelection = (this.firstSeat.place === this.lastSeat.place) ? false : true;
             this.isSingleSelection = (this.firstSeat.place === this.lastSeat.place) ? true : false;
 
-            this.hasCoupleSeatBefore = (this.oneBefore.seatType === "coupleSeat") ? true : false;
-            this.hasCoupleSeatAfter = (this.oneAfter.seatType === "coupleSeat") ? true : false; 
+            //this.hasCoupleSeatBefore = (this.oneBefore.seatType === "coupleSeat") ? true : false;
+            //this.hasCoupleSeatAfter = (this.oneAfter.seatType === "coupleSeat") ? true : false; 
 
             this.hasGapBefore = (
                 (
@@ -344,6 +357,10 @@ function getConsecutiveReservedSeats(seat, alreadyReserved) {
 
 }
 
+
+
+const mapMoveFunctionMemo = {};
+
 /**
  * Move the seat if necessary to avoid single empty seats
  * @todo needs to support moving whole selection groups -> change to work with arrays 
@@ -363,9 +380,19 @@ function moveSeat(seatsArray, seatSurroundingsResult, edgePlacesOfRow, alreadyRe
     console.log("seatSurroundingsResult in moveSeat:\n", seatSurroundingsResult, "\n----")
     //console.log("akreayreserved in moveseatFunc", alreadyReservedSeats)
 
-    const [ firstPlaceOfRow, lastPlaceOfRow ] = edgePlacesOfRow;
-
+    //const [ firstPlaceOfRow, lastPlaceOfRow ] = edgePlacesOfRow;
     const createMapMoveFunction = (direction) => {
+        //cache / memoize
+
+        //TODO: check if to do via global memo object, or if it makes sense to create/run these and store them once,
+        // since it will always be either 0, 1, -1 
+
+        console.log("hasOwnProp", mapMoveFunctionMemo.hasOwnProperty(direction));
+        console.log("mapmoveFunMemo", mapMoveFunctionMemo)
+        if (mapMoveFunctionMemo.hasOwnProperty(direction)) {
+            return mapMoveFunctionMemo[direction];
+        }
+
         const mapMoveFunction = (seat, index, array) => {
             console.log("in mapMove map, direction:", direction, "\n current seat: ", seat)
             const indexSeatInAlreadyReserved = findIndexOfSeat(alreadyReservedSeats, seat.row, seat.place);
@@ -386,81 +413,97 @@ function moveSeat(seatsArray, seatSurroundingsResult, edgePlacesOfRow, alreadyRe
             console.log("map returns new seat:", movedSeat)
             return movedSeat;
         }
-        return mapMoveFunction;
+
+        mapMoveFunctionMemo[direction] = mapMoveFunction;
+
+        //return mapMoveFunctionMemo[direction];
+        return mapMoveFunction
     }
 
     //TODO: clean up this mess, can be definitely be made a bit less cluttered
 
     const movedSeats = ( () => {
 
-        console.log(
-            (
-                    seatSurroundingsResult.hasGapBefore 
-                    && seatSurroundingsResult.oneAfter.isEmpty
-                    && !seatSurroundingsResult.hasEdgeSeatAfter
-                    && !seatSurroundingsResult.twoBefore.isEdgeLeft
-                    && !seatSurroundingsResult.twoBefore.seatType !== "coupleSeat"
-                ), seatSurroundingsResult.twoBefore.seatType !== "coupleSeat"
-        )
-        
+        //TODO: destrucure seatSurroundingsResult dynamically
+
+        //TODO: properly format/reanme -> seems to work catching some edge cases
+        if (seatSurroundingsResult.hasGapBefore && seatSurroundingsResult.hasGapAfter) {
+            console.log(";;;; special gap situation");
+            let calc = calculateWhichWayIsCloserToCenter(seatsArray[0].place, 8) //todo fix -> dynamic
+            let calc2 = ( calc !== 0 ) ? calc : 1; 
+            console.log("calc:", calc)
+            return seatsArray.map(createMapMoveFunction(calc2))
+        }
+ 
         // move right
-        if (
-                (
-                    seatSurroundingsResult.hasGapAfter
-                    && seatSurroundingsResult.oneBefore.isEmpty
-                )
-            ||  (
-                    seatSurroundingsResult.hasGapBefore 
-                    && seatSurroundingsResult.oneAfter.isEmpty
-                    && !seatSurroundingsResult.hasEdgeSeatAfter
-                    && !seatSurroundingsResult.twoBefore.isEdgeLeft
-                    && seatSurroundingsResult.twoBefore.seatType !== "coupleSeat"
-                )
-            ||  (
-                    seatSurroundingsResult.hasGapAfter
-                    && seatSurroundingsResult.lastSeat.isEdgeLeft
-                )
-            ||  (
-                    seatSurroundingsResult.isGroupSelection
-                    && seatSurroundingsResult.oneAfter.isEdgeRight
-                    && seatSurroundingsResult.oneAfter.isEmpty
-                    && seatSurroundingsResult.oneBefore.isEmpty
+        const moveRightChecksArray = [
+            (
+                seatSurroundingsResult.hasGapAfter
+                && seatSurroundingsResult.oneBefore.isEmpty
+            ),
+            (
+                seatSurroundingsResult.hasGapBefore 
+                && seatSurroundingsResult.oneAfter.isEmpty
+                && !seatSurroundingsResult.hasEdgeSeatAfter
+                && !seatSurroundingsResult.twoBefore.isEdgeLeft
+                && seatSurroundingsResult.twoBefore.seatType !== "coupleSeat"
+            ),
+            (
+                seatSurroundingsResult.hasGapAfter
+                && seatSurroundingsResult.lastSeat.isEdgeLeft
+            ),
+            (
+                seatSurroundingsResult.isGroupSelection
+                && seatSurroundingsResult.oneAfter.isEdgeRight
+                && seatSurroundingsResult.oneAfter.isEmpty
+                && seatSurroundingsResult.oneBefore.isEmpty
 
-                )
-            ||  (
-                    seatSurroundingsResult.isGroupSelection
-                    && seatSurroundingsResult.firstSeat.isEdgeLeft
-                    && seatSurroundingsResult.hasGapAfter
-                )
+            ),
+            (
+                seatSurroundingsResult.isGroupSelection
+                && seatSurroundingsResult.firstSeat.isEdgeLeft
+                && seatSurroundingsResult.hasGapAfter
+            )
+        ]
 
-        ) {
+        if ( moveRightChecksArray.some( checkItem => checkItem === true ) ) {
+            console.log("moveRightChecksArray:", moveRightChecksArray)
+            if (moveRightChecksArray.filter(item => item == true).length > 1) {
+                console.log("possible problem due to several checks being true")
+            }
             return seatsArray.map(createMapMoveFunction(1))
-
         }
 
 
-        // move left
-        if (
-                (
-                    seatSurroundingsResult.hasEdgeSeatBefore
-                    && seatSurroundingsResult.oneBefore.isEmpty
-                )
-            ||  (
-                    seatSurroundingsResult.hasEdgeSeatAfter 
-                    && seatSurroundingsResult.oneAfter.isEmpty
-                )
-            ||  (
-                    seatSurroundingsResult.hasGapBefore
-                    && seatSurroundingsResult.firstSeat.isEdgeRight
-                )
-            ||  (
-                    seatSurroundingsResult.hasGapBefore
-                    && seatSurroundingsResult.oneAfter.isEmpty
-                    && !seatSurroundingsResult.hasCoupleSeatBefore
-                )
+        const moveLeftChecksArray = [
+            (
+                seatSurroundingsResult.hasEdgeSeatBefore
+                && seatSurroundingsResult.oneBefore.isEmpty
+            ),
+
+            (
+                seatSurroundingsResult.hasEdgeSeatAfter 
+                && seatSurroundingsResult.oneAfter.isEmpty
+            ),
+
+            (
+                seatSurroundingsResult.hasGapBefore
+                && seatSurroundingsResult.firstSeat.isEdgeRight
+            ),
+
+            (
+                seatSurroundingsResult.hasGapBefore
+                && seatSurroundingsResult.oneAfter.isEmpty
+                && !seatSurroundingsResult.hasCoupleSeatBefore
+            )
+        ]
 
 
-        ) {
+        if ( moveLeftChecksArray.some( checkItem => checkItem === true ) ) {
+            console.log("moveLeftChecksArray:", moveLeftChecksArray)
+            if (moveLeftChecksArray.filter(item => item == true).length > 1) {
+                console.log("possible problem due to several checks being true")
+            }
             return seatsArray.map(createMapMoveFunction(-1))
 
         }
