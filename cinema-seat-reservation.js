@@ -3,15 +3,8 @@ import {CINEMA} from "./CinemaHall";
 
 export function reserve(seat, alreadyReservedSeats, cinemaHall){
     
-    /*
-        console.log(
-            "*****START****",
-            "\nseat:", seat,
-            "\nalreadayReserved:", alreadyReservedSeats
-        );
-        // reserved = seat's part of the current user's selection
-        // occupied = seat is part of the cinemaHall's seats that are occupied, i.e. not selectable
-    */
+    // reserved = seat's part of the current user's selection
+    // occupied = seat is part of the cinemaHall's seats that are occupied, i.e. not selectable
 
     const occupiedSeatsInCinemaHall = getOccupiedSeatsInCinemaHall(cinemaHall);
 
@@ -20,11 +13,11 @@ export function reserve(seat, alreadyReservedSeats, cinemaHall){
 
     const edgePlacesOfRow = getEdgePlacesOfRow(cinemaHall[seat.row]);
 
-    console.log(visualizeSeatStatus(seat, [occupiedSeatsInCinemaHall, alreadyReservedSeats], cinemaHall))
+    //console.log(visualizeSeatStatus(seat, [occupiedSeatsInCinemaHall, alreadyReservedSeats], cinemaHall))
+
 
     // seat is occupied, clicking on it gets ignored, return current user's previous selection instead
     if (indexOfSeatInOccupied !== -1) {
-        console.log("clicked on occupied seat, exiting, returns:", alreadyReservedSeats)
         return alreadyReservedSeats; 
     }
 
@@ -46,18 +39,16 @@ export function reserve(seat, alreadyReservedSeats, cinemaHall){
         }
 
         const movedSeat = moveSeat(consecutiveReservedSeats, seatSurroundings, edgePlacesOfRow, alreadyReservedSeats);
-        console.log("selection, returns: ", movedSeat);
-        return movedSeat;
 
+        return movedSeat;
     }
 
     // "deselection" process
     if (indexOfSeatInReserved !== -1) {
-        console.log("+++deselection")
 
         // If Middle Seat -> deselecting not allowed, so exit early and return existing selection
         if (isMiddleSeat(seat, alreadyReservedSeats)) {
-            console.log("deselect, middle seat, returns:", alreadyReservedSeats)
+
             return alreadyReservedSeats;
         }
 
@@ -66,7 +57,7 @@ export function reserve(seat, alreadyReservedSeats, cinemaHall){
             alreadyReservedSeats.splice(indexOfSeatInReserved, 1);
             const indexOfSeatConnected = findIndexOfSeat(alreadyReservedSeats, seat.connected.row, seat.connected.place);
             alreadyReservedSeats.splice(indexOfSeatConnected, 1);
-            console.log("deselect, coupleSeat, returns:", alreadyReservedSeats)
+
             return alreadyReservedSeats;
         }
 
@@ -85,17 +76,14 @@ export function reserve(seat, alreadyReservedSeats, cinemaHall){
             const seatSurroundings = getSeatSurroundings(consecutiveReservedSeats, occupiedAndReservedSeatsCombined, cinemaHall, edgePlacesOfRow);
 
             const movedSeat = moveSeat(consecutiveReservedSeats, seatSurroundings, edgePlacesOfRow, alreadyReservedSeats);
-            console.log("deselection, returns: ", movedSeat);
+            
             return movedSeat;
-
         }
 
         // remove seat from already reserved seats
         alreadyReservedSeats.splice(indexOfSeatInReserved, 1);
 
-        console.log("deselect, returning: ", alreadyReservedSeats)
         return alreadyReservedSeats;
-
     }
 
 }
@@ -124,6 +112,8 @@ function getOccupiedSeatsInCinemaHall(cinemaHall) {
 
 /**
  * Checks if the seat is a middle seat, surrounded by other seats in the current selection
+ * @param {Object} seat - seat object
+ * @param {Array<seats>} - array of already reserved seats
  * @return {boolean}
  */
 function isMiddleSeat(seat, alreadyReservedSeats) {
@@ -140,6 +130,9 @@ function isMiddleSeat(seat, alreadyReservedSeats) {
     return (indexSeatBefore !== -1 && indexSeatAfter !== -1) ? true : false;
 }
 
+/**
+ * reusable sort function
+ */
 function sortByPlace(a, b) {
     if (a.place < b.place) return -1; 
     if (a.place > b.place) return 1; 
@@ -185,36 +178,34 @@ function getSeatSurroundings(consecSeats, occAndResSeats, cinemaHall, edgePlaces
     class SeatInfo {
         constructor(seat, seats, num) {
 
-
-            [
-                "place", 
-                "isEmpty", 
-                "seatType", 
-                "edgePlace",
-                "isEdgeLeft",
-                "isEdgeRight",
-                "hasCoupleSeatBefore",
-                "hasCoupleSeatAfter"
-            ].forEach(prop => {
-                this[prop] = null;
-            });
-
-            
             // if seat is "out of bound" set to null (which makes comparison a bit easier than a string, due to type coercion)
             const checkedSeat = (seat.place + num >= edgePlaces[0] && seat.place + num <= edgePlaces[1]) ? 
                                 seat.place + num : null;
 
             if (checkedSeat !== null) {
+                
                 this.place = checkedSeat;
                 this.isEmpty = (findIndexOfSeat(seats, seat.row, this.place) === -1) ? true : false;
-                this.seatType = (cinemaHall[seat.row][this.place]?.connected !== undefined ) ? "coupleSeat" : "regularSeat";
                 this.edgePlace = ( this.place === edgePlaces[0] || this.place === edgePlaces[1] ) ? true : false;
+                this.isCoupleSeat = (cinemaHall[seat.row][this.place]?.connected !== undefined ) ? true : false;
                 this.isEdgeLeft = ( this.place === edgePlaces[0] ) ? true : false;
                 this.isEdgeRight = ( this.place === edgePlaces[1] ) ? true : false;
-
                 this.hasCoupleSeatBefore = ( this.place - 1 === cinemaHall[seat.row][this.place - 1]?.connected !== undefined) ? true : false;
                 this.hasCoupleSeatAfter = ( this.place + 1 === cinemaHall[seat.row][this.place + 1]?.connected !== undefined) ? true : false;
 
+            } else {
+                [
+                    "place", 
+                    "isEmpty", 
+                    "edgePlace",
+                    "isCoupleSeat",
+                    "isEdgeLeft",
+                    "isEdgeRight",
+                    "hasCoupleSeatBefore",
+                    "hasCoupleSeatAfter"
+                ].forEach(prop => {
+                    this[prop] = null;
+                });
             }
         }
     }
@@ -233,31 +224,30 @@ function getSeatSurroundings(consecSeats, occAndResSeats, cinemaHall, edgePlaces
             this.twoAfter = new SeatInfo(lastSeat, occAndResSeats, 2);
 
             this.isGroupSelection = (this.firstSeat.place !== this.lastSeat.place) ? true : false;
-            this.isSingleSelection = (this.firstSeat.place === this.lastSeat.place) ? true : false;
 
             this.hasCoupleSeat = consecSeats.some( seat => seat.connected !== undefined ) ? true : false
 
             this.hasGapBefore = (
                 (
-                    this.oneBefore.isEmpty === true 
+                    this.oneBefore.isEmpty
                     && this.twoBefore.isEmpty === false
-                    && this.twoBefore.seatType !== "coupleSeat"
+                    && this.twoBefore.isCoupleSeat === false
                 ) ||
                 (
-                    this.oneBefore.isEmpty === true 
-                    && this.twoBefore.seatType === "coupleSeat"
+                    this.oneBefore.isEmpty 
+                    && this.twoBefore.isCoupleSeat
                 )
             ) ? true : false;
 
             this.hasGapAfter = (
                 (
-                    this.oneAfter.isEmpty === true 
+                    this.oneAfter.isEmpty 
                     && this.twoAfter.isEmpty === false 
-                    && this.twoAfter.seatType !== "coupleSeat"
+                    && this.twoAfter.isCoupleSeat === false
                 ) ||
                 (
-                    this.oneAfter.isEmpty === true 
-                    && this.twoAfter.seatType === "coupleSeat"
+                    this.oneAfter.isEmpty 
+                    && this.twoAfter.isCoupleSeat
                 )
             ) ? true : false;
 
@@ -371,7 +361,6 @@ function moveSeat(seatsArray, seatSurroundingsResult, edgePlacesOfRow, alreadyRe
             oneAfter,
             twoAfter,
             isGroupSelection,
-            isSingleSelection,
             hasCoupleSeat,
             hasGapBefore,
             hasGapAfter,
@@ -381,7 +370,7 @@ function moveSeat(seatsArray, seatSurroundingsResult, edgePlacesOfRow, alreadyRe
 
         if (hasGapBefore && hasGapAfter) {
             const moveDirectionToCenter = (() => {
-                const calculatedValue = calculateWhichWayIsCloserToCenter(seatsArray[0].place, edgePlacesOfRow[1]);
+                const calculatedValue = getDirectionToCenter(seatsArray[0].place, edgePlacesOfRow[1]);
                 return ( calculatedValue !== 0 ) ? calculatedValue : 1;
             })();
 
@@ -394,16 +383,19 @@ function moveSeat(seatsArray, seatSurroundingsResult, edgePlacesOfRow, alreadyRe
                 hasGapAfter
                 && oneBefore.isEmpty
             ),
+
             (
                 hasGapAfter
                 && lastSeat.isEdgeLeft
             ),
+
             (
                 isGroupSelection
                 && oneAfter.isEdgeRight
                 && oneAfter.isEmpty
                 && oneBefore.isEmpty
             ),
+
             (
                 isGroupSelection
                 && firstSeat.isEdgeLeft
@@ -436,7 +428,7 @@ function moveSeat(seatsArray, seatSurroundingsResult, edgePlacesOfRow, alreadyRe
             (
                 hasGapBefore
                 && oneAfter.isEmpty
-                && oneBefore.seatType !== "coupleSeat"
+                && oneBefore.isCoupleSeat === false
             )
         ]
 
@@ -452,63 +444,11 @@ function moveSeat(seatsArray, seatSurroundingsResult, edgePlacesOfRow, alreadyRe
     return [ ...movedSeats, ...alreadyReservedSeats ];
 }
 
-
-/*
-edge seat left empty = □ x □ □ □
-    -> seat is 2nd of row &&
-    -> oneBefore is empty &&
-    -> oneAfter is empty
-    === move left
-
-edge seat right empty = ■ ■ □ x □
-    -> seat is vorletzte of row &&
-    -> oneAfter is empty
-    -> oneBefore is empty
-    === move seat left
-
-gap before, empty seat after = ■ ■ □ x □ □
-    -> 2 places before currentPlace is reserved or occupied && 
-    -> 1 place before current Place is empty &&
-    -> 1 place after current Place is empty 
-    ==== move currentPlace left
-
-gap after, empty seat before = ■ □ □ x □ ■ ■
-    -> 2 places after currentPlace is reserved or occupied && 
-    -> 1 place after current Place is empty &&
-    -> 1 place before current Place is empty 
-    === move currentPlace right
-
-
-
-gap before and gap after = ■ ■ □ x □ ■
-    -> 2 places before is reserved or occupied &&
-    -> 1 place before is empty &&
-    -> 2 places after is reserved or occ &&
-    -> 1 place after is empty
-    === calculate which way is closer to the center of the row and move accordingly
-
-
-
-gap before, no empty seat after = = ■ ■ □ x ■ □
-    -> 2 places before currentPlace is reserved or occupied && 
-    -> 1 place before current Place is empty &&
-    -> 1 place after is not empty
-    === do not move
-
-gap after, no empty seat before = = ■ ■ x □ ■ □
-    -> 2 places before currentPlace is reserved or occupied && 
-    -> 1 place before current Place is empty &&
-    -> 1 place after is not empty
-    === do not move
-
-*/
-
-
-
 /**
+ * Returns which direction to move to get closer to the center of the row
  * @return {1|-1|0}
  */
-function calculateWhichWayIsCloserToCenter(seat, qtySeatsInRow) {
+function getDirectionToCenter(seat, qtySeatsInRow) {
     const centerSeat = Math.floor(qtySeatsInRow / 2);
     if (seat < centerSeat) return 1;
     if (seat > centerSeat) return -1;
@@ -521,7 +461,7 @@ function calculateWhichWayIsCloserToCenter(seat, qtySeatsInRow) {
  * ■ = occupied seat (by other users e.g.)
  * x = already reserved seats from current user
  * □ = empty seat
- * @todo visualize couple seats as well
+ * @todo visualize reserved couple seats as well
  */
 function visualizeSeatStatus(currentSeat, seatsArray, cinemaHall) {
 
