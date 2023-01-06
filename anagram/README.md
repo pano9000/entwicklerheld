@@ -9,7 +9,7 @@ Goal is to create a function that checks, if two given words are anagrams, i.e. 
 Challenge Info
 ---
 * Difficulty Level according to Entwicklerheld: `1/4 (Easy)`
-* Originally solved on `2022-April-24`.
+* Originally solved on `2022-Apr-24`.
 
 Comment
 ---
