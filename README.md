@@ -9,8 +9,8 @@ Challenge Name          | Difficulty  | Date Solved   | Language
 ------------------------|-------------|---------------|----------
 Cinema Seat Reservation | `Hardcore`  | `2022-Oct-08` | `Javascript`
 Happy Subnetting        | `Hard`      | `2022-Sep-19` | `Javascript`
-Matching Clients        | `Medium`    | `2022-Jun-19` | `Javascript`
 Perfect Place           | `Medium`    | `2022-Dec-18` | `Javascript`
+Matching Clients        | `Medium`    | `2022-Jun-19` | `Javascript`
 Advent Bakery           | `Medium`    | `2022-Jun-16` | `Javascript`
 Mails to Santa          | `Easy`      | `2022-Oct-11` | `PHP`
 Climbing Stairs         | `Easy`      | `2022-Jun-06` | `Javascript`
