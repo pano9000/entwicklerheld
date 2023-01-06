@@ -13,4 +13,4 @@ Challenge Info
 
 Comment
 ---
-Challenge was not in Javascript, but PHP, but I gave it a shot anways. I'm not a PHP guy, so the solution might be clumsy.
+Challenge was not in Javascript, but PHP, but I gave it a shot anyways. I'm not a PHP guy, so the solution might be clumsy.
