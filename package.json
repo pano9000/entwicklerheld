@@ -1,0 +1,16 @@
+{
+  "name": "@pano9000/entwicklerheld-solutions",
+  "version": "1.0.0",
+  "description": "My solutions to the coding challenges at EntwicklerHeld",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Panagiotis Papadopoulos (@pano9000)",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0"
+  }
+}
