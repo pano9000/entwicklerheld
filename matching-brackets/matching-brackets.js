@@ -18,12 +18,11 @@ export const isPaired = (input) => {
  // console.log("open:", input.match(openingRegEx));
  // console.log("close:", input.match(closingRegEx));
 
- /*
- for every opening bracket, do one indent
-*/
   const openBrackets = input.match(openingRegEx);
   const closedBrackets = input.match(closingRegEx);
   const combinedBrackets = input.match(bracketsRegEx);
+
+
   if (openBrackets === null && closedBrackets === null) return true;
   
   // refactor: simplify?
@@ -31,26 +30,47 @@ export const isPaired = (input) => {
 
   if (openBrackets.length !== closedBrackets.length) return false;
   console.log("combined", combinedBrackets)
-  
-  const result = combinedBrackets.every( (currBracket, index) => {
 
-      console.log("mapevery", index, currBracket)
-      const matchingBracket = bracketPairs.get(currBracket)
-      
-      const halfLengthIndex = Math.floor( (combinedBrackets.length-1) / 2);
-      if (index > halfLengthIndex) return true; //onlyl check "half" the array
 
-      console.log("half", Math.floor( (combinedBrackets.length-1) / 2))
-      console.log("in map", currBracket, combinedBrackets[combinedBrackets.length-1-index], matchingBracket)
-      return combinedBrackets[combinedBrackets.length-1-index] === matchingBracket
 
-  });
-  
-  //const result = ""
+  let valid = true;
+  let currDepth = -1;
+  let currBaseIndex;
+  for (let i=0; i < combinedBrackets.length; i++) {
+    //console.log(combinedBrackets[i])
+    if (currDepth == -1) {
+      currBaseIndex = i;
+     // console.log("currBaseInd", currBaseIndex)
+    }
+    if (combinedBrackets[i].match(openingRegEx)) {
+      currDepth += 1;
+     console.log("open, currDepth:", currDepth, combinedBrackets[i])
+    }
+    if (combinedBrackets[i].match(closingRegEx)) {
+      const matchingDepth = combinedBrackets[currBaseIndex+currDepth];
+      let a = bracketPairs.get(matchingDepth);
 
-  //console.log(result)
-  return result
-  
+      if (a === combinedBrackets[i]) {
+        //console.log("matches ok")
+      } else {
+        //console.log("no match")
+        console.log("matchy", currBaseIndex, currDepth, matchingDepth)
+
+        console.log("closing", a, combinedBrackets[i], "currDepth:", currDepth, currBaseIndex, combinedBrackets[currBaseIndex+currDepth], combinedBrackets[i], )
+
+        valid = false;
+        break;
+      }
+
+      console.log("closing", a, combinedBrackets[i], "currDepth:", currDepth, currBaseIndex, combinedBrackets[currBaseIndex+currDepth], combinedBrackets[i], )
+      //console.log("yo, closing", currDepth, combinedBrackets[i-1], combinedBrackets[i])
+      currDepth -= 1;
+    }
+    //console.log(currDepth)
+  }
+
+  return valid
+
 };
 
-console.log(isPaired("[({})]{}()"))
+console.log(isPaired('([{}({}[])])'))
