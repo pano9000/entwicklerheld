@@ -12,6 +12,7 @@ Happy Subnetting        | `Hard`      | `2022-Sep-19` | `Javascript`
 Perfect Place           | `Medium`    | `2022-Dec-18` | `Javascript`
 Matching Clients        | `Medium`    | `2022-Jun-19` | `Javascript`
 Advent Bakery           | `Medium`    | `2022-Jun-16` | `Javascript`
+Matching Brackets       | `Easy`      | `2023-May-24` | `JavaScript`
 Mails to Santa          | `Easy`      | `2022-Oct-11` | `PHP`
 Climbing Stairs         | `Easy`      | `2022-Jun-06` | `Javascript`
 Easter Challenge 2022   | `Easy`      | `2022-Jun-02` | `PHP`
