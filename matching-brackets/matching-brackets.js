@@ -1,6 +1,7 @@
 /**
  * Check if the given string has valid matching brackets
  * @param input string to check
+ * @TODO add option to ignore brackets inside text quotes? e.g. calling isPaired('["}"]') will return false
  */
 export const isPaired = (input) => {
 
