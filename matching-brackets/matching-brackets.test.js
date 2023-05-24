@@ -3,18 +3,18 @@ import { expect } from 'chai';
 
 // Scenario 1
 it('empty string', () => {
-    expect(isPaired('', "The empty string '' should result in true")).to.equal(true);
+    expect(isPaired(''), "The empty string '' should result in true").to.equal(true);
 });
 
 // Scenario 2
 it('paired square brackets', () => {
-    expect(isPaired('[]', "The input '[]' should result in true")).to.equal(true);
+    expect(isPaired('[]'), "The input '[]' should result in true").to.equal(true);
 });
 it('paired curly braces', () => {
-    expect(isPaired('{}', "The input '{}' should result in true")).to.equal(true);
+    expect(isPaired('{}'), "The input '{}' should result in true").to.equal(true);
 });
 it('paired brackets', () => {
-    expect(isPaired('()', "The input '()' should result in true")).to.equal(true);
+    expect(isPaired('()'), "The input '()' should result in true").to.equal(true);
 });
 
 // Scenario 2 - other tests
