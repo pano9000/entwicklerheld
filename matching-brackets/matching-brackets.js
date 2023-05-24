@@ -2,7 +2,6 @@
  * Check if the given string has valid matching brackets
  * @param input string to check
  */
-
 export const isPaired = (input) => {
 
   const bracketPairs = new Map([
@@ -11,24 +10,24 @@ export const isPaired = (input) => {
     [ ")", "(" ]
   ]);
 
-  const openingRegEx = /[\{\[\(]/g;
-  const closingRegEx = /[\}\]\)]/g;
-  const bracketsRegEx = /[\{\[\(\}\]\)]/g;
+  const openBracketsChars = [...bracketPairs.values()];
+  const closedBracketsChars = [...bracketPairs.keys()];
+  const bracketsCharsClass = `[${["", ...closedBracketsChars, ...openBracketsChars].join("\\")}]`;
+  const bracketsRegEx = new RegExp(bracketsCharsClass, "g");
 
-  const combinedBrackets = input.match(bracketsRegEx);
-  const openBrackets = input.match(openingRegEx);
-  const closedBrackets = input.match(closingRegEx);
+  const foundBrackets = input.match(bracketsRegEx);
+  if (foundBrackets === null) return true;
 
-  if (combinedBrackets === null) return true
-  // refactor: simplify?
-  if ((!openBrackets && closedBrackets) ||  (openBrackets && !closedBrackets)) return false;
+  const openBrackets = foundBrackets.filter(character => openBracketsChars.includes(character));
+  const closedBrackets = foundBrackets.filter(character => closedBracketsChars.includes(character));
+
   if (openBrackets.length !== closedBrackets.length) return false;
 
   const depthArr = [];
   let currDepth = -1;
-  for (let i=0; i < combinedBrackets.length; i++) {
-    let currentChar = combinedBrackets[i];
-    if (currentChar.match(openingRegEx)) {
+  for (let i=0; i < foundBrackets.length; i++) {
+    let currentChar = foundBrackets[i];
+    if (openBrackets.includes(currentChar)) {
       currDepth++;
       if (depthArr[currDepth] === undefined) {
         depthArr[currDepth] = [];
@@ -39,8 +38,8 @@ export const isPaired = (input) => {
       if (currDepth < 0) return false;
 
       const currentMatchingOpenBracket = bracketPairs.get(currentChar);
-      const currentDepthHasMatchingBracket = depthArr[currDepth].includes(currentMatchingOpenBracket)
-      if (currentDepthHasMatchingBracket === false) return false
+      const currentDepthHasMatchingBracket = depthArr[currDepth].includes(currentMatchingOpenBracket);
+      if (currentDepthHasMatchingBracket === false) return false;
       currDepth--;
     }
   }
