@@ -39,7 +39,7 @@ export const isPaired = (input) => {
 
       const currentMatchingOpenBracket = bracketPairs.get(currentChar);
       const currentDepthHasMatchingBracket = depthArr[currDepth].includes(currentMatchingOpenBracket);
-      if (currentDepthHasMatchingBracket === false) return false;
+      if (currentDepthHasMatchingBracket !== true) return false;
       currDepth--;
     }
   }
