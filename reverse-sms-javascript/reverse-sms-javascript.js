@@ -7,14 +7,53 @@ export class ReverseSMSService {
     }
 
     static reverseSmsAndCountPalindromes(body) {
-        // Implement this in scenario 1
+
+        const reverseString = [];
+        let currentWord = "";
+        let palindromeCount = 0;
+        for (let i = body.length-1; i >= 0; i--) {
+            const currCharIsSpace = (body[i] == " ");
+
+            if (!currCharIsSpace) {
+                currentWord += body[i];
+            }
+            
+            if (currCharIsSpace || i == 0) {
+                reverseString.push(currentWord);
+                if (this.#isPalindrome(currentWord)) {
+                    palindromeCount++;
+                };
+                currentWord = "";
+            }
+        }
+
+        return [reverseString.join(" "), palindromeCount];
+        
     }
 
-    async sendReverseSms(from_, to, body) {
+    async sendReverseSms(from, to, body) {
         // Implement this in scenario 2
     }
 
     static receiveSms(data) {
         // Implement this in scenario 3
+    }
+
+    /**
+     * 
+     * @param {*} word
+     * @returns Boolean 
+     */
+    static #isPalindrome(word) {
+        const wordLowercase = word.replace(/[.,!&]/g, "").toLowerCase(); //@TODO - should also filter out numbers I guess?
+        if (wordLowercase.length === 0) return false; //@TODO - make this nicer
+        let j = 0;
+        for (let i = wordLowercase.length - 1; i>= 0; i--) {
+            if (wordLowercase[i] !== wordLowercase[j]) {
+                return false;
+            }
+            j++;
+        }
+        return true;
     }
 }
