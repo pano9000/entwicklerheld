@@ -36,8 +36,12 @@ export class ReverseSMSService {
     }
 
     static receiveSms(data) {
-        // Implement this in scenario 3
-    }
+      const twiml = new twilio.twiml.MessagingResponse();
+      const [ reverseText, palindromeCount ] = this.reverseSmsAndCountPalindromes(data.Body);
+      const replyBody = `${reverseText} (${palindromeCount} palindromes)`;
+      twiml.message(replyBody);
+      return twiml.toString();
+      }
 
     /**
      * 
