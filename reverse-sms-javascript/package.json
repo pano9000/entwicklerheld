@@ -1,0 +1,22 @@
+{
+  "name": "reverse-sms-javascript",
+  "version": "1.0.0",
+  "description": "My solution for the ['Reverse SMS' Challenge](https://platform.entwicklerheld.de/challenge/reverse-sms?technology=javascript) on the [Entwicklerheld](https://platform.entwicklerheld.de/) Code Challenge Platform.",
+  "main": "reverse-sms-javascript.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "regenerator-runtime": "^0.13.11",
+    "twilio": "^4.12.0"
+  },
+  "devDependencies": {
+    "nock": "^13.3.1",
+    "supertest": "^6.3.3"
+  }
+}
