@@ -32,7 +32,18 @@ export class ReverseSMSService {
     }
 
     async sendReverseSms(from, to, body) {
-        // Implement this in scenario 2
+      try {
+        const twilioClient = twilio(this.account_sid, this.auth_token);
+        const reversedArr = ReverseSMSService.reverseSmsAndCountPalindromes(body);
+        const replyBody = ReverseSMSService.#createString(reversedArr);
+        const response = await twilioClient.messages.create({body: replyBody, from, to});
+        if (twilioClient.httpClient.lastResponse.statusCode == 200) {
+            return [200, "Successfully sent"]
+        }
+      }
+      catch(error) {
+          return [error.status, error.message]
+      }
     }
 
     static receiveSms(data) {
@@ -60,4 +71,12 @@ export class ReverseSMSService {
         }
         return true;
     }
+
+
+    static #createString(arr) {
+
+      const [ reverseText, palindromeCount ] = arr;
+      return `${reverseText} (${palindromeCount} palindromes)`;
+
+  }
 }
