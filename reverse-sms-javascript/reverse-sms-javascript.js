@@ -34,12 +34,15 @@ export class ReverseSMSService {
     async sendReverseSms(from, to, body) {
       try {
         const twilioClient = twilio(this.account_sid, this.auth_token);
-        const reversedArr = ReverseSMSService.reverseSmsAndCountPalindromes(body);
-        const replyBody = ReverseSMSService.#createString(reversedArr);
+        const replyBody = ReverseSMSService.#getString(body);
+        console.log("replyBody", replyBody)
         const response = await twilioClient.messages.create({body: replyBody, from, to});
         if (twilioClient.httpClient.lastResponse.statusCode == 200) {
             return [200, "Successfully sent"]
         }
+        // here it should handle any codes other than 200
+        // twilio client throws an error for certain codes, but not sure, if it does it for all
+        // -> read the Twilio docs and adjust here accordingly -- if this was "production" code
       }
       catch(error) {
           return [error.status, error.message]
@@ -48,8 +51,7 @@ export class ReverseSMSService {
 
     static receiveSms(data) {
       const twiml = new twilio.twiml.MessagingResponse();
-      const reversedArr = this.reverseSmsAndCountPalindromes(data.Body);
-      const replyBody = this.#createString(reversedArr);
+      const replyBody = this.#getString(data.Body);
       twiml.message(replyBody);
       return twiml.toString();
     }
@@ -73,10 +75,10 @@ export class ReverseSMSService {
     }
 
 
-    static #createString(arr) {
-
-      const [ reverseText, palindromeCount ] = arr;
-      return `${reverseText} (${palindromeCount} palindromes)`;
-
+  static #getString(data) {
+    const reversedArr = this.reverseSmsAndCountPalindromes(data);
+    const [ reverseText, palindromeCount ] = reversedArr;
+    return `${reverseText} (${palindromeCount} palindromes)`;
   }
+
 }
