@@ -48,11 +48,11 @@ export class ReverseSMSService {
 
     static receiveSms(data) {
       const twiml = new twilio.twiml.MessagingResponse();
-      const [ reverseText, palindromeCount ] = this.reverseSmsAndCountPalindromes(data.Body);
-      const replyBody = `${reverseText} (${palindromeCount} palindromes)`;
+      const reversedArr = this.reverseSmsAndCountPalindromes(data.Body);
+      const replyBody = this.#createString(reversedArr);
       twiml.message(replyBody);
       return twiml.toString();
-      }
+    }
 
     /**
      * 
