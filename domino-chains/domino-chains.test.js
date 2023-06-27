@@ -1,4 +1,4 @@
-import {chain} from "./dominoes-javascript.js";
+import {chain} from "./domino-chains.js";
 import { expect } from "chai";
 
 
