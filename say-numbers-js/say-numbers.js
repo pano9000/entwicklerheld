@@ -188,7 +188,10 @@ function getWordOfBlock(block) {
   }
 
   if (block[1] !== "0") {
-    const rest = `${dict[1].get(parseInt(block[1]))}-${dict[0].get(parseInt(block[0]))}`
+    let rest = dict[1].get(parseInt(block[1]))
+    if (block[0] != "0") {
+      rest += `-${dict[0].get(parseInt(block[0]))}`
+    }
     blockResult.push(rest)
     return blockResult
   }
