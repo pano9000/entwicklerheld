@@ -97,6 +97,7 @@ const getStringFromSplitArray = (splitArr) => {
       strArr[block] = [];
     };
 
+    console.log("erere", strArr)
 
     //speical case for zero
     if (splitArr.length === 1 && splitArr[0].every(item => item == 0)) {
@@ -113,51 +114,6 @@ const getStringFromSplitArray = (splitArr) => {
       strArr[block].push(dict[2].get( parseInt( block )))
     }
     strArr[block] = strArr[block].join(" ")
-
-    //    for (let numIndex = 0; numIndex < splitArr[block].length; numIndex++) {
-/*     for (let numIndex = splitArr[block].length -1 ; numIndex > -1; numIndex--) {
-      console.log("num", numIndex, splitArr[block][numIndex])
-
-      const currNumber = splitArr[block][numIndex];
-      const prevNumber = splitArr[block][numIndex-1];
-
-      if (numIndex !== 2 && currNumber == 0) {
-        continue;
-      }
-
-      if (numIndex === 2 &&  splitArr[block][2] != 0) {
-        let suffix = dict[2].get( parseInt( 0 ));
-        let currStr = dict[0].get( parseInt(currNumber  ));
-        console.log("num in hun", currNumber, "currBlock", block, suffix);
-        strArr[block].push(currStr, suffix);
-
-        continue;
-
-      }
-
-      if (numIndex === 1) {
-        console.log("second pos", currNumber+prevNumber)
-        const specNum = dict[0].get( parseInt(currNumber+prevNumber))
-        if (specNum !== undefined) {
-          console.log("sepcnum", specNum)
-          strArr[block].push(specNum);
-          break;
-        }
-        const tysStr = dict[1].get(parseInt(currNumber));
-        const abc = dict[0].get( parseInt(prevNumber));
-        const tensStr = (abc == "zero") ? "" : "-"+abc
-        console.log("tys", tysStr, "tens", abc);
-        strArr[block].push(`${tysStr}${tensStr}`);
-        break;
-        continue;
-      }
-
-      let str = dict[0].get( parseInt(currNumber  ));
-      console.log("yo")
-      strArr[block].push(str)
-    } */
-
-
 
   }
   console.log(strArr.reverse().join(" "))
@@ -236,6 +192,7 @@ getWord(0)
 getWord(1)
 getWord(12)
 getWord(10)
+getWord(20)
 getWord(100)
 getWord(5_123_519)
 
