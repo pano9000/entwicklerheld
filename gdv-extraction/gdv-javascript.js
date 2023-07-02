@@ -2,160 +2,89 @@ import {Client} from "./models";
 import { readFileSync } from "fs";
 
 export class GDVExtractor {
+
+    #satzarten;
+    #dataPositions;
     constructor(gdvFilePath) {
         const fileContent = readFileSync(gdvFilePath, 'latin1');
         this.gdvFile = fileContent.split(/\r?\n/);
         this.policies = [];
+
+        // usually this should be a full list of Satzarten, but since this task only cares about "0100", 
+        // let's concentrate on just a select few for demonstration purposes
+        this.#satzarten = ["0001", "0100", "9999"];
+
+        /**
+         * {[StartPos, Lenght]}
+         */
+        this.#dataPositions = {
+            satzArt: [0, 4],
+            policyNumber: [13, 17],
+            satzNumber: [255, 1],
+            clientNumber: [42, 17],
+            clientNameA: [43, 30],
+            clientNameB: [73, 30],
+            clientNameC: [103, 30],
+            clientAddress: [187, 30],
+            clientPostalCode: [156, 6],
+            clientCity: [162, 25],
+            clientCountry: [153, 3],
+            clientBirthdate: [225, 8]
+        }
     }
 
     getPolicyNumbers() {
-        // Scenario 1: Get all policy numbers
-        //console.log(JSON.stringify(this.gdvFile))
-        const policyNumbers = new Set();
-        const result = this.gdvFile.reduce( (results, currentLine) => {
+        const partnerDataLines = this.#getLinesBySatzart("0100");
+        const result = partnerDataLines.reduce( (policyNumbers, currentLine) => {
 
-            const currentSatzart = currentLine.slice(0,4);
-
-            if (["0001", "9999"].includes(currentSatzart) === true) {
-                return policyNumbers
-            };
-
-            const currentPolicyNumber = currentLine.slice(13,30).trim();
-            if (currentPolicyNumber !== "") {
-                policyNumbers.add(currentPolicyNumber);
-            }
-
+            const currentPolicyNumber = this.#getFromLine(currentLine, "policyNumber");
+            policyNumbers.add(currentPolicyNumber);
             return policyNumbers
 
-        }, policyNumbers);
+        }, new Set());
 
         //test expect an Array, so turn the Set into an array
         return Array.from(result);
     }
 
     getClients() {
-        // Scenario 2: Get all clients
-
         
-        const byClientId = {}
-        const groupyByClientId = this.gdvFile.reduce( (accum, currLine, currIndex) => {
-            if (currLine.slice(0,0+4) != "0100") { return accum };
-            //if (currLine.slice(255,255+1) != "2") { return accum };
+        const byClientId = this.#getPolicyLinesGroupedByClientId();
 
-            const policyNumber = currLine.slice(13, 13+17).trim();
-
-            if (currLine.slice(255,255+1) != "2") {
-
-                if (accum[policyNumber] === undefined) {
-                    accum[policyNumber] = [];
-                }
-                accum[policyNumber].push(currLine)
-
-            } else {                
-                const clientNumber =  currLine.slice(42,42+17).trim()
-                if (byClientId[clientNumber] === undefined) {
-                    byClientId[clientNumber] = {};
-                }
-                accum[policyNumber].push(currLine)
-                byClientId[clientNumber][policyNumber] = accum[policyNumber];
-                
-            }
-
-            return accum
-
-        }, {})
-
-        //console.log(groupyByClientId)
-        console.log(byClientId)
-/*
-
-        const grouped =  this.gdvFile.reduce( (accum, line) => {
-            if (line.slice(0,0+4) != "0100") {
-                return accum;
-            }
-            const policyNumber = line.slice(13, 13+17).trim();
-            const currentPage = line.slice(255,255+1);
-            if (accum[policyNumber] === undefined) {
-                accum[policyNumber] = [];
-            }
-
-            accum[policyNumber].push(line)
-
-            return accum
-
-        }, {});
-        //console.log(grouped)
-*/
-        const extractedArr = []
+        const clients = []
         for (const clientId in byClientId) {
-            const currClient = byClientId[clientId];
-            //console.log(Object.keys(currClient)[0])
+            const currentClient = byClientId[clientId];
+            const currentClientPolicyNumbers = Object.keys(currentClient);
+            const clientData = currentClient[currentClientPolicyNumbers[0]].reduce( (accum, currentLine, currIndex) => {
 
-            const result2 = currClient[Object.keys(currClient)[0]].reduce( (accum, line, currIndex) => {
-                //TODO refactor, DRY 
                 if (currIndex == 0) {
-                    accum.firstName = line.slice(43, 43+30).trim(),
-                    accum.secondName = line.slice(73, 73+30).trim(),
-                    accum.thirdName = line.slice(103,103+30).trim(),
-                    accum.address = line.slice(187,187+30).trim()
-                    accum.postalCode = line.slice(156,156+6).trim()
-                    accum.city = line.slice(162,162+25).trim()
-                    accum.country = line.slice(153,153+3).trim()
-                    accum.birthDate = this.#gdvDateToJsDate(line.slice(225,225+8).trim())
+                    accum.firstName     = this.#getFromLine(currentLine, "clientNameA");
+                    accum.secondName    = this.#getFromLine(currentLine, "clientNameB");
+                    accum.thirdName     = this.#getFromLine(currentLine, "clientNameC");
+                    accum.address       = this.#getFromLine(currentLine, "clientAddress");
+                    accum.postalCode    = this.#getFromLine(currentLine, "clientPostalCode");
+                    accum.city          = this.#getFromLine(currentLine, "clientCity");
+                    accum.country       = this.#getFromLine(currentLine, "clientCountry");
+                    accum.birthDate     = this.#gdvDateToJsDate(this.#getFromLine(currentLine, "clientBirthdate"));
                 }
 
                 if (currIndex == 1) {
-                    accum.clientNumber =  line.slice(42,42+17).trim()
-                }
-
-                return accum
-
-            }, {})
-            extractedArr.push(new Client(...Object.values(result2)))
-            console.log("res", result2)
-            
-
-        }
-
-        return extractedArr
-/*        for (const policy in grouped) {
-            //console.log(grouped[policy])
-            const currentPolicy = grouped[policy];
-
-            const result = currentPolicy.reduce( (accum, line, currIndex) => {
-                //TODO refactor, DRY 
-                if (currIndex == 0) {
-                    accum.firstName = line.slice(43, 43+30).trim(),
-                    accum.secondName = line.slice(73, 73+30).trim(),
-                    accum.thirdName = line.slice(103,103+30).trim(),
-                    accum.address = line.slice(187,187+30).trim()
-                    accum.postalCode = line.slice(156,156+6).trim()
-                    accum.city = line.slice(162,162+25).trim()
-                    accum.country = line.slice(153,153+3).trim()
-                    accum.birthDate = this.#gdvDateToJsDate(line.slice(225,225+8).trim())
-                }
-
-                if (currIndex == 1) {
-                    accum.clientNumber =  line.slice(42,42+17).trim()
+                    accum.clientNumber =  this.#getFromLine(currentLine, "clientNumber");
                 }
 
                 return accum
 
             }, {})
 
-            extractedArr.push(result);
-    
+            // personally I would edit the Client class to accept an object instead of each parameter as string
+            // but since this is not possible in the environment here
+            // using spread operator, because we are too lazy to write out the arguments manually
+            clients.push(new Client(...Object.values(clientData)))
         }
 
-
-        const cli = new Client(...Object.values(result))
-        extractedArr.push(cli);
-        console.log(extractedArr)
-
-
-
-        return extractedArr;*/
+        return clients
     }
+
 
     #gdvDateToJsDate(gdvDate) {
 
@@ -168,8 +97,63 @@ export class GDVExtractor {
         return date
     }
 
-    getSatzart() {
-
+    #getLinesBySatzart(satzart) {
+        if (this.#satzarten.includes(satzart) === false) {
+            throw new Error(`Invalid Satzart provided: '${satzart}'`);
+        }
+        const satzartPosition = [0, 4]
+        return this.gdvFile.filter( line => line.slice(...satzartPosition) === satzart)
     }
+
+    #getDataPosition(position) {
+        if (this.#dataPositions[position] === undefined) {
+            throw new Error(`Invalid Position provided: '${position}`);
+        }
+        return this.#dataPositions[position]
+    }
+
+    #sliceLine(line, dataPosition) {
+        return line.slice(dataPosition[0], dataPosition[0] + dataPosition[1]).trim();
+    }
+
+    #getFromLine(line, position) {
+        const dataPosition = this.#getDataPosition(position);
+        return this.#sliceLine(line, dataPosition);
+    }
+
+    #getPolicyLinesGroupedByClientId() {
+
+        const partnerDataLines = this.#getLinesBySatzart("0100");
+
+        const byClientId = {}
+        const groupyByClientId = partnerDataLines.reduce( (accum, currentLine, currIndex) => {
+            if (this.#getFromLine(currentLine, "satzArt") != "0100") { return accum };
+
+            const policyNumber = this.#getFromLine(currentLine, "policyNumber");
+
+            if (this.#getFromLine(currentLine, "satzNumber") != "2") {
+
+                if (accum[policyNumber] === undefined) {
+                    accum[policyNumber] = [];
+                }
+                accum[policyNumber].push(currentLine)
+
+            } else {                
+                const clientNumber =  this.#getFromLine(currentLine, "clientNumber");
+                if (byClientId[clientNumber] === undefined) {
+                    byClientId[clientNumber] = {};
+                }
+                accum[policyNumber].push(currentLine)
+                byClientId[clientNumber][policyNumber] = accum[policyNumber];
+                
+            }
+
+            return accum
+
+        }, {})
+
+        return byClientId
+    }
+
 
 }
