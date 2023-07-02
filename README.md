@@ -9,6 +9,7 @@ Challenge Name          | Difficulty  | Date Solved   | Language
 ------------------------|-------------|---------------|----------
 Cinema Seat Reservation | `Hardcore`  | `2022-Oct-08` | `JavaScript`
 Happy Subnetting        | `Hard`      | `2022-Sep-19` | `JavaScript`
+GDV Extraction          | `Medium`    | `2023-Jul-02` | `JavaScript`
 Say Numbers             | `Medium`    | `2023-Jun-30` | `Java`
 Reverse SMS             | `Medium`    | `2023-Jun-23` | `JavaScript`
 Perfect Place           | `Medium`    | `2022-Dec-18` | `JavaScript`
