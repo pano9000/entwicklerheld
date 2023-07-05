@@ -16,6 +16,7 @@ Reverse SMS             | `Medium`    | `2023-Jun-23` | `JavaScript`
 Perfect Place           | `Medium`    | `2022-Dec-18` | `JavaScript`
 Matching Clients        | `Medium`    | `2022-Jun-19` | `JavaScript`
 Advent Bakery           | `Medium`    | `2022-Jun-16` | `JavaScript`
+Non Repeating Characters| `Easy`      | `2023-Jul-05` | `Python`
 Scary Python            | `Easy`      | `2023-Jun-27` | `Python`
 Flatten Arrays          | `Easy`      | `2023-Jun-26` | `Python`
 Matching Brackets       | `Easy`      | `2023-May-24` | `JavaScript`
