@@ -2,11 +2,10 @@ package de.entwicklerheld.mapsAndPolygonsJava;
 
 import java.util.List;
 
-import javax.swing.text.StyledEditorKit.BoldAction;
-
 public class MapService implements Drawable {
     static PolygonProvider polygonProvider = PolygonProvider.getInstance();
-
+    static final int MAP_WIDTH = 400;
+    static final int MAP_HEIGHT = 300;
 
     public static Double calculatePolygonArea(Point[] vertices) {
         // calculating the area of an irregular polygon with the shoelace algorithm
@@ -25,8 +24,6 @@ public class MapService implements Drawable {
     }
 
     public static void calculateAndSetLabelsForPolygons(List<String> labelNames) {
-        final int MAP_WIDTH = 400;
-        final int MAP_HEIGHT = 300;
 
         int i = 0;
         for (Polygon polygon: polygonProvider.getPolygons()) {
@@ -38,109 +35,94 @@ public class MapService implements Drawable {
 
 
             Point[] currentVertices = polygon.getVertices();
-            
-            //create label in polygon center
-            Label initialLabel = new Label(
-                polygon.getCenter(), 
-                labelNames.get(i)
-            );
+            System.out.println("-----start polygon ---- " + labelNames.get(i) + " // " + polygon );
 
-            //calculate center of Label
-            Point centerInitLabel = new Point (
-                polygon.getCenter().x() - ((initialLabel.getTopRight().x() - polygon.getCenter().x()) / 2),
-                polygon.getCenter().y() - ((initialLabel.getBottomRight().y() - polygon.getCenter().y()) / 2)
-            );
-
-            initialLabel = new Label(
-                centerInitLabel, 
-                labelNames.get(i)
-            );
-
-
-            Label newLabel = initialLabel;
+            //Label newLabel = centeredLabel;
             // loop through polygons vertices and check if the label can be set without colliding
+
+
             for (int currentVertexIndex = 0; currentVertexIndex < currentVertices.length; currentVertexIndex++) {
-                System.out.println("currentvert" + " " + currentVertexIndex + "// " + labelNames.get(i) + " ----------");
+                //System.out.println("currentvert" + " " + currentVertexIndex + "// " + labelNames.get(i) + " ----------");
 
                 int nextVertexIndex = (currentVertexIndex != currentVertices.length-1) ? currentVertexIndex+1 : 0;
                 Point currentVertex = currentVertices[currentVertexIndex];
                 Point nextVertex = currentVertices[nextVertexIndex];
 
-                if ((checkLabelCollision(newLabel, currentVertex, nextVertex) == false)
-                    && (checkMapCollision(newLabel, MAP_WIDTH, MAP_HEIGHT) == false)) {
+
+                Label centeredLabel = createCenteredLabel(polygon, labelNames.get(i));
+                
+                if (checkIfLabelFits(currentVertex, nextVertex, centeredLabel, labelNames.get(i)) == true) {
+                    System.out.println("returning centered " + labelNames.get(i) + " " + i);
+                    polygon.setLabel(centeredLabel);
                     break;
-                }
+                };
+
+                System.out.println("after center try");
 
                 //try label above/below of point
-                System.out.println("yyy " + currentVertex.y() + " padd " + fontSizeAndPadding + " result:" + (currentVertex.y() - fontSizeAndPadding +2));
+                //System.out.println("yyy " + currentVertex.y() + " padd " + fontSizeAndPadding + " result:" + (currentVertex.y() - fontSizeAndPadding +2));
                 int yValue = (currentVertex.y() <= fontSizeAndPadding) ? fontSizeAndPadding : -fontSizeAndPadding;
-                newLabel = new Label(
+
+                Label aboveBelow = new Label(
                     new Point(currentVertex.x(), (currentVertex.y() + yValue)),
                     labelNames.get(i)
                 );
 
-                if ((checkLabelCollision(newLabel, currentVertex, nextVertex) == false)
-                    && (checkMapCollision(newLabel, MAP_WIDTH, MAP_HEIGHT) == false)) {
+                if (aboveBelow.getBottomRight().x() > MAP_WIDTH) {
+                    int xValue = MAP_WIDTH - 4 - aboveBelow.getBottomRight().x();
+                    aboveBelow = new Label(
+                        new Point(currentVertex.x() + xValue, (currentVertex.y() + yValue)),
+                        labelNames.get(i)
+                    );
+                }
+
+                //int xValue = (aboveBelow.getBottomRight() > MAP_WIDTH) ? MAP_WIDTH - 4 - aboveBelow.getBottomRight() ? 0;
+
+                if ((checkLabelCollision(aboveBelow, currentVertex, nextVertex) == false)
+                    && (checkMapCollision(aboveBelow, MAP_WIDTH, MAP_HEIGHT) == false)) {
+                    System.out.println("returning Above/Below " + labelNames.get(i) + " // " + aboveBelow);
+                    polygon.setLabel(aboveBelow);
                     break;
-                } 
+                }
+
+                System.out.println("after above/below");
+
+
+                if (checkLabelCollision(aboveBelow, currentVertex, nextVertex) == false) {
+                    if (checkMapCollision(aboveBelow, MAP_WIDTH, MAP_HEIGHT) == false) {
+                        System.out.println("returning Above/Below " + labelNames.get(i));
+                        polygon.setLabel(aboveBelow);
+                        break;
+                    } else {
+
+                    }
+                }
                 
                 //try moving label of map to the left - moving to right not needed, as we only have LTR no RTL writing
                 //int xValue = (currentVertex.x() + newLabel.getLabelWidth() > MAP_WIDTH - 2)
               
               
-              /*   int xxx = ((MAP_WIDTH - 2) - (currentVertex.x() + newLabel.getLabelWidth()));
+                 //int xxx = ((MAP_WIDTH - 2) - (currentVertex.x() + newLabel.getLabelWidth()));
 
-                newLabel = new Label(
+               /*  newLabel = new Label(
                     new Point(currentVertex.x() + xxx, (currentVertex.y() + yValue)),
                     labelNames.get(i)
                 );
-
-
+                */
+/* 
                 if ((checkLabelCollision(newLabel, currentVertex, nextVertex) == false)
                     && (checkMapCollision(newLabel, MAP_WIDTH, MAP_HEIGHT) == false)) {
+                        System.out.println("returning C " + labelNames.get(i));
+
                     break;
                 } 
-
 */
-                System.out.println("coliis " + labelNames.get(i) + " " + checkLabelCollision(initialLabel, currentVertex, nextVertex));
 
             }
-            polygon.setLabel(newLabel);
+            //polygon.setLabel(newLabel);
 
 
             i++;
-            //int boundaryX = MAP_X - (polygon.getVertices()[0].x() + initialLabel.getLabelWidth());
-            // handle map borders
-            // handle park borders, by checking the next and last point in vertices?
-
-            // -> create helper function to find the "best" Polygon point to use as starting point?
-            /*
-                check for each point:
-                    label height
-                        if out of map Y
-                        if touches border of current polygon
-                    label width
-                        if out of map X
-                    label 
-
-
-
-                    - try to add label in center
-                    - try to add label on top left outside
-                    - try to add label on top left inside
-             */
-/* 
-            Label label = new Label(
-                new Point(
-                    polygon.getVertices()[0].x() + 2, 
-                    polygon.getVertices()[0].y() + yValue
-                ), 
-                labelNames.get(i)
-            );
-            System.out.println(label.getLabelHeight() + "//" + label.getLabelWidth());
-            polygon.setLabel(label);
-            */
-
         }
     }
 
@@ -192,13 +174,13 @@ public class MapService implements Drawable {
 
         for (Point[] labelSide : labelSides) {
             if (checkLinesCollision(lineStart, lineEnd, labelSide[0], labelSide[1]) == true) {
-                System.out.println(lineStart + " // " + lineEnd + " // " + labelSide[0] + " -- " + labelSide[1] );
+                System.out.println("collision " + label.getText() + " " + lineStart + " // " + lineEnd + " // " + labelSide[0] + " -- " + labelSide[1] );
                 return true;
             };
             
         }
         
-        System.out.println("nocollision : " + lineStart + " // " + lineEnd + " // " + label );
+        System.out.println("nocollision : " + label.getText() + " " + lineStart + " // " + lineEnd + " // " + label );
 
         return false;
     }
@@ -220,4 +202,39 @@ public class MapService implements Drawable {
 
         return false;
     }
+
+
+    private static Boolean checkIfLabelFits(Point currentVertex, Point nextVertex, Label label, String labelName) {
+        if ((checkLabelCollision(label, currentVertex, nextVertex) == false)
+            && (checkMapCollision(label, MAP_WIDTH, MAP_HEIGHT) == false)) {
+                System.out.println("centered??? " + labelName);
+            return true;
+        }
+
+        return false;
+    }
+
+
+    private static Label createCenteredLabel(Polygon polygon, String labelName) {
+
+        //create label in polygon center
+        Label initialLabel = new Label(
+            polygon.getCenter(), 
+            labelName
+        );
+
+        //calculate center of Label
+        Point centerInitLabel = new Point (
+            polygon.getCenter().x() - ((initialLabel.getTopRight().x() - polygon.getCenter().x()) / 2),
+            polygon.getCenter().y() - ((initialLabel.getBottomRight().y() - polygon.getCenter().y()) / 2)
+        );
+
+        initialLabel = new Label(
+            centerInitLabel, 
+            labelName
+        );
+
+        return initialLabel;
+    }
+
 }
