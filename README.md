@@ -8,6 +8,7 @@ Solved Challenges Sorted by Difficulty
 Challenge Name          | Difficulty  | Date Solved   | Language
 ------------------------|-------------|---------------|----------
 Cinema Seat Reservation | `Hardcore`  | `2022-Oct-08` | `JavaScript`
+Maps And Polygons       | `Hard`      | `2023-Jul-20` | `Java`
 Happy Subnetting        | `Hard`      | `2022-Sep-19` | `JavaScript`
 Storing Vehicle Data    | `Medium`    | `2023-Jul-14` | `Java`
 Change Calculator       | `Medium`    | `2023-Jul-11` | `Java`
