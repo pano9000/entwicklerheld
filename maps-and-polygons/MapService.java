@@ -5,13 +5,13 @@ import java.util.List;
 public class MapService implements Drawable {
     static PolygonProvider polygonProvider = PolygonProvider.getInstance();
     
-    // these shouldn't be constant in production
+    // these shouldn't be constant in production I guess
     static final int MAP_WIDTH = 400;
     static final int MAP_HEIGHT = 300;
 
     //dynamic padding depending on font size
     static private final int PADDING = (int) ((Label.getFontSize() / 100.0f) * 25);
-    static private final int fontSizeAndPadding = (int) (Label.getFontSize() + PADDING);
+    static private final int FONTSIZE_AND_PADDING = (int) (Label.getFontSize() + PADDING);
 
 
     // calculating the area of an irregular polygon with the shoelace algorithm
@@ -45,7 +45,6 @@ public class MapService implements Drawable {
     }
 
     // inspired by http://www.jeffreythompson.org/collision-detection/poly-rect.php
-
     /**
      * 
      * @param lineAs Point Line A Start
@@ -74,11 +73,14 @@ public class MapService implements Drawable {
         float u1 = numerator1 / denominator;
         float u2 = numerator2 / denominator;
 
-        if (u1 >= 0 && u1 <= 1 && u2 >= 0 && u2 <= 1) {
+        if (u1 >= 0 
+            && u1 <= 1 
+            && u2 >= 0 
+            && u2 <= 1) {
             return true;
         }
-          return false;
 
+        return false;
     }
 
     private static Boolean isLabelColliding(Label label, Point lineStart, Point lineEnd) {
@@ -99,54 +101,67 @@ public class MapService implements Drawable {
     }
 
     private static Boolean isLabelOutsideMap(Label label, int mapWidth, int mapHeight) {
-        // some of these checks might be  overkill, as this is a rectangle, but just to be safe
+        // some of these checks might be  overkill, as this is a rectangle, where e.g. top and bottom x are *always* the same, 
+        // if there is no bug in Label class
         for (Point labelPoint : label.getBoundingBox()) {
             int x = labelPoint.x(), y = labelPoint.y();
-            if (x < 0 || x > mapWidth || y < 0 || y > mapHeight) return true;
+            if (x < 0 
+                || x > mapWidth 
+                || y < 0 
+                || y > mapHeight) { 
+                return true;
+            }
         }
         return false;       
     }
-
 
 
     private static Label getOptimalLabel(Polygon polygon, String labelName ) {
 
         Point[] currentVertices = polygon.getVertices();
 
+        // loop through all vertices of the polygon, 
+        // create a temporary label with same positions as the currentVertex (+ some padding)
+        // temporarily create a "line" consisting of currentVertex and nextVertex
+        // check if the label "collides" with the current line or the map borders and continue looping
+        // until it finds a point that does not collide - return the label then
+        // or null, if no non-colliding label is possible
         for (int currentVertexIndex = 0; currentVertexIndex < currentVertices.length; currentVertexIndex++) {
 
             int nextVertexIndex = (currentVertexIndex != currentVertices.length-1) ? currentVertexIndex+1 : 0;
             Point currentVertex = currentVertices[currentVertexIndex];
             Point nextVertex = currentVertices[nextVertexIndex];
 
-            int yValue = (currentVertex.y() <= fontSizeAndPadding) ? fontSizeAndPadding : -fontSizeAndPadding;
+            int yValuePadding = (currentVertex.y() <= FONTSIZE_AND_PADDING) ? FONTSIZE_AND_PADDING : -FONTSIZE_AND_PADDING;
 
             // unfortunately the CHAR_WIDTH field is set to private
             // so we need to create a label first, to be able to check its width
 
             Label label = new Label(
-                new Point(currentVertex.x(), (currentVertex.y() + yValue)),
+                new Point(currentVertex.x(), (currentVertex.y() + yValuePadding)),
                 labelName
             );
             
             // unfortunately there are no setters in the Label class, so we need to create a whole new label
             // potentially check for BottomLeft being outside MAP_WIDTH as well, even though that should be not possible?
             if (label.getBottomRight().x() > MAP_WIDTH) {
-                int xValue = MAP_WIDTH - PADDING - label.getBottomRight().x();
+                int xValuePadding = MAP_WIDTH - PADDING - label.getBottomRight().x();
                 label = new Label(
-                    new Point(currentVertex.x() + xValue, (currentVertex.y() + yValue)),
+                    new Point((currentVertex.x() + xValuePadding), (currentVertex.y() + yValuePadding)),
                     labelName
                 );
             }
 
-            if ( !isLabelColliding(label, currentVertex, nextVertex) 
+            if (!isLabelColliding(label, currentVertex, nextVertex) 
                 && !isLabelOutsideMap(label, MAP_WIDTH, MAP_HEIGHT)) {
                 return label;
             }
+
+            // in production one would probably also check if the label collides 
+            // with any of the other polygons on the map.
         }
         return null;
     }
-
 
     private static Label getCenteredLabel(Polygon polygon, String labelName) {
 
