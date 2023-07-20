@@ -1,0 +1,11 @@
+{
+  [
+    {
+      "id": "cinema-seat-reservation",
+      "displayName": "Cinema Seat Reservation",
+      "idEH": "cd14ba5e-a1f3-4b78-b770-bea57a23db7a",
+      "urlEH": "https://platform.entwicklerheld.de/challenge/cinema-seat-reservation?technology=javascript",
+      "urlSolution": "https://github.com/pano9000/entwicklerheld/tree/main/cinema-seat-reservation"
+    }
+  ]
+}
