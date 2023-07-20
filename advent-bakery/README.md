@@ -1,6 +1,6 @@
  # Advent Bakery
 
-My solution for the ['Advent Bakery' Challenge](https://platform.entwicklerheld.de/challenge/challenge) on the [Entwicklerheld](https://platform.entwicklerheld.de/) Code Challenge Platform.
+My solution for the ['Advent Bakery' Challenge](https://platform.entwicklerheld.de/challenge/advent-bakery?technology=javascript) on the [Entwicklerheld](https://platform.entwicklerheld.de/) Code Challenge Platform.
 
 Description
 ---
