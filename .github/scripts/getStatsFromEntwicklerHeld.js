@@ -64,7 +64,7 @@ async function processData(challengeData) {
 
       const { title, slug, complexity, statistics, language } = await getDataFromApi(entry.idEH);
 
-      entry.urlEH = challengeData.baseUrlEH + (entry.urlEH != "") ? entry.urlEH : `${slug}?technology=${language}`;
+      entry.urlEH = (entry.urlEH != "") ? `${challengeData.baseUrlEH}${entry.urlEH}` : `${challengeData.baseUrlEH}${slug}?technology=${language}`;
       entry.urlSolution = (entry.urlSolution != "") ? `${challengeData.baseUrlSolution}${entry.urlSolution}` : `${challengeData.baseUrlSolution}${slug}`;
 
       entry.difficulty = {
