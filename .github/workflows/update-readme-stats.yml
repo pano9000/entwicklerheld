@@ -1,4 +1,4 @@
-name: Update Main README Stats
+name: Update README Stats
 
 on:
   push:
@@ -16,11 +16,6 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
-        with:
-          sparse-checkout: |
-            .
-            .github
-
 
       #- name: Setup Node.js
       #  uses: actions/setup-node@v3
