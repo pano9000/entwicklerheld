@@ -98,6 +98,21 @@ function createOverviewMarkdown(data) {
     lines.push(`[${entry.title}](${entry.urlSolution}) | ${entry.difficulty.bar} | ${entry.statistics.succesRateBar} ${entry.statistics.succesRate}% | ${entry.statistics.acceptancesCount} / ${entry.statistics.solutionsCount} | ${entry.dateSolved} | ${entry.language}`)
   })
 
+  lines.push("## Solved Challenges Sorted by Difficulty, then Solution Date")
+  lines.push("")
+  lines.push("Challenge Name | Difficulty | Overall Success Rate @EH | Overall Accepted / Solved @EH | Date Solved | Language")
+  lines.push("---|---|---|---|---|---|");
+
+
+  // sort descending by difficulty first, then by solution date
+  data.sort( (a, b) => b.difficulty.complexity - a.difficulty.complexity || new Date(b.dateSolved) - new Date(a.dateSolved));
+
+  data.forEach(entry => {
+    lines.push(`[${entry.title}](${entry.urlSolution}) | ${entry.difficulty.bar} | ${entry.statistics.succesRateBar} ${entry.statistics.succesRate}% | ${entry.statistics.acceptancesCount} / ${entry.statistics.solutionsCount} | ${entry.dateSolved} | ${entry.language}`)
+  })
+
+
+
   return lines.join("\n");
 
 }
