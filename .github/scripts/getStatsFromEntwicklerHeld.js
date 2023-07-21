@@ -14,7 +14,7 @@ async function getStatsFromEntwicklerHeld() {
 
 function writeReadmeMd(content) {
   try {
-    writeFileSync("../../README.md", content);
+    writeFileSync("./README.md", content);
   }
   catch(err) {
     console.err(err);
@@ -132,4 +132,3 @@ function createOverviewMarkdown(data) {
 
 
 await getStatsFromEntwicklerHeld();
-console.log("currentworkdir", process.cwd())
