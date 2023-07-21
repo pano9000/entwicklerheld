@@ -1,5 +1,5 @@
 import challengeData from "./challengeData.json" assert { type: "json" }
-import {writeFile as fsWriteFile}  from "node:fs/promises";
+import { writeFileSync }  from "fs";
 
 
 async function getStatsFromEntwicklerHeld() {
@@ -7,14 +7,14 @@ async function getStatsFromEntwicklerHeld() {
   const processedData = await processData(challengeData);
   const overviewMarkdown = createOverviewMarkdown(processedData);
   //console.log(processedData, JSON.stringify(processedData), overviewMarkdown)
-  await writeReadmeMd(overviewMarkdown);
+  writeReadmeMd(overviewMarkdown);
 
 }
 
 
-async function writeReadmeMd(content) {
+function writeReadmeMd(content) {
   try {
-    await fsWriteFile("../../README.md", content);
+    writeFileSync("../../README.md", content);
   }
   catch(err) {
     console.err(err);
