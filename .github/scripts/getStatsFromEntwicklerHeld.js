@@ -6,7 +6,7 @@ async function getStatsFromEntwicklerHeld() {
 
   const processedData = await processData(challengeData);
   const overviewMarkdown = createOverviewMarkdown(processedData);
-  console.log(processedData, JSON.stringify(processedData), overviewMarkdown)
+  //console.log(processedData, JSON.stringify(processedData), overviewMarkdown)
   writeReadmeMd(overviewMarkdown);
 
 }
@@ -131,5 +131,4 @@ function createOverviewMarkdown(data) {
 }
 
 
-getStatsFromEntwicklerHeld();
-console.log("after")
+await getStatsFromEntwicklerHeld();
