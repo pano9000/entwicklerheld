@@ -1,11 +1,267 @@
 {
-  [
+  "baseUrlEH": "https://platform.entwicklerheld.de/challenge/",
+  "baseUrlSolution": "https://github.com/pano9000/entwicklerheld/tree/main/",
+  "challengeData": [
+    {
+      "id": "anagram",
+      "idEH": "ffa242b6-5210-454d-9a83-c9b28ccd024a",
+      "urlEH": "anagram?technology=javascript",
+      "urlSolution": "anagram",
+      "dateSolved": "2022-04-24",
+      "description": "Goal is to create a function that checks, if two given words are anagrams, i.e. if they consist of the identical letter set, but are differently arranged (e.g. `car` and `arc`)",
+      "comment": ""
+    },
+    {
+      "id": "fizzbuzz",
+      "idEH": "9c778212-5cf0-4b5d-b2b5-49bea7eb1d53",
+      "urlEH": "fizzbuzz?technology=javascript",
+      "urlSolution": "fizzbuzz",
+      "dateSolved": "2022-04-24",
+      "description":"Goal is to create a function that:\\\\n* returns \\'fizz\\', when given number is divisble by 3\\\\n* returns \\'buzz\\', when given number is divisible by 5\\\\n* returns \\'fizzbuzz\\', when given number is divisble be 3 AND 5",
+      "comment": ""
+    },
+    {
+      "id": "pascals-triangle",
+      "idEH": "d2576da1-da59-4e04-b92e-fdfb3bebaf74",
+      "urlEH": "",
+      "urlSolution": "pascals-triangle",
+      "dateSolved": "2022-04-27",
+      "description": "",
+      "comment": ""
+    },
+    {
+      "id": "scary-javascript",
+      "idEH": "ca1a53ff-feb5-46cb-9e41-e51c2c9b39c0",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2022-04-27",
+      "description": "",
+      "comment": ""
+    },
+    {
+      "id": "bricks-and-water",
+      "idEH": "e8843f3a-a0e2-4c8b-9116-f05c547a0c3f",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2022-05-01",
+      "description": "",
+      "comment": ""
+    },
+    {
+      "id": "tv-channel",
+      "idEH": "5848a48b-928e-4f16-a13a-75274eb4217d",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2022-05-01",
+      "description": "",
+      "comment": ""
+    },
+    {
+      "id": "personal-data-safety",
+      "idEH": "23b90f45-503b-413c-8dc1-a98875109ae3",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2022-05-02",
+      "description": "",
+      "comment": ""
+    },
+    {
+      "id": "easter-challenge-2022",
+      "idEH": "264f37cd-9b4d-4c4c-9df9-02e4c5569485",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2022-06-02",
+      "description": "",
+      "comment": ""
+    },
+    {
+      "id": "climbing-stairs",
+      "idEH": "bef5af2e-3970-40c1-9522-da75e87557da",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2022-06-06",
+      "description": "",
+      "comment": "Originally tried to solve it with an iterative approach, but failed back then for some reason, so then instead went for a recursive solution finally."
+    },
+    {
+      "id": "advent-bakery",
+      "idEH": "96f91238-70cb-43de-8710-c1cd2bdf380b",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2022-06-16",
+      "description": "Goal was to return a list of all different (unique) possibilites on how a given amount of cookies can be placed on a given amount of plates.",
+      "comment": "Solved this mainly incorporating a recursive function"
+    },
+    {
+      "id": "matching-clients",
+      "idEH": "723ff65f-60b4-417b-9a34-170d0a085332",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2022-06-19",
+      "description": "",
+      "comment": ""
+    },
+    {
+      "id": "happy-subnetting",
+      "idEH": "8d0128ba-5751-434a-b5c5-63fa3fac9d0b",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2022-09-19",
+      "description": "",
+      "comment": ""
+    },
     {
       "id": "cinema-seat-reservation",
-      "displayName": "Cinema Seat Reservation",
       "idEH": "cd14ba5e-a1f3-4b78-b770-bea57a23db7a",
-      "urlEH": "https://platform.entwicklerheld.de/challenge/cinema-seat-reservation?technology=javascript",
-      "urlSolution": "https://github.com/pano9000/entwicklerheld/tree/main/cinema-seat-reservation"
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2022-10-08",
+      "description": "",
+      "comment": "Difficult challenge because of some \"special\" requirements, when the seats needed to be moved, which felt a bit arbitrary at times."
+    },
+    {
+      "id": "mails-to-santa",
+      "idEH": "71871b6f-d373-4f24-8283-183c883d3249",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2022-10-11",
+      "description": "",
+      "comment": ""
+    },
+    {
+      "id": "perfect-place",
+      "idEH": "2eaf5777-2520-4a3a-9a63-e8babb182250",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2022-12-18",
+      "description": "",
+      "comment": ""
+    },
+    {
+      "id": "build-a clock",
+      "idEH": "9a6c3e5d-71d6-493c-8f78-9bcbd239e930",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2023-05-07",
+      "description": "",
+      "comment": ""
+    },
+    {
+      "id": "matching-brackets",
+      "idEH": "d1acd154-b68f-4104-a360-f77d2186fae1",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2023-05-24",
+      "description": "",
+      "comment": ""
+    },
+    {
+      "id": "reverse-sms",
+      "idEH": "0e9e7bff-0997-4e73-a0ed-8c8e6ab1603f",
+      "urlEH": "",
+      "urlSolution": "reverse-sms-javascript",
+      "dateSolved": "2023-06-23",
+      "description": "",
+      "comment": ""
+    },
+    {
+      "id": "flatten-arrays",
+      "idEH": "e52b127d-c6f0-43e7-94d5-3986f0fd9c3b",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2023-06-26",
+      "description": "",
+      "comment": ""
+    },
+    {
+      "id": "scary-python",
+      "idEH": "26dd4f5a-5550-4470-8299-d32097e301b3",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2023-06-27",
+      "description": "",
+      "comment": ""
+    },
+    {
+      "id": "say-numbers",
+      "idEH": "447258e0-816a-4f6c-b0d0-e83e5c2522b1",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2023-06-30",
+      "description": "",
+      "comment": ""
+    },
+    {
+      "id": "gdv-extraction",
+      "idEH": "2ed404b3-de27-4c67-8a8e-46a4633443c8",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2023-07-02",
+      "description": "",
+      "comment": ""
+    },
+    {
+      "id": "pizza-for my friends",
+      "idEH": "5d0fe499-4832-4f88-82b6-0a4a57a69fb3",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2023-07-04",
+      "description": "",
+      "comment": ""
+    },
+    {
+      "id": "non-repeating characters",
+      "idEH": "5aa72009-4eda-4e2c-a1b4-ff0f5e6c230f",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2023-07-05",
+      "description": "",
+      "comment": ""
+    },
+    {
+      "id": "iot-office sensors",
+      "idEH": "1b96364d-e20a-47b7-a302-1bd985add1fd",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2023-07-07",
+      "description": "",
+      "comment": ""
+    },
+    {
+      "id": "change-calculator",
+      "idEH": "45514206-0b93-484b-a63c-aab14548a21f",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2023-07-11",
+      "description": "",
+      "comment": ""
+    },
+    {
+      "id": "state-machine",
+      "idEH": "de745794-96d4-43d8-8117-7c345161991e",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2023-07-11",
+      "description": "",
+      "comment": ""
+    },
+    {
+      "id": "storing-vehicle data",
+      "idEH": "91fb6cb8-3fca-4f3b-a368-d576a608ace3",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2023-07-14",
+      "description": "",
+      "comment": ""
+    },
+    {
+      "id": "maps-and polygons",
+      "idEH": "3f237f37-6776-4e8b-a12a-378749f3e97f",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2023-07-20",
+      "description": "",
+      "comment": ""
     }
   ]
 }
