@@ -1,13 +1,26 @@
 import challengeData from "./challengeData.json" assert { type: "json" }
+import {writeFile as fsWriteFile}  from "node:fs/promises";
+
 
 async function getStatsFromEntwicklerHeld() {
 
   const processedData = await processData(challengeData);
   const overviewMarkdown = createOverviewMarkdown(processedData);
-  console.log(processedData, JSON.stringify(processedData), overviewMarkdown)
+  //console.log(processedData, JSON.stringify(processedData), overviewMarkdown)
+  await writeReadmeMd(overviewMarkdown);
 
 }
 
+
+async function writeReadmeMd(content) {
+  try {
+    await fsWriteFile("../../README.md", content);
+  }
+  catch(err) {
+    console.err(err);
+    throw err;
+  }
+}
 
 async function getDataFromApi(idEH) {
 
@@ -118,3 +131,6 @@ function createOverviewMarkdown(data) {
 }
 
 
+
+
+getStatsFromEntwicklerHeld();
