@@ -14,30 +14,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout Code
         uses: actions/checkout@v3
         with:
           sparse-checkout: |
             .
             .github
 
-      - name: ls
-        run: ls
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-#      - name: Run updateReadme.js
-#        run: node updateReadme.js > README.md
+      - name: Write Update to README.md
+        run: node .github/scripts/getStatsFromEntwicklerHeld.js
 
-#      - name: Commit changes
-#       run: |
-#          git config --global user.name "GitHub Actions"
-#          git config --global user.email "actions@github.com"
-#          git add README.md
-#          git commit -m "Update README.md with new content from updateReadme.js"
-#          git push
-
-
+      - name: Commit changes
+        run: |
+            git config --global user.name "GitHub Actions"
+            git config --global user.email "actions@github.com"
+            git diff --quiet || (git add README.md && git commit -m "(docs): Update README.md") # https://github.com/simonw/til/blob/main/github-actions/commit-if-file-changed.md
+            git push
