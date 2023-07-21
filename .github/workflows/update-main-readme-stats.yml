@@ -16,27 +16,27 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
-        with:
-          sparse-checkout: |
-            .
-            .github
+      #  with:
+      #    sparse-checkout: |
+      #      .
+      #      .github
 
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
+      #- name: Setup Node.js
+      #  uses: actions/setup-node@v3
+      #  with:
+      #    node-version: '18'
 
-      - name: Write Update to README.md
+      #- name: Write Update to README.md
         run: |
           node .github/scripts/getStatsFromEntwicklerHeld.js
           cat README.md
-          ls -la
+          sed -n '21p' README.md
           git --no-pager diff
 
       - name: Commit changes
         run: |
-            cat README.md
+            sed -n '21p' README.md
             git --no-pager diff
             git config --global user.name "GitHub Actions"
             git config --global user.email "actions@github.com"
