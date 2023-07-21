@@ -28,10 +28,15 @@ jobs:
           node-version: '18'
 
       - name: Write Update to README.md
-        run: node .github/scripts/getStatsFromEntwicklerHeld.js
+        run: |
+          node .github/scripts/getStatsFromEntwicklerHeld.js
+          cat README.md
+          ls -la
+          git --no-pager diff
 
       - name: Commit changes
         run: |
+            cat README.md
             git --no-pager diff
             git config --global user.name "GitHub Actions"
             git config --global user.email "actions@github.com"
