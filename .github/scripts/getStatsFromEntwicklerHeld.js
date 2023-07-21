@@ -132,3 +132,4 @@ function createOverviewMarkdown(data) {
 
 
 await getStatsFromEntwicklerHeld();
+console.log("currentworkdir", process.cwd())
