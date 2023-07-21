@@ -6,7 +6,7 @@ on:
       - '.github/scripts/challengeData.json'
   schedule:
     - cron: "* * * * 4"
-  workflow_dispatch
+  workflow_dispatch:
 
 jobs:
   update_readme:
