@@ -1,16 +1,13 @@
 # Pascal's Triangle
 
-My solution for the ['Pascal's Triangle' Challenge](https://platform.entwicklerheld.de/challenge/pascals-triangle?technology=javascript) on the [Entwicklerheld](https://platform.entwicklerheld.de/) Code Challenge Platform.
+My solution for the ['Pascal's Triangle' Challenge](https://platform.entwicklerheld.de/challenge/pascals-triangle?technology=JavaScript) on the [EntwicklerHeld](https://platform.entwicklerheld.de/) Code Challenge Platform.
 
-Description
----
---
+## Description
 
-Challenge Info
----
-* Difficulty Level according to Entwicklerheld: `1/4 (Easy)`
-* Originally solved on `2022-Apr-27`.
 
-Comment
----
---
+## Challenge Info
+Difficulty | Overall Success Rate @EH | Overall Accepted / Solved @EH | Date Solved | Language
+---|---|---|---|---|
+▮▯▯▯ | ████████░░ 80% | 971 / 775 | 2022-04-27 | JavaScript
+
+## Comment

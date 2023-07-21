@@ -1,16 +1,14 @@
 # IoT Office Sensors
 
-My solution for the ['IoT Office Sensors' Challenge](https://platform.entwicklerheld.de/challenge/iot-office-sensors?technology=java) on the [Entwicklerheld](https://platform.entwicklerheld.de/) Code Challenge Platform.
+My solution for the ['IoT Office Sensors' Challenge](https://platform.entwicklerheld.de/challenge/iot-office-sensors?technology=Java) on the [EntwicklerHeld](https://platform.entwicklerheld.de/) Code Challenge Platform.
 
-Description
----
+## Description
 Goal was to work with byte data and converting these to integer values, taking care of unsigned/signed differences and different byte lengths
 
-Challenge Info
----
-* Difficulty Level according to Entwicklerheld: `1/4 (Easy)`
-* Originally solved on `2023-Jul-07`.
+## Challenge Info
+Difficulty | Overall Success Rate @EH | Overall Accepted / Solved @EH | Date Solved | Language
+---|---|---|---|---|
+▮▯▯▯ | ██████░░░░ 56% | 266 / 148 | 2023-07-07 | Java
 
-Comment
----
+## Comment
 Interesting look into working with bitshifting and the signed/unsigned topic :-)

@@ -1,16 +1,14 @@
 # Say Numbers
 
-My solution for the ['Say Numbers' Challenge](https://platform.entwicklerheld.de/challenge/say-numbers?technology=java) on the [Entwicklerheld](https://platform.entwicklerheld.de/) Code Challenge Platform.
+My solution for the ['Say Numbers' Challenge](https://platform.entwicklerheld.de/challenge/say-numbers?technology=Java) on the [EntwicklerHeld](https://platform.entwicklerheld.de/) Code Challenge Platform.
 
-Description
----
+## Description
 Goal was to convert numbers/integers into the English words for that number, e.g. 1000 -> "one thousand"
 
-Challenge Info
----
-* Difficulty Level according to Entwicklerheld: `2/4 (Medium)`
-* Originally solved on `2023-Jun-30`.
+## Challenge Info
+Difficulty | Overall Success Rate @EH | Overall Accepted / Solved @EH | Date Solved | Language
+---|---|---|---|---|
+▮▮▯▯ | ██████░░░░ 55% | 334 / 184 | 2023-06-30 | Java
 
-Comment
----
+## Comment
 It was my first time meddling around with Java, so I "prototyped" the solution offline in JavaScript first and then "adapted" this to Java. 

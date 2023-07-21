@@ -1,15 +1,13 @@
-# Matching Brackets
+# Matching brackets
 
-My solution for the ['Matching Brackets' Challenge](https://platform.entwicklerheld.de/challenge/matching-brackets?technology=javascript) on the [Entwicklerheld](https://platform.entwicklerheld.de/) Code Challenge Platform.
+My solution for the ['Matching brackets' Challenge](https://platform.entwicklerheld.de/challenge/matching-brackets?technology=JavaScript) on the [EntwicklerHeld](https://platform.entwicklerheld.de/) Code Challenge Platform.
 
-Description
----
---
+## Description
 
-Challenge Info
----
-* Difficulty Level according to Entwicklerheld: `1/4 (Easy)`
-* Originally solved on `2023-May-24`.
 
-Comment
----
+## Challenge Info
+Difficulty | Overall Success Rate @EH | Overall Accepted / Solved @EH | Date Solved | Language
+---|---|---|---|---|
+▮▯▯▯ | ███████░░░ 69% | 419 / 288 | 2023-05-24 | JavaScript
+
+## Comment

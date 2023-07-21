@@ -1,15 +1,13 @@
 # Build a Clock
 
-My solution for the ['Build a Clock' Challenge](https://platform.entwicklerheld.de/challenge/build-a-clock?technology=javascript) on the [Entwicklerheld](https://platform.entwicklerheld.de/) Code Challenge Platform.
+My solution for the ['Build a Clock' Challenge](https://platform.entwicklerheld.de/challenge/build-a-clock?technology=JavaScript) on the [EntwicklerHeld](https://platform.entwicklerheld.de/) Code Challenge Platform.
 
-Description
----
+## Description
 In this challenge you will built a simple clock. Your clock can show the time, add and subtract minutes and it can decide if it is equal to another one.
 
-Challenge Info
----
-* Difficulty Level according to Entwicklerheld: `1/4 (Easy)`
-* Originally solved on `2023-May-07`.
+## Challenge Info
+Difficulty | Overall Success Rate @EH | Overall Accepted / Solved @EH | Date Solved | Language
+---|---|---|---|---|
+▮▯▯▯ | ██████░░░░ 63% | 311 / 197 | 2023-05-07 | JavaScript
 
-Comment
----
+## Comment

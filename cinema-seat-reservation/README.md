@@ -1,12 +1,14 @@
- # Cinema Seat Reservation
+# Cinema Seat Reservation
 
-My solution for the ['Cinema Seat Reservation' Challenge](https://platform.entwicklerheld.de/challenge/cinema-seat-reservation?technology=javascript) on the [Entwicklerheld](https://platform.entwicklerheld.de/) Code Challenge Platform.
+My solution for the ['Cinema Seat Reservation' Challenge](https://platform.entwicklerheld.de/challenge/cinema-seat-reservation?technology=JavaScript) on the [EntwicklerHeld](https://platform.entwicklerheld.de/) Code Challenge Platform.
 
-Challenge Info
----
-* Difficulty Level according to Entwicklerheld: `4/4 (Hardcore)`
-* Originally solved on `2022-Oct-08`.
+## Description
 
-Comment
----
+
+## Challenge Info
+Difficulty | Overall Success Rate @EH | Overall Accepted / Solved @EH | Date Solved | Language
+---|---|---|---|---|
+▮▮▮▮ | █░░░░░░░░░ 12% | 443 / 53 | 2022-10-08 | JavaScript
+
+## Comment
 Difficult challenge because of some "special" requirements, when the seats needed to be moved, which felt a bit arbitrary at times.

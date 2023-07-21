@@ -1,15 +1,13 @@
 # Scary Python
 
-My solution for the ['Scary Python' Challenge](https://platform.entwicklerheld.de/challenge/challenge) on the [Entwicklerheld](https://platform.entwicklerheld.de/) Code Challenge Platform.
+My solution for the ['Scary Python' Challenge](https://platform.entwicklerheld.de/challenge/scary-python?technology=Python) on the [EntwicklerHeld](https://platform.entwicklerheld.de/) Code Challenge Platform.
 
-Description
----
+## Description
 
 
-Challenge Info
----
-* Difficulty Level according to Entwicklerheld: `1/4 (Easy)`
-* Originally solved on `2023-Jun-27`.
+## Challenge Info
+Difficulty | Overall Success Rate @EH | Overall Accepted / Solved @EH | Date Solved | Language
+---|---|---|---|---|
+▮▯▯▯ | ██████░░░░ 63% | 1762 / 1116 | 2023-06-27 | Python
 
-Comment
----
+## Comment

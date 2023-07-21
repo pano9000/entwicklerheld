@@ -1,16 +1,13 @@
-# Scary Javascript
+# Scary JavaScript
 
-My solution for the ['Scary Javascript' Challenge](https://platform.entwicklerheld.de/challenge/scary-javascript?technology=javascript) on the [Entwicklerheld](https://platform.entwicklerheld.de/) Code Challenge Platform.
+My solution for the ['Scary JavaScript' Challenge](https://platform.entwicklerheld.de/challenge/scary-javascript?technology=JavaScript) on the [EntwicklerHeld](https://platform.entwicklerheld.de/) Code Challenge Platform.
 
-Description
----
+## Description
 Goal was to mainly fix some "common Javascript mistakes" in the given code, relating to scope, type coercion, etc.
 
-Challenge Info
----
-* Difficulty Level according to Entwicklerheld: `1/4 (Easy)`
-* Originally solved on `2022-Apr-27`.
+## Challenge Info
+Difficulty | Overall Success Rate @EH | Overall Accepted / Solved @EH | Date Solved | Language
+---|---|---|---|---|
+▮▯▯▯ | ██████░░░░ 60% | 1028 / 615 | 2022-04-27 | JavaScript
 
-Comment
----
---
+## Comment

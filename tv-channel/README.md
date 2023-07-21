@@ -1,16 +1,13 @@
 # TV Channel
 
-My solution for the ['TV Channel' Challenge](https://platform.entwicklerheld.de/challenge/challenge) on the [Entwicklerheld](https://platform.entwicklerheld.de/) Code Challenge Platform.
+My solution for the ['TV Channel' Challenge](https://platform.entwicklerheld.de/challenge/tv-channel?technology=JavaScript) on the [EntwicklerHeld](https://platform.entwicklerheld.de/) Code Challenge Platform.
 
-Description
----
---
+## Description
 
-Challenge Info
----
-* Difficulty Level according to Entwicklerheld: `1/4 (Easy)`
-* Originally solved on `2022-May-01`.
 
-Comment
----
---
+## Challenge Info
+Difficulty | Overall Success Rate @EH | Overall Accepted / Solved @EH | Date Solved | Language
+---|---|---|---|---|
+▮▯▯▯ | ████░░░░░░ 42% | 1799 / 750 | 2022-05-01 | JavaScript
+
+## Comment
