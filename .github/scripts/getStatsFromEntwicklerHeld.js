@@ -77,24 +77,25 @@ async function processData(challengeData) {
 }
 
 
-
-function writeOverviewMarkDown(data) {
+function createOverviewMarkdown(data) {
 
   const lines = [];
 
   lines.push("# pano9000 EntwicklerHeld Challenges")
-  lines.push("")
+  lines.push("");
   lines.push("I use this repository to save and present my solutions for the challenges on the [EntwicklerHeld](https://platform.entwicklerheld.de/) coding challenge platform.")
   lines.push("")
   lines.push("Click on the challenge names for more details and to see the solution")
-  lines.push("")
+  lines.push("### Difficulty Levels (According to EntwicklerHeld)");
+  lines.push("");
+  lines.push("▮▯▯▯ = `Easy`", "", "▮▮▯▯ = `Medium`", "", "▮▮▮▯ = `Hard`", "", "▮▮▮▮ = `Hardcore`", "");
   lines.push("## Solved Challenges Sorted by Solution Date")
   lines.push("")
-  lines.push("Challenge Name | Difficulty | Stats (Success Rate/Accepted/Solved) | Date Solved | Language")
-  lines.push("---|---|---|---|---|")
+  lines.push("Challenge Name | Difficulty | Overall Success Rate @EH | Overall Accepted / Solved @EH | Date Solved | Language")
+  lines.push("---|---|---|---|---|---|");
 
   data.forEach(entry => {
-    lines.push(`[${entry.title}](${entry.urlSolution}) | ${entry.difficulty.bar} / \`${entry.difficulty.name}\` | ${entry.statistics.succesRateBar} ${entry.statistics.succesRate}% / ${entry.statistics.acceptancesCount} / ${entry.statistics.solutionsCount} | ${entry.dateSolved} | ${entry.technology}`)
+    lines.push(`[${entry.title}](${entry.urlSolution}) | ${entry.difficulty.bar} | ${entry.statistics.succesRateBar} ${entry.statistics.succesRate}% | ${entry.statistics.acceptancesCount} / ${entry.statistics.solutionsCount} | ${entry.dateSolved} | ${entry.language}`)
   })
 
   return lines.join("\n");
