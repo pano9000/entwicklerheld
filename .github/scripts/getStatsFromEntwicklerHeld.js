@@ -117,4 +117,4 @@ function createOverviewMarkdown(data) {
 
 }
 
-getStatsFromEntwicklerHeld("3f237f37-6776-4e8b-a12a-378749f3e97f", "https://platform.entwicklerheld.de/challenge/maps-and-polygons?technology=java");
+
