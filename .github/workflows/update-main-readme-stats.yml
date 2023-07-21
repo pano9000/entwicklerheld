@@ -21,10 +21,13 @@ jobs:
             .
             .github
 
-#      - name: Setup Node.js
-#        uses: actions/setup-node@v2
-#        with:
-#          node-version: '14' # You can change this to your preferred Node.js version
+      - name: ls
+        run: ls
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
 
 #      - name: Run updateReadme.js
 #        run: node updateReadme.js > README.md
