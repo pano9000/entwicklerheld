@@ -5,8 +5,8 @@
     {
       "id": "anagram",
       "idEH": "ffa242b6-5210-454d-9a83-c9b28ccd024a",
-      "urlEH": "anagram?technology=javascript",
-      "urlSolution": "anagram",
+      "urlEH": "",
+      "urlSolution": "",
       "dateSolved": "2022-04-24",
       "description": "Goal is to create a function that checks, if two given words are anagrams, i.e. if they consist of the identical letter set, but are differently arranged (e.g. `car` and `arc`)",
       "comment": ""
@@ -14,8 +14,8 @@
     {
       "id": "fizzbuzz",
       "idEH": "9c778212-5cf0-4b5d-b2b5-49bea7eb1d53",
-      "urlEH": "fizzbuzz?technology=javascript",
-      "urlSolution": "fizzbuzz",
+      "urlEH": "",
+      "urlSolution": "",
       "dateSolved": "2022-04-24",
       "description":"Goal is to create a function that:\\\\n* returns \\'fizz\\', when given number is divisble by 3\\\\n* returns \\'buzz\\', when given number is divisible by 5\\\\n* returns \\'fizzbuzz\\', when given number is divisble be 3 AND 5",
       "comment": ""
@@ -24,7 +24,7 @@
       "id": "pascals-triangle",
       "idEH": "d2576da1-da59-4e04-b92e-fdfb3bebaf74",
       "urlEH": "",
-      "urlSolution": "pascals-triangle",
+      "urlSolution": "",
       "dateSolved": "2022-04-27",
       "description": "",
       "comment": ""
@@ -35,7 +35,7 @@
       "urlEH": "",
       "urlSolution": "",
       "dateSolved": "2022-04-27",
-      "description": "",
+      "description": "Goal was to mainly fix some \"common Javascript mistakes\" in the given code, relating to scope, type coercion, etc.",
       "comment": ""
     },
     {
@@ -62,8 +62,8 @@
       "urlEH": "",
       "urlSolution": "",
       "dateSolved": "2022-05-02",
-      "description": "",
-      "comment": ""
+      "description": "Goal is to create a function that gets the personal data of a given `user_id`, and returns it either masked, or unmasked, depending on status of authentication.",
+      "comment": "Challenge was not in Javascript, but PHP, but I gave it a shot anyways. I'm not a PHP guy, so the solution might be clumsy."
     },
     {
       "id": "easter-challenge-2022",
@@ -71,8 +71,8 @@
       "urlEH": "",
       "urlSolution": "",
       "dateSolved": "2022-06-02",
-      "description": "",
-      "comment": ""
+      "description": "Goal is to create a function that can calculate the Easter holidays for any given year",
+      "comment": "Challenge was not in Javascript, but PHP, but I gave it a shot anyways. I'm not a PHP guy, so the solution might be clumsy."
     },
     {
       "id": "climbing-stairs",
@@ -80,7 +80,7 @@
       "urlEH": "",
       "urlSolution": "",
       "dateSolved": "2022-06-06",
-      "description": "",
+      "description": "Goal is to return all different ways are there to get up a given amount of steps, when you can take either 1 or 2 steps at a time.",
       "comment": "Originally tried to solve it with an iterative approach, but failed back then for some reason, so then instead went for a recursive solution finally."
     },
     {
@@ -98,8 +98,8 @@
       "urlEH": "",
       "urlSolution": "",
       "dateSolved": "2022-06-19",
-      "description": "",
-      "comment": ""
+      "description": "The goal is to create an algorithm for finding and merging \"similar clients\", based on the provided client information (first name, last name, phone, etc.).\\nE.g. when a user creates a new account the provided information should be checked and determine, if they are indeed a new user, or if we can find an already existing matching account for that user.\\nDepending on that either create or update the client in the  \"Client Database\".\\nBonus task is to also implement a \"fuzzy/soft matching\" to also detect and match clients even with typos or small deviations in the client info.",
+      "comment": "Interesting challenge, overall. The \"fuzzy/soft matching\" part was a a bit more challenging, due to the fact that you would need to somehow match smaller typos with the correct entry. My solution for that was to incorporate `Levenshtein Distance` calculations, which calculates the difference between two strings, and allowed to do some \"soft matching\" this way."
     },
     {
       "id": "happy-subnetting",
@@ -108,7 +108,7 @@
       "urlSolution": "",
       "dateSolved": "2022-09-19",
       "description": "",
-      "comment": ""
+      "comment": "In retrospect, my approach to solve this was a bit crude, especially in regards to all of those bit calculations. Using actual bit shifting would probably have been a better/nicer/faster approach."
     },
     {
       "id": "cinema-seat-reservation",
@@ -125,7 +125,7 @@
       "urlEH": "",
       "urlSolution": "",
       "dateSolved": "2022-10-11",
-      "description": "",
+      "description": "Goal is to create a function that checks if a given email is received within predefined business hours/days. If that is not the case the function should return the next \"possible\" delivery date (i.e. the next business hours).",
       "comment": ""
     },
     {
@@ -134,8 +134,8 @@
       "urlEH": "",
       "urlSolution": "",
       "dateSolved": "2022-12-18",
-      "description": "",
-      "comment": ""
+      "description": "Goal here was to find the optimal places to place a varying amount of \"ATMs\" within a given `Region`, with multiple `Citys`. The idea is to distribute the ATMs in the Region's Cities in a way which will make sure that the distances between a city and an ATM are kept to a minimum.",
+      "comment": "The `City.js` and `Region.js` classes were kindly already provided by the challenge. Actual solution is in `perfect-place.js`"
     },
     {
       "id": "build-a clock",
@@ -143,7 +143,7 @@
       "urlEH": "",
       "urlSolution": "",
       "dateSolved": "2023-05-07",
-      "description": "",
+      "description": "In this challenge you will built a simple clock. Your clock can show the time, add and subtract minutes and it can decide if it is equal to another one.",
       "comment": ""
     },
     {
@@ -161,7 +161,7 @@
       "urlEH": "",
       "urlSolution": "reverse-sms-javascript",
       "dateSolved": "2023-06-23",
-      "description": "",
+      "description": "Challenge consists of essentially creating a function to reverse provided text and counting the palindromes inside that text, and using the Twilio client to \"send\" that info as SMS. Second part was to implement a function that is run, when Twilio calls a webhook, that reverses and then sends the received information from the webhook.",
       "comment": ""
     },
     {
@@ -170,7 +170,7 @@
       "urlEH": "",
       "urlSolution": "",
       "dateSolved": "2023-06-26",
-      "description": "",
+      "description": "Given a nested list, flatten it to a single-level list by removing any nesting.",
       "comment": ""
     },
     {
@@ -188,8 +188,8 @@
       "urlEH": "",
       "urlSolution": "",
       "dateSolved": "2023-06-30",
-      "description": "",
-      "comment": ""
+      "description": "Goal was to convert numbers/integers into the English words for that number, e.g. 1000 -> \"one thousand\"",
+      "comment": "It was my first time meddling around with Java, so I \"prototyped\" the solution offline in JavaScript first and then \"adapted\" this to Java. "
     },
     {
       "id": "gdv-extraction",
@@ -197,35 +197,35 @@
       "urlEH": "",
       "urlSolution": "",
       "dateSolved": "2023-07-02",
-      "description": "",
+      "description": "Build a simple parser for some of the fields in the GDV format, a file format used by 'Gesamtverband der Deutschen Versicherungswirtschaft' for exchanging information in Germany's insurance industry.",
       "comment": ""
     },
     {
-      "id": "pizza-for my friends",
+      "id": "pizza-for-my-friends",
       "idEH": "5d0fe499-4832-4f88-82b6-0a4a57a69fb3",
       "urlEH": "",
-      "urlSolution": "",
+      "urlSolution": "pizza-for-my-friends",
       "dateSolved": "2023-07-04",
-      "description": "",
-      "comment": ""
+      "description": "Goal of the challenge was to create two functions: One that matches a list of pizzas with different toppings against a list of persons with certain likes/dislikes.\\nThe other function was essentially the same, but the other way around: Matching a list of persons against a pizza's different toppings, to determine, which persons might like that particular pizza.",
+      "comment": "This was promoted as a \"JavaScript (React)\" challenge, but the React part of the challenge was tiny, the more interesting part was the friends/pizza/toppings matching part, which was easily done.\\nI only had a hard time trying to refactor the first non-DRY solution, but I did manage in the end."
     },
     {
-      "id": "non-repeating characters",
+      "id": "non-repeating-characters",
       "idEH": "5aa72009-4eda-4e2c-a1b4-ff0f5e6c230f",
       "urlEH": "",
       "urlSolution": "",
       "dateSolved": "2023-07-05",
-      "description": "",
+      "description": "Write a function that returns the first letter in a string, which is not repeated in the rest of the string",
       "comment": ""
     },
     {
-      "id": "iot-office sensors",
+      "id": "iot-office-sensors",
       "idEH": "1b96364d-e20a-47b7-a302-1bd985add1fd",
       "urlEH": "",
       "urlSolution": "",
       "dateSolved": "2023-07-07",
-      "description": "",
-      "comment": ""
+      "description": "Goal was to work with byte data and converting these to integer values, taking care of unsigned/signed differences and different byte lengths",
+      "comment": "Interesting look into working with bitshifting and the signed/unsigned topic :-)"
     },
     {
       "id": "change-calculator",
@@ -233,8 +233,8 @@
       "urlEH": "",
       "urlSolution": "",
       "dateSolved": "2023-07-11",
-      "description": "",
-      "comment": ""
+      "description": "Goal was to calculate the minimum number of coins required to give out a certain amount of change.",
+      "comment": "Quickly recognized the problem to be solveable by a \"best sum\" dynamic programming approach, which I then implemented and also included memoization, to improve performance"
     },
     {
       "id": "state-machine",
@@ -242,7 +242,7 @@
       "urlEH": "",
       "urlSolution": "",
       "dateSolved": "2023-07-11",
-      "description": "",
+      "description": "Goal was to implement a simple \"State Machine\" that checks the next allowed transitions from state to state. The second part included implementing an IBAN checksum checker, that was used to then control, if the transition to the next state was allowed.",
       "comment": ""
     },
     {
@@ -251,8 +251,8 @@
       "urlEH": "",
       "urlSolution": "",
       "dateSolved": "2023-07-14",
-      "description": "",
-      "comment": ""
+      "description": "Challenge consisted of two parts (\"stages\"), which involved working with a SQLite database and storing/retrieving data related to VIN (Vehicle Identification Number) and later also optimizing database file size for \"embedded devices\".",
+      "comment": "\"Stage 1\" was easily solved after reading the docs, on how to work with SQLite and Java.\\n\"Stage 2\" was a lot more tricky, as it involved the requirement to minimize the database size – which involved some creative tricks, which Entwicklerheld also hinted at in their description.\\nFirst attempt to save space by splitting up the VIN into its 3 parts (WMI, VDS and VIS) and saving these in separate tables, referencing only the row IDs of the \"less unique\" WMI and VDS parts, did not properly work for this scenario, as the additional page sizes of these tables was inflating the database size quite a bit.\\nI do believe, that in a production environment, splitting it up would be the correct way to go, as the test cases here, were only limited to 999 entries.\\nSecond attempt was then to use a custom character encoding map, as the VIN consist of a `0-9`, `A-Z` - minus the letters `I`, `O`, `Q` -> character set of 33 characters.\\nThis would fit into 6 bits, which I tried to store as BLOB, but unfortunately the smallest size SQLite can save is 1 byte.\\nSo instead went with storing the VIN encoded as integers, which did save enough space for the challenge to go through.\\n"
     },
     {
       "id": "maps-and polygons",
@@ -260,8 +260,8 @@
       "urlEH": "",
       "urlSolution": "",
       "dateSolved": "2023-07-20",
-      "description": "",
-      "comment": ""
+      "description": "Challenge consists of two scenarios:\\n1) Was to calculate the area of a given (irregular) polygon\\n2) Placing a label on a map for each of the given polygons - following certain rules, like e.g. the label not being allowed to touch the polygon and not being allowed to be \"outside\" of the map\\n",
+      "comment": "Interesting challenge for me, as I did not really pay any attention during my Maths classes :-).\\nThe first scenario was nevertheless easily solved after finding out about the `Shoelace Algorithm/Formula`, which I just needed to turn into Java code.\\nThe second scenario was the more challenging one, as it involved finding a way to detect \"collisions\" between the label and the polygon and the map borders.\\n"
     }
   ]
 }
