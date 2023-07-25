@@ -6,9 +6,9 @@ My solution for the ['Climbing Stairs' Challenge](https://platform.entwicklerhel
 Goal is to return all different ways are there to get up a given amount of steps, when you can take either 1 or 2 steps at a time.
 
 ## Challenge Info
-Difficulty | Overall Success Rate @EH | Overall Accepted / Solved @EH | Date Solved | Language
+Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ███████░░░ 69% | 813 / 562 | 2022-06-06 | JavaScript
+▮▯▯▯ | ███████░░░ 69% | 563 / 814 | 2022-06-06 | JavaScript
 
 ## Comment
 Originally tried to solve it with an iterative approach, but failed back then for some reason, so then instead went for a recursive solution finally.

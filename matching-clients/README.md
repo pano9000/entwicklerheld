@@ -12,9 +12,9 @@ Depending on that either create or update the client in the  "Client Database".
 Bonus task is to also implement a "fuzzy/soft matching" to also detect and match clients even with typos or small deviations in the client info.
 
 ## Challenge Info
-Difficulty | Overall Success Rate @EH | Overall Accepted / Solved @EH | Date Solved | Language
+Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | █████░░░░░ 45% | 395 / 178 | 2022-06-19 | JavaScript
+▮▮▯▯ | █████░░░░░ 45% | 178 / 395 | 2022-06-19 | JavaScript
 
 ## Comment
 Interesting challenge, overall. The "fuzzy/soft matching" part was a a bit more challenging, due to the fact that you would need to somehow match smaller typos with the correct entry. My solution for that was to incorporate `Levenshtein Distance` calculations, which calculates the difference between two strings, and allowed to do some "soft matching" this way.

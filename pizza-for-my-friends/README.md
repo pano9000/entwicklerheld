@@ -8,9 +8,9 @@ Goal of the challenge was to create two functions: One that matches a list of pi
 The other function was essentially the same, but the other way around: Matching a list of persons against a pizza's different toppings, to determine, which persons might like that particular pizza.
 
 ## Challenge Info
-Difficulty | Overall Success Rate @EH | Overall Accepted / Solved @EH | Date Solved | Language
+Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ███░░░░░░░ 30% | 770 / 232 | 2023-07-04 | JavaScript
+▮▮▯▯ | ███░░░░░░░ 30% | 234 / 774 | 2023-07-04 | JavaScript
 
 ## Comment
 This was promoted as a "JavaScript (React)" challenge, but the React part of the challenge was tiny, the more interesting part was the friends/pizza/toppings matching part, which was easily done.

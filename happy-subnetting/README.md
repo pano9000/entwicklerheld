@@ -6,9 +6,9 @@ My solution for the ['Happy Subnetting' Challenge](https://platform.entwicklerhe
 
 
 ## Challenge Info
-Difficulty | Overall Success Rate @EH | Overall Accepted / Solved @EH | Date Solved | Language
+Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▮▯ | ██░░░░░░░░ 22% | 213 / 47 | 2022-09-19 | JavaScript
+▮▮▮▯ | ██░░░░░░░░ 22% | 47 / 213 | 2022-09-19 | JavaScript
 
 ## Comment
 In retrospect, my approach to solve this was a bit crude, especially in regards to all of those bit calculations. Using actual bit shifting would probably have been a better/nicer/faster approach.

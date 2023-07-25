@@ -6,9 +6,9 @@ My solution for the ['IoT Office Sensors' Challenge](https://platform.entwickler
 Goal was to work with byte data and converting these to integer values, taking care of unsigned/signed differences and different byte lengths
 
 ## Challenge Info
-Difficulty | Overall Success Rate @EH | Overall Accepted / Solved @EH | Date Solved | Language
+Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ██████░░░░ 56% | 266 / 148 | 2023-07-07 | Java
+▮▯▯▯ | ██████░░░░ 56% | 149 / 267 | 2023-07-07 | Java
 
 ## Comment
 Interesting look into working with bitshifting and the signed/unsigned topic :-)

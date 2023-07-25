@@ -6,8 +6,8 @@ My solution for the ['Mails to Santa' Challenge](https://platform.entwicklerheld
 Goal is to create a function that checks if a given email is received within predefined business hours/days. If that is not the case the function should return the next "possible" delivery date (i.e. the next business hours).
 
 ## Challenge Info
-Difficulty | Overall Success Rate @EH | Overall Accepted / Solved @EH | Date Solved | Language
+Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ████░░░░░░ 43% | 296 / 127 | 2022-10-11 | PHP
+▮▯▯▯ | ████░░░░░░ 43% | 128 / 297 | 2022-10-11 | PHP
 
 ## Comment
