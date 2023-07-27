@@ -8,6 +8,6 @@ In this challenge you will built a simple clock. Your clock can show the time, a
 ## Challenge Info
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ██████░░░░ 64% | 207 / 321 | 2023-05-07 | JavaScript
+▮▯▯▯ | ███████░░░ 65% | 208 / 321 | 2023-05-07 | JavaScript
 
 ## Comment
