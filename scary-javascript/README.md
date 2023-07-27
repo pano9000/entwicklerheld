@@ -8,6 +8,6 @@ Goal was to mainly fix some "common Javascript mistakes" in the given code, rela
 ## Challenge Info
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ██████░░░░ 60% | 615 / 1028 | 2022-04-27 | JavaScript
+▮▯▯▯ | ██████░░░░ 60% | 615 / 1029 | 2022-04-27 | JavaScript
 
 ## Comment
