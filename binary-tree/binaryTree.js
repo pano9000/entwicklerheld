@@ -12,32 +12,9 @@ export function printTree(treeNode) {
         const currentDepth = currentNode.value.depth;
         if (result[currentDepth] === undefined) { result[currentDepth] = [] };
         result[currentDepth].push(currentNode.value.value)
-
     }
     console.log(result)
-
     return result.join("\n");
-
-    //const result = recursivePrintTree(treeNode);
-    //console.log("resuu", result)
-    /**
-     * [ 1 ], [ 2, 3 ], [ 4, 5, 6, 7 ]
-     * |    1
-     * |   / \
-     * |  2   3  |
-     * | / \ / \
-     * |4  5 6  7 |
-     */
-
-    /*
-
-             [ 1 ]          |
-                            |
-        [ 2 ]     [ 3 ]     |
-                            |
-    [ 4 ] [ 5 ] [ 6 ] [ 7 ] |
-
-    */
 
 }
 
@@ -58,86 +35,83 @@ function* traverseTreeBFS(treeNode) {
             queue.push(currentNode.right)
         }
 
-        if (tempDepth % 2**depth === 0) {
+        const maxNodesInCurrentDepth = 2**depth;
+        if (tempDepth % maxNodesInCurrentDepth === 0) {
             depth++;
             tempDepth = 1;
         } else {
             tempDepth++;
         }
-
     }
 }
 
-export function checkTreeEqualness(treeNode1, treeNode2){
-    const g1 = traverseTreeBFS(treeNode1);
-    const g2 = traverseTreeBFS(treeNode2);
+function* mirrorTree(t) {
 
-    while(true)
-    {
-        let currG1 = g1.next();
-        let currG2 = g2.next();
-        if (currG1.done && currG2.done) return true;
-        if (currG1.value.value !== currG2.value.value) return false;
+    //I need to work with a queue here it seems
+    let tree = t;
+    let count = 0;
+    //let treeDir = 
+    //if (count == 0)
+    current
+    while(true) {
+        if (count === 1) {
+            console.log("in 1 yielllld")
+
+            count = 0;
+            console.log("mirrrtrrr", tree, "yieeeeld")
+            tree.right = yield;
+        } else {
+            count++;
+            console.log("mirrrtrrr", tree, "yieeeeld")
+            tree.left = yield;
+        }
+        console.log("after else yielllld", new Date())
+    }
+}
+
+// Step through each node and check if same or not -> exits early, if there is a difference
+export function checkTreeEqualness(treeNode1, treeNode2){
+
+    const treeGenerators = [traverseTreeBFS(treeNode1), traverseTreeBFS(treeNode2)];
+    
+    while(true){
+        const currentSteps = [treeGenerators[0].next(), treeGenerators[1].next()];
+        if (currentSteps[0].done && currentSteps[1].done) return true;
+        if (currentSteps[0].value.value !== currentSteps[1].value.value) return false;
     }
 
 }
 
 export function reverse(treeNode) {
 
-    //reversedNode.left = treeNode.right
-    //reversedNode.right = treeNode.left
+    const reversedTreeNode = JSON.parse(JSON.stringify(treeNode));
+    const queue = [reversedTreeNode];
 
-    //this would be the "lazy"/"cheat" version of a solution, as it just reverses the tree visualization, but does not produce a proper Tree
-    /*
-    const a = printTree(treeNode);
-    console.log("a", a)
-    const b = a.map( (entry, index) => {
-        if (index == 0) return entry;
+    while (queue.length > 0) {
 
-        return entry.reverse();
-    })
-    console.log("b", b)
+        const currentNode = queue.shift();
 
-    return b;
-    */
-    const g1 = traverseTreeBFS(treeNode);
+        //shift
+        if (currentNode !== null) {
+            let tempNode = currentNode.left;
+            currentNode.left = currentNode.right;
+            currentNode.right = tempNode;
+        }
+        //
 
+        if (currentNode.left !== null) {
+            queue.push(currentNode.left)
+        }
 
-    g1.next(); // skip first
-    const reversedNode = new TreeNode(treeNode.value, null, null);
-    let currentDepth = 0;
-    /*
-
-        [1]
-        [2, 3]
-        [4,5,6,7]
-
-        [1]
-        [3, 2]
-        [7, 6, 5, 4]
-        
-        { 
-            val: 1,
-            left: {
-                val: 3,
-                left: 
-            }
+        if (currentNode.right !== null) {
+            queue.push(currentNode.right)
         }
 
 
-    */
-    while(true) {
-    
-        let currentVal = g1.next();
-        let nextVal = g1.next();
-        console.log("reversee", currentVal.value, nextVal)
-
-        if (currentVal.done) break;
     }
 
-    //reverse here
+    console.log("reverse", printTree(reversedTreeNode));
 
-    console.log(printTree(reversedNode), printTree(treeNode));
-    // implement this in scenario 3
-    return treeNode;
+    return reversedTreeNode
+
 }
