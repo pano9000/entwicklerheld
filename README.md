@@ -47,13 +47,13 @@ Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted
 [Change Calculator](https://github.com/pano9000/entwicklerheld/tree/main/change-calculator) | ▮▮▯▯ | ███░░░░░░░ 34% | 104 / 304 | 2023-07-11 | Java
 [State Machine](https://github.com/pano9000/entwicklerheld/tree/main/state-machine) | ▮▮▯▯ | ███████░░░ 69% | 652 / 944 | 2023-07-11 | Java
 [Storing vehicle data](https://github.com/pano9000/entwicklerheld/tree/main/storing-vehicle-data) | ▮▮▯▯ | █████░░░░░ 45% | 219 / 487 | 2023-07-14 | Java
-[Maps and Polygons](https://github.com/pano9000/entwicklerheld/tree/main/maps-and-polygons) | ▮▮▮▯ | ███░░░░░░░ 26% | 36 / 136 | 2023-07-20 | Java
+[Maps and Polygons](https://github.com/pano9000/entwicklerheld/tree/main/maps-and-polygons) | ▮▮▮▯ | ███░░░░░░░ 27% | 37 / 136 | 2023-07-20 | Java
 ## Solved Challenges Sorted by Difficulty, then Solution Date
 
 Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|---|
 [Cinema Seat Reservation](https://github.com/pano9000/entwicklerheld/tree/main/cinema-seat-reservation) | ▮▮▮▮ | █░░░░░░░░░ 12% | 53 / 443 | 2022-10-08 | JavaScript
-[Maps and Polygons](https://github.com/pano9000/entwicklerheld/tree/main/maps-and-polygons) | ▮▮▮▯ | ███░░░░░░░ 26% | 36 / 136 | 2023-07-20 | Java
+[Maps and Polygons](https://github.com/pano9000/entwicklerheld/tree/main/maps-and-polygons) | ▮▮▮▯ | ███░░░░░░░ 27% | 37 / 136 | 2023-07-20 | Java
 [Happy Subnetting](https://github.com/pano9000/entwicklerheld/tree/main/happy-subnetting) | ▮▮▮▯ | ██░░░░░░░░ 22% | 47 / 213 | 2022-09-19 | JavaScript
 [Storing vehicle data](https://github.com/pano9000/entwicklerheld/tree/main/storing-vehicle-data) | ▮▮▯▯ | █████░░░░░ 45% | 219 / 487 | 2023-07-14 | Java
 [Change Calculator](https://github.com/pano9000/entwicklerheld/tree/main/change-calculator) | ▮▮▯▯ | ███░░░░░░░ 34% | 104 / 304 | 2023-07-11 | Java
