@@ -8,6 +8,6 @@ Goal was to implement a simple "State Machine" that checks the next allowed tran
 ## Challenge Info
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ███████░░░ 69% | 652 / 944 | 2023-07-11 | Java
+▮▮▯▯ | ███████░░░ 69% | 653 / 944 | 2023-07-11 | Java
 
 ## Comment
