@@ -8,7 +8,7 @@ Goal was to work with byte data and converting these to integer values, taking c
 ## Challenge Info
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ██████░░░░ 56% | 149 / 267 | 2023-07-07 | Java
+▮▯▯▯ | ██████░░░░ 56% | 151 / 268 | 2023-07-07 | Java
 
 ## Comment
 Interesting look into working with bitshifting and the signed/unsigned topic :-)

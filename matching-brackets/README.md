@@ -8,6 +8,6 @@ My solution for the ['Matching brackets' Challenge](https://platform.entwicklerh
 ## Challenge Info
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ███████░░░ 69% | 290 / 421 | 2023-05-24 | JavaScript
+▮▯▯▯ | ███████░░░ 69% | 291 / 423 | 2023-05-24 | JavaScript
 
 ## Comment

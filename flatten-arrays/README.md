@@ -8,6 +8,6 @@ Given a nested list, flatten it to a single-level list by removing any nesting.
 ## Challenge Info
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ████████░░ 79% | 319 / 406 | 2023-06-26 | Python
+▮▯▯▯ | ████████░░ 78% | 326 / 417 | 2023-06-26 | Python
 
 ## Comment
