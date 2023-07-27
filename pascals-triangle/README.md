@@ -8,6 +8,6 @@ My solution for the ['Pascal's Triangle' Challenge](https://platform.entwicklerh
 ## Challenge Info
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ████████░░ 80% | 778 / 974 | 2022-04-27 | JavaScript
+▮▯▯▯ | ████████░░ 80% | 778 / 975 | 2022-04-27 | JavaScript
 
 ## Comment
