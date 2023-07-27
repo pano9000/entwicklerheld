@@ -37,7 +37,7 @@ Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted
 [Build a Clock](https://github.com/pano9000/entwicklerheld/tree/main/build-a-clock) | ▮▯▯▯ | ███████░░░ 65% | 208 / 322 | 2023-05-07 | JavaScript
 [Matching brackets](https://github.com/pano9000/entwicklerheld/tree/main/matching-brackets) | ▮▯▯▯ | ███████░░░ 69% | 291 / 423 | 2023-05-24 | JavaScript
 [Reverse SMS](https://github.com/pano9000/entwicklerheld/tree/main/reverse-sms-javascript) | ▮▮▯▯ | ██░░░░░░░░ 22% | 24 / 109 | 2023-06-23 | JavaScript
-[Flatten Arrays](https://github.com/pano9000/entwicklerheld/tree/main/flatten-arrays) | ▮▯▯▯ | ████████░░ 78% | 327 / 419 | 2023-06-26 | Python
+[Flatten Arrays](https://github.com/pano9000/entwicklerheld/tree/main/flatten-arrays) | ▮▯▯▯ | ████████░░ 78% | 327 / 420 | 2023-06-26 | Python
 [Scary Python](https://github.com/pano9000/entwicklerheld/tree/main/scary-python) | ▮▯▯▯ | ██████░░░░ 63% | 1118 / 1764 | 2023-06-27 | Python
 [Say Numbers](https://github.com/pano9000/entwicklerheld/tree/main/say-numbers) | ▮▮▯▯ | ██████░░░░ 55% | 188 / 343 | 2023-06-30 | Java
 [GDV Extraction](https://github.com/pano9000/entwicklerheld/tree/main/gdv-extraction) | ▮▮▯▯ | ████░░░░░░ 41% | 56 / 135 | 2023-07-02 | JavaScript
@@ -68,7 +68,7 @@ Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted
 [IoT Office Sensors](https://github.com/pano9000/entwicklerheld/tree/main/iot-office-sensors) | ▮▯▯▯ | ██████░░░░ 56% | 151 / 268 | 2023-07-07 | Java
 [Non Repeating Characters](https://github.com/pano9000/entwicklerheld/tree/main/non-repeating-characters) | ▮▯▯▯ | ███████░░░ 71% | 1614 / 2271 | 2023-07-05 | Python
 [Scary Python](https://github.com/pano9000/entwicklerheld/tree/main/scary-python) | ▮▯▯▯ | ██████░░░░ 63% | 1118 / 1764 | 2023-06-27 | Python
-[Flatten Arrays](https://github.com/pano9000/entwicklerheld/tree/main/flatten-arrays) | ▮▯▯▯ | ████████░░ 78% | 327 / 419 | 2023-06-26 | Python
+[Flatten Arrays](https://github.com/pano9000/entwicklerheld/tree/main/flatten-arrays) | ▮▯▯▯ | ████████░░ 78% | 327 / 420 | 2023-06-26 | Python
 [Matching brackets](https://github.com/pano9000/entwicklerheld/tree/main/matching-brackets) | ▮▯▯▯ | ███████░░░ 69% | 291 / 423 | 2023-05-24 | JavaScript
 [Build a Clock](https://github.com/pano9000/entwicklerheld/tree/main/build-a-clock) | ▮▯▯▯ | ███████░░░ 65% | 208 / 322 | 2023-05-07 | JavaScript
 [Mails to Santa](https://github.com/pano9000/entwicklerheld/tree/main/mails-to-santa) | ▮▯▯▯ | ████░░░░░░ 43% | 128 / 297 | 2022-10-11 | PHP
