@@ -105,16 +105,16 @@ function createOverviewMarkdownFile(data) {
   lines.push("▮▯▯▯ = `Easy`", "", "▮▮▯▯ = `Medium`", "", "▮▮▮▯ = `Hard`", "", "▮▮▮▮ = `Hardcore`", "");
   lines.push("## Solved Challenges Sorted by Solution Date");
   lines.push("");
-  lines.push("Challenge Name | Difficulty | Overall Success Rate @EH | Overall Accepted / Solved @EH | Date Solved | Language");
+  lines.push("Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language");
   lines.push(getTableHeadingMarkdown(lines));
 
   data.forEach(entry => {
-    lines.push(`[${entry.title}](${entry.urlSolution}) | ${entry.difficulty.bar} | ${entry.statistics.succesRateBar} ${entry.statistics.succesRate}% | ${entry.statistics.acceptancesCount} / ${entry.statistics.solutionsCount} | ${entry.dateSolved} | ${entry.language}`)
+    lines.push(`[${entry.title}](${entry.urlSolution}) | ${entry.difficulty.bar} | ${entry.statistics.succesRateBar} ${entry.statistics.succesRate}% | ${entry.statistics.solutionsCount} / ${entry.statistics.acceptancesCount} | ${entry.dateSolved} | ${entry.language}`)
   })
 
   lines.push("## Solved Challenges Sorted by Difficulty, then Solution Date")
   lines.push("")
-  lines.push("Challenge Name | Difficulty | Overall Success Rate @EH | Overall Accepted / Solved @EH | Date Solved | Language")
+  lines.push("Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language")
   lines.push(getTableHeadingMarkdown(lines));
 
 
@@ -124,7 +124,7 @@ function createOverviewMarkdownFile(data) {
   data.sort( (a, b) => b.difficulty.complexity - a.difficulty.complexity || new Date(b.dateSolved) - new Date(a.dateSolved));
 
   data.forEach(entry => {
-    lines.push(`[${entry.title}](${entry.urlSolution}) | ${entry.difficulty.bar} | ${entry.statistics.succesRateBar} ${entry.statistics.succesRate}% | ${entry.statistics.acceptancesCount} / ${entry.statistics.solutionsCount} | ${entry.dateSolved} | ${entry.language}`)
+    lines.push(`[${entry.title}](${entry.urlSolution}) | ${entry.difficulty.bar} | ${entry.statistics.succesRateBar} ${entry.statistics.succesRate}% | ${entry.statistics.solutionsCount} / ${entry.statistics.acceptancesCount} | ${entry.dateSolved} | ${entry.language}`)
   })
 
 
@@ -149,9 +149,9 @@ function createSingleMarkdownFiles(data) {
     lines.push(entry.description.replaceAll("\\n", "\n\n"));
     lines.push("");
     lines.push("## Challenge Info")
-    lines.push("Difficulty | Overall Success Rate @EH | Overall Accepted / Solved @EH | Date Solved | Language");
+    lines.push("Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language");
     lines.push(getTableHeadingMarkdown(lines));
-    lines.push(`${entry.difficulty.bar} | ${entry.statistics.succesRateBar} ${entry.statistics.succesRate}% | ${entry.statistics.acceptancesCount} / ${entry.statistics.solutionsCount} | ${entry.dateSolved} | ${entry.language}`);
+    lines.push(`${entry.difficulty.bar} | ${entry.statistics.succesRateBar} ${entry.statistics.succesRate}% | ${entry.statistics.solutionsCount} / ${entry.statistics.acceptancesCount} | ${entry.dateSolved} | ${entry.language}`);
     lines.push("");
     lines.push("## Comment");
     lines.push(entry.comment.replaceAll("\\n", "\n\n"));

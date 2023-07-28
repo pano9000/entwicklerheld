@@ -12,8 +12,8 @@ Goal is to create a function that:\
 * returns \'fizzbuzz\', when given number is divisble be 3 AND 5
 
 ## Challenge Info
-Difficulty | Overall Success Rate @EH | Overall Accepted / Solved @EH | Date Solved | Language
+Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ███████░░░ 70% | 4449 / 3095 | 2022-04-24 | JavaScript
+▮▯▯▯ | ███████░░░ 70% | 3103 / 4461 | 2022-04-24 | JavaScript
 
 ## Comment
