@@ -1,4 +1,4 @@
-import 'regenerator-runtime/runtime' //required due to Babel
+//import 'regenerator-runtime/runtime' //required on EntwicklerHeld due to Babel
 
 
 function* getBFSTreeTraversalGenerator(treeNode, options = { reverse: false }) {
