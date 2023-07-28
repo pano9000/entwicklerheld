@@ -3,7 +3,7 @@
 I use this repository to save and present my solutions for the challenges on the [EntwicklerHeld](https://platform.entwicklerheld.de/) coding challenge platform.
 
 Click on the challenge names for more details and to see the solution.
-List Last updated: 2023-07-27
+List Last updated: 2023-07-28
 
 ### Difficulty Levels (According to EntwicklerHeld)
 
