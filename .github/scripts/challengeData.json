@@ -138,7 +138,7 @@
       "comment": "The `City.js` and `Region.js` classes were kindly already provided by the challenge. Actual solution is in `perfect-place.js`"
     },
     {
-      "id": "build-a clock",
+      "id": "build-a-clock",
       "idEH": "9a6c3e5d-71d6-493c-8f78-9bcbd239e930",
       "urlEH": "",
       "urlSolution": "",
@@ -246,7 +246,7 @@
       "comment": ""
     },
     {
-      "id": "storing-vehicle data",
+      "id": "storing-vehicle-data",
       "idEH": "91fb6cb8-3fca-4f3b-a368-d576a608ace3",
       "urlEH": "",
       "urlSolution": "",
@@ -255,13 +255,22 @@
       "comment": "\"Stage 1\" was easily solved after reading the docs, on how to work with SQLite and Java.\\n\"Stage 2\" was a lot more tricky, as it involved the requirement to minimize the database size – which involved some creative tricks, which Entwicklerheld also hinted at in their description.\\nFirst attempt to save space by splitting up the VIN into its 3 parts (WMI, VDS and VIS) and saving these in separate tables, referencing only the row IDs of the \"less unique\" WMI and VDS parts, did not properly work for this scenario, as the additional page sizes of these tables was inflating the database size quite a bit.\\nI do believe, that in a production environment, splitting it up would be the correct way to go, as the test cases here, were only limited to 999 entries.\\nSecond attempt was then to use a custom character encoding map, as the VIN consist of a `0-9`, `A-Z` - minus the letters `I`, `O`, `Q` -> character set of 33 characters.\\nThis would fit into 6 bits, which I tried to store as BLOB, but unfortunately the smallest size SQLite can save is 1 byte.\\nSo instead went with storing the VIN encoded as integers, which did save enough space for the challenge to go through.\\n"
     },
     {
-      "id": "maps-and polygons",
+      "id": "maps-and-polygons",
       "idEH": "3f237f37-6776-4e8b-a12a-378749f3e97f",
       "urlEH": "",
       "urlSolution": "",
       "dateSolved": "2023-07-20",
       "description": "Challenge consists of two scenarios:\\n1) Was to calculate the area of a given (irregular) polygon\\n2) Placing a label on a map for each of the given polygons - following certain rules, like e.g. the label not being allowed to touch the polygon and not being allowed to be \"outside\" of the map\\n",
       "comment": "Interesting challenge for me, as I did not really pay any attention during my Maths classes :-).\\nThe first scenario was nevertheless easily solved after finding out about the `Shoelace Algorithm/Formula`, which I just needed to turn into Java code.\\nThe second scenario was the more challenging one, as it involved finding a way to detect \"collisions\" between the label and the polygon and the map borders.\\n"
+    },
+    {
+      "id": "binary-tree",
+      "idEH": "47c12f34-a402-4f83-b958-cdcef262a32f",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2023-07-28",
+      "description": "Challenge consisted of working with binary trees and three scenarios:\\n1) Print a binary tree in a 'helpful' way\\n2) Compare and check if two trees are identical\\n3) Reverse/Mirror a given binary tree",
+      "comment": "I opted to try to solve the challenge with the use of a JavaScript generator that prints out every next value, Breadth First.\\nThis made a few things more optimal, e.g. the checking of equalness this way can actually return early, if a difference is detected at the current nodes.\\nFor printing the tree I created a helper class that calculates and prints the given treenode values in a 'centered' fashion.\\nUnrelated to the task, I also found a XSS vulnerability in the tasks Tests, which was reported to EntwicklerHeld."
     }
   ]
 }
