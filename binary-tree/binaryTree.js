@@ -40,57 +40,40 @@ function* getBFSTreeTraversalGenerator(treeNode, options = { reverse: false }) {
 
 export function printTree(treeNode) {
 
-    const result = [];
+    const treeValues = [];
     const treeTraversalGen = getBFSTreeTraversalGenerator(treeNode);
 
     while (true) {
         const currentNode = treeTraversalGen.next();
         if (currentNode.done) break;
         const currentDepth = currentNode.value.depth;
-        if (result[currentDepth] === undefined) { result[currentDepth] = [] };
-        result[currentDepth].push(currentNode.value.currentNode.value)
+        if (treeValues[currentDepth] === undefined) { treeValues[currentDepth] = [] };
+        treeValues[currentDepth].push(currentNode.value.currentNode.value)
     }
 
-    let testT = [ 
-        [ 1 ],
-        [ 2, 3 ],
-        [ 4, 5, 6, 7 ],
-        [ 8, 9, 10, 11, 12, 13, 14, 15 ],
-        [ 
-            16, 17, 18, 19, 20, 21, 22, 24, 
-            25, 26, 27, 28, 29, 30, 31, 32
-        ] 
-    ]
-    const treeP = new treePrinter(result);
-    //console.log("ppp a\n", treeP.printCentered() + "\nppp b\n")
-    
-    //console.log("ttt a\n", getTreePrintStr(testT) + "\nttt b\n")
+    const treePrinter = new TreePrinter(treeValues);
 
-
-    return treeP.printCentered()
-    // need to report this XSS vulnerability to EntwicklerHeld ->
-    //return "<div style=\"text-align: center\" onclick=\"alert('yo'); console.log(document)\"><img src=\"image.gif\" onerror=\"(async () => { a = await fetch('https://dummyjson.com/products/1'); b=await a.json(); console.log(b)})()\">" + result.join("\n") + "</div>";
-
+    return treePrinter.printCentered()    
 }
 
 
-class treePrinter {
-    static ITEM_PADDING = 4; // [.x.] -> 4 extra characters
-    static SPACE_BETWEEN = 2;
+class TreePrinter {
+    static ITEM_PADDING = 4; // [.x.] -> 4 extra characters wrapping the number
+    static SPACE_BETWEEN = 2; // a bit buggy with values higher than 3
     treeValuesT;
     maxLineWidth;
     depth;
 
     constructor(treeValues) {
-       this.treeValuesT = treePrinter.transformNumbers(treeValues);
-       this.maxLineWidth = treePrinter.getLineWidth(treeValues[treeValues.length-1], 1); //last line will always be the one with most entries
+       this.treeValuesT = TreePrinter.transformNumbers(treeValues);
+       this.maxLineWidth = TreePrinter.getLineWidth(treeValues[treeValues.length-1], 1); //last line will always be the one with most entries
        this.depth = treeValues.length;
     }
 
     static transformNumbers(treeValues) {
         const transformedNumbers = treeValues.map(line => {
-            const currentLineHighestNumLen = treePrinter.getLineHighestNumberLength(line);
-            return line.map( node => `[ ${node}`.padEnd(currentLineHighestNumLen + treePrinter.ITEM_PADDING - 1, " ") + "]")
+            const currentLineHighestNumLen = TreePrinter.getLineHighestNumberLength(line);
+            return line.map( node => `[ ${node}`.padEnd(currentLineHighestNumLen + TreePrinter.ITEM_PADDING - 1, " ") + "]")
         })
         return transformedNumbers;
     }
@@ -100,16 +83,16 @@ class treePrinter {
     }
 
     static getLineWidth(line, treeDepth) {
-        return ((line.length * (treePrinter.getLineHighestNumberLength(line) + treePrinter.ITEM_PADDING)) + ((line.length - 1) * treePrinter.SPACE_BETWEEN**treeDepth));
+        return ((line.length * (TreePrinter.getLineHighestNumberLength(line) + TreePrinter.ITEM_PADDING)) + ((line.length - 1) * TreePrinter.SPACE_BETWEEN**treeDepth));
     }
 
     printCentered() {
+        let tempDepth = this.depth;
         const transformedLines = this.treeValuesT.map(line => {
-            const currentLineWidth = treePrinter.getLineWidth(line, this.depth);
-            const startIndexStringInsert = (Math.ceil(this.maxLineWidth/2) - (Math.ceil(currentLineWidth/2)));
-            const separator = "".padStart(treePrinter.SPACE_BETWEEN**this.depth, ".")
-
-            this.depth--;
+            const currentLineWidth = TreePrinter.getLineWidth(line, tempDepth);
+            const startIndexStringInsert = Math.ceil(this.maxLineWidth/2) - Math.ceil(currentLineWidth/2);
+            const separator = "".padStart(TreePrinter.SPACE_BETWEEN**tempDepth, ".")
+            tempDepth--;
             return line.join(separator).padStart(startIndexStringInsert+currentLineWidth, ".").padEnd(this.maxLineWidth, ".")
         });
         return transformedLines.join("\n\n");
