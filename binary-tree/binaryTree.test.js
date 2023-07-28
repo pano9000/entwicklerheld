@@ -1,14 +1,7 @@
-import {checkTreeEqualness, printTree, reverse} from "../binaryTree";
-import {TreeNode} from "../tree";
-let fs = require('fs');
-
-beforeEach(() => {
-    console.log("##polylith[testStarted");
-});
-
-afterEach(() => {
-    console.log("##polylith[testFinished")
-});
+import {checkTreeEqualness, printTree, reverse} from "./binaryTree.js";
+import {TreeNode} from "./tree.js";
+import fs from "fs";
+import { expect } from "chai";
 
 let smallTreeResult, mediumTreeResult, bigTreeResult, scenario2Tree11, scenario2Tree12, scenario2Tree21, scenario2Tree22 = "";
 
@@ -32,7 +25,7 @@ function checkTreeEqualnessTest(actualNode, expectedNode, actualRootNode=null, e
     expect(actualNode.value,
         "Tree does not equal the expected tree: Expected " + expectedNode.value
         + " Actual: " + actualNode.value + " in \n" + printTree(expectedRootNode) + " \nand \n"
-        + printTree(actualRootNode)).toBe(expectedNode.value);
+        + printTree(actualRootNode)).to.equal(expectedNode.value);
 
     checkTreeEqualnessTest(actualNode.left, expectedNode.left, actualRootNode, expectedRootNode);
     checkTreeEqualnessTest(actualNode.right, expectedNode.right, actualRootNode, expectedRootNode);
@@ -61,7 +54,7 @@ function treeFactory(rootNode, nodes) {
 }
 
 // First Scenario
-test('Print Tree', () => {
+it('Print Tree', () => {
     let smallTreeRightLeaf = new TreeNode(3, null, null);
     let smallTreeLeftLeaf = new TreeNode(2, null, null);
     let smallTree = new TreeNode(1, smallTreeLeftLeaf, smallTreeRightLeaf);
@@ -94,7 +87,7 @@ test('Print Tree', () => {
 
 
 // Second Scenario
-test('Check Equalness', () => {
+it('Check Equalness', () => {
     // Case 1
     let tree1Root1 = new TreeNode(1, null, null);
     treeFactory(tree1Root1,
@@ -136,11 +129,11 @@ test('Check Equalness', () => {
         ]
     );
     scenario2Tree21 = printTree(tree1Root2); scenario2Tree22 = printTree(tree2Root2);
-    expect(equal1, message1).toBeTruthy(); // This line must be under the initialization + the print for the flowfile
+    expect(equal1, message1).to.be.ok; // This line must be under the initialization + the print for the flowfile
     let equal2 = checkTreeEqualness(tree1Root2, tree2Root2);
     let message2 = "Expected checkTreeEqualness to return false but was  " + equal2 + " for \n" + printTree(tree1Root2)
         + " \nand \n" + printTree(tree2Root2);
-    expect(equal2, message2).toBeFalsy();
+    expect(equal2, message2).to.not.be.ok;
 
 
     // Case 3 - different lengths
@@ -161,7 +154,7 @@ test('Check Equalness', () => {
 
     let message3 = "Expected checkTreeEqualness to return false but was  " + equal3 + " for \n" + printTree(tree1Root3)
         + " \nand \n" + printTree(tree2Root3);
-    expect(equal3, message3).toBeFalsy();
+    expect(equal3, message3).to.not.be.ok;
 
     // Case 4 short tree root node different
     let tree1Root4 = new TreeNode(7, null, null);
@@ -180,7 +173,7 @@ test('Check Equalness', () => {
 
     let message4 = "Expected checkTreeEqualness to return false but was " + equal4 + " for \n" + printTree(tree1Root4)
         + " \nand \n" + printTree(tree2Root4);
-    expect(equal4, message4).toBeFalsy();
+    expect(equal4, message4).to.not.be.ok;
 
 
     // Case 5 short tree equal
@@ -200,11 +193,11 @@ test('Check Equalness', () => {
 
     let message5 = "Expected checkTreeEqualness to return true but was  " + equal5 + " for \n" + printTree(tree1Root5)
         + " \nand \n" + printTree(tree2Root5);
-    expect(equal5, message5).toBeTruthy();
+    expect(equal5, message5).to.be.ok;
 
 });
 
-test('Tree reverse', () => {
+it('Tree reverse', () => {
     let actualTree1Root = new TreeNode(1, null, null);
     treeFactory(actualTree1Root,
         [
@@ -275,7 +268,7 @@ test('Tree reverse', () => {
 
 
 
-afterAll(() => {
+/*afterAll(() => {
     let json = [];
     // Scenario 1
     json.push({
@@ -311,3 +304,4 @@ afterAll(() => {
     let result = JSON.stringify(json);
     fs.writeFileSync('visualization-data.json', result);
 });
+*/
