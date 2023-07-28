@@ -14,7 +14,7 @@ Challenge consisted of working with binary trees and three scenarios:
 ## Challenge Info
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ███████░░░ 65% | 592 / 916 | 2023-07-28 | JavaScript
+▮▮▯▯ | ███████░░░ 65% | 593 / 916 | 2023-07-28 | JavaScript
 
 ## Comment
 I opted to try to solve the challenge with the use of a JavaScript generator that prints out every next value, Breadth First.
