@@ -108,7 +108,7 @@ public class IOUApi {
             IOU iou = new IOU(
                 debtor, 
                 reqBody.getString("description"), 
-                reqBody.getInt("amount"), 
+                reqBody.getDouble("amount"), 
                 creditor
             );
 
@@ -168,7 +168,7 @@ public class IOUApi {
                 System.out.println("getNamessss // " + key);
                 switch (key) {
                     case "amount":
-                        iou.setAmount(reqBody.getInt(key));
+                        iou.setAmount(reqBody.getDouble(key));
                         break;
                     case "creditor":
                         JSONObject creditorJ = reqBody.getJSONObject(key);
