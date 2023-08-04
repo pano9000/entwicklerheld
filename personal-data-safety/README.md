@@ -8,7 +8,7 @@ Goal is to create a function that gets the personal data of a given `user_id`, a
 ## Challenge Info
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ███████░░░ 65% | 534 / 827 | 2022-05-02 | PHP
+▮▯▯▯ | ███████░░░ 65% | 535 / 828 | 2022-05-02 | PHP
 
 ## Comment
 Challenge was not in Javascript, but PHP, but I gave it a shot anyways. I'm not a PHP guy, so the solution might be clumsy.

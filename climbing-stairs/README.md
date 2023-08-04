@@ -8,7 +8,7 @@ Goal is to return all different ways are there to get up a given amount of steps
 ## Challenge Info
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ███████░░░ 69% | 563 / 814 | 2022-06-06 | JavaScript
+▮▯▯▯ | ███████░░░ 69% | 564 / 815 | 2022-06-06 | JavaScript
 
 ## Comment
 Originally tried to solve it with an iterative approach, but failed back then for some reason, so then instead went for a recursive solution finally.

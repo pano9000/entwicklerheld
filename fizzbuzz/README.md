@@ -14,6 +14,6 @@ Goal is to create a function that:\
 ## Challenge Info
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ███████░░░ 70% | 3104 / 4463 | 2022-04-24 | JavaScript
+▮▯▯▯ | ███████░░░ 70% | 3114 / 4480 | 2022-04-24 | JavaScript
 
 ## Comment

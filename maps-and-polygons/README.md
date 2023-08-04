@@ -14,7 +14,7 @@ Challenge consists of two scenarios:
 ## Challenge Info
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▮▯ | ███░░░░░░░ 27% | 37 / 136 | 2023-07-20 | Java
+▮▮▮▯ | ███░░░░░░░ 27% | 37 / 139 | 2023-07-20 | Java
 
 ## Comment
 Interesting challenge for me, as I did not really pay any attention during my Maths classes :-).
