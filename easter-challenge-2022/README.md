@@ -8,7 +8,7 @@ Goal is to create a function that can calculate the Easter holidays for any give
 ## Challenge Info
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ███████░░░ 66% | 130 / 198 | 2022-06-02 | PHP
+▮▯▯▯ | ███████░░░ 66% | 131 / 199 | 2022-06-02 | PHP
 
 ## Comment
 Challenge was not in Javascript, but PHP, but I gave it a shot anyways. I'm not a PHP guy, so the solution might be clumsy.

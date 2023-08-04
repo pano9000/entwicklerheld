@@ -8,6 +8,6 @@ Build a simple parser for some of the fields in the GDV format, a file format us
 ## Challenge Info
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ████░░░░░░ 41% | 56 / 135 | 2023-07-02 | JavaScript
+▮▮▯▯ | ████░░░░░░ 42% | 57 / 137 | 2023-07-02 | JavaScript
 
 ## Comment

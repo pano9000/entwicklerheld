@@ -8,7 +8,7 @@ Goal was to return a list of all different (unique) possibilites on how a given 
 ## Challenge Info
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ████░░░░░░ 39% | 109 / 278 | 2022-06-16 | JavaScript
+▮▮▯▯ | ████░░░░░░ 39% | 109 / 279 | 2022-06-16 | JavaScript
 
 ## Comment
 Solved this mainly incorporating a recursive function

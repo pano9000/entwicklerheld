@@ -8,7 +8,7 @@ Goal here was to find the optimal places to place a varying amount of "ATMs" wit
 ## Challenge Info
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ███░░░░░░░ 34% | 83 / 244 | 2022-12-18 | JavaScript
+▮▮▯▯ | ███░░░░░░░ 34% | 83 / 246 | 2022-12-18 | JavaScript
 
 ## Comment
 The `City.js` and `Region.js` classes were kindly already provided by the challenge. Actual solution is in `perfect-place.js`

@@ -8,6 +8,6 @@ Write a function that returns the first letter in a string, which is not repeate
 ## Challenge Info
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ███████░░░ 71% | 1614 / 2271 | 2023-07-05 | Python
+▮▯▯▯ | ███████░░░ 71% | 1614 / 2273 | 2023-07-05 | Python
 
 ## Comment

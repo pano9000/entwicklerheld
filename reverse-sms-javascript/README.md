@@ -8,6 +8,6 @@ Challenge consists of essentially creating a function to reverse provided text a
 ## Challenge Info
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ██░░░░░░░░ 22% | 24 / 109 | 2023-06-23 | JavaScript
+▮▮▯▯ | ██░░░░░░░░ 22% | 25 / 112 | 2023-06-23 | JavaScript
 
 ## Comment

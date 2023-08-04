@@ -8,7 +8,7 @@ Goal was to calculate the minimum number of coins required to give out a certain
 ## Challenge Info
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ███░░░░░░░ 34% | 104 / 304 | 2023-07-11 | Java
+▮▮▯▯ | ████░░░░░░ 35% | 107 / 306 | 2023-07-11 | Java
 
 ## Comment
 Quickly recognized the problem to be solveable by a "best sum" dynamic programming approach, which I then implemented and also included memoization, to improve performance
