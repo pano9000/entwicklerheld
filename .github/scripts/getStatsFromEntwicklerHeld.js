@@ -149,6 +149,7 @@ function createSingleMarkdownFiles(data) {
     lines.push(entry.description.replaceAll("\\n", "\n\n"));
     lines.push("");
     lines.push("## Challenge Info")
+    lines.push(`Data last updated: ${new Date().toISOString().slice(0,10)}`);
     lines.push("Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language");
     lines.push(getTableHeadingMarkdown(lines));
     lines.push(`${entry.difficulty.bar} | ${entry.statistics.succesRateBar} ${entry.statistics.succesRate}% | ${entry.statistics.solutionsCount} / ${entry.statistics.acceptancesCount} | ${entry.dateSolved} | ${entry.language}`);
