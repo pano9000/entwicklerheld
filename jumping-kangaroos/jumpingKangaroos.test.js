@@ -1,229 +1,128 @@
 import {isCompletable, getMinimalNumberOfJumps} from "./jumpingKangaroos.js";
 import { expect } from "chai";
 
-it('first scenario', () => {
-    let numbers = [2,0,3];
-    let actual = isCompletable(numbers);
-    expect(actual, 'Expected true for numbers: ['+numbers+'] but was: '+actual).to.eql(true);
 
-    numbers = [1,0,1];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected false for numbers: ['+numbers+'] but was: '+actual).to.eql(false);
-    numbers = [2,0,1];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected true for numbers: ['+numbers+'] but was: '+actual).to.eql(true);
-    numbers = [2,0,0,1];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected false for numbers: ['+numbers+'] but was: '+actual).to.eql(false);
-    numbers = [3,0,3,0];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected true for numbers: ['+numbers+'] but was: '+actual).to.eql(true);
-    numbers = [4,0,1,1,0,3];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected false for numbers: ['+numbers+'] but was: '+actual).to.eql(false);
-    numbers = [5,4,3,2,1,0,2];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected false for numbers: ['+numbers+'] but was: '+actual).to.eql(false);
-    numbers = [4,2,1,0,0,4];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected false for numbers: ['+numbers+'] but was: '+actual).to.eql(false);
-    numbers = [1,0,2];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected false for numbers: ['+numbers+'] but was: '+actual).to.eql(false);
-    numbers = [4,2,1,0,2];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected true for numbers: ['+numbers+'] but was: '+actual).to.eql(true);
+const testFunc = (funcToTest) => {
+
+  return (testCase) => {
+    const [expectation, numbers] = testCase;
+
+    it(`${expectation} ->\t${numbers}`, () => {
+      const returnValue = funcToTest(numbers);
+      expect(returnValue, `Expected '${expectation}' for numbers: [${numbers}] but was '${returnValue}'`).to.equal(expectation)
+    })
+  }
+
+}
+
+
+describe('first scenario', () => {
+
+  const testCases = [
+    [ true,   [2,0,3] ],
+    [ false,  [1,0,1] ],
+    [ true,   [2,0,1] ],
+    [ false,  [2,0,0,1] ],
+    [ true,   [3,0,3,0] ],
+    [ false,  [4,0,1,1,0,3] ],
+    [ false,  [5,4,3,2,1,0,2] ],
+    [ false,  [4,2,1,0,0,4] ],
+    [ false,  [1,0,2] ],
+    [ true,   [4,2,1,0,2] ],
+  ];
+
+  testCases.forEach(testFunc(isCompletable));
+
 
 });
 
-it('second scenario', () => {
-    /* simple examples */
-    let numbers = [1,2,1,1];
-    let actual = isCompletable(numbers);
-    expect(actual, 'Expected true for numbers: ['+numbers+'] but was: '+actual).to.eql(true);
-    numbers = [1,1,1,1,1];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected true for numbers: ['+numbers+'] but was: '+actual).to.eql(true);
-    numbers = [1,2,1,2,1,2];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected true for numbers: ['+numbers+'] but was: '+actual).to.eql(true);
-    numbers = [2,0,3,5,0,1,2,1,3];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected true for numbers: ['+numbers+'] but was: '+actual).to.eql(true);
-    numbers = [3,3,3,3,2,1,3];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected true for numbers: ['+numbers+'] but was: '+actual).to.eql(true);
-    numbers = [5,4,3,2,1,2,0,2];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected true for numbers: ['+numbers+'] but was: '+actual).to.eql(true);
-    numbers = [1,4,0,1,1,2];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected true for numbers: ['+numbers+'] but was: '+actual).to.eql(true);
-    numbers = [1,1,2,1,2,1,2];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected true for numbers: ['+numbers+'] but was: '+actual).to.eql(true);
-    numbers = [2,0,1,0,3];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected false for numbers: ['+numbers+'] but was: '+actual).to.eql(false);
-    numbers = [4,0,1,1,0,3];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected false for numbers: ['+numbers+'] but was: '+actual).to.eql(false);
-    numbers = [5,4,3,2,1,0,2];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected false for numbers: ['+numbers+'] but was: '+actual).to.eql(false);
-    numbers = [1,2,1,0,3];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected false for numbers: ['+numbers+'] but was: '+actual).to.eql(false);
-    numbers = [3,3,2,1,0,2];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected false for numbers: ['+numbers+'] but was: '+actual).to.eql(false);
-    numbers = [4,2,1,0,0,4];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected false for numbers: ['+numbers+'] but was: '+actual).to.eql(false);
-    numbers = [1,0,2];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected false for numbers: ['+numbers+'] but was: '+actual).to.eql(false);
-    numbers = [1,1,1,0,1];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected false for numbers: ['+numbers+'] but was: '+actual).to.eql(false);
-    numbers = [2,2,2,0,0,2];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected false for numbers: ['+numbers+'] but was: '+actual).to.eql(false);
+describe('second scenario', () => {
+
+  const testCases = [
+    [ true,  [1,2,1,1] ],
+    [ true,  [1,1,1,1,1] ],
+    [ true,  [1,2,1,2,1,2] ],
+    [ true,  [2,0,3,5,0,1,2,1,3] ],
+    [ true,  [3,3,3,3,2,1,3] ],
+    [ true,  [5,4,3,2,1,2,0,2] ],
+    [ true,  [1,4,0,1,1,2] ],
+    [ true,  [1,1,2,1,2,1,2] ],
+    [ false, [2,0,1,0,3] ],
+    [ false, [4,0,1,1,0,3] ],
+    [ false, [5,4,3,2,1,0,2] ],
+    [ false, [1,2,1,0,3] ],
+    [ false, [3,3,2,1,0,2] ],
+    [ false, [4,2,1,0,0,4] ],
+    [ false, [1,0,2] ],
+    [ false, [1,1,1,0,1] ],
+    [ false, [2,2,2,0,0,2] ],
+  ];
+
+  testCases.forEach(testFunc(isCompletable));
 
 });
 
 
-it('third scenario', () => {
+describe('third scenario', () => {
+
     /* difficult examples where you can jump less than the number */
-    let numbers = [2,2,0,1];
-    let actual = isCompletable(numbers);
-    expect(actual, 'Expected true for numbers: ['+numbers+'] but was: '+actual).to.eql(true);
-    numbers = [2,3,1,1,4];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected true for numbers ['+numbers+'] but was: '+actual).to.eql(true);
-    numbers = [3,0,2,0,4];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected true for numbers ['+numbers+'] but was: '+actual).to.eql(true);
-    numbers = [2,2,0,2,0,2];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected true for numbers ['+numbers+'] but was: '+actual).to.eql(true);
-    numbers = [1,2,2,0,4];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected true for numbers ['+numbers+'] but was: '+actual).to.eql(true);
-    numbers = [5,3,1,2,3,1,0,4];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected true for numbers ['+numbers+'] but was: '+actual).to.eql(true);
-    numbers = [3,5,0,0,0,0,2];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected true for numbers ['+numbers+'] but was: '+actual).to.eql(true);
-    numbers = [2,0,1,2,3,0,1,2];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected true for numbers ['+numbers+'] but was: '+actual).to.eql(true);
-    numbers = [3,1,2,0,2];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected true for numbers ['+numbers+'] but was: '+actual).to.eql(true);
-    numbers = [1,2,0,3,3,0,0,1];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected true for numbers ['+numbers+'] but was: '+actual).to.eql(true);
-    numbers = [3,2,1,0,4];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected false for numbers ['+numbers+'] but was: '+actual).to.eql(false);
-    numbers = [2,0,0,2];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected false for numbers ['+numbers+'] but was: '+actual).to.eql(false);
-    numbers = [2,2,0,0,2];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected false for numbers ['+numbers+'] but was: '+actual).to.eql(false);
-    numbers = [4,3,2,1,0,1];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected false for numbers ['+numbers+'] but was: '+actual).to.eql(false);
-    numbers = [1,1,2,1,0,1];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected false for numbers ['+numbers+'] but was: '+actual).to.eql(false);
-    numbers = [2,0,2,2,0,2,0,0,2];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected false for numbers ['+numbers+'] but was: '+actual).to.eql(false);
-    numbers = [4,0,2,3,0,1,0,1];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected false for numbers ['+numbers+'] but was: '+actual).to.eql(false);
-    numbers = [1,2,3,0,1,0,1];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected false for numbers ['+numbers+'] but was: '+actual).to.eql(false);
-    numbers = [5,3,0,0,1,0,2];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected false for numbers ['+numbers+'] but was: '+actual).to.eql(false);
-    numbers = [1,4,0,1,0,0,1];
-    actual = isCompletable(numbers);
-    expect(actual, 'Expected false for numbers ['+numbers+'] but was: '+actual).to.eql(false);
+  const testCases = [
+
+    [ true, [2,2,0,1] ],
+    [ true, [2,3,1,1,4] ],
+    [ true, [3,0,2,0,4] ],
+    [ true, [2,2,0,2,0,2] ],
+    [ true, [1,2,2,0,4] ],
+    [ true, [5,3,1,2,3,1,0,4] ],
+    [ true, [3,5,0,0,0,0,2] ],
+    [ true, [2,0,1,2,3,0,1,2] ],
+    [ true, [3,1,2,0,2] ],
+    [ true, [1,2,0,3,3,0,0,1] ],
+    [ false, [3,2,1,0,4] ],
+    [ false, [2,0,0,2] ],
+    [ false, [2,2,0,0,2] ],
+    [ false, [4,3,2,1,0,1] ],
+    [ false, [1,1,2,1,0,1] ],
+    [ false, [2,0,2,2,0,2,0,0,2] ],
+    [ false, [4,0,2,3,0,1,0,1] ],
+    [ false, [1,2,3,0,1,0,1] ],
+    [ false, [5,3,0,0,1,0,2] ],
+    [ false, [1,4,0,1,0,0,1] ]
+  ];
+
+  testCases.forEach(testFunc(isCompletable));
+
 
 });
 
 
-it('fourth scenario', () => {
+describe('fourth scenario', () => {
+
     /* now you have to return the minimal number of jumps you need to reach the last number, so you are searching for the best path*/
     /*for test cases which are false, return 0*/
-    let numbers = [3,2,0,1,2];
-    let actual = getMinimalNumberOfJumps(numbers);
-    expect(actual, 'Expected 2 for numbers ['+numbers+'] but was: '+actual).to.eql(2);
-    numbers = [1,4,0,1,0,0,1];
-    actual = getMinimalNumberOfJumps(numbers);
-    expect(actual, 'Expected 0 for numbers ['+numbers+'] but was: '+actual).to.eql(0);
-    numbers = [5,4,3,2,1,2];
-    actual = getMinimalNumberOfJumps(numbers);
-    expect(actual, 'Expected 1 for numbers ['+numbers+'] but was: '+actual).to.eql(1);
-    numbers = [3,1,1,1];
-    actual = getMinimalNumberOfJumps(numbers);
-    expect(actual, 'Expected 1 for numbers ['+numbers+'] but was: '+actual).to.eql(1);
-    numbers = [4,2,2,0,2];
-    actual = getMinimalNumberOfJumps(numbers);
-    expect(actual, 'Expected 1 for numbers ['+numbers+'] but was: '+actual).to.eql(1);
-    numbers = [2,0,1];
-    actual = getMinimalNumberOfJumps(numbers);
-    expect(actual, 'Expected 1 for numbers ['+numbers+'] but was: '+actual).to.eql(1);
-    numbers = [1,1,1,2];
-    actual = getMinimalNumberOfJumps(numbers);
-    expect(actual, 'Expected 3 for numbers ['+numbers+'] but was: '+actual).to.eql(3);
-    numbers = [2,1,1,1];
-    actual = getMinimalNumberOfJumps(numbers);
-    expect(actual, 'Expected 2 for numbers ['+numbers+'] but was: '+actual).to.eql(2);
-    numbers = [3,0,2,1,2];
-    actual = getMinimalNumberOfJumps(numbers);
-    expect(actual, 'Expected 2 for numbers ['+numbers+'] but was: '+actual).to.eql(2);
-    numbers = [2,2,0,3,1,2,0,1];
-    actual = getMinimalNumberOfJumps(numbers);
-    expect(actual, 'Expected 4 for numbers ['+numbers+'] but was: '+actual).to.eql(4);
-    numbers = [1,2,3,1,1,1];
-    actual = getMinimalNumberOfJumps(numbers);
-    expect(actual, 'Expected 3 for numbers ['+numbers+'] but was: '+actual).to.eql(3);
-    numbers = [2,0,1,1,2];
-    actual = getMinimalNumberOfJumps(numbers);
-    expect(actual, 'Expected 3 for numbers ['+numbers+'] but was: '+actual).to.eql(3);
-    numbers = [3,2,1,2,0,2,0,1];
-    actual = getMinimalNumberOfJumps(numbers);
-    expect(actual, 'Expected 3 for numbers ['+numbers+'] but was: '+actual).to.eql(3);
-    numbers = [3,1,1,2,3,1,1,1];
-    actual = getMinimalNumberOfJumps(numbers);
-    expect(actual, 'Expected 3 for numbers ['+numbers+'] but was: '+actual).to.eql(3);
-    numbers = [5,3,0,0,1,1];
-    actual = getMinimalNumberOfJumps(numbers);
-    expect(actual, 'Expected 1 for numbers ['+numbers+'] but was: '+actual).to.eql(1);
-    numbers = [1,4,1,1,1,1];
-    actual = getMinimalNumberOfJumps(numbers);
-    expect(actual, 'Expected 2 for numbers ['+numbers+'] but was: '+actual).to.eql(2);
-    numbers = [2,3,1,1,2];
-    actual = getMinimalNumberOfJumps(numbers);
-    expect(actual, 'Expected 2 for numbers ['+numbers+'] but was: '+actual).to.eql(2);
-    numbers = [4,3,2,2,1,1];
-    actual = getMinimalNumberOfJumps(numbers);
-    expect(actual, 'Expected 2 for numbers ['+numbers+'] but was: '+actual).to.eql(2);
-    numbers = [1,1,2,2,0,3,1,3,2,1,1];
-    actual = getMinimalNumberOfJumps(numbers);
-    expect(actual, 'Expected 6 for numbers ['+numbers+'] but was: '+actual).to.eql(6);
-    numbers = [5,4,4,1,1,0,2,0,2];
-    actual = getMinimalNumberOfJumps(numbers);
-    expect(actual, 'Expected 3 for numbers ['+numbers+'] but was: '+actual).to.eql(3);
-    numbers = [2,4,3,5,1,1,2,0,1,1];
-    actual = getMinimalNumberOfJumps(numbers);
-    expect(actual, 'Expected 4 for numbers ['+numbers+'] but was: '+actual).to.eql(4);
 
+    const testCases = [
+      [ 2, [3,2,0,1,2] ],
+      [ 0, [1,4,0,1,0,0,1] ],
+      [ 1, [5,4,3,2,1,2] ],
+      [ 1, [3,1,1,1] ],
+      [ 1, [4,2,2,0,2] ],
+      [ 1, [2,0,1] ],
+      [ 3, [1,1,1,2] ],
+      [ 2, [2,1,1,1] ],
+      [ 2, [3,0,2,1,2] ],
+      [ 4, [2,2,0,3,1,2,0,1] ],
+      [ 3, [1,2,3,1,1,1] ],
+      [ 3, [2,0,1,1,2] ],
+      [ 3, [3,2,1,2,0,2,0,1] ],
+      [ 3, [3,1,1,2,3,1,1,1] ],
+      [ 1, [5,3,0,0,1,1] ],
+      [ 2, [1,4,1,1,1,1] ],
+      [ 2, [2,3,1,1,2] ],
+      [ 2, [4,3,2,2,1,1] ],
+      [ 6, [1,1,2,2,0,3,1,3,2,1,1] ],
+      [ 3, [5,4,4,1,1,0,2,0,2] ],
+      [ 4, [2,4,3,5,1,1,2,0,1,1] ],
+    ];
+    testCases.forEach(testFunc(getMinimalNumberOfJumps));
 });
