@@ -280,6 +280,15 @@
       "dateSolved": "2023-08-04",
       "description": "Challenge consisted of creating a 'REST' API that handles the different HTTP methods, like `GET`, `POST`, `DELETE`, `PATCH`.",
       "comment": "Having worked with Node.js/Express.js on a few REST-like APIs before, I was used to a certain workflow there, that I was not able to replicate here, due to the constraints of needing to have everything in one class. In a real world example, this would ideally be split into e.g. a routing part, a controller part and a validation step.\\nIt was also a bit interesting to see, how to handle JSON data outside of JavaScript.\\nAnyways my Java solution can be found in the 'IOUApi.java' file.  "
+    },
+    {
+      "id": "fizz-buzz-without-if",
+      "idEH": "6b74ccff-00ee-4325-9bc7-b556ab5a10ea",
+      "urlEH": "",
+      "urlSolution": "fizzbuzz-without-if",
+      "dateSolved": "2023-08-07",
+      "description": "Well known FizzBuzz challenge, but with a slight constraint of not using 'if' statements :-)",
+      "comment": ""
     }
   ]
 }
