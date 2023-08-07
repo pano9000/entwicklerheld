@@ -1,7 +1,55 @@
 export function isCompletable(numbers) {
 
+  console.log("*****START ", numbers)
+
+  
+  const recursiveTest = (numbers, currentFieldIndex = 0, currentCount = 0, results = []) => {
+
+      if (currentFieldIndex >= numbers.length-1) return [true, currentCount];
+
+      let currentFieldValue = numbers[currentFieldIndex];
+      if (currentFieldValue === 0) return [false, currentCount];
+
+      console.log("currFieldIndex: ", currentFieldIndex, "currentFieldValue: ", currentFieldValue);
+
+      //results
+      while(currentFieldValue > 0) {
+        //  currentCount++;
+          
+          let nextFieldIndex = currentFieldIndex+currentFieldValue;
+          console.log("next: ", nextFieldIndex)
+          
+          let currentResult = recursiveTest(numbers, nextFieldIndex, currentCount, [...results]);
+          if (currentResult[0] == true) return [true, currentCount];
+          //if (currentResult[0] == true) {
+            results = [...results, currentResult];
+          //}
+          currentFieldValue--;
+       
+      }
+        console.log("before res in rec:", results, "\ncurr: ", currentFieldIndex, currentCount)
+      return results[0]
+
+  }
+
+
+  const resultsFromRecurs = recursiveTest(numbers)[0]
+
+  console.log("*****before end \n", JSON.stringify(resultsFromRecurs), "\n****end")
+  //return resultsFromRecurs.some(result => result[0] === true)
+  return resultsFromRecurs
+
+}
+
+//isCompletable([2,2, 0,3])
+isCompletable([5,4,3,2,1,0,2])
+
+export function isCompletable2(numbers) {
+
     //TODO Implement this in scenario 1, 2 & 3
-    console.log("*********START ", numbers)
+  //  console.log("*********START ", numbers)
+
+
    // console.log(numbers[numbers.length-1])
    // console.log(numbers[numbers.length-1] - numbers[numbers.length-3])
    // console.log(numbers[numbers[0]])
@@ -55,10 +103,10 @@ const checkIfCompleteable = (fields, getPossibleJumpLengths(number), ) {
     let count = 0;
 
     for (let currentIndex = 0; currentIndex < numbers.length;) {
-        console.log("currentindex", currentIndex, ", value numbers[currentIndex]", numbers[currentIndex])
+       // console.log("currentindex", currentIndex, ", value numbers[currentIndex]", numbers[currentIndex])
 
         if (numbers[currentIndex] === 0 && currentIndex < numbers.length-1) {
-            console.log(numbers, "false")
+        //    console.log(numbers, "false", "----------end\n")
             return false;
         }
 /*
@@ -79,10 +127,10 @@ const checkIfCompleteable = (fields, getPossibleJumpLengths(number), ) {
 */
         count += numbers[currentIndex];
         currentIndex += numbers[currentIndex];
-        console.log("after COUNT:", count, "after currentIndex", currentIndex)
+        //console.log("after COUNT:", count, "after currentIndex", currentIndex)
 
         if (count >= numbers.length-1) {
-            console.log(numbers, "true")
+       //     console.log(numbers, "true", "\n----------end\n")
             return true
         }
     }
