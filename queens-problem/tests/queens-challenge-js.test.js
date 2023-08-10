@@ -1,17 +1,10 @@
-import ChessBoard from "./ChessBoard";
-import Position from "../Position";
-import { isSafeRook, isSafeQueen, getQueensProblemSolution } from "../queens-challenge-js";
+import ChessBoard from "./ChessBoard.js";
+import Position from "../Position.js";
+import { isSafeRook, isSafeQueen, getQueensProblemSolution } from "../queens-challenge-js.js";
 
-beforeEach(() => {
-    console.log("##polylith[testStarted");
-});
+import { expect } from "chai";
 
-afterEach(() => {
-    console.log("##polylith[testFinished")
-});
-
-
-test('first scenario', () => {
+it('first scenario', () => {
     let chessBoard4 = new ChessBoard(4);
     chessBoard4.setValue(0, 0, true);
     chessBoard4.setValue(2, 1, true);
@@ -56,94 +49,94 @@ test('first scenario', () => {
     //this square is already occupied
     let actual = isSafeRook(positions4, rook1);
     let expected = false;
-    expect(actual, "The " + rook1 + " is already occupied by a rook!").toBe(expected);
+    expect(actual, "The " + rook1 + " is already occupied by a rook!").to.eql(expected);
     
     //under attack by row
     actual = isSafeRook(positions4, rook2);
     expected = false;
-    expect(actual, "Expected " + expected + " for " + rook2 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard4).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + rook2 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard4).to.eql(expected);
     
     //under attack by col
     actual = isSafeRook(positions4, rook3);
     expected = false;
-    expect(actual, "Expected " + expected + " for " + rook3 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard4).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + rook3 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard4).to.eql(expected);
 
     //this square is under attack by the first and second rook
     actual = isSafeRook(positions4, rook4);
     expected = false;
-    expect(actual, "Expected " + expected + " for " + rook4 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard4).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + rook4 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard4).to.eql(expected);
 
     //this square is safe
     actual = isSafeRook(positions4, rook5);
     expected = true;
-    expect(actual, "Expected " + expected + " for " + rook5 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard4).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + rook5 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard4).to.eql(expected);
 
     actual = isSafeRook(positions4, rook6);
     expected = false;
-    expect(actual, "The " + rook6 + " is already occupied by a rook!").toBe(expected);
+    expect(actual, "The " + rook6 + " is already occupied by a rook!").to.eql(expected);
 
     actual = isSafeRook(positions4, rook7);
     expected = false;
-    expect(actual, "The " + rook7 + " is already occupied by a rook!").toBe(expected);
+    expect(actual, "The " + rook7 + " is already occupied by a rook!").to.eql(expected);
 
     actual = isSafeRook(positions4, rook8);
     expected = false;
-    expect(actual, "Expected " + expected + " for " + rook8 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard4).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + rook8 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard4).to.eql(expected);
 
     actual = isSafeRook(positions5, rook9);
     expected = false;
-    expect(actual, "Expected " + expected + " for " + rook9 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard5).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + rook9 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard5).to.eql(expected);
 
     actual = isSafeRook(positions5, rook10);
     expected = true;
-    expect(actual, "Expected " + expected + " for " + rook10 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard5).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + rook10 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard5).to.eql(expected);
 
     actual = isSafeRook(positions5, rook11);
     expected = true;
-    expect(actual, "Expected " + expected + " for " + rook11 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard5).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + rook11 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard5).to.eql(expected);
 
     actual = isSafeRook(positions5, rook12);
     expected = true;
-    expect(actual, "Expected " + expected + " for " + rook12 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard5).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + rook12 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard5).to.eql(expected);
 
     actual = isSafeRook(positions5, rook13);
     expected = false;
-    expect(actual, "Expected " + expected + " for " + rook13 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard5).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + rook13 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard5).to.eql(expected);
 
     actual = isSafeRook(positions5, rook14);
     expected = false;
-    expect(actual, "The " + rook14 + " is already occupied by a rook!").toBe(expected);
+    expect(actual, "The " + rook14 + " is already occupied by a rook!").to.eql(expected);
 
     actual = isSafeRook(positions7, rook15);
     expected = true;
-    expect(actual, "Expected " + expected + " for " + rook15 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard7).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + rook15 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard7).to.eql(expected);
 
     actual = isSafeRook(positions7, rook16);
     expected = false;
-    expect(actual, "Expected " + expected + " for " + rook16 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard7).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + rook16 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard7).to.eql(expected);
 
     actual = isSafeRook(positions7, rook17);
     expected = false;
-    expect(actual, "Expected " + expected + " for " + rook17 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard7).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + rook17 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard7).to.eql(expected);
 
     actual = isSafeRook(positions7, rook18);
     expected = true;
-    expect(actual, "Expected " + expected + " for " + rook18 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard7).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + rook18 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard7).to.eql(expected);
 
     actual = isSafeRook(positions7, rook19);
     expected = false;
-    expect(actual, "Expected " + expected + " for " + rook19 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard7).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + rook19 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard7).to.eql(expected);
 
     actual = isSafeRook(positions7, rook20);
     expected = true;
-    expect(actual, "Expected " + expected + " for " + rook20 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard7).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + rook20 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard7).to.eql(expected);
 
     actual = isSafeRook(positions7, rook21);
     expected = false;
-    expect(actual, "The " + rook21 + " is already occupied by a rook!").toBe(expected);
+    expect(actual, "The " + rook21 + " is already occupied by a rook!").to.eql(expected);
 });
 
-test('second scenario', () => {
+it('second scenario', () => {
     let chessBoard4 = new ChessBoard(4);
     chessBoard4.setValue(0, 1, true);
     chessBoard4.setValue(3, 2, true);
@@ -190,106 +183,106 @@ test('second scenario', () => {
     //check if square is free
     let actual = isSafeQueen(positions4, queen1);
     let expected = false;
-    expect(actual, "The " + queen1 + " is already occupied by a queen!").toBe(expected);
+    expect(actual, "The " + queen1 + " is already occupied by a queen!").to.eql(expected);
     
     //row under attack
     actual = isSafeQueen(positions4, queen2);
     expected = false;
-    expect(actual, "Expected " + expected + " for " + queen2 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard4).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + queen2 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard4).to.eql(expected);
 
     //col under attack
     actual = isSafeQueen(positions4, queen3);
     expected = false;
-    expect(actual, "Expected " + expected + " for " + queen3 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard4).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + queen3 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard4).to.eql(expected);
 
     //diagonal under attack
     actual = isSafeQueen(positions4, queen4);
     expected = false;
-    expect(actual, "Expected " + expected + " for " + queen4 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard4).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + queen4 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard4).to.eql(expected);
 
     //this square is safe
     actual = isSafeQueen(positions4, queen5);
     expected = true;
-    expect(actual, "Expected " + expected + " for " + queen5 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard4).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + queen5 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard4).to.eql(expected);
 
     actual = isSafeQueen(positions4, queen6);
     expected = false;
-    expect(actual, "Expected " + expected + " for " + queen6 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard4).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + queen6 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard4).to.eql(expected);
 
     actual = isSafeQueen(positions4, queen7);
     expected = true;
-    expect(actual, "Expected " + expected + " for " + queen7 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard4).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + queen7 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard4).to.eql(expected);
 
     actual = isSafeQueen(positions5, queen8);
     expected = false;
-    expect(actual, "The " + queen1 + " is already occupied by a queen!").toBe(expected);
+    expect(actual, "The " + queen1 + " is already occupied by a queen!").to.eql(expected);
 
     actual = isSafeQueen(positions5, queen9);
     expected = true;
-    expect(actual, "Expected " + expected + " for " + queen9 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard4).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + queen9 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard4).to.eql(expected);
 
     actual = isSafeQueen(positions5, queen10);
     expected = false;
-    expect(actual, "Expected " + expected + " for " + queen10 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard4).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + queen10 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard4).to.eql(expected);
 
     actual = isSafeQueen(positions5, queen11);
     expected = false;
-    expect(actual, "Expected " + expected + " for " + queen11 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard4).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + queen11 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard4).to.eql(expected);
 
     actual = isSafeQueen(positions5, queen12);
     expected = true;
-    expect(actual, "Expected " + expected + " for " + queen12 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard4).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + queen12 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard4).to.eql(expected);
 
     actual = isSafeQueen(positions8, queen13);
     expected = true;
-    expect(actual, "Expected " + expected + " for " + queen13 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard8).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + queen13 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard8).to.eql(expected);
 
     actual = isSafeQueen(positions8, queen14);
     expected = true;
-    expect(actual, "Expected " + expected + " for " + queen14 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard8).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + queen14 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard8).to.eql(expected);
 
     actual = isSafeQueen(positions8, queen15);
     expected = false;
-    expect(actual, "Expected " + expected + " for " + queen15 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard8).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + queen15 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard8).to.eql(expected);
 
     actual = isSafeQueen(positions8, queen16);
     expected = true;
-    expect(actual, "Expected " + expected + " for " + queen16 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard8).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + queen16 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard8).to.eql(expected);
 
     actual = isSafeQueen(positions8, queen17);
     expected = false;
-    expect(actual, "Expected " + expected + " for " + queen17 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard8).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + queen17 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard8).to.eql(expected);
 
     actual = isSafeQueen(positions8, queen18);
     expected = false;
-    expect(actual, "Expected " + expected + " for " + queen18 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard8).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + queen18 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard8).to.eql(expected);
 
     actual = isSafeQueen(positions8, queen19);
     expected = true;
-    expect(actual, "Expected " + expected + " for " + queen19 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard8).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + queen19 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard8).to.eql(expected);
 
     actual = isSafeQueen(positions8, queen20);
     expected = true;
-    expect(actual, "Expected " + expected + " for " + queen20 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard8).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + queen20 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard8).to.eql(expected);
 
     actual = isSafeQueen(positions8, queen21);
     expected = false;
-    expect(actual, "Expected " + expected + " for " + queen21 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard8).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + queen21 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard8).to.eql(expected);
 
     actual = isSafeQueen(positions8, queen22);
     expected = false;
-    expect(actual, "Expected " + expected + " for " + queen22 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard8).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + queen22 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard8).to.eql(expected);
 
     actual = isSafeQueen(positions8, queen23);
     expected = true;
-    expect(actual, "Expected " + expected + " for " + queen23 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard8).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + queen23 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard8).to.eql(expected);
 
     actual = isSafeQueen(positions8, queen24);
     expected = false;
-    expect(actual, "Expected " + expected + " for " + queen24 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard8).toBe(expected);
+    expect(actual, "Expected " + expected + " for " + queen24 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard8).to.eql(expected);
 });
 
-test('third scenario', () => {
+it('third scenario', () => {
     let boardSize = 4;
     let chessBoard = new ChessBoard(boardSize);
     let actual = getQueensProblemSolution(boardSize);
@@ -297,18 +290,18 @@ test('third scenario', () => {
         chessBoard.setValue(actual[i].rowIndex, actual[i].columnIndex, true);
     }
     let validSolution = isValidSolution(actual, boardSize);
-    expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").toBe(boardSize);
-    expect(validSolution[0], actual +" is not a valid solution. The Queen at Position" + validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).toBe(true);
+    expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").to.eql(boardSize);
+    expect(validSolution[0], actual +" is not a valid solution. The Queen at Position" + validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).to.eql(true);
             
     boardSize = 0;
     actual = getQueensProblemSolution(boardSize);
     var expected = [];
-    expect(actual, actual +" is not a valid solution. For boardSize < 4 you should return an empty list.").toStrictEqual(expected);
+    expect(actual, actual +" is not a valid solution. For boardSize < 4 you should return an empty list.").to.equal(expected);
 
     boardSize = 3;
     actual = getQueensProblemSolution(boardSize);
     expected = [];
-    expect(actual, actual +" is not a valid solution. For boardSize < 4 you should return an empty list.").toStrictEqual(expected);
+    expect(actual, actual +" is not a valid solution. For boardSize < 4 you should return an empty list.").to.equal(expected);
 
     boardSize = 5;
     chessBoard = new ChessBoard(boardSize);
@@ -318,8 +311,8 @@ test('third scenario', () => {
         chessBoard.setValue(actual[i].rowIndex, actual[i].columnIndex, true);
     }
     validSolution = isValidSolution(actual, boardSize);
-    expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").toBe(boardSize);
-    expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).toBe(true);
+    expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").to.eql(boardSize);
+    expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).to.eql(true);
 
     boardSize = 6;
     chessBoard = new ChessBoard(boardSize);
@@ -329,8 +322,8 @@ test('third scenario', () => {
         chessBoard.setValue(actual[i].rowIndex, actual[i].columnIndex, true);
     }
     validSolution = isValidSolution(actual, boardSize);
-    expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").toBe(boardSize);
-    expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).toBe(true);
+    expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").to.eql(boardSize);
+    expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).to.eql(true);
 
     boardSize = 7;
     chessBoard = new ChessBoard(boardSize);
@@ -340,8 +333,8 @@ test('third scenario', () => {
         chessBoard.setValue(actual[i].rowIndex, actual[i].columnIndex, true);
     }
     validSolution = isValidSolution(actual, boardSize);
-    expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").toBe(boardSize);
-    expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).toBe(true);
+    expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").to.eql(boardSize);
+    expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).to.eql(true);
 
     boardSize = 8;
     chessBoard = new ChessBoard(boardSize);
@@ -351,8 +344,8 @@ test('third scenario', () => {
         chessBoard.setValue(actual[i].rowIndex, actual[i].columnIndex, true);
     }
     validSolution = isValidSolution(actual, boardSize);
-    expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").toBe(boardSize);
-    expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).toBe(true);
+    expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").to.eql(boardSize);
+    expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).to.eql(true);
 
     boardSize = 9;
     chessBoard = new ChessBoard(boardSize);
@@ -362,8 +355,8 @@ test('third scenario', () => {
         chessBoard.setValue(actual[i].rowIndex, actual[i].columnIndex, true);
     }
     validSolution = isValidSolution(actual, boardSize);
-    expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").toBe(boardSize);
-    expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).toBe(true);
+    expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").to.eql(boardSize);
+    expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).to.eql(true);
 
     boardSize = 10;
     chessBoard = new ChessBoard(boardSize);
@@ -373,8 +366,8 @@ test('third scenario', () => {
         chessBoard.setValue(actual[i].rowIndex, actual[i].columnIndex, true);
     }
     validSolution = isValidSolution(actual, boardSize);
-    expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").toBe(boardSize);
-    expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).toBe(true);
+    expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").to.eql(boardSize);
+    expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).to.eql(true);
 
     boardSize = 11;
     chessBoard = new ChessBoard(boardSize);
@@ -384,8 +377,8 @@ test('third scenario', () => {
         chessBoard.setValue(actual[i].rowIndex, actual[i].columnIndex, true);
     }
     validSolution = isValidSolution(actual, boardSize);
-    expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").toBe(boardSize);
-    expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).toBe(true);
+    expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").to.eql(boardSize);
+    expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).to.eql(true);
     
     boardSize = 12;
     chessBoard = new ChessBoard(boardSize);
@@ -395,8 +388,8 @@ test('third scenario', () => {
         chessBoard.setValue(actual[i].rowIndex, actual[i].columnIndex, true);
     }
     validSolution = isValidSolution(actual, boardSize);
-    expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").toBe(boardSize);
-    expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).toBe(true);
+    expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").to.eql(boardSize);
+    expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).to.eql(true);
 
     boardSize = 13;
     chessBoard = new ChessBoard(boardSize);
@@ -406,8 +399,8 @@ test('third scenario', () => {
         chessBoard.setValue(actual[i].rowIndex, actual[i].columnIndex, true);
     }
     validSolution = isValidSolution(actual, boardSize);
-    expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").toBe(boardSize);
-    expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).toBe(true);
+    expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").to.eql(boardSize);
+    expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).to.eql(true);
 });
 
 function isValidSolution(positions, boardSize) {
