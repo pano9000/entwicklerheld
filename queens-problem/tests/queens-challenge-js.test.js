@@ -282,125 +282,151 @@ it('second scenario', () => {
     expect(actual, "Expected " + expected + " for " + queen24 + " but was " + actual + ". Take a look at the given chessboard:\n\n" + chessBoard8).to.eql(expected);
 });
 
-it('third scenario', () => {
-    let boardSize = 4;
-    let chessBoard = new ChessBoard(boardSize);
-    let actual = getQueensProblemSolution(boardSize);
-    for (let i = 0; i < actual.length; i++) {
-        chessBoard.setValue(actual[i].rowIndex, actual[i].columnIndex, true);
-    }
-    let validSolution = isValidSolution(actual, boardSize);
-    expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").to.eql(boardSize);
-    expect(validSolution[0], actual +" is not a valid solution. The Queen at Position" + validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).to.eql(true);
-            
-    boardSize = 0;
-    actual = getQueensProblemSolution(boardSize);
-    var expected = [];
-    expect(actual, actual +" is not a valid solution. For boardSize < 4 you should return an empty list.").to.equal(expected);
+describe('third scenario', () => {
 
-    boardSize = 3;
-    actual = getQueensProblemSolution(boardSize);
-    expected = [];
-    expect(actual, actual +" is not a valid solution. For boardSize < 4 you should return an empty list.").to.equal(expected);
 
-    boardSize = 5;
-    chessBoard = new ChessBoard(boardSize);
-    actual = getQueensProblemSolution(boardSize);
-    for (let i = 0; i < actual.length; i++)
-    {
-        chessBoard.setValue(actual[i].rowIndex, actual[i].columnIndex, true);
-    }
-    validSolution = isValidSolution(actual, boardSize);
-    expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").to.eql(boardSize);
-    expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).to.eql(true);
+    it(" ", () => {
+      const boardSize = 4;
+      const chessBoard = new ChessBoard(boardSize);
+      const actual = getQueensProblemSolution(boardSize);
+      for (let i = 0; i < actual.length; i++) {
+          chessBoard.setValue(actual[i].rowIndex, actual[i].columnIndex, true);
+      }
+      let validSolution = isValidSolution(actual, boardSize);
+      expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").to.eql(boardSize);
+      expect(validSolution[0], actual +" is not a valid solution. The Queen at Position" + validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).to.eql(true);
+    })
 
-    boardSize = 6;
-    chessBoard = new ChessBoard(boardSize);
-    actual = getQueensProblemSolution(boardSize);
-    for (let i = 0; i < actual.length; i++)
-    {
-        chessBoard.setValue(actual[i].rowIndex, actual[i].columnIndex, true);
-    }
-    validSolution = isValidSolution(actual, boardSize);
-    expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").to.eql(boardSize);
-    expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).to.eql(true);
+    it(" ", () => {
+      const boardSize = 0;
+      const actual = getQueensProblemSolution(boardSize);
+      const expected = [];
+      expect(actual, actual +" is not a valid solution. For boardSize < 4 you should return an empty list.").to.equal(expected);
+    })
 
-    boardSize = 7;
-    chessBoard = new ChessBoard(boardSize);
-    actual = getQueensProblemSolution(boardSize);
-    for (let i = 0; i < actual.length; i++)
-    {
-        chessBoard.setValue(actual[i].rowIndex, actual[i].columnIndex, true);
-    }
-    validSolution = isValidSolution(actual, boardSize);
-    expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").to.eql(boardSize);
-    expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).to.eql(true);
+    it(" ", () => {
+      const boardSize = 3;
+      const actual = getQueensProblemSolution(boardSize);
+      const expected = [];
+      expect(actual, actual +" is not a valid solution. For boardSize < 4 you should return an empty list.").to.equal(expected);
+    })
 
-    boardSize = 8;
-    chessBoard = new ChessBoard(boardSize);
-    actual = getQueensProblemSolution(boardSize);
-    for (let i = 0; i < actual.length; i++)
-    {
-        chessBoard.setValue(actual[i].rowIndex, actual[i].columnIndex, true);
-    }
-    validSolution = isValidSolution(actual, boardSize);
-    expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").to.eql(boardSize);
-    expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).to.eql(true);
+    it(" ", () => {
+      let boardSize = 5;
+      const chessBoard = new ChessBoard(boardSize);
+      const actual = getQueensProblemSolution(boardSize);
+      for (let i = 0; i < actual.length; i++)
+      {
+          chessBoard.setValue(actual[i].rowIndex, actual[i].columnIndex, true);
+      }
+      const validSolution = isValidSolution(actual, boardSize);
+      expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").to.eql(boardSize);
+      expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).to.eql(true);
+    })
 
-    boardSize = 9;
-    chessBoard = new ChessBoard(boardSize);
-    actual = getQueensProblemSolution(boardSize);
-    for (let i = 0; i < actual.length; i++)
-    {
-        chessBoard.setValue(actual[i].rowIndex, actual[i].columnIndex, true);
-    }
-    validSolution = isValidSolution(actual, boardSize);
-    expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").to.eql(boardSize);
-    expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).to.eql(true);
+    it.only(" ", () => {
+      const boardSize = 6;
+      const chessBoard = new ChessBoard(boardSize);
+      const actual = getQueensProblemSolution(boardSize);
+      for (let i = 0; i < actual.length; i++)
+      {
+          chessBoard.setValue(actual[i].rowIndex, actual[i].columnIndex, true);
+      }
+      const validSolution = isValidSolution(actual, boardSize);
+      expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").to.eql(boardSize);
+      expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).to.eql(true);
+    })
 
-    boardSize = 10;
-    chessBoard = new ChessBoard(boardSize);
-    actual = getQueensProblemSolution(boardSize);
-    for (let i = 0; i < actual.length; i++)
-    {
-        chessBoard.setValue(actual[i].rowIndex, actual[i].columnIndex, true);
-    }
-    validSolution = isValidSolution(actual, boardSize);
-    expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").to.eql(boardSize);
-    expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).to.eql(true);
-
-    boardSize = 11;
-    chessBoard = new ChessBoard(boardSize);
-    actual = getQueensProblemSolution(boardSize);
-    for (let i = 0; i < actual.length; i++)
-    {
-        chessBoard.setValue(actual[i].rowIndex, actual[i].columnIndex, true);
-    }
-    validSolution = isValidSolution(actual, boardSize);
-    expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").to.eql(boardSize);
-    expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).to.eql(true);
+    it(" ", () => {
+      const boardSize = 7;
+      const chessBoard = new ChessBoard(boardSize);
+      const actual = getQueensProblemSolution(boardSize);
+      for (let i = 0; i < actual.length; i++)
+      {
+          chessBoard.setValue(actual[i].rowIndex, actual[i].columnIndex, true);
+      }
+      const validSolution = isValidSolution(actual, boardSize);
+      expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").to.eql(boardSize);
+      expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).to.eql(true);
+    })
     
-    boardSize = 12;
-    chessBoard = new ChessBoard(boardSize);
-    actual = getQueensProblemSolution(boardSize);
-    for (let i = 0; i < actual.length; i++)
-    {
-        chessBoard.setValue(actual[i].rowIndex, actual[i].columnIndex, true);
-    }
-    validSolution = isValidSolution(actual, boardSize);
-    expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").to.eql(boardSize);
-    expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).to.eql(true);
+    it(" ", () => {
+      const boardSize = 8;
+      const chessBoard = new ChessBoard(boardSize);
+      const actual = getQueensProblemSolution(boardSize);
+      for (let i = 0; i < actual.length; i++)
+      {
+          chessBoard.setValue(actual[i].rowIndex, actual[i].columnIndex, true);
+      }
+      const validSolution = isValidSolution(actual, boardSize);
+      expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").to.eql(boardSize);
+      expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).to.eql(true);
+    })
 
-    boardSize = 13;
-    chessBoard = new ChessBoard(boardSize);
-    actual = getQueensProblemSolution(boardSize);
-    for (let i = 0; i < actual.length; i++)
-    {
-        chessBoard.setValue(actual[i].rowIndex, actual[i].columnIndex, true);
-    }
-    validSolution = isValidSolution(actual, boardSize);
-    expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").to.eql(boardSize);
-    expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).to.eql(true);
+    it(" ", () => {
+      const boardSize = 9;
+      const chessBoard = new ChessBoard(boardSize);
+      const actual = getQueensProblemSolution(boardSize);
+      for (let i = 0; i < actual.length; i++)
+      {
+          chessBoard.setValue(actual[i].rowIndex, actual[i].columnIndex, true);
+      }
+      const validSolution = isValidSolution(actual, boardSize);
+      expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").to.eql(boardSize);
+      expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).to.eql(true);
+    })
+
+    it(" ", () => {
+      const boardSize = 10;
+      const chessBoard = new ChessBoard(boardSize);
+      const actual = getQueensProblemSolution(boardSize);
+      for (let i = 0; i < actual.length; i++)
+      {
+          chessBoard.setValue(actual[i].rowIndex, actual[i].columnIndex, true);
+      }
+      const validSolution = isValidSolution(actual, boardSize);
+      expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").to.eql(boardSize);
+      expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).to.eql(true);
+    })
+
+    it(" ", () => {
+      const boardSize = 11;
+      const chessBoard = new ChessBoard(boardSize);
+      const actual = getQueensProblemSolution(boardSize);
+      for (let i = 0; i < actual.length; i++)
+      {
+          chessBoard.setValue(actual[i].rowIndex, actual[i].columnIndex, true);
+      }
+      const validSolution = isValidSolution(actual, boardSize);
+      expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").to.eql(boardSize);
+      expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).to.eql(true);
+    })
+
+    it(" ", () => {
+      const boardSize = 12;
+      const chessBoard = new ChessBoard(boardSize);
+      const actual = getQueensProblemSolution(boardSize);
+      for (let i = 0; i < actual.length; i++)
+      {
+          chessBoard.setValue(actual[i].rowIndex, actual[i].columnIndex, true);
+      }
+      const validSolution = isValidSolution(actual, boardSize);
+      expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").to.eql(boardSize);
+      expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).to.eql(true);
+    })
+
+    it(" ", () => {
+      const boardSize = 13;
+      const chessBoard = new ChessBoard(boardSize);
+      const actual = getQueensProblemSolution(boardSize);
+      for (let i = 0; i < actual.length; i++)
+      {
+          chessBoard.setValue(actual[i].rowIndex, actual[i].columnIndex, true);
+      }
+      const validSolution = isValidSolution(actual, boardSize);
+      expect(actual.length, "You should have placed " +boardSize+" queens on the chessboard but only " + actual.length +" found.").to.eql(boardSize);
+      expect(validSolution[0], actual + " is not a valid solution. The Queen at Position" +validSolution[1][0]+ " is conflicting with the Queen at Position"+ validSolution[1][1] + ". Take a look at your chessBoard:\n\n" + chessBoard).to.eql(true);
+    })
 });
 
 function isValidSolution(positions, boardSize) {
