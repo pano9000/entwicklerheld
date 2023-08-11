@@ -38,76 +38,110 @@ export function getQueensProblemSolution(boardSize) {
 
 
     */
+    if (boardSize < 4) return [];
+/*
+    const chessBoard2 = new QueensChessBoard(boardSize);
+    chessBoard2.addPiece(new Position(0,1));
+    chessBoard2.addPiece(new Position(1,3));
+    chessBoard2.addPiece(new Position(2,0));
+    chessBoard2.addPiece(new Position(3,2));
+    return chessBoard2.getPiecePositions();*/
+    
+    const chessBoard = new QueensChessBoard(boardSize);
+    let placedQueens = 0;
+    while (placedQueens < boardSize) {
+      const currentEmptyPositions = chessBoard.getEmptyPositions();
+      const remainingQueens = boardSize - placedQueens
+      if (currentEmptyPositions.length < remainingQueens) {
+        console.log("Not Enough empty positions left");
+        break;
+      }
 
-    const chessBoard = new CustomChessBoard(boardSize);
-    chessBoard.addPiece(new Position(0,1));
-    //console.log(chessBoard)
-    chessBoard.visualize()
-   // chessBoard.addPiece(new Position(0,0));
-    chessBoard.addPiece(new Position(1,3));
-    chessBoard.visualize()
+      chessBoard.addPiece(currentEmptyPositions[0]);
 
+      placedQueens++;
+      console.log(placedQueens)
+      chessBoard.visualize()
 
-    for (let currentRow = 0; currentRow < boardSize; currentRow++) {
-        let positionChecks = [];
-
-        for (let currentColumn = 0; currentColumn < boardSize; currentColumn++) {
-            let currentPosition = new Position(currentRow, currentColumn);
-            positionChecks.push(getAttackedPositions(currentPosition, {boardSize, checkDiagonal: true}))
-        }
-        let lengths = positionChecks.map(positionCheck => positionCheck.length);
-        //console.log("lengthss", lengths) // get diagonal lenghts separately as well and decide for the one with the lowest diagionally attacked?
-
-        //console.log(currentRow, positionChecks.length, positionChecks)
     }
+
     return [];
 }
 
-class CustomChessBoard {
+const positionStatus = {
+  EMPTY: 0,
+  PIECE: 1,
+  ATTACKED: 2
+}
+
+class QueensChessBoard {
     size;
     board;
     constructor(boardSize) {
         this.size = boardSize;
-        this.board = this.initBoard(boardSize);
+        this.board = this.#initBoard(boardSize);
     }
 
-    initBoard(size) {
-        const board = new Map();
-        for (let boardRow = 0; boardRow < size; boardRow++) {
-          for (let boardCol = 0; boardCol < size; boardCol++) {
-              const currentPosition = new ChessBoardPosition(boardRow, boardCol);
-              board.set(currentPosition.toString(), currentPosition)
-            }
+    #initBoard(size) {
+      const board = new Map();
+      for (let boardRow = 0; boardRow < size; boardRow++) {
+        for (let boardCol = 0; boardCol < size; boardCol++) {
+          const currentPosition = new ChessBoardPosition(boardRow, boardCol);
+          board.set(currentPosition.toString(), currentPosition)
         }
-        return board;
+      }
+      return board;
     }
 
     addPiece(position) {
       //check if position is Position type here
       const boardPosition = this.board.get(position.toString());
-      console.log("bposss", position.toString(), boardPosition)
-      if (boardPosition.status !== 0) {
-        console.log("pos is not empty");
-        return;
+
+      if (boardPosition.status !== positionStatus.EMPTY) {
+        console.log("pos is not possible, because it is either not empty, or already occupied");
+        return false;
       }
 
-      boardPosition.status = 1;
-      //this.updatePositions()
+      boardPosition.status = positionStatus.PIECE;
+      this.#updatePositions(position)
+      return true;
+    }
+
+    #updatePositions(position) {
       const att = getAttackedPositions(position, {boardSize: this.size, checkDiagonal: true});
-      console.log("attt", att)
+
       att.forEach(attPosition =>  {
         let currAtt = this.board.get(attPosition.toString());
-        console.log("curAtt", attPosition.toString(), currAtt)
-        if (currAtt.status == 0) {
-          this.board.get(attPosition.toString()).status = 2
+        //console.log("curAtt", attPosition.toString(), currAtt)
+        if (currAtt.status == positionStatus.EMPTY) {
+          this.board.get(attPosition.toString()).status = positionStatus.ATTACKED
         }
       })
+
     }
 
     getEmptyPositions() {
-      this.board.entries
+      return this.#getPositions(positionStatus.EMPTY)
     }
 
+    getPiecePositions() {
+      return this.#getPositions(positionStatus.PIECE)
+    }
+
+    getAttackedPositions() {
+      return this.#getPositions(positionStatus.ATTACKED)
+    }
+
+    #getPositions(status) {
+      const positionsOnBoard = [];
+      this.board.forEach( (value) => {
+        if (value.status == status) {
+          positionsOnBoard.push(value)
+        }
+      })
+
+      return positionsOnBoard
+    }
 
     visualize() {
       const boardVisual = []
@@ -126,7 +160,7 @@ class CustomChessBoard {
 
       })
 
-      console.log(boardVisual.map(row => row.join("　")).join("\n"))
+      console.log("\n---\n" + boardVisual.map(row => row.join("　")).join("\n"), "\n---\n")
 
       //console.log(chessboard.join("\n"))
 
@@ -137,7 +171,7 @@ class CustomChessBoard {
 
 
 class ChessBoardPosition extends Position {
-    constructor(rowIndex, columnIndex, status = 0) {
+    constructor(rowIndex, columnIndex, status = positionStatus.EMPTY) {
         super(rowIndex, columnIndex);
         this.status = status;
     }
