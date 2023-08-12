@@ -26,47 +26,115 @@ export function isSafeQueen(positions, queen) {
     return true;
 }
 
-export function getQueensProblemSolution(boardSize) {
-    // implement this in scenario 3
-    /*
-        * create chessboard
-        * place queen 1 on first field [0, 0] -> new Position [0,0]
-        * get attackedPositions of queen 1
-        * place attackedPositions into chessboard
-        * get next free, unattacked field
-            * loop through chessboard row, if reach end, jump to next 
-
-
-    */
-    if (boardSize < 4) return [];
 /*
-    const chessBoard2 = new QueensChessBoard(boardSize);
-    chessBoard2.addPiece(new Position(0,1));
-    chessBoard2.addPiece(new Position(1,3));
-    chessBoard2.addPiece(new Position(2,0));
-    chessBoard2.addPiece(new Position(3,2));
-    return chessBoard2.getPiecePositions();*/
-    
-    const chessBoard = new QueensChessBoard(boardSize);
-    let placedQueens = 0;
-    while (placedQueens < boardSize) {
+export function getQueensProblemSolutionAll(boardSize) {
+
+    if (boardSize < 4) return [];
+
+    const outer = []
+    const recTest = (placedPositions) => {
+      const chessBoard = new QueensChessBoard(boardSize);
+      placedPositions.forEach(placedPosition => {
+        chessBoard.addPiece(placedPosition)
+      })
+
+      //chessBoard.visualize()
+
       const currentEmptyPositions = chessBoard.getEmptyPositions();
-      const remainingQueens = boardSize - placedQueens
-      if (currentEmptyPositions.length < remainingQueens) {
-        console.log("Not Enough empty positions left");
-        break;
+      const remainingQueens = boardSize - placedPositions.length
+
+      if (remainingQueens === 0) return true
+      if (currentEmptyPositions < remainingQueens) return false;
+
+      for (let i = 0; i < currentEmptyPositions.length; i++) {
+        const nextPositionsTest = [...chessBoard.getPiecePositions(), currentEmptyPositions[i]];
+        const recResult = recTest(nextPositionsTest);
+
+        if (recResult === true) {
+          chessBoard.addPiece(currentEmptyPositions[i])
+          outer.push(chessBoard)
+        }
       }
-
-      chessBoard.addPiece(currentEmptyPositions[0]);
-
-      placedQueens++;
-      console.log(placedQueens)
-      chessBoard.visualize()
 
     }
 
-    return [];
+    for (let field = 0; field < boardSize; field++) {
+      recTest([new Position(0,field)])
+    }
+    console.log("outer", outer.length)
+    //outer.forEach(item => item.visualize())
+//    console.log(outer.filter(item => item.getPiecePositions().length === 4))
+    return outer[0].getPiecePositions()
+
 }
+*/
+
+export function getQueensProblemSolution(boardSize) {
+
+  if (boardSize < 4) return [];
+  let outerCount = 0;
+  let outerResult = [];
+  const recursiveGetQueen = (placedPositions) => {
+    const currentChessBoard = new QueensChessBoard(boardSize);
+    placedPositions.forEach(placedPosition => {
+      currentChessBoard.addPiece(placedPosition);
+    });
+  //  currentChessBoard.visualize()
+
+    const currentEmptyPositions = currentChessBoard.getEmptyPositions();
+    const currentPiecePositions = currentChessBoard.getPiecePositions();
+
+    const remainingQueens = boardSize - currentPiecePositions.length;
+
+
+    if (outerResult.length > 0) {
+      console.log("yo found some already", outerResult.length)
+    }
+
+    if (remainingQueens === 0) return [true, currentChessBoard];
+    if (currentEmptyPositions.length < remainingQueens) return [false, currentChessBoard];
+
+    //console.log("outer", outerCount)
+    for (let i = 0; i < currentEmptyPositions.length; i++) {
+     // console.log("ival", i)
+      const nextEmptyPosition = currentEmptyPositions[i]
+      const nextPositionsTest = [...currentPiecePositions, nextEmptyPosition];
+      const nextResult = recursiveGetQueen(nextPositionsTest);
+      if (nextResult[0] == true) {
+
+        outerResult.push(nextResult);
+        break
+     //   console.log("yooo we dobe", outerCount)
+      //  nextResult[1].visualize()
+        console.log(outerResult)
+        outerCount++;
+        return nextResult;
+      }
+
+    }
+    console.log("outa here", outerResult.length)
+    if (outerResult.length>0) return [true, outerResult]
+
+    return [false, null]
+
+
+  }
+
+    for (let column = 0; column < boardSize; column++) {
+      const res = recursiveGetQueen([new Position(0, column)]);
+      console.log("outresleng", outerResult.length);
+      if (outerResult.length>0) {
+        //console.log(outerResult[0])
+        return "a"
+      }
+      if (res[0] === true) {
+        console.log(column, "yooo outside", outerCount, res[1].visualize())
+        return res[1].getPiecePositions()
+      }
+    }
+
+}
+
 
 const positionStatus = {
   EMPTY: 0,
@@ -161,8 +229,6 @@ class QueensChessBoard {
       })
 
       console.log("\n---\n" + boardVisual.map(row => row.join("　")).join("\n"), "\n---\n")
-
-      //console.log(chessboard.join("\n"))
 
     }
 
@@ -292,7 +358,7 @@ const check = {
         }
         //visualize(chessboardSize, attackedPositions, positions)
         let isAttacked = attackedPositions.some(attackedPosition => element.equals(attackedPosition))
-        console.log("\n--START--\n", "Pos:", position, "\neleme",  element, "\natta:\n", attackedPositions, "\n-----\n", "isAttacked", isAttacked)
+        //console.log("\n--START--\n", "Pos:", position, "\neleme",  element, "\natta:\n", attackedPositions, "\n-----\n", "isAttacked", isAttacked)
         return isAttacked;
     },
 
@@ -315,3 +381,5 @@ function getChessboardSize(positions) {
     }, 0) + 1 //+1 since 0 based index
 
 }
+
+getQueensProblemSolution(5)
