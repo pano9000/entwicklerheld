@@ -72,66 +72,92 @@ export function getQueensProblemSolutionAll(boardSize) {
 export function getQueensProblemSolution(boardSize) {
 
   if (boardSize < 4) return [];
-  let outerCount = 0;
-  let outerResult = [];
-  const recursiveGetQueen = (placedPositions) => {
-    const currentChessBoard = new QueensChessBoard(boardSize);
-    placedPositions.forEach(placedPosition => {
-      currentChessBoard.addPiece(placedPosition);
-    });
-  //  currentChessBoard.visualize()
 
-    const currentEmptyPositions = currentChessBoard.getEmptyPositions();
-    const currentPiecePositions = currentChessBoard.getPiecePositions();
+  const outerRecTest = (placedPositions, columCount) => {
 
-    const remainingQueens = boardSize - currentPiecePositions.length;
+    let outerCount = 0;
+    let outerResult = [];
+    console.log(columCount)
+  
+    const recursiveGetQueen = (placedPositions, memo = {}) => {
+      const currentChessBoard = new QueensChessBoard(boardSize);
+      placedPositions.forEach(placedPosition => {
+        currentChessBoard.addPiece(placedPosition);
+      });
+  
+      const currentEmptyPositions = currentChessBoard.getEmptyPositions();
+      const currentPiecePositions = currentChessBoard.getPiecePositions();
+  
+      const remainingQueens = boardSize - currentPiecePositions.length;
+  
+  
+      let currentMemoStr = `${remainingQueens}_${currentChessBoard.getEmptyPositions().map(pos => `${pos.rowIndex,pos.columnIndex}`).join(",")}`;
+      //console.log(currentMemoStr)
 
-
-    if (outerResult.length > 0) {
-      console.log("yo found some already", outerResult.length)
-    }
-
-    if (remainingQueens === 0) return [true, currentChessBoard];
-    if (currentEmptyPositions.length < remainingQueens) return [false, currentChessBoard];
-
-    //console.log("outer", outerCount)
-    for (let i = 0; i < currentEmptyPositions.length; i++) {
-     // console.log("ival", i)
-      const nextEmptyPosition = currentEmptyPositions[i]
-      const nextPositionsTest = [...currentPiecePositions, nextEmptyPosition];
-      const nextResult = recursiveGetQueen(nextPositionsTest);
-      if (nextResult[0] == true) {
-
-        outerResult.push(nextResult);
-        break
-     //   console.log("yooo we dobe", outerCount)
-      //  nextResult[1].visualize()
-        console.log(outerResult)
-        outerCount++;
-        return nextResult;
+  
+      if (remainingQueens === 0) {
+      
+        memo[currentMemoStr] = [true, currentChessBoard];
+        return [true, currentChessBoard, columCount];
       }
 
+      if (currentEmptyPositions.length < remainingQueens) {
+        
+        memo[currentMemoStr] = [false, currentChessBoard];
+        return [false, currentChessBoard, columCount];
+      }
+
+      if (currentMemoStr in memo) {
+        //console.log("found in MEMO")
+        return memo[currentMemoStr]
+      } 
+  
+      //console.log("outer", outerCount)
+      for (let i = 0; i < currentEmptyPositions.length; i++) {
+
+
+        const nextEmptyPosition = currentEmptyPositions[i];
+        const nextPositionsTest = [...currentPiecePositions, nextEmptyPosition];
+       // console.log("bef i", i, new Date(), JSON.stringify(nextPositionsTest))
+        const nextResult = recursiveGetQueen(nextPositionsTest, memo);
+       // console.log("aft i", i, new Date(), JSON.stringify(nextPositionsTest))
+
+        if (nextResult[0] == true) {
+          console.log(new Date(), "sol i", i, JSON.stringify(nextResult[1].getPiecePositions()))
+          outerResult.push([true, nextResult[1]]);
+          throw nextResult;
+          return [true, nextResult[1]]
+        } else {
+          //return [false, null]
+        }
+  
+      }
+  
+      if (outerResult.length>0) return [true, outerResult]
+  
+      return [false, null]
+  
+  
     }
-    console.log("outa here", outerResult.length)
-    if (outerResult.length>0) return [true, outerResult]
 
-    return [false, null]
+    const innerResult = recursiveGetQueen(placedPositions);
+    return innerResult
 
-
-  }
+  };
 
     for (let column = 0; column < boardSize; column++) {
-      const res = recursiveGetQueen([new Position(0, column)]);
-      console.log("outresleng", outerResult.length);
-      if (outerResult.length>0) {
-        //console.log(outerResult[0])
-        return "a"
+      try {
+        const res = outerRecTest([new Position(0, column)], column);
+
       }
-      if (res[0] === true) {
-        console.log(column, "yooo outside", outerCount, res[1].visualize())
-        return res[1].getPiecePositions()
+      catch(obj) {
+
+        console.log("res", obj[1].visualize());
+          return obj[1].getPiecePositions() 
       }
+
     }
+
 
 }
 
@@ -382,4 +408,4 @@ function getChessboardSize(positions) {
 
 }
 
-getQueensProblemSolution(5)
+//getQueensProblemSolution(13)
