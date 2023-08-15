@@ -298,7 +298,6 @@
       "dateSolved": "2023-08-16",
       "description": "Challenge consisted of extracting 'keywords' from a text, by using 'Term Frequency Inverse Document Frequency (TF-IDF)'",
       "comment": ""
-    },
-
+    }
   ]
 }
