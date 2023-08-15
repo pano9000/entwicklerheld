@@ -289,6 +289,16 @@
       "dateSolved": "2023-08-07",
       "description": "Well known FizzBuzz challenge, but with a slight constraint of not using 'if' statements :-)",
       "comment": ""
-    }
+    },
+    {
+      "id": "keyword-extractor",
+      "idEH": "16b518c4-88a0-4b40-9155-bec0c34e2fff",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2023-08-16",
+      "description": "Challenge consisted of extracting 'keywords' from a text, by using 'Term Frequency Inverse Document Frequency (TF-IDF)'",
+      "comment": ""
+    },
+
   ]
 }
