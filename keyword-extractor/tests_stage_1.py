@@ -2,7 +2,7 @@ from unittest import TestCase, main
 
 import xmlrunner as xmlrunner
 
-from keyword_extractor_python.task import KeywordExtractor
+from KeywordExtractor import KeywordExtractor
 
 MIN_SCORE = 0.06
 
