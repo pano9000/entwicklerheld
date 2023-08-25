@@ -12,7 +12,7 @@ Depending on that either create or update the client in the  "Client Database".
 Bonus task is to also implement a "fuzzy/soft matching" to also detect and match clients even with typos or small deviations in the client info.
 
 ## Challenge Info
-Data last updated: 2023-08-18
+Data last updated: 2023-08-25
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▮▯▯ | █████░░░░░ 45% | 178 / 400 | 2022-06-19 | JavaScript
