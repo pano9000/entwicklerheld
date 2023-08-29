@@ -13,8 +13,6 @@ public class DocumentScanJava {
     public static boolean hardMode = true;
 
     public static Address findAddress(Document document) {
-        //System.out.println(document.toSvg());
-        //System.out.println(document.getCharacters());
         ArrayList<Character> documentCharacters = document.getCharacters();
 
         TreeMap<Double, ArrayList<Character>> documentCharColumns = new TreeMap<Double, ArrayList<Character>>();
@@ -40,7 +38,7 @@ public class DocumentScanJava {
 
         //assuming the characters are all recognized in the same width/height
         double charWidth = documentCharacters.get(0).getB().x() - documentCharacters.get(0).getA().x();
-        double charHeight = documentCharacters.get(0).getA().y() - documentCharacters.get(0).getC().y();
+        double charHeight = documentCharacters.get(0).getC().y() - documentCharacters.get(0).getA().y();
         System.out.println(charWidth + "//" + charHeight);
 
         for (ArrayList<Character> documentCharColumn : documentCharColumns.values()) {
@@ -52,63 +50,14 @@ public class DocumentScanJava {
                     c2.getA().y()
                     )  
             );
-
-            for (Character character : documentCharColumn) {
-                if (character.getA().y() < minYVal) {
-                    minYVal = character.getA().y();
-                }
-                if (character.getA().y() > maxYVal) {
-                    maxYVal = character.getA().y();
-                }
-            }
-
-            for (Character character : documentCharColumn) {
-
-
-                if (character.getA().y() < minYVal) {
-                    minYVal = character.getA().y();
-                }
-                if (character.getA().y() > maxYVal) {
-                    maxYVal = character.getA().y();
-                }
-
-                if (character.getA().x() < minXVal) {
-                    minXVal = character.getA().x();
-                }
-                if (character.getA().x() > maxXVal) {
-                    maxXVal = character.getA().x();
-                }
-
-            }
-
-            // get most right X char with the lowest Y
-
-            // Group Characters by offsetcorrected Y value of their A Point -> same Y value = same row
-            for (Character documentCharacter : documentCharColumn) {
-                double offsetCorrectedY = documentCharacter.getA().y() - documentCharacter.getA().y() % 4;
-                //System.out.println(documentCharacter + " " + offsetCorrectedY);
-                if (!documentCharRows.containsKey(offsetCorrectedY)) {
-                    documentCharRows.put(offsetCorrectedY, new ArrayList<Character>());
-                } 
-                documentCharRows.get(offsetCorrectedY).add(documentCharacter);
-            }
-
         }
 
-
-
-         //make the key selection dynamic, do not assume it will always start at 0
-
-         ArrayList<String> documentRows = new ArrayList<String>();
-
-        System.out.println(documentCharColumns);
-
+        ArrayList<String> documentRows = new ArrayList<String>();
 
         ArrayList<Double> docCharColKeys = new ArrayList<Double>(documentCharColumns.keySet());
-
+        
         Character firstC = documentCharColumns.get(docCharColKeys.get(0)).get(0);
         Character secondC = documentCharColumns.get(docCharColKeys.get(1)).get(0);
-        
         Boolean goesUp = ((firstC.getA().y() - secondC.getA().y()) > 0) ? true : false; 
         System.out.println(goesUp + " // " + firstC + " // " + secondC + " // " + (firstC.getA().y() - secondC.getA().y()));
         Double heightComp = (goesUp) ? -4.0 : 4.0;
@@ -130,6 +79,7 @@ public class DocumentScanJava {
 
                     if (goesUp) {
                         if (nextY <= currentY && nextY > currentY + heightComp) {
+
                             if (Double.compare((nextX - currentX), 3.0) > 0) {
                                 //space detection
                                 currentRowStr += " ";
@@ -142,7 +92,8 @@ public class DocumentScanJava {
 
                     } else {
 
-                        if (nextY >= currentY && nextY < currentY + heightComp) {
+                        if (nextY >= currentY && nextY < currentY + heightComp && (nextX - currentX) < 7) {
+
                             if (Double.compare((nextX - currentX), 3.0) > 0) {
                                 //space detection
                                 currentRowStr += " ";
@@ -155,10 +106,8 @@ public class DocumentScanJava {
 
                     }
 
-      
                 }
                 
-
             }
             documentRows.add(currentRowStr);
 
