@@ -4,7 +4,6 @@ package de.entwicklerheld.documentScanJava;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
-import java.util.List;
 import java.util.TreeMap;
 
 public class DocumentScanJava {
@@ -12,17 +11,19 @@ public class DocumentScanJava {
     // Set this to false if you want to skip the second scenario
     public static boolean hardMode = true;
 
+    public static enum SkewDirection {
+        UP,
+        DOWN_NONE,
+    };
+
     public static Address findAddress(Document document) {
         ArrayList<Character> documentCharacters = document.getCharacters();
-
         TreeMap<Double, ArrayList<Character>> documentCharColumns = new TreeMap<Double, ArrayList<Character>>();
-        TreeMap<Double, ArrayList<Character>> documentCharRows = new TreeMap<Double, ArrayList<Character>>();
 
-        documentCharacters.sort(
-            (Character c1, Character c2) -> Double.compare(c1.getA().x(), c2.getA().x())  
-        );
-
+        // a bit simplified:
         // Group Characters by X value of their A Point -> same X value = same horizontal line
+        // in reality the skewed text would mean that the X values will be skewed as well,
+        // so this grouping would not work likely without some additional work
         for (Character documentCharacter : documentCharacters) {
             double xVal = documentCharacter.getA().x();
             if (!documentCharColumns.containsKey(xVal)) {
@@ -31,124 +32,93 @@ public class DocumentScanJava {
             documentCharColumns.get(xVal).add(documentCharacter);
         }
 
-        double minYVal = 999999.9; //TODO fix -> find a better way than that
-        double maxYVal = 0.0; //TODO fix -> find a better way than that
-        double minXVal = 999999.9;
-        double maxXVal = 0.0;
-
-        //assuming the characters are all recognized in the same width/height
-        double charWidth = documentCharacters.get(0).getB().x() - documentCharacters.get(0).getA().x();
-        double charHeight = documentCharacters.get(0).getC().y() - documentCharacters.get(0).getA().y();
-        System.out.println(charWidth + "//" + charHeight);
-
+        //sort each Character in Column by Y -> to get correct line order
         for (ArrayList<Character> documentCharColumn : documentCharColumns.values()) {
-
-            //sort each Character in Column by Y -> correct line order
             documentCharColumn.sort(
-                (Character c1, Character c2) -> Double.compare(
-                    c1.getA().y(), 
-                    c2.getA().y()
-                    )  
+                (Character c1, Character c2) -> Double.compare(c1.getA().y(), c2.getA().y())  
             );
         }
 
+        //assuming the recognized characters are all in the same width/height
+        double charWidth = documentCharacters.get(0).getB().x() - documentCharacters.get(0).getA().x();
+        double charHeight = documentCharacters.get(0).getC().y() - documentCharacters.get(0).getA().y();
+        double spaceBetweenCharsX = 1.0; //todo -> calculate
+        double spaceBetweenCharsY = 3.0; //todo -> calculate
+
+        SkewDirection skewDirection = getSkewDirection(documentCharColumns);
+
+        Double heightComp = (skewDirection == SkewDirection.UP) ? -4.0 : 4.0;
+
         ArrayList<String> documentRows = new ArrayList<String>();
 
-        ArrayList<Double> docCharColKeys = new ArrayList<Double>(documentCharColumns.keySet());
-        
-        Character firstC = documentCharColumns.get(docCharColKeys.get(0)).get(0);
-        Character secondC = documentCharColumns.get(docCharColKeys.get(1)).get(0);
-        Boolean goesUp = ((firstC.getA().y() - secondC.getA().y()) > 0) ? true : false; 
-        System.out.println(goesUp + " // " + firstC + " // " + secondC + " // " + (firstC.getA().y() - secondC.getA().y()));
-        Double heightComp = (goesUp) ? -4.0 : 4.0;
         for (Character startingChar : documentCharColumns.get(documentCharColumns.firstKey())) {
             String currentRowStr = String.valueOf(startingChar.getCharacter());
             Double currentY = startingChar.getA().y();
             Double currentX = startingChar.getA().x();
             Iterator<Double> keySet = documentCharColumns.keySet().iterator();
-            if (keySet.hasNext()) {
-                keySet.next(); //skip first column
-            }
+
+            //skip first column
+            if (keySet.hasNext()) keySet.next(); 
+
             while (keySet.hasNext()) {
                 Double currInd = keySet.next();
-                ArrayList<Character> abc = documentCharColumns.get(currInd);
+                ArrayList<Character> charColumn = documentCharColumns.get(currInd);
                 
-                for (int i = 0; i < abc.size(); i++) {
-                    Double nextY = abc.get(i).getA().y();
-                    Double nextX = abc.get(i).getA().x();
+                for (int i = 0; i < charColumn.size(); i++) {
+                    Character currentChar = charColumn.get(i);
+                    Double nextY = currentChar.getA().y();
+                    Double nextX = currentChar.getA().x();
+                    Boolean comparer = 
+                        (skewDirection == SkewDirection.UP) 
+                        ? (nextY <= currentY && nextY > currentY + heightComp)
+                        : (nextY >= currentY && nextY < currentY + heightComp && (nextX - currentX) < 7.0); //TODO do not hardcode
 
-                    if (goesUp) {
-                        if (nextY <= currentY && nextY > currentY + heightComp) {
-
-                            if (Double.compare((nextX - currentX), 3.0) > 0) {
-                                //space detection
-                                currentRowStr += " ";
-                            }
-                            currentRowStr += String.valueOf(abc.get(i).getCharacter());
-                            currentY = nextY;
-                            currentX = nextX;
-                            break;
+                    if (comparer) {
+                        //space detection
+                        if (Double.compare((nextX - currentX), charWidth+spaceBetweenCharsX) > 0) {
+                            currentRowStr += " ";
                         }
-
-                    } else {
-
-                        if (nextY >= currentY && nextY < currentY + heightComp && (nextX - currentX) < 7) {
-
-                            if (Double.compare((nextX - currentX), 3.0) > 0) {
-                                //space detection
-                                currentRowStr += " ";
-                            }
-                            currentRowStr += String.valueOf(abc.get(i).getCharacter());
-                            currentY = nextY;
-                            currentX = nextX;
-                            break;
-                        }
-
+                        currentRowStr += String.valueOf(currentChar.getCharacter());
+                        currentY = nextY;
+                        currentX = nextX;
+                        break;
                     }
-
                 }
-                
             }
+
             documentRows.add(currentRowStr);
-
-
         };
-                      System.out.println("------aa\n\n"+ documentRows +" \n\n");
 
-        return getAddressFromDocumentLine(documentRows);
+        return getAddressFromDocumentRows(documentRows);
         
     }
 
-    public static Address getAddressFromDocumentLine(ArrayList<String> documentLineElem) {
-
+    private static Address getAddressFromDocumentRows(ArrayList<String> documentRows) {
         String recipient, street, houseNumber, zipCode, city;
+        recipient = documentRows.get(0);
 
-        recipient = documentLineElem.get(0);
-
-        ArrayList<String> streetHouse = new ArrayList<String>(Arrays.asList(documentLineElem.get(1).split(" ")));
-        houseNumber = (streetHouse.size() > 1) ? streetHouse.remove(streetHouse.size()-1) : ""; //streetHouse.remove(last);
+        ArrayList<String> streetHouse = new ArrayList<String>(Arrays.asList(documentRows.get(1).split(" ")));
+        houseNumber = (streetHouse.size() > 1) ? streetHouse.remove(streetHouse.size()-1) : "";
         street = String.join(" ", streetHouse);
 
         //assuming German Postal Codes for now
-        ArrayList<String> zipCity = new ArrayList<String>(Arrays.asList(documentLineElem.get(2).split(" ")));
+        ArrayList<String> zipCity = new ArrayList<String>(Arrays.asList(documentRows.get(2).split(" ")));
         zipCode = (zipCity.size() > 1) ? zipCity.remove(0) : ""; //streetHouse.remove(last);
         city = String.join(" ", zipCity);
 
         return new Address(recipient, street, houseNumber, zipCode, city);
     }
 
-    //feels wrong to have that in this class, but I cannot edit any of the other classes, so...
-    public static void sortCharactersBy(ArrayList<Character> documentCharacters, String axis) {
 
-        documentCharacters.sort(
-            (Character c1, Character c2) -> Double.compare(c1.getA().y(), c2.getA().y())  
-        );
+    private static SkewDirection getSkewDirection(TreeMap<Double, ArrayList<Character>> documentCharColumns) {
+        
+        //TODO: if the first line consists of only one letter, or a letter followed by a space this will cause bugs
+        ArrayList<Double> columnKeys = new ArrayList<Double>(documentCharColumns.keySet());
+        
+        Character firstC = documentCharColumns.get(columnKeys.get(0)).get(0);
+        Character secondC = documentCharColumns.get(columnKeys.get(1)).get(0);
+        return ((firstC.getA().y() - secondC.getA().y()) > 0) ? SkewDirection.UP : SkewDirection.DOWN_NONE; 
 
     }
 
 }
-
-
-/*
- * 
- */
