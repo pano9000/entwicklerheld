@@ -11,7 +11,7 @@ public class DocumentScanJava {
     // Set this to false if you want to skip the second scenario
     public static boolean hardMode = true;
 
-    public static enum SkewDirection {
+    private static enum SkewDirection {
         UP,
         DOWN_NONE,
     };
@@ -20,7 +20,7 @@ public class DocumentScanJava {
         ArrayList<Character> documentCharacters = document.getCharacters();
         TreeMap<Double, ArrayList<Character>> documentCharColumns = new TreeMap<Double, ArrayList<Character>>();
 
-        // a bit simplified:
+        // a bit simplified approach:
         // Group Characters by X value of their A Point -> same X value = same horizontal line
         // in reality the skewed text would mean that the X values will be skewed as well,
         // so this grouping would not work likely without some additional work
@@ -42,12 +42,22 @@ public class DocumentScanJava {
         //assuming the recognized characters are all in the same width/height
         double charWidth = documentCharacters.get(0).getB().x() - documentCharacters.get(0).getA().x();
         double charHeight = documentCharacters.get(0).getC().y() - documentCharacters.get(0).getA().y();
-        double spaceBetweenCharsX = 1.0; //todo -> calculate
-        double spaceBetweenCharsY = 3.0; //todo -> calculate
 
+        Double charSpacingVertical = 
+            documentCharColumns.get(documentCharColumns.firstKey()).get(1).getA().y()
+            -documentCharColumns.get(documentCharColumns.firstKey()).get(0).getC().y();
+
+        ArrayList<Double> columnKeys = new ArrayList<Double>(documentCharColumns.keySet());
+
+        Double charSpacingHorizontal = 
+            documentCharColumns.get(columnKeys.get(1)).get(0).getA().x()
+            -documentCharColumns.get(columnKeys.get(0)).get(0).getB().x();
+ 
         SkewDirection skewDirection = getSkewDirection(documentCharColumns);
-
-        Double heightComp = (skewDirection == SkewDirection.UP) ? -4.0 : 4.0;
+        
+        Double charAndSpacingHeight = charHeight + charSpacingVertical;
+        int charAndSpacingWidth = (int) ((charWidth+charSpacingHorizontal) * 100);
+        Double heightComp = (skewDirection == SkewDirection.UP) ? charAndSpacingHeight * -1 : charAndSpacingHeight;
 
         ArrayList<String> documentRows = new ArrayList<String>();
 
@@ -74,10 +84,13 @@ public class DocumentScanJava {
                         : (nextY >= currentY && nextY < currentY + heightComp && (nextX - currentX) < 7.0); //TODO do not hardcode
 
                     if (comparer) {
-                        //space detection
-                        if (Double.compare((nextX - currentX), charWidth+spaceBetweenCharsX) > 0) {
+
+                        // detection if space between characters needed
+                        int distanceNextCurrCharX = (int) ((nextX - currentX) * 100);
+                        if (distanceNextCurrCharX > charAndSpacingWidth) {
                             currentRowStr += " ";
                         }
+
                         currentRowStr += String.valueOf(currentChar.getCharacter());
                         currentY = nextY;
                         currentX = nextX;
@@ -114,7 +127,7 @@ public class DocumentScanJava {
         
         //TODO: if the first line consists of only one letter, or a letter followed by a space this will cause bugs
         ArrayList<Double> columnKeys = new ArrayList<Double>(documentCharColumns.keySet());
-        
+        //TODO: check for out of bounds
         Character firstC = documentCharColumns.get(columnKeys.get(0)).get(0);
         Character secondC = documentCharColumns.get(columnKeys.get(1)).get(0);
         return ((firstC.getA().y() - secondC.getA().y()) > 0) ? SkewDirection.UP : SkewDirection.DOWN_NONE; 
