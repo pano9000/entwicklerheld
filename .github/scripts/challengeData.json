@@ -298,6 +298,15 @@
       "dateSolved": "2023-08-16",
       "description": "Challenge consisted of extracting 'keywords' from a text, by using 'Term Frequency Inverse Document Frequency (TF-IDF)'",
       "comment": ""
+    },
+    {
+      "id": "document-scan",
+      "idEH": "f8f0c9d4-cb61-4e07-a97e-1dd3e56a8bf7",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2023-09-03",
+      "description": "Challenge consisted of extracting an Address from a scanned document. The scanned document was provided in form of an Array of 'boxed' Characters, e.g. with X/Y points.\\nThe first scenario was the 'easy' mode, which only contained perfectly aligned scans. The challenge allowed for a 'hard' mode, which also included scans, that were not correctly aligned, e.g. the letters were skewed slightly, either going up or down.",
+      "comment": "The easy mode was quickly solved, but I went for the 'hard' mode, which was quite a bit more challenging and required to throw away my first solution, that worked for the easy mode. Finally I ended up with a solution that groups the characters in Columns by their X position, then for each value of the first column, iterates through all the other columns to check, if the letter belongs to the same row, by calculating some distances between X/Y of the current and following characters.\\nThere are some issues with the solution still though, if we look at the real world, as e.g. in a wrongly scanned document, the X values of the rows would not be perfectly aligned, which is what the solution currently assumes. It also only works for Left-To-Right and Left-Aligned text."
     }
   ]
 }
