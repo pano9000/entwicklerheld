@@ -6,9 +6,9 @@ My solution for the ['Build a Clock' Challenge](https://platform.entwicklerheld.
 In this challenge you will built a simple clock. Your clock can show the time, add and subtract minutes and it can decide if it is equal to another one.
 
 ## Challenge Info
-Data last updated: 2023-09-01
+Data last updated: 2023-09-08
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ███████░░░ 65% | 235 / 361 | 2023-05-07 | JavaScript
+▮▯▯▯ | ███████░░░ 65% | 238 / 364 | 2023-05-07 | JavaScript
 
 ## Comment
