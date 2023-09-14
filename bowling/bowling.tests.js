@@ -9,6 +9,21 @@ class TestCase {
   }
 }
 
+const testFunc = (testCase) => {
+  const {title, rolls, expectedScore} = testCase;
+
+  return it(title, () => {
+    const bowling = new Bowling();
+
+    rolls.forEach((roll) => {
+      bowling.roll(roll);
+    });
+
+    const score = bowling.score();
+    expect(score, `Expected '${expectedScore}' for rolls: '${rolls}' but was '${score}'`).to.equal(expectedScore);
+  });
+}
+
 const testCases = [
   new TestCase("should be able to score a game with all zeros",
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -86,21 +101,50 @@ const testCases = [
   )
 ];
 
-const testFunc = (testCase) => {
+const errorTestCases = [
+  new TestCase("When providing an non-integer, it should throw an Error",
+    ["a"]
+  ),
+  new TestCase("When providing an non-positive integer, it should throw an Error",
+    [-1]
+  ),
+  new TestCase("When providing an number that is higher than the initial pins, it should throw an Error",
+    [11]
+  ),
+  new TestCase("When providing an number that is higher than the remaining pins, it should throw an Error",
+    [5, 8]
+  ),
+  new TestCase("When providing undefined as pins, it should throw an Error",
+    [5, undefined]
+  ),
+  new TestCase("When providing null as pins, it should throw an Error",
+    [5, null]
+  ),
+]
+
+const errorTestFunc = (testCase) => {
   const {title, rolls, expectedScore} = testCase;
 
   return it(title, () => {
-    const bowling = new Bowling();
 
-    rolls.forEach((roll) => {
-      bowling.roll(roll);
-    });
 
-    const score = bowling.score();
-    expect(score, `Expected '${expectedScore}' for rolls: '${rolls}' but was '${score}'`).to.equal(expectedScore);
+    expect(
+      () => {
+        const bowling = new Bowling();
+
+        rolls.forEach((roll) => {
+          bowling.roll(roll);
+        });
+      }
+    ).to.throw();
+
   });
 }
 
 describe("Bowling Tests", () => {
   testCases.forEach(testCase => testFunc(testCase));
+});
+
+describe("Bowling Tests Errors", () => {
+  errorTestCases.forEach(errorTestCase => errorTestFunc(errorTestCase));
 });
