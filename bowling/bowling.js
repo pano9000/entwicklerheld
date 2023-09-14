@@ -1,61 +1,60 @@
 export class Bowling {
-  rollsQty = 0;
-  mainScore = [];
-  auxScore = [];
-  frameCounter = 0;
   throwCounter = 0;
   remainingPins = 10;
-  framesScore = [];
+  frames = [];
   /**
    * is called each time the player rolls a ball. The argument is the number of pins knocked down.
    */
-  roll(pinsS) {
-    this.rollsQty++;
-  
+  roll(pins) {
+
+    this.#validate(pins, this.remainingPins);
+
     this.throwCounter++;
-    const pins = parseInt(pinsS);
     this.remainingPins -= pins;
 
-    //strike
-    if (this.throwCounter == 1 && this.remainingPins == 0) {
-      this.framesScore.push(new FrameScoreEntry([10, null], "strike"));
-      this.#updateFrame();
-      return;
-    };
 
-    if (this.throwCounter == 1 && this.remainingPins > 0) {
-      this.framesScore.push(new FrameScoreEntry([pins, null], null));
-      return;
-    }
+    if (this.throwCounter == 1) {
+      this.frames.push(new FrameScoreEntry([pins, null], null));
 
-    //spare
-    if (this.throwCounter == 2 && this.remainingPins == 0) {
-      const currentFrame = this.framesScore.at(-1);
+      //strike
+      if (this.remainingPins == 0) {
+        this.frames.at(-1).type = SCORE_TYPE.STRIKE;
+        this.#nextFrame();
+      }
+
+
+    } else {
+
+      const currentFrame = this.frames.at(-1);
+
       currentFrame.pins[1] = pins;
-      currentFrame.type = "spare";
-      this.#updateFrame();
-      return;
+      currentFrame.type = (this.remainingPins == 0) ? SCORE_TYPE.SPARE : SCORE_TYPE.OPEN;
+
+      this.#nextFrame();
     }
 
-    if (this.throwCounter == 2 && this.remainingPins > 0) {
-      const currentFrame = this.framesScore.at(-1);
-      currentFrame.pins[1] = pins;
-      currentFrame.type = "open";
-      this.#updateFrame();
-      return;
-    }
-    //throw new Error('Remove this statement and implement this function');
   }
 
-  #getCurrentFrame() {
-    if (this.framesScore[this.frameCounter] === undefined) {
-      this.framesScore.push([]); //TODO fix
+  #validate(pins, remainingPins) {
+
+    if (!Number.isInteger(pins) || pins < 0) {
+      throw new IllegalRoll(`Expected pins to be an integer, but received: ${typeof(pins)}.`)
     }
-    return this.framesScore[this.frameCounter];
+
+    if (pins < 0) {
+      throw new IllegalRoll(`Expected pins to be a positive integer, but received: ${pins}.`)
+    }
+
+    const currentRemaining = remainingPins - pins;
+
+    if (currentRemaining < 0) {
+      throw new IllegalRoll(`The provided number of knocked down pins: '${pins}' is bigger than the number of remaining pins '${remainingPins}'. Aborting.`)
+    }
+
   }
 
-  #updateFrame() {
-    this.frameCounter++;
+
+  #nextFrame() {
     this.remainingPins = 10;
     this.throwCounter = 0;
   }
@@ -65,49 +64,38 @@ export class Bowling {
    */
   score() {
 
-    //write basic frame score
-    this.framesScore.forEach( (frame, currentIndex) => {
-      frame.score = frame.pins.reduce( (accum, curr) => accum += curr);
-    })
 
     // write bonus points
-    this.framesScore.forEach( (frame, currentIndex) => {
+    this.frames.forEach( (frame, currentIndex) => {
 
-      if (frame.type == "strike") {
+      //Basic Score
+      frame.score = frame.pins.reduce( (accum, curr) => accum += curr);
+
+      //Bonus Score
+      if (frame.type == SCORE_TYPE.STRIKE) {
         if (currentIndex < 10-1) {
 
-
-          if (this.framesScore[currentIndex+1].type == "strike") {
-            frame.score += (this.framesScore[currentIndex+1].pins[0] + this.framesScore[currentIndex+2].pins[0]); 
+          if (this.frames[currentIndex+1].type === SCORE_TYPE.STRIKE) {
+            frame.score += (this.frames[currentIndex+1].pins[0] + this.frames[currentIndex+2].pins[0]); 
           } else {
-            frame.score += (this.framesScore[currentIndex+1].pins[0] + this.framesScore[currentIndex+1].pins[1])
+            frame.score += (this.frames[currentIndex+1].pins[0] + this.frames[currentIndex+1].pins[1])
 
           }
 
         }
       }
 
-      if (frame.type == "spare") {
+      if (frame.type == SCORE_TYPE.SPARE) {
         if (currentIndex < 10-1) {
-          frame.score += (this.framesScore[currentIndex+1].pins[0])
+          frame.score += (this.frames[currentIndex+1].pins[0])
         }
       }
 
     })
 
-    let totalScore = 0;
+    const scoreTotal = this.frames.reduce( (scoreTotal, frame) => scoreTotal += frame.score, 0);
 
-
-    for (let i = 0; i < this.framesScore.length-1; i++) {
-      totalScore += this.framesScore[i].pins.reduce((accum, curr) => accum += curr);
-    }
-
-    const mainScore = this.framesScore.reduce( (accum, curr) => {
-      accum += parseInt(curr.score);
-      return accum;
-    }, 0);
-
-    return mainScore
+    return scoreTotal
   }
 }
 
@@ -116,11 +104,25 @@ class FrameScoreEntry {
   /**
    * 
    * @param {Array<Number|null,Number|null>} pins 
-   * @param {"strike"|"spare"|"open"|null} type 
+   * @param {SCORE_TYPE} type 
    */
   constructor(pins = [null, null], type = null) {
     this.pins = pins;
     this.type = type;
     this.score = null;
+  }
+}
+
+const SCORE_TYPE = {
+  OPEN: 1,
+  SPARE: 2,
+  STRIKE: 3
+};
+Object.freeze(SCORE_TYPE);
+
+class IllegalRoll extends Error {
+  
+  constructor(message) {
+    super(message)
   }
 }
