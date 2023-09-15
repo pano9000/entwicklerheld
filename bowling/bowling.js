@@ -1,6 +1,4 @@
 export class Bowling {
-  #throwCounter = 0;
-  #remainingPins = 10;
   frames = new Array(12).fill().map(frame => new Frame());
   currentFrameCounter = 0;
   currentFrame = this.frames.at(this.currentFrameCounter);
@@ -8,20 +6,12 @@ export class Bowling {
    * is called each time the player rolls a ball. The argument is the number of pins knocked down.
    */
   roll(pins) {
-
     this.#validate(pins, this.currentFrame.remainingPins);
-
-    this.#throwCounter++;
     this.currentFrame.addPins(pins);
-
     if (this.currentFrame.type !== null) this.#nextFrame();
-
-
-
   }
 
   #validate(pins, remainingPins) {
-
     if (!Number.isInteger(pins)) {
       throw new IllegalRoll(`Expected pins to be an integer, but received: ${typeof(pins)}.`)
     }
@@ -30,60 +20,41 @@ export class Bowling {
       throw new IllegalRoll(`Expected pins to be a positive integer, but received: ${pins}.`)
     }
 
-    const currentRemaining = remainingPins - pins;
-
-    if (currentRemaining < 0) {
+    if (remainingPins - pins < 0) {
       throw new IllegalRoll(`The provided number of knocked down pins: '${pins}' is bigger than the number of remaining pins '${remainingPins}'. Aborting.`)
     }
-
   }
 
 
   #nextFrame() {
-    this.#remainingPins = 10;
-    this.#throwCounter = 0;
     this.currentFrameCounter++;
     this.currentFrame = this.frames.at(this.currentFrameCounter);
-
   }
 
   /**
    * is called only at the very end of the game. It returns the total score for that game.
    */
   score() {
-    //console.log("allFrames", this.frames)
 
-    // write bonus points
+    // write bonus points for first 10 frames
     this.frames.forEach( (frame, currentIndex) => {
 
-      //Basic Score
-      frame.score = frame.pins.reduce( (accum, curr) => accum += curr);
-
-      //Bonus Score
-      if (frame.type == SCORE_TYPE.STRIKE) {
-        if (currentIndex < 10-1) {
-
-          if (this.frames[currentIndex+1].type === SCORE_TYPE.STRIKE) {
-            frame.score += (this.frames[currentIndex+1].pins[0] + this.frames[currentIndex+2].pins[0]); 
-          } else {
-            frame.score += (this.frames[currentIndex+1].pins[0] + this.frames[currentIndex+1].pins[1])
-
-          }
-
+      if (currentIndex < 10-1) {
+        if (frame.type == SCORE_TYPE.SPARE) {
+          frame.scoreBonus += this.frames[currentIndex+1].pins[0];
         }
-      }
 
-      if (frame.type == SCORE_TYPE.SPARE) {
-        if (currentIndex < 10-1) {
-          frame.score += (this.frames[currentIndex+1].pins[0])
+        if (frame.type == SCORE_TYPE.STRIKE) {
+            frame.scoreBonus += frame.scoreBonus += this.frames[currentIndex+1].pins[0]
+              +  ((this.frames[currentIndex+1].type === SCORE_TYPE.STRIKE) 
+                  ? this.frames[currentIndex+2].pins[0]
+                  : this.frames[currentIndex+1].pins[1]);
         }
       }
 
     })
 
-    const scoreTotal = this.frames.reduce( (scoreTotal, frame) => scoreTotal += frame.score, 0);
-
-    return scoreTotal
+    return this.frames.reduce( (scoreTotal, frame) => scoreTotal += frame.score + frame.scoreBonus, 0);
   }
 }
 
@@ -98,21 +69,29 @@ class Frame {
     this.pins = pins;
     this.type = type;
     this.score = null;
+    this.scoreBonus = null;
     this.remainingPins = 10;
   }
 
-
   addPins(pins) {
-    const addPosition = (this.pins[0] === null) ? 0 : 1;
-    this.pins[addPosition] = pins;
+    const throwCount = (this.pins[0] === null) ? 0 : 1;
+    this.pins[throwCount] = pins;
     this.remainingPins -= pins;
+    this.#updateType(throwCount);
+    this.#updateScore();
+  }
 
-    if (addPosition === 0 && this.remainingPins === 0) {
+  #updateType(throwCount) {
+    if (throwCount === 0 && this.remainingPins === 0) {
       this.type = SCORE_TYPE.STRIKE;
     }
-    if (addPosition === 1) {
+    if (throwCount === 1) {
       this.type = (this.remainingPins === 0) ? SCORE_TYPE.SPARE : SCORE_TYPE.OPEN;
     }
+  }
+
+  #updateScore() {
+    this.score = this.pins[0]+this.pins[1];
   }
 }
 
@@ -126,6 +105,6 @@ Object.freeze(SCORE_TYPE);
 class IllegalRoll extends Error {
   
   constructor(message) {
-    super(message)
+    super(message);
   }
 }
