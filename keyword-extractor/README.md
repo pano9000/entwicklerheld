@@ -9,6 +9,6 @@ Challenge consisted of extracting 'keywords' from a text, by using 'Term Frequen
 Data last updated: 2023-09-15
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ████░░░░░░ 43% | 102 / 238 | 2023-08-16 | Python
+▮▮▯▯ | ████░░░░░░ 43% | 102 / 239 | 2023-08-16 | Python
 
 ## Comment

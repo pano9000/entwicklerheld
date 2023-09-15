@@ -11,7 +11,7 @@ The first scenario was the 'easy' mode, which only contained perfectly aligned s
 Data last updated: 2023-09-15
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ███░░░░░░░ 27% | 40 / 150 | 2023-09-03 | Java
+▮▮▯▯ | ███░░░░░░░ 26% | 40 / 151 | 2023-09-03 | Java
 
 ## Comment
 The easy mode was quickly solved, but I went for the 'hard' mode, which was quite a bit more challenging and required to throw away my first solution, that worked for the easy mode. Finally I ended up with a solution that groups the characters in Columns by their X position, then for each value of the first column, iterates through all the other columns to check, if the letter belongs to the same row, by calculating some distances between X/Y of the current and following characters.

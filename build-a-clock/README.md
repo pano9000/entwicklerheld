@@ -9,6 +9,6 @@ In this challenge you will built a simple clock. Your clock can show the time, a
 Data last updated: 2023-09-15
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ███████░░░ 65% | 241 / 371 | 2023-05-07 | JavaScript
+▮▯▯▯ | ███████░░░ 65% | 241 / 372 | 2023-05-07 | JavaScript
 
 ## Comment
