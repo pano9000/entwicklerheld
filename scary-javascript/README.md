@@ -6,9 +6,9 @@ My solution for the ['Scary JavaScript' Challenge](https://platform.entwicklerhe
 Goal was to mainly fix some "common Javascript mistakes" in the given code, relating to scope, type coercion, etc.
 
 ## Challenge Info
-Data last updated: 2023-09-08
+Data last updated: 2023-09-15
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ██████░░░░ 60% | 622 / 1040 | 2022-04-27 | JavaScript
+▮▯▯▯ | ██████░░░░ 60% | 623 / 1041 | 2022-04-27 | JavaScript
 
 ## Comment
