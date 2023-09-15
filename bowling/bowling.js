@@ -1,43 +1,28 @@
 export class Bowling {
-  throwCounter = 0;
-  remainingPins = 10;
-  frames = [];
+  #throwCounter = 0;
+  #remainingPins = 10;
+  frames = new Array(12).fill().map(frame => new Frame());
+  currentFrameCounter = 0;
+  currentFrame = this.frames.at(this.currentFrameCounter);
   /**
    * is called each time the player rolls a ball. The argument is the number of pins knocked down.
    */
   roll(pins) {
 
-    this.#validate(pins, this.remainingPins);
+    this.#validate(pins, this.currentFrame.remainingPins);
 
-    this.throwCounter++;
-    this.remainingPins -= pins;
+    this.#throwCounter++;
+    this.currentFrame.addPins(pins);
 
-
-    if (this.throwCounter == 1) {
-      this.frames.push(new FrameScoreEntry([pins, null], null));
-
-      //strike
-      if (this.remainingPins == 0) {
-        this.frames.at(-1).type = SCORE_TYPE.STRIKE;
-        this.#nextFrame();
-      }
+    if (this.currentFrame.type !== null) this.#nextFrame();
 
 
-    } else {
-
-      const currentFrame = this.frames.at(-1);
-
-      currentFrame.pins[1] = pins;
-      currentFrame.type = (this.remainingPins == 0) ? SCORE_TYPE.SPARE : SCORE_TYPE.OPEN;
-
-      this.#nextFrame();
-    }
 
   }
 
   #validate(pins, remainingPins) {
 
-    if (!Number.isInteger(pins) || pins < 0) {
+    if (!Number.isInteger(pins)) {
       throw new IllegalRoll(`Expected pins to be an integer, but received: ${typeof(pins)}.`)
     }
 
@@ -55,15 +40,18 @@ export class Bowling {
 
 
   #nextFrame() {
-    this.remainingPins = 10;
-    this.throwCounter = 0;
+    this.#remainingPins = 10;
+    this.#throwCounter = 0;
+    this.currentFrameCounter++;
+    this.currentFrame = this.frames.at(this.currentFrameCounter);
+
   }
 
   /**
    * is called only at the very end of the game. It returns the total score for that game.
    */
   score() {
-
+    //console.log("allFrames", this.frames)
 
     // write bonus points
     this.frames.forEach( (frame, currentIndex) => {
@@ -100,7 +88,7 @@ export class Bowling {
 }
 
 
-class FrameScoreEntry {
+class Frame {
   /**
    * 
    * @param {Array<Number|null,Number|null>} pins 
@@ -110,6 +98,21 @@ class FrameScoreEntry {
     this.pins = pins;
     this.type = type;
     this.score = null;
+    this.remainingPins = 10;
+  }
+
+
+  addPins(pins) {
+    const addPosition = (this.pins[0] === null) ? 0 : 1;
+    this.pins[addPosition] = pins;
+    this.remainingPins -= pins;
+
+    if (addPosition === 0 && this.remainingPins === 0) {
+      this.type = SCORE_TYPE.STRIKE;
+    }
+    if (addPosition === 1) {
+      this.type = (this.remainingPins === 0) ? SCORE_TYPE.SPARE : SCORE_TYPE.OPEN;
+    }
   }
 }
 
