@@ -6,7 +6,7 @@ My solution for the ['Bricks and Water' Challenge](https://platform.entwicklerhe
 
 
 ## Challenge Info
-Data last updated: 2023-09-15
+Data last updated: 2023-09-22
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▯▯▯ | ████░░░░░░ 43% | 706 / 1637 | 2022-05-01 | JavaScript
