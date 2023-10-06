@@ -6,9 +6,9 @@ My solution for the ['GDV Extraction' Challenge](https://platform.entwicklerheld
 Build a simple parser for some of the fields in the GDV format, a file format used by 'Gesamtverband der Deutschen Versicherungswirtschaft' for exchanging information in Germany's insurance industry.
 
 ## Challenge Info
-Data last updated: 2023-09-29
+Data last updated: 2023-10-06
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ████░░░░░░ 40% | 61 / 153 | 2023-07-02 | JavaScript
+▮▮▯▯ | ████░░░░░░ 39% | 62 / 158 | 2023-07-02 | JavaScript
 
 ## Comment

@@ -6,9 +6,9 @@ My solution for the ['State Machine' Challenge](https://platform.entwicklerheld.
 Goal was to implement a simple "State Machine" that checks the next allowed transitions from state to state. The second part included implementing an IBAN checksum checker, that was used to then control, if the transition to the next state was allowed.
 
 ## Challenge Info
-Data last updated: 2023-09-29
+Data last updated: 2023-10-06
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ███████░░░ 69% | 661 / 957 | 2023-07-11 | Java
+▮▮▯▯ | ███████░░░ 69% | 662 / 958 | 2023-07-11 | Java
 
 ## Comment
