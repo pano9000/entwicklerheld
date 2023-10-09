@@ -316,6 +316,15 @@
       "dateSolved": "2023-09-15",
       "description": "Challenge consisted basically of creating a Bowling Score Counter, that keeps track of the knocked off pins and returns a total score at the end.",
       "comment": ""
+    },
+    {
+      "id": "ip-location-powershell",
+      "idEH": "a1d73f9e-8bc4-47ba-b89a-0489bab988fe",
+      "urlEH": "",
+      "urlSolution": "ip-location-powershell",
+      "dateSolved": "2023-10-09",
+      "description": "Challenge consisted of creatign a Powershell script that reads IP addresses from a file, sends these to an external IP Lookup service and then output that information as a CSV.",
+      "comment": ""
     }
   ]
 }
