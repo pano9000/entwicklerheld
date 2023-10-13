@@ -6,10 +6,10 @@ My solution for the ['Perfect Place' Challenge](https://platform.entwicklerheld.
 Goal here was to find the optimal places to place a varying amount of "ATMs" within a given `Region`, with multiple `Citys`. The idea is to distribute the ATMs in the Region's Cities in a way which will make sure that the distances between a city and an ATM are kept to a minimum.
 
 ## Challenge Info
-Data last updated: 2023-10-09
+Data last updated: 2023-10-13
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ███░░░░░░░ 34% | 84 / 248 | 2022-12-18 | JavaScript
+▮▮▯▯ | ███░░░░░░░ 34% | 85 / 249 | 2022-12-18 | JavaScript
 
 ## Comment
 The `City.js` and `Region.js` classes were kindly already provided by the challenge. Actual solution is in `perfect-place.js`
