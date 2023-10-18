@@ -325,6 +325,15 @@
       "dateSolved": "2023-10-09",
       "description": "Challenge consisted of creatign a Powershell script that reads IP addresses from a file, sends these to an external IP Lookup service and then output that information as a CSV.",
       "comment": ""
+    },
+    {
+      "id": "run-length-encoding",
+      "idEH": "9ed62dfa-54c9-449d-817c-eb1232b11888",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2023-10-19",
+      "description": "Challenge consisted of creating a 'Run Length Encoding' function that encodes/compresses a text string.",
+      "comment": "I added a small bonus decode function, which is a bit flawed, as it will not work for any run lengths > 9 - maybe to be fixed at a later point."
     }
   ]
 }
