@@ -6,9 +6,9 @@ My solution for the ['Reverse SMS' Challenge](https://platform.entwicklerheld.de
 Challenge consists of essentially creating a function to reverse provided text and counting the palindromes inside that text, and using the Twilio client to "send" that info as SMS. Second part was to implement a function that is run, when Twilio calls a webhook, that reverses and then sends the received information from the webhook.
 
 ## Challenge Info
-Data last updated: 2023-10-06
+Data last updated: 2023-10-13
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ██░░░░░░░░ 20% | 28 / 143 | 2023-06-23 | JavaScript
+▮▮▯▯ | ██░░░░░░░░ 20% | 29 / 145 | 2023-06-23 | JavaScript
 
 ## Comment

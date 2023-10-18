@@ -6,7 +6,7 @@ My solution for the ['Change Calculator' Challenge](https://platform.entwicklerh
 Goal was to calculate the minimum number of coins required to give out a certain amount of change.
 
 ## Challenge Info
-Data last updated: 2023-10-06
+Data last updated: 2023-10-13
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▮▯▯ | ███░░░░░░░ 34% | 108 / 316 | 2023-07-11 | Java
