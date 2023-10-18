@@ -1,4 +1,4 @@
-import { encode } from "./run-length-encoding-javascript.js";
+import { decode, encode } from "./run-length-encoding-javascript.js";
 import { expect } from "chai";
 
 const testCasesEnc = [
@@ -25,14 +25,31 @@ describe("#Encode", () => {
 
   testCasesEnc.forEach(testCase => {
     getTestCheckEnc(testCase);
-  })
+  });
+
 })
+
+describe("#Decode", () => {
+  testCasesEnc.forEach(testCase => {
+    getTestCheckDec(testCase);
+  });
+
+});
+
 
 function getTestCheckEnc(testCase) {
   return it(`Case: '${testCase.join(", ")}'`, () => {
     const [text, encoded_text] = testCase;
     const result = encode(text);
     expect(result, `Expected '${encoded_text}' for text '${text}' but was '${result}'`).to.eql(encoded_text);
+  })
+}
+
+function getTestCheckDec(testCase) {
+  return it(`Case: '${testCase[1]}, ${testCase[0]}'`, () => {
+    const [text, encoded_text] = testCase;
+    const result = decode(encoded_text);
+    expect(result, `Expected '${text}' for encoded text '${encoded_text}' but was '${result}'`).to.eql(text);
   })
 }
 

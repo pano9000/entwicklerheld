@@ -22,3 +22,25 @@ export function encode(text) {
 
   return encodedParts.join("");
 }
+
+//Bonus function -> Decode :-)
+/**
+ * Decode a Run Length Encoded string
+ * @param {string} text 
+ * @returns {string} Decoded Run Length Encoded String
+ */
+export function decode(text) {
+  const decodedParts = [];
+
+  for (let i = 0; i < text.length; i+=2) {
+      const runLength = parseInt(text[i]);
+      const encChar = text[i+1];
+      if (runLength == NaN) {
+        throw new Error(`Invalid run length at index ${i}, could not parse into a valid Integer: ${text[i]}`);
+      }
+      const decodedPart = new Array(runLength).fill(encChar).join("");
+      decodedParts.push(decodedPart);
+
+  }
+  return decodedParts.join("");
+}
