@@ -6,7 +6,7 @@ My solution for the ['Easter Challenge 2022' Challenge](https://platform.entwick
 Goal is to create a function that can calculate the Easter holidays for any given year
 
 ## Challenge Info
-Data last updated: 2023-12-01
+Data last updated: 2023-12-08
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▯▯▯ | ██████░░░░ 64% | 138 / 214 | 2022-06-02 | PHP
