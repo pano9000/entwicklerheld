@@ -6,7 +6,7 @@ My solution for the ['Advent Bakery' Challenge](https://platform.entwicklerheld.
 Goal was to return a list of all different (unique) possibilites on how a given amount of cookies can be placed on a given amount of plates.
 
 ## Challenge Info
-Data last updated: 2023-12-08
+Data last updated: 2023-12-15
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▮▯▯ | ████░░░░░░ 40% | 113 / 286 | 2022-06-16 | JavaScript

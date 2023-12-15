@@ -6,10 +6,10 @@ My solution for the ['Change Calculator' Challenge](https://platform.entwicklerh
 Goal was to calculate the minimum number of coins required to give out a certain amount of change.
 
 ## Challenge Info
-Data last updated: 2023-12-08
+Data last updated: 2023-12-15
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ████░░░░░░ 36% | 119 / 332 | 2023-07-11 | Java
+▮▮▯▯ | ████░░░░░░ 36% | 120 / 333 | 2023-07-11 | Java
 
 ## Comment
 Quickly recognized the problem to be solveable by a "best sum" dynamic programming approach, which I then implemented and also included memoization, to improve performance
