@@ -12,9 +12,9 @@ Goal is to create a function that:\
 * returns \'fizzbuzz\', when given number is divisble be 3 AND 5
 
 ## Challenge Info
-Data last updated: 2023-12-22
+Data last updated: 2023-12-29
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ███████░░░ 69% | 3232 / 4676 | 2022-04-24 | JavaScript
+▮▯▯▯ | ███████░░░ 69% | 3233 / 4677 | 2022-04-24 | JavaScript
 
 ## Comment
