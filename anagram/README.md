@@ -6,9 +6,9 @@ My solution for the ['Anagram' Challenge](https://platform.entwicklerheld.de/cha
 Goal is to create a function that checks, if two given words are anagrams, i.e. if they consist of the identical letter set, but are differently arranged (e.g. `car` and `arc`)
 
 ## Challenge Info
-Data last updated: 2023-12-29
+Data last updated: 2024-01-05
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ████████░░ 84% | 1050 / 1252 | 2022-04-24 | JavaScript
+▮▯▯▯ | ████████░░ 84% | 1051 / 1253 | 2022-04-24 | JavaScript
 
 ## Comment
