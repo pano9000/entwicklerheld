@@ -6,7 +6,7 @@ My solution for the ['Rest API' Challenge](https://platform.entwicklerheld.de/ch
 Challenge consisted of creating a 'REST' API that handles the different HTTP methods, like `GET`, `POST`, `DELETE`, `PATCH`.
 
 ## Challenge Info
-Data last updated: 2024-01-05
+Data last updated: 2024-01-12
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▮▯▯ | ████░░░░░░ 39% | 109 / 281 | 2023-08-04 | Java
