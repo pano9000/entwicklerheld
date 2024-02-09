@@ -6,9 +6,9 @@ My solution for the ['Matching brackets' Challenge](https://platform.entwicklerh
 
 
 ## Challenge Info
-Data last updated: 2024-02-02
+Data last updated: 2024-02-09
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ███████░░░ 71% | 359 / 504 | 2023-05-24 | JavaScript
+▮▯▯▯ | ███████░░░ 71% | 360 / 505 | 2023-05-24 | JavaScript
 
 ## Comment
