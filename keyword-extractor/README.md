@@ -6,9 +6,9 @@ My solution for the ['Keyword Extractor' Challenge](https://platform.entwicklerh
 Challenge consisted of extracting 'keywords' from a text, by using 'Term Frequency Inverse Document Frequency (TF-IDF)'
 
 ## Challenge Info
-Data last updated: 2023-10-13
+Data last updated: 2024-02-09
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ████░░░░░░ 44% | 106 / 242 | 2023-08-16 | Python
+▮▮▯▯ | ████░░░░░░ 44% | 110 / 251 | 2023-08-16 | Python
 
 ## Comment
