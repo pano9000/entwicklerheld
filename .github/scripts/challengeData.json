@@ -334,6 +334,15 @@
       "dateSolved": "2023-10-19",
       "description": "Challenge consisted of creating a 'Run Length Encoding' function that encodes/compresses a text string.",
       "comment": "I added a small bonus decode function, which is a bit flawed, as it will not work for any run lengths > 9 - maybe to be fixed at a later point."
+    },
+    {
+      "id": "number-conversion",
+      "idEH": "8fe211d1-a148-4e41-9ecb-a545ae771e7d",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-02-11",
+      "description": "Challenge consisted of creating functions that convert an (unsigned) integer to different base representations.",
+      "comment": ""
     }
   ]
 }
