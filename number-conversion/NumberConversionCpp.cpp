@@ -1,44 +1,54 @@
 #include "NumberConversionCpp.hpp"
-#include <iostream>
+#include <algorithm>
 #include <cmath>
+#include <iostream>
 #include <string>
+
+const short int ASCII_BASE_OFFSET = 55;
+const short int BINARY_BASE = 2;
+const short int HEX_BASE = 16;
 
 std::string toBin(uint32_t decimalNumber)
 {
+	return toBase(decimalNumber, BINARY_BASE);
+}
+
+std::string toHex(uint32_t decimalNumber)
+{
+	return toBase(decimalNumber, HEX_BASE);
+}
+
+std::string toBase(uint32_t decimalNumber, uint32_t base)
+{
+
+	if (base < 2 || base > 32)
+	{
+		throw std::invalid_argument("Base must be between 2 and 32");
+	}
+
 	// Edge case of 0
 	if (decimalNumber == 0)
 	{
 		return "0";
 	}
 
-	uint32_t exponent = std::floor(log2(decimalNumber));
-	std::string binaryString = "";
+	std::string convertedString = "";
 
-	for (int i = exponent; i >= 0; i--)
+	while (decimalNumber > 0)
 	{
-		int pow_result = std::pow(2, i);
+		uint32_t convValue = decimalNumber % base;
 
-		if (pow_result > decimalNumber)
-		{
-			binaryString += "0";
-		} 
-		else 
-		{
-			decimalNumber -= pow_result;
-			binaryString += "1";
+		// Set value for next iteration
+		decimalNumber = decimalNumber / base;
+
+		// digit to ASCII
+		if (convValue <= 9) {
+			// +'0' to get the ASCII representation of the digit
+			convertedString += static_cast<char>(convValue + '0');
+		} else {
+			convertedString += static_cast<char>(convValue + ASCII_BASE_OFFSET);
 		}
 	}
-	return binaryString;
-}
-
-std::string toHex(uint32_t decimalNumber)
-{
-	// Implement
-	return "";
-}
-
-std::string toBase(uint32_t decimalNumber, uint32_t base)
-{
-	// Implement
-	return "";
+	std::reverse(convertedString.begin(), convertedString.end());
+	return convertedString;
 }
