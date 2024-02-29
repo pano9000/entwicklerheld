@@ -343,6 +343,15 @@
       "dateSolved": "2024-02-11",
       "description": "Challenge consisted of creating functions that convert an (unsigned) integer to different base representations.",
       "comment": ""
+    },
+    {
+      "id": "binary-search-js",
+      "idEH": "aa3ce6f1-0214-44e7-85f3-894e1d836864",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-02-29",
+      "description": "Challenge consisted of writing a binary search function that also keeps track of how many 'steps' (or 'iterations') it took to get to the result.",
+      "comment": "I opted to go with an iterative solution, that works 'in place' and without copying any array data, but instead works with index ranges for the 'divide and conquer' part :-)"
     }
   ]
 }
