@@ -352,6 +352,15 @@
       "dateSolved": "2024-02-29",
       "description": "Challenge consisted of writing a binary search function that also keeps track of how many 'steps' (or 'iterations') it took to get to the result.",
       "comment": "I opted to go with an iterative solution, that works 'in place' and without copying any array data, but instead works with index ranges for the 'divide and conquer' part :-)"
+    },
+    {
+      "id": "grains",
+      "idEH": "b6dfcfc3-c891-4821-acdd-06ef438cec11",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-03-06",
+      "description": "Count the grains of rice on a chessboard at a given field, where the rice grains double with each field.",
+      "comment": ""
     }
   ]
 }
