@@ -361,6 +361,15 @@
       "dateSolved": "2024-03-06",
       "description": "Count the grains of rice on a chessboard at a given field, where the rice grains double with each field.",
       "comment": ""
+    },
+    {
+      "id": "robot-simulator",
+      "idEH": "e1d58dcd-eb4e-4585-9203-ae02aa9491c1",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-03-09",
+      "description": "Goal was to implement a simple program that moves a 'robot' in a 2D plane, based on its bearing position",
+      "comment": ""
     }
   ]
 }
