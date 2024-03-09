@@ -370,6 +370,15 @@
       "dateSolved": "2024-03-09",
       "description": "Goal was to implement a simple program that moves a 'robot' in a 2D plane, based on its bearing position",
       "comment": ""
+    },
+    {
+      "id": "word-counter",
+      "idEH": "99fca3a7-c250-4058-bd40-c7ff8969ef7d",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-03-09",
+      "description": "Open up a file, read the text, count all the words and their occurence and output it in a nicely formatted way.",
+      "comment": ""
     }
   ]
 }
