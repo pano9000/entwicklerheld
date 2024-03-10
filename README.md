@@ -60,6 +60,7 @@ Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted
 [Binary Search](https://github.com/pano9000/entwicklerheld/tree/main/binary-search-js) | ▮▯▯▯ | ██████░░░░ 63% | 63 / 100 | 2024-02-29 | JavaScript
 [Grains](https://github.com/pano9000/entwicklerheld/tree/main/grains) | ▮▯▯▯ | ████████░░ 84% | 443 / 527 | 2024-03-06 | Java
 [Robot Simulator](https://github.com/pano9000/entwicklerheld/tree/main/robot-simulator) | ▮▯▯▯ | ████████░░ 77% | 331 / 429 | 2024-03-09 | Cpp
+[Word Counter](https://github.com/pano9000/entwicklerheld/tree/main/word-counter) | ▮▮▯▯ | ████░░░░░░ 37% | 509 / 1358 | 2024-03-09 | Cpp
 ## Solved Challenges Sorted by Difficulty, then Solution Date
 
 Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
@@ -67,6 +68,7 @@ Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted
 [Cinema Seat Reservation](https://github.com/pano9000/entwicklerheld/tree/main/cinema-seat-reservation) | ▮▮▮▮ | █░░░░░░░░░ 12% | 57 / 457 | 2022-10-08 | JavaScript
 [Maps and Polygons](https://github.com/pano9000/entwicklerheld/tree/main/maps-and-polygons) | ▮▮▮▯ | ███░░░░░░░ 29% | 51 / 174 | 2023-07-20 | Java
 [Happy Subnetting](https://github.com/pano9000/entwicklerheld/tree/main/happy-subnetting) | ▮▮▮▯ | ██░░░░░░░░ 24% | 54 / 227 | 2022-09-19 | JavaScript
+[Word Counter](https://github.com/pano9000/entwicklerheld/tree/main/word-counter) | ▮▮▯▯ | ████░░░░░░ 37% | 509 / 1358 | 2024-03-09 | Cpp
 [Tracking Cyber Threats: The IP Location Task](https://github.com/pano9000/entwicklerheld/tree/main/ip-location-powershell) | ▮▮▯▯ | █████░░░░░ 45% | 70 / 155 | 2023-10-09 | PowerShell
 [Document Scan](https://github.com/pano9000/entwicklerheld/tree/main/document-scan) | ▮▮▯▯ | ███░░░░░░░ 30% | 64 / 214 | 2023-09-03 | Java
 [Keyword Extractor](https://github.com/pano9000/entwicklerheld/tree/main/keyword-extractor) | ▮▮▯▯ | ████░░░░░░ 44% | 112 / 253 | 2023-08-16 | Python
