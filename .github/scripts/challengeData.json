@@ -379,6 +379,15 @@
       "dateSolved": "2024-03-09",
       "description": "Open up a file, read the text, count all the words and their occurence and output it in a nicely formatted way.",
       "comment": ""
+    },
+    {
+      "id": "isbn-verifier",
+      "idEH": "81ee7819-f3e6-4d5a-8504-a47784dd8e6e",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-03-11",
+      "description": "Write a function that checks if a supplied string is a valid ISBN number",
+      "comment": "First time meddling with Kotlin, did not feel too weird as a language :-)"
     }
   ]
 }
