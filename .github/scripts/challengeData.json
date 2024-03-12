@@ -388,6 +388,15 @@
       "dateSolved": "2024-03-11",
       "description": "Write a function that checks if a supplied string is a valid ISBN number",
       "comment": "First time meddling with Kotlin, did not feel too weird as a language :-)"
+    },
+    {
+      "id": "longest-substring",
+      "idEH": "ef5e5add-e449-4ece-9b23-556f54a8587d",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-03-12",
+      "description": "Write a function that finds the longest common substring in two strings",
+      "comment": ""
     }
   ]
 }
