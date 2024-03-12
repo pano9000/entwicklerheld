@@ -6,9 +6,9 @@ My solution for the ['Word Counter' Challenge](https://platform.entwicklerheld.d
 Open up a file, read the text, count all the words and their occurence and output it in a nicely formatted way.
 
 ## Challenge Info
-Data last updated: 2024-03-10
+Data last updated: 2024-03-12
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ████░░░░░░ 37% | 509 / 1358 | 2024-03-09 | Cpp
+▮▮▯▯ | ████░░░░░░ 38% | 510 / 1359 | 2024-03-09 | Cpp
 
 ## Comment
