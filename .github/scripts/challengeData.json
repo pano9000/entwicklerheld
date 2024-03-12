@@ -397,6 +397,15 @@
       "dateSolved": "2024-03-12",
       "description": "Write a function that finds the longest common substring in two strings",
       "comment": ""
+    },
+    {
+      "id": "client-number-validation",
+      "idEH": "901ee122-d2cb-4415-85bd-640470d5e693",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-03-13",
+      "description": "Write a function that validates a 10 digit client number with a parity bit",
+      "comment": ""
     }
   ]
 }
