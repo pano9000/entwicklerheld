@@ -6,10 +6,10 @@ My solution for the ['Cinema Seat Reservation' Challenge](https://platform.entwi
 
 
 ## Challenge Info
-Data last updated: 2024-03-12
+Data last updated: 2024-03-15
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▮▮ | █░░░░░░░░░ 12% | 57 / 457 | 2022-10-08 | JavaScript
+▮▮▮▮ | █░░░░░░░░░ 12% | 57 / 458 | 2022-10-08 | JavaScript
 
 ## Comment
 Difficult challenge because of some "special" requirements, when the seats needed to be moved, which felt a bit arbitrary at times.
