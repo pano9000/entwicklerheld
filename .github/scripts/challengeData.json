@@ -415,6 +415,15 @@
       "dateSolved": "2024-03-17",
       "description": "Change the behaviour of a slot machine to become a bit more 'unfair' after a few special cases",
       "comment": "This should've been easily solved, but the tests cases were a bit weird/illogic, which made life unnecessarily harder:\\nFor phase 3 you are supposed to alter the machine, so that the average payout is lowered significantly, when compared to the default payout rate. A logical approach here would be to calculate some payout average inside the class and use that to alter if the next play(s) result in a win or a loss. However the way the tests are build prevent this: The test creates a snapshot of the slot machine after phase 2 and then calculates its own average, doing 10k runs -> but resetting the state at each iteration back to phase 2. This make it impossible to have a 'built-in' long-term average attribute on the slot-machine class, which would've been a nicer way to handle phase 3."
+    },
+    {
+      "id": "airport-runway-direction",
+      "idEH": "9e92453e-9ee8-4497-9c81-11e637012290",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-03-17",
+      "description": "Calculate which runway is closest to the path of an incoming airplane",
+      "comment": ""
     }
   ]
 }
