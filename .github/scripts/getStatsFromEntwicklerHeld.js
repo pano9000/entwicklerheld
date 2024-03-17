@@ -98,11 +98,14 @@ function createOverviewMarkdownFile(data) {
   lines.push("I use this repository to save and present my solutions for the challenges on the [EntwicklerHeld](https://platform.entwicklerheld.de/) coding challenge platform.");
   lines.push("");
   lines.push("Click on the challenge names for more details and to see the solution.")
-  lines.push(`List Last updated: ${new Date().toISOString().slice(0,10)}`);
+  lines.push("");
+  lines.push(`List Last updated: **${new Date().toISOString().slice(0,10)}**`);
   lines.push("");
   lines.push("### Difficulty Levels (According to EntwicklerHeld)");
   lines.push("");
   lines.push("▮▯▯▯ = `Easy`", "", "▮▮▯▯ = `Medium`", "", "▮▮▮▯ = `Hard`", "", "▮▮▮▮ = `Hardcore`", "");
+  lines.push("## Overview");
+  lines.push(`Total Number of Solved Challenges: ${data.length}`)
   lines.push("## Solved Challenges Sorted by Solution Date");
   lines.push("");
   lines.push("Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language");
