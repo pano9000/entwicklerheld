@@ -6,7 +6,7 @@ My solution for the ['Happy Subnetting' Challenge](https://platform.entwicklerhe
 
 
 ## Challenge Info
-Data last updated: 2024-03-15
+Data last updated: 2024-03-17
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▮▮▯ | ██░░░░░░░░ 24% | 54 / 227 | 2022-09-19 | JavaScript
