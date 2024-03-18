@@ -424,6 +424,15 @@
       "dateSolved": "2024-03-17",
       "description": "Calculate which runway is closest to the path of an incoming airplane",
       "comment": ""
+    },
+    {
+      "id": "entwicklerheld-celebration",
+      "idEH": "b90a83d6-10bf-4881-a53f-464d99cefdfc",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-03-18",
+      "description": "Calculate how many times 'glasses' have clinked at a party",
+      "comment": ""
     }
   ]
 }
