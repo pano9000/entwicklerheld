@@ -433,6 +433,15 @@
       "dateSolved": "2024-03-18",
       "description": "Calculate how many times 'glasses' have clinked at a party",
       "comment": ""
+    },
+    {
+      "id": "filling-area",
+      "idEH": "2c898f61-a29f-4804-909a-3fc922d4d842",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-03-26",
+      "description": "Implement an algorithm that 'fills' an area of 0s with 1s",
+      "comment": ""
     }
   ]
 }
