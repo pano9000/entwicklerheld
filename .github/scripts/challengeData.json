@@ -442,6 +442,15 @@
       "dateSolved": "2024-03-26",
       "description": "Implement an algorithm that 'fills' an area of 0s with 1s",
       "comment": ""
+    },
+    {
+      "id": "fibonacci-numbers",
+      "idEH": "f4f0ef8b-0eb5-4c7f-9a5e-9d3da5e35cb9",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-03-26",
+      "description": "Implement an algorithm that return the n-th Fibonacci number",
+      "comment": "I went with a recursive solution, and utilized a memo dictionary for memoization purposed, to avoid recalculating the same values again and again"
     }
   ]
 }
