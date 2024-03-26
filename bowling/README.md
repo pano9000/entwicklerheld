@@ -6,7 +6,7 @@ My solution for the ['Bowling' Challenge](https://platform.entwicklerheld.de/cha
 Challenge consisted basically of creating a Bowling Score Counter, that keeps track of the knocked off pins and returns a total score at the end.
 
 ## Challenge Info
-Data last updated: 2024-03-25
+Data last updated: 2024-03-26
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▯▯▯ | █████░░░░░ 54% | 133 / 246 | 2023-09-15 | JavaScript
