@@ -451,6 +451,15 @@
       "dateSolved": "2024-03-26",
       "description": "Implement an algorithm that return the n-th Fibonacci number",
       "comment": "I went with a recursive solution, and utilized a memo dictionary for memoization purposed, to avoid recalculating the same values again and again"
+    },
+    {
+      "id": "selfies-in-copenhagen",
+      "idEH": "e6458744-d7bf-4fa1-8689-ef1643937339",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-03-27",
+      "description": "Implement some Django Webframework related functions that a) get a list of data of a predefined model and b) allow to add a rating of said data, and return some average statistics",
+      "comment": "First time working with Django and its ORM and I seem to like raw SQL queries a bit better than the ORM ;-)"
     }
   ]
 }
