@@ -6,9 +6,9 @@ My solution for the ['Longest Substring' Challenge](https://platform.entwicklerh
 Write a function that finds the longest common substring in two strings
 
 ## Challenge Info
-Data last updated: 2024-03-27
+Data last updated: 2024-03-28
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ██████░░░░ 55% | 117 / 211 | 2024-03-12 | JavaScript
+▮▯▯▯ | ██████░░░░ 56% | 118 / 212 | 2024-03-12 | JavaScript
 
 ## Comment
