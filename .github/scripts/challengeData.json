@@ -460,6 +460,15 @@
       "dateSolved": "2024-03-27",
       "description": "Implement some Django Webframework related functions that a) get a list of data of a predefined model and b) allow to add a rating of said data, and return some average statistics",
       "comment": "First time working with Django and its ORM and I seem to like raw SQL queries a bit better than the ORM ;-)"
+    },
+    {
+      "id": "ancient-encryption",
+      "idEH": "fb03fb21-9f44-4fe1-bf42-c4122aa94ddb",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-03-28",
+      "description": "Implement a class the can encode and decode Vigenère cipher",
+      "comment": ""
     }
   ]
 }
