@@ -4,7 +4,7 @@ I use this repository to save and present my solutions for the challenges on the
 
 Click on the challenge names for more details and to see the solution.
 
-List Last updated: **2024-03-28**
+List Last updated: **2024-03-29**
 
 ### Difficulty Levels (According to EntwicklerHeld)
 
@@ -48,7 +48,7 @@ Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted
 [Non Repeating Characters](https://github.com/pano9000/entwicklerheld/tree/main/non-repeating-characters) | ▮▯▯▯ | ███████░░░ 72% | 1681 / 2340 | 2023-07-05 | Python
 [IoT Office Sensors](https://github.com/pano9000/entwicklerheld/tree/main/iot-office-sensors) | ▮▯▯▯ | ██████░░░░ 56% | 176 / 312 | 2023-07-07 | Java
 [Change Calculator](https://github.com/pano9000/entwicklerheld/tree/main/change-calculator) | ▮▮▯▯ | ████░░░░░░ 36% | 127 / 348 | 2023-07-11 | Java
-[State Machine](https://github.com/pano9000/entwicklerheld/tree/main/state-machine) | ▮▮▯▯ | ███████░░░ 69% | 675 / 976 | 2023-07-11 | Java
+[State Machine](https://github.com/pano9000/entwicklerheld/tree/main/state-machine) | ▮▮▯▯ | ███████░░░ 69% | 676 / 977 | 2023-07-11 | Java
 [Storing vehicle data](https://github.com/pano9000/entwicklerheld/tree/main/storing-vehicle-data) | ▮▮▯▯ | █████░░░░░ 46% | 225 / 494 | 2023-07-14 | Java
 [Maps and Polygons](https://github.com/pano9000/entwicklerheld/tree/main/maps-and-polygons) | ▮▮▮▯ | ███░░░░░░░ 29% | 51 / 176 | 2023-07-20 | Java
 [Binary Tree](https://github.com/pano9000/entwicklerheld/tree/main/binary-tree) | ▮▮▯▯ | ███████░░░ 65% | 607 / 934 | 2023-07-28 | JavaScript
@@ -61,13 +61,13 @@ Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted
 [Run Length Encoding](https://github.com/pano9000/entwicklerheld/tree/main/run-length-encoding) | ▮▯▯▯ | █████████░ 86% | 313 / 364 | 2023-10-19 | JavaScript
 [Number conversion](https://github.com/pano9000/entwicklerheld/tree/main/number-conversion) | ▮▯▯▯ | ███████░░░ 74% | 347 / 470 | 2024-02-11 | Cpp
 [Binary Search](https://github.com/pano9000/entwicklerheld/tree/main/binary-search-js) | ▮▯▯▯ | ███████░░░ 65% | 84 / 129 | 2024-02-29 | JavaScript
-[Grains](https://github.com/pano9000/entwicklerheld/tree/main/grains) | ▮▯▯▯ | ████████░░ 84% | 454 / 539 | 2024-03-06 | Java
+[Grains](https://github.com/pano9000/entwicklerheld/tree/main/grains) | ▮▯▯▯ | ████████░░ 84% | 455 / 540 | 2024-03-06 | Java
 [Robot Simulator](https://github.com/pano9000/entwicklerheld/tree/main/robot-simulator) | ▮▯▯▯ | ████████░░ 77% | 342 / 444 | 2024-03-09 | Cpp
 [Word Counter](https://github.com/pano9000/entwicklerheld/tree/main/word-counter) | ▮▮▯▯ | ████░░░░░░ 38% | 510 / 1360 | 2024-03-09 | Cpp
-[ISBN Verifier](https://github.com/pano9000/entwicklerheld/tree/main/isbn-verifier) | ▮▯▯▯ | ███████░░░ 74% | 73 / 99 | 2024-03-11 | Kotlin
+[ISBN Verifier](https://github.com/pano9000/entwicklerheld/tree/main/isbn-verifier) | ▮▯▯▯ | ███████░░░ 73% | 73 / 100 | 2024-03-11 | Kotlin
 [Longest Substring](https://github.com/pano9000/entwicklerheld/tree/main/longest-substring) | ▮▯▯▯ | ██████░░░░ 56% | 118 / 212 | 2024-03-12 | JavaScript
 [Client number validation](https://github.com/pano9000/entwicklerheld/tree/main/client-number-validation) | ▮▯▯▯ | ████████░░ 77% | 105 / 137 | 2024-03-13 | JavaScript
-[Hacking a Slot Machine](https://github.com/pano9000/entwicklerheld/tree/main/hacking-a-slot-machine) | ▮▮▯▯ | ████░░░░░░ 37% | 327 / 884 | 2024-03-17 | Python
+[Hacking a Slot Machine](https://github.com/pano9000/entwicklerheld/tree/main/hacking-a-slot-machine) | ▮▮▯▯ | ████░░░░░░ 37% | 327 / 885 | 2024-03-17 | Python
 [Airport Runway Direction](https://github.com/pano9000/entwicklerheld/tree/main/airport-runway-direction) | ▮▮▯▯ | ███░░░░░░░ 33% | 539 / 1648 | 2024-03-17 | Python
 [EntwicklerHeld Celebration](https://github.com/pano9000/entwicklerheld/tree/main/entwicklerheld-celebration) | ▮▯▯▯ | ███████░░░ 70% | 1230 / 1763 | 2024-03-18 | Python
 [Filling Area](https://github.com/pano9000/entwicklerheld/tree/main/filling-area) | ▮▮▯▯ | █████░░░░░ 49% | 544 / 1106 | 2024-03-26 | Python
@@ -84,7 +84,7 @@ Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted
 [Ancient Encryption](https://github.com/pano9000/entwicklerheld/tree/main/ancient-encryption) | ▮▮▯▯ | ███████░░░ 74% | 406 / 552 | 2024-03-28 | Python
 [Selfies in Copenhagen](https://github.com/pano9000/entwicklerheld/tree/main/selfies-in-copenhagen) | ▮▮▯▯ | ████░░░░░░ 41% | 145 / 352 | 2024-03-27 | Python
 [Filling Area](https://github.com/pano9000/entwicklerheld/tree/main/filling-area) | ▮▮▯▯ | █████░░░░░ 49% | 544 / 1106 | 2024-03-26 | Python
-[Hacking a Slot Machine](https://github.com/pano9000/entwicklerheld/tree/main/hacking-a-slot-machine) | ▮▮▯▯ | ████░░░░░░ 37% | 327 / 884 | 2024-03-17 | Python
+[Hacking a Slot Machine](https://github.com/pano9000/entwicklerheld/tree/main/hacking-a-slot-machine) | ▮▮▯▯ | ████░░░░░░ 37% | 327 / 885 | 2024-03-17 | Python
 [Airport Runway Direction](https://github.com/pano9000/entwicklerheld/tree/main/airport-runway-direction) | ▮▮▯▯ | ███░░░░░░░ 33% | 539 / 1648 | 2024-03-17 | Python
 [Word Counter](https://github.com/pano9000/entwicklerheld/tree/main/word-counter) | ▮▮▯▯ | ████░░░░░░ 38% | 510 / 1360 | 2024-03-09 | Cpp
 [Tracking Cyber Threats: The IP Location Task](https://github.com/pano9000/entwicklerheld/tree/main/ip-location-powershell) | ▮▮▯▯ | █████░░░░░ 46% | 74 / 161 | 2023-10-09 | PowerShell
@@ -94,7 +94,7 @@ Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted
 [Binary Tree](https://github.com/pano9000/entwicklerheld/tree/main/binary-tree) | ▮▮▯▯ | ███████░░░ 65% | 607 / 934 | 2023-07-28 | JavaScript
 [Storing vehicle data](https://github.com/pano9000/entwicklerheld/tree/main/storing-vehicle-data) | ▮▮▯▯ | █████░░░░░ 46% | 225 / 494 | 2023-07-14 | Java
 [Change Calculator](https://github.com/pano9000/entwicklerheld/tree/main/change-calculator) | ▮▮▯▯ | ████░░░░░░ 36% | 127 / 348 | 2023-07-11 | Java
-[State Machine](https://github.com/pano9000/entwicklerheld/tree/main/state-machine) | ▮▮▯▯ | ███████░░░ 69% | 675 / 976 | 2023-07-11 | Java
+[State Machine](https://github.com/pano9000/entwicklerheld/tree/main/state-machine) | ▮▮▯▯ | ███████░░░ 69% | 676 / 977 | 2023-07-11 | Java
 [Pizza for my Friends Challenge](https://github.com/pano9000/entwicklerheld/tree/main/pizza-for-my-friends) | ▮▮▯▯ | ███░░░░░░░ 30% | 240 / 788 | 2023-07-04 | JavaScript
 [GDV Extraction](https://github.com/pano9000/entwicklerheld/tree/main/gdv-extraction) | ▮▮▯▯ | ████░░░░░░ 38% | 70 / 182 | 2023-07-02 | JavaScript
 [Say Numbers](https://github.com/pano9000/entwicklerheld/tree/main/say-numbers) | ▮▮▯▯ | ██████░░░░ 58% | 291 / 503 | 2023-06-30 | Java
@@ -106,9 +106,9 @@ Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted
 [EntwicklerHeld Celebration](https://github.com/pano9000/entwicklerheld/tree/main/entwicklerheld-celebration) | ▮▯▯▯ | ███████░░░ 70% | 1230 / 1763 | 2024-03-18 | Python
 [Client number validation](https://github.com/pano9000/entwicklerheld/tree/main/client-number-validation) | ▮▯▯▯ | ████████░░ 77% | 105 / 137 | 2024-03-13 | JavaScript
 [Longest Substring](https://github.com/pano9000/entwicklerheld/tree/main/longest-substring) | ▮▯▯▯ | ██████░░░░ 56% | 118 / 212 | 2024-03-12 | JavaScript
-[ISBN Verifier](https://github.com/pano9000/entwicklerheld/tree/main/isbn-verifier) | ▮▯▯▯ | ███████░░░ 74% | 73 / 99 | 2024-03-11 | Kotlin
+[ISBN Verifier](https://github.com/pano9000/entwicklerheld/tree/main/isbn-verifier) | ▮▯▯▯ | ███████░░░ 73% | 73 / 100 | 2024-03-11 | Kotlin
 [Robot Simulator](https://github.com/pano9000/entwicklerheld/tree/main/robot-simulator) | ▮▯▯▯ | ████████░░ 77% | 342 / 444 | 2024-03-09 | Cpp
-[Grains](https://github.com/pano9000/entwicklerheld/tree/main/grains) | ▮▯▯▯ | ████████░░ 84% | 454 / 539 | 2024-03-06 | Java
+[Grains](https://github.com/pano9000/entwicklerheld/tree/main/grains) | ▮▯▯▯ | ████████░░ 84% | 455 / 540 | 2024-03-06 | Java
 [Binary Search](https://github.com/pano9000/entwicklerheld/tree/main/binary-search-js) | ▮▯▯▯ | ███████░░░ 65% | 84 / 129 | 2024-02-29 | JavaScript
 [Number conversion](https://github.com/pano9000/entwicklerheld/tree/main/number-conversion) | ▮▯▯▯ | ███████░░░ 74% | 347 / 470 | 2024-02-11 | Cpp
 [Run Length Encoding](https://github.com/pano9000/entwicklerheld/tree/main/run-length-encoding) | ▮▯▯▯ | █████████░ 86% | 313 / 364 | 2023-10-19 | JavaScript
