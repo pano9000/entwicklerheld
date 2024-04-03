@@ -469,6 +469,15 @@
       "dateSolved": "2024-03-28",
       "description": "Implement a class the can encode and decode Vigenère cipher",
       "comment": ""
+    },
+    {
+      "id": "prime-test",
+      "idEH": "e7a80358-ac1e-47a4-b865-db6882cc5dfa",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-04-03",
+      "description": "Implement a program that checks, if a given number is a prime number",
+      "comment": ""
     }
   ]
 }
