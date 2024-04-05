@@ -9,7 +9,7 @@ Challenge consisted of writing a binary search function that also keeps track of
 Data last updated: 2024-04-05
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ██████░░░░ 62% | 89 / 144 | 2024-02-29 | JavaScript
+▮▯▯▯ | ██████░░░░ 62% | 90 / 145 | 2024-02-29 | JavaScript
 
 ## Comment
 I opted to go with an iterative solution, that works 'in place' and without copying any array data, but instead works with index ranges for the 'divide and conquer' part :-)
