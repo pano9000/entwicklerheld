@@ -12,7 +12,7 @@ Challenge consisted of working with binary trees and three scenarios:
 3) Reverse/Mirror a given binary tree
 
 ## Challenge Info
-Data last updated: 2024-04-03
+Data last updated: 2024-04-05
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▮▯▯ | ███████░░░ 65% | 607 / 934 | 2023-07-28 | JavaScript
