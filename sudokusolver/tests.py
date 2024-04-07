@@ -1,6 +1,6 @@
 import unittest
-from sudokusolver.task import *
-import xmlrunner
+from task import *
+#import xmlrunner
 
 puzzles = {
     "easy": [
@@ -336,10 +336,4 @@ def solve(grid):
 
 
 if __name__ == "__main__":
-    with open("results.xml", "wb") as output:
-        unittest.main(
-            testRunner=xmlrunner.XMLTestRunner(output=output),
-            failfast=False,
-            buffer=False,
-            catchbreak=False,
-        )
+    unittest.main()
