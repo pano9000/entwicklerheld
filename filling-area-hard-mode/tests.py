@@ -1,7 +1,8 @@
 from unittest import TestCase, main
 import sys
-from xmlrunner import xmlrunner
-from area.task import Area, AreaHelper
+#from xmlrunner import xmlrunner
+import unittest
+from task import Area, AreaHelper
 sys.setrecursionlimit(10000)
 
 
@@ -207,7 +208,7 @@ class FillAreaTests(TestCase):
 
         TestHelper.test_map_equality(expected_area, actual_area)
 
-        from area.examples import examples
+        from examples import examples
         from random import shuffle
         shuffle(examples)
         for example in examples:
@@ -218,7 +219,8 @@ class FillAreaTests(TestCase):
 
 
 if __name__ == '__main__':
-    with open('results.xml', 'w') as output:
-        main(
-            testRunner=xmlrunner.XMLTestRunner(output=output),
-            failfast=False, buffer=False, catchbreak=False)
+    #with open('results.xml', 'w') as output:
+    #    main(
+    #        testRunner=xmlrunner.XMLTestRunner(output=output),
+    #        failfast=False, buffer=False, catchbreak=False)
+    unittest.main()
