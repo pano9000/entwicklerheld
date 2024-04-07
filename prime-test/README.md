@@ -9,6 +9,6 @@ Implement a program that checks, if a given number is a prime number
 Data last updated: 2024-04-05
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ██████████ 95% | 475 / 502 | 2024-04-03 | Java
+▮▯▯▯ | █████████░ 94% | 475 / 503 | 2024-04-03 | Java
 
 ## Comment
