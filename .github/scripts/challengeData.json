@@ -496,6 +496,15 @@
       "dateSolved": "2024-04-07",
       "description": "Implement an algorithm that detects 'connected' areas of 0s with 1s and fills these area with 1s",
       "comment": "I have added some additional difficulty here for myself, by also requiring 'multiple' boxes to be filled, if they are in the area. The original EH task only was testing for single boxes."
+    },
+    {
+      "id": "meter-readings",
+      "idEH": "9a265ddd-3e2f-4437-8f38-a2d13580a5cc",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-04-09",
+      "description": "Implement a simple parser and validator for a CSV file containing meter readings",
+      "comment": "Stage 1 allowed usage of the fgetcsv method, while in Stage 2 that method was not allowed – however replacing it was not too much of a challenge."
     }
   ]
 }
