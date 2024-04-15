@@ -1,29 +1,37 @@
 package de.entwicklerheld.easystorage.challenge.stage1;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import java.lang.RuntimeException;
-
 class EasyStorage{
 
+    private Map<String, String> storage = new HashMap<String, String>();
     public void store(String item, String repository){
-        //Implement this for scenario 1
-        throw new RuntimeException("store() is not implemented");
+        if (item.isEmpty() || repository.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+        this.storage.put(item, repository);
     }
 
     public Map<String, String> getAllData(){
-        //Implement this for scenario 2
-        throw new RuntimeException("getAllData() is not implemented");
+        return this.storage;
     }
 
     public String getRepository(String item){
-        //Implement this for scenario 3
-        throw new RuntimeException("getRepository() is not implemented");
+        return this.storage.getOrDefault(item, null);
     }
 
     public Set<String> getItems(String repository){
-        //Implement this for scenario 3
-        throw new RuntimeException("getItems() is not implemented");
+        Set<String> resultSet = new HashSet<String>();
+
+        for (Map.Entry<String, String> entry : this.storage.entrySet()) {
+            if (entry.getValue().equals(repository)) {
+                resultSet.add(entry.getKey());
+            }
+        }
+
+        return resultSet;
     }
 }
