@@ -1,73 +1,50 @@
 export function selectCandidatesForJobOffers(candidateList, jobOffers) {
 
-  for (const job in jobOffers) {
-      console.log(job, jobOffers[job].qualifications);
+  for (const jobName in jobOffers) {
+      jobOffers[jobName]["candidates"] = candidateList.filter(candidate => candidate.position === jobName);
 
-      jobOffers[job]["candidates"] = selectAppliedCandidates(candidateList, job)
-      const matchingCandidates = selectMatchingCandidates(candidateList, jobOffers[job].qualifications);
-      jobOffers[job]["selectedCandidates"] = matchingCandidates; //TODO -> filter for ranking etc,
-      jobOffers[job]["selectedCandidates"] = calcTotalExperiences(matchingCandidates)
-      console.log(jobOffers[job]["selectedCandidates"])
-      sortMatchingCandidates(jobOffers[job]["selectedCandidates"])
-      jobOffers[job]["selectedCandidates"].splice(jobOffers[job]["numberOfPositions"])
+      const matchingCandidates = getMatchingCandidates(jobOffers[jobName]["candidates"], jobOffers[jobName].qualifications);
+      jobOffers[jobName]["selectedCandidates"] = calculateMatchRate(matchingCandidates, jobOffers[jobName]["numberOfPositions"]);
+      sortMatchingCandidates(jobOffers[jobName]["selectedCandidates"])
+
+      jobOffers[jobName]["selectedCandidates"].splice(jobOffers[jobName]["numberOfPositions"])
   }
-  //console.log("can--------", candidateList, "-------\n")
-  console.log("job--------", JSON.stringify(jobOffers), "-------\n")
+
   return jobOffers;
 }
 
 
+function getMatchingCandidates(candidateList, requiredQualifications) {
 
-function selectAppliedCandidates(candidateList, jobName) {
-  const appliedCandidates = candidateList.filter(candidate => candidate.position === jobName);
-  return appliedCandidates
-}
+  const minRequiredQualificationMatchCount = Math.ceil(requiredQualifications.length / 2);
+  const matchingCandidates = candidateList.filter(candidate => {
 
-function selectMatchingCandidates(candidateList, qualifications) {
-  const filteredCandidates = candidateList.filter(candidate => {
-      let matchingQualCount = 0;
-      candidate["qualifications"].forEach(candQual => {
-          const included = qualifications.includes(candQual["name"]);
-          if (included) matchingQualCount++;
-      })
-      const minReqQualMatch = Math.ceil(qualifications.length / 2);
-
-      const hasEnoughQualMatching = (matchingQualCount >= minReqQualMatch);
-
-      return hasEnoughQualMatching
-  })
-  
-  console.log("filtere", filteredCandidates.length, filteredCandidates);
-  return filteredCandidates
-}
-
-function sortMatchingCandidates(matchingCandidates, numberOfPositions) {
-
-  matchingCandidates.sort( (curr, next) => {
-      if (curr["experienceSum"] > next["experienceSum"]) {
-          return -1
-      } else if (curr["experienceSum"] > next["experienceSum"]) {
-          return 1
-      } else {
-          return 0
-      }
+      const matchingQualificationCount = candidate["qualifications"].reduce((accum, currentQualification) => {
+          return (requiredQualifications.includes(currentQualification["name"])) ? ++accum : accum;
+      }, 0);
+      return (matchingQualificationCount >= minRequiredQualificationMatchCount);
   })
 
+  return matchingCandidates
 }
 
-function calcTotalExperiences(matchingCandidates) {
 
+function calculateMatchRate(matchingCandidates, numberOfPositions) {
 
-  const abc = matchingCandidates.map(matchingCandidate => {
-      const totalExperience = matchingCandidate["qualifications"].reduce((accum, current, index) => {
-          accum += current["experience"]
-          
-          return accum
-      }, 0)
-      matchingCandidate["experienceSum"] = totalExperience;
+  return matchingCandidates.map(matchingCandidate => {
+      const totalExperience = matchingCandidate["qualifications"].reduce((accum, current) => accum += current["experience"], 0)
+      matchingCandidate["matchRate"] = (totalExperience != 0) ? totalExperience / numberOfPositions : 0;
       return matchingCandidate
   })
 
+}
 
-  return abc
+function sortMatchingCandidates(matchingCandidates) {
+
+  matchingCandidates.sort((curr, next) => {
+      if (curr["matchRate"] > next["matchRate"]) return -1;
+      if (curr["matchRate"] > next["matchRate"]) return 1;
+      return 0
+  })
+
 }
