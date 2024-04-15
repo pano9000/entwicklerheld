@@ -514,6 +514,15 @@
       "dateSolved": "2024-04-13",
       "description": "Implement a basic Laravel controller for an 'app'",
       "comment": "First time using Laravel, and it felt a bit weird, when compared to express.js, what I am used to. Interesting experience though."
+    },
+    {
+      "id": "easy-storage",
+      "idEH": "5e7e77a6-0243-43c9-bfa3-fa3637575fab",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-04-15",
+      "description": "Implement a program that helps 'store' items in repositories.",
+      "comment": "Just required some very basic HashMap related methods"
     }
   ]
 }
