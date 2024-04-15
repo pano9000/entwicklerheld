@@ -523,6 +523,15 @@
       "dateSolved": "2024-04-15",
       "description": "Implement a program that helps 'store' items in repositories.",
       "comment": "Just required some very basic HashMap related methods"
+    },
+    {
+      "id": "candidates",
+      "idEH": "b4c43bf0-efcf-4359-a8fb-4fd7df66269e",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-04-15",
+      "description": "Efficiently pair list of job offers with a list of possible candidates and select the best matching candidates.",
+      "comment": ""
     }
   ]
 }
