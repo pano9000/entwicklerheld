@@ -6,7 +6,7 @@ My solution for the ['Selfies in Copenhagen' Challenge](https://platform.entwick
 Implement some Django Webframework related functions that a) get a list of data of a predefined model and b) allow to add a rating of said data, and return some average statistics
 
 ## Challenge Info
-Data last updated: 2024-04-15
+Data last updated: 2024-04-17
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▮▯▯ | ████░░░░░░ 41% | 145 / 352 | 2024-03-27 | Python
