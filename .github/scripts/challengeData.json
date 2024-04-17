@@ -537,7 +537,7 @@
       "id": "santas-cookies",
       "idEH": "322fa320-1f4d-4f2b-a083-ab26e280803b",
       "urlEH": "santas-cookie-finder-magic",
-      "urlSolution": "",
+      "urlSolution": "santas-cookies",
       "dateSolved": "2024-04-18",
       "description": "With a given 2D array of strings, consisting of spaces or '*' ( with '*' representing a 'cookie') -> return an updated array of strings, where the spaces are replaced by a number representing, how many cookies the empty space has in its adjacency.",
       "comment": ""
