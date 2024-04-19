@@ -9,7 +9,7 @@ Implement a program that helps 'store' items in repositories.
 Data last updated: 2024-04-19
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ██████░░░░ 63% | 1243 / 1975 | 2024-04-15 | Java
+▮▯▯▯ | ██████░░░░ 63% | 1244 / 1976 | 2024-04-15 | Java
 
 ## Comment
 Just required some very basic HashMap related methods
