@@ -541,6 +541,15 @@
       "dateSolved": "2024-04-18",
       "description": "With a given 2D array of strings, consisting of spaces or '*' ( with '*' representing a 'cookie') -> return an updated array of strings, where the spaces are replaced by a number representing, how many cookies the empty space has in its adjacency.",
       "comment": ""
+    },
+    {
+      "id": "message-distribution-network",
+      "idEH": "d94c9e99-3fc1-4fa2-91ce-beb4d847bb06",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-04-19",
+      "description": "Send incoming messages to the correct Kafka topic, after detecting the language of the message. Additionally send a POST message to a server, if the message contains certain keywords.",
+      "comment": "This was relatively easy, not sure why this was originally ranked as a 'Medium' level task."
     }
   ]
 }
