@@ -6,7 +6,7 @@ My solution for the ['Word Counter' Challenge](https://platform.entwicklerheld.d
 Open up a file, read the text, count all the words and their occurence and output it in a nicely formatted way.
 
 ## Challenge Info
-Data last updated: 2024-04-17
+Data last updated: 2024-04-19
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▮▯▯ | ████░░░░░░ 38% | 512 / 1362 | 2024-03-09 | Cpp
