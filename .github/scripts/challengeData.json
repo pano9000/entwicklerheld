@@ -550,6 +550,15 @@
       "dateSolved": "2024-04-19",
       "description": "Send incoming messages to the correct Kafka topic, after detecting the language of the message. Additionally send a POST message to a server, if the message contains certain keywords.",
       "comment": "This was relatively easy, not sure why this was originally ranked as a 'Medium' level task."
+    },
+    {
+      "id": "vendors-box",
+      "idEH": "95836bbc-ea60-4783-8079-fb1197abefff",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-04-21",
+      "description": "Filter a list of Vendors for the best matching vendor in regards to price, shipping time, etc.",
+      "comment": ""
     }
   ]
 }
