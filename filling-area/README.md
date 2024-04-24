@@ -6,9 +6,9 @@ My solution for the ['Filling Area' Challenge](https://platform.entwicklerheld.d
 Implement an algorithm that 'fills' an area of 0s with 1s
 
 ## Challenge Info
-Data last updated: 2024-04-19
+Data last updated: 2024-04-21
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | █████░░░░░ 49% | 545 / 1107 | 2024-03-26 | Python
+▮▮▯▯ | █████░░░░░ 49% | 546 / 1108 | 2024-03-26 | Python
 
 ## Comment
