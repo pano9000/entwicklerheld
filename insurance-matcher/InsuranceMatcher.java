@@ -1,10 +1,6 @@
 package de.entwicklerheld.insuranceMatching;
 
-//import java.util.stream.Collectors;
-import java.util.stream.*;
 import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.List;
 
 class InsuranceMatcher {
 
@@ -14,92 +10,103 @@ class InsuranceMatcher {
             InsurancePreference usersInsurancePreference
     ) {
 
-        // get insurances by matching type
-        List<Insurance> filteredInsurances = Arrays.stream(insuranceDatabase)
-            .filter(currInsurance -> insuranceType.equals(currInsurance.getType()))
-            .sorted((insuranceA, insuranceB) -> insuranceA.getMonthlyCosts().compareTo(insuranceB.getMonthlyCosts()))
-            .collect(Collectors.toList());
+        BigDecimal currBestPrice = null;
+        Insurance bestMatchingInsurance = null;
+        InsurancePreferenceMatch bestMatchingInsurancePreference = null;
 
-        if (filteredInsurances.size() == 0) {
-            return null;
+        for (Insurance currInsurance : insuranceDatabase) {
+
+            if (!currInsurance.getType().equals(insuranceType)) continue;
+
+            InsurancePreferenceMatch insurancePreferenceMatch = new InsurancePreferenceMatch(
+                usersInsurancePreference, currInsurance.getInsurancePreference()
+            );
+
+            if (!insurancePreferenceMatch.isMatching) continue;
+
+            if (currBestPrice == null || currInsurance.getMonthlyCosts().compareTo(currBestPrice) == -1) {
+                currBestPrice = currInsurance.getMonthlyCosts();
+                bestMatchingInsurance = currInsurance;
+                bestMatchingInsurancePreference = insurancePreferenceMatch;
+            }
         }
 
-        // if there is no preference, return the one with the lowest price
-        if (usersInsurancePreference == null) {
-            return new InsuranceMatcherResult(filteredInsurances.get(0));
-        }
+        InsuranceMatcherResult result = (bestMatchingInsurance == null) 
+            ? null
+            : (usersInsurancePreference == null)
+                ? new InsuranceMatcherResult(bestMatchingInsurance)
+                : new InsuranceMatcherResult(
+                    bestMatchingInsurance,
+                    usersInsurancePreference,
+                    bestMatchingInsurancePreference.score
+                );
 
-        // get insurances by matching user Preference
-        List<Insurance> moreFilteredInsurances = filteredInsurances.stream()
-
-            .filter(currInsurance -> {
-                InsurancePreferenceCalc wat = new InsurancePreferenceCalc(usersInsurancePreference, currInsurance.getInsurancePreference());
-                if ( 
-                    (wat.avgDeviation.compareTo(new BigDecimal("90")) == -1) 
-                    || (wat.deviationInsuredSumQ.compareTo(new BigDecimal("0.9000")) == -1)
-                    || (wat.deviationSpecificInsuredSumQ.compareTo(new BigDecimal("0.9000")) == -1)
-                    || (wat.deviationDeductibleQ.compareTo(new BigDecimal("0.5000")) == -1)
-                ) {
-                    return false;
-                }
-                return true;
-            })
-            .sorted((insuranceA, insuranceB) -> insuranceA.getMonthlyCosts().compareTo(insuranceB.getMonthlyCosts()))
-            .collect(Collectors.toList());
-        
-
-        if (moreFilteredInsurances.size() == 0) {
-            return null;
-        }
-
-        if (moreFilteredInsurances.size() > 0) {
-            return new InsuranceMatcherResult(
-                moreFilteredInsurances.get(0),
-                usersInsurancePreference,
-                new InsurancePreferenceCalc(usersInsurancePreference, moreFilteredInsurances.get(0).getInsurancePreference()).avgDeviation
-         );
-        }
-
-        
-        
-        return new InsuranceMatcherResult(filteredInsurances.get(0));
+        return result;
     }
 
-    //TODO rename to something better fitting
-    private static class InsurancePreferenceCalc {
+
+    private static class InsurancePreferenceMatch {
 
         private int scale = 4;
         private int rounding = BigDecimal.ROUND_HALF_UP;
 
-        private BigDecimal baseHundred = new BigDecimal("100.0000");
-        private BigDecimal baseThree = new BigDecimal("3.0000");
-        private BigDecimal maxMatch = new BigDecimal("1.1000");
+        private BigDecimal thresholdAvg = new BigDecimal("90.0000");
+        private BigDecimal thresholdSum = new BigDecimal("0.9000");
+        private BigDecimal thresholdDeductible = new BigDecimal("0.5000");
+        private BigDecimal maxQuotient = new BigDecimal("1.1000");
         
-        private BigDecimal deviationInsuredSumQ;
-        private BigDecimal deviationDeductibleQ;
-        private BigDecimal deviationSpecificInsuredSumQ;
-        public BigDecimal avgDeviation;
+        public BigDecimal insuredSumDeviationQuotient;
+        public BigDecimal deductibleDeviationQuotient;
+        public BigDecimal specificInsuredSumDeviationQuotient;
+        public BigDecimal score;
+        public Boolean isMatching;
         
-        public InsurancePreferenceCalc(InsurancePreference userPreference, InsurancePreference insurancePreference) {
-
-            this.deviationInsuredSumQ = this.calcWeightedQuotient(userPreference.getInsuredSum(), insurancePreference.getInsuredSum());
-            this.deviationDeductibleQ = this.calcWeightedQuotient(insurancePreference.getDeductible(), userPreference.getDeductible());
-            this.deviationSpecificInsuredSumQ = this.calcWeightedQuotient(userPreference.getSpecificInsuredSum(), insurancePreference.getSpecificInsuredSum());
-            
-            this.calcAverage(userPreference, insurancePreference);
-
-        }
-        private void calcAverage(InsurancePreference userPreference, InsurancePreference insurancePreference) {
-
-            BigDecimal sum = this.deviationInsuredSumQ.add(this.deviationDeductibleQ).add(this.deviationSpecificInsuredSumQ);
-            BigDecimal toHundred = sum.multiply(this.baseHundred);
-
-            this.avgDeviation = toHundred.divide(this.baseThree, this.scale, this.rounding);
+        public InsurancePreferenceMatch(InsurancePreference userPreference, InsurancePreference insurancePreference) {
+            this.init(userPreference, insurancePreference);
         }
 
-        private BigDecimal calcWeightedQuotient(BigDecimal a, BigDecimal b) {
+        //unused here, but while we are at it, let's make the threshold changeable, if required
+        public InsurancePreferenceMatch(InsurancePreference userPreference, InsurancePreference insurancePreference, BigDecimal[] matchingThresholds) {
+            this.thresholdSum = matchingThresholds[0];
+            this.thresholdDeductible = matchingThresholds[1];
+            this.thresholdAvg = matchingThresholds[2];
+            this.maxQuotient =  matchingThresholds[3];
+            this.init(userPreference, insurancePreference);
+        }
+        private void init(InsurancePreference userPreference, InsurancePreference insurancePreference) {
+                if (userPreference != null) {
+                    this.insuredSumDeviationQuotient = this.calcQuotient(userPreference.getInsuredSum(), insurancePreference.getInsuredSum());
+                    this.deductibleDeviationQuotient = this.calcQuotient(insurancePreference.getDeductible(), userPreference.getDeductible());
+                    this.specificInsuredSumDeviationQuotient = this.calcQuotient(userPreference.getSpecificInsuredSum(), insurancePreference.getSpecificInsuredSum());
+                    
+                    this.score = this.calcAverage();
+                    this.isMatching = this.checkIfMatch();
+            } else {
+                this.isMatching = true;
+            }
+
+        }
+
+        private BigDecimal calcQuotient(BigDecimal a, BigDecimal b) {
             BigDecimal quotient = b.divide(a, this.scale, this.rounding);
-            return (quotient.compareTo(this.maxMatch) == -1) ? quotient : this.maxMatch;
+            return (quotient.compareTo(this.maxQuotient) == -1) ? quotient : this.maxQuotient;
+        }
+
+        private BigDecimal calcAverage() {
+            return  this.insuredSumDeviationQuotient
+                        .add(this.deductibleDeviationQuotient)
+                        .add(this.specificInsuredSumDeviationQuotient)
+                        .multiply(new BigDecimal("100.0000"))
+                        .divide(new BigDecimal("3.0000"), this.scale, this.rounding);
+        }
+
+        private Boolean checkIfMatch() {
+            return ((this.score.compareTo(this.thresholdAvg) == -1) 
+                    || (this.insuredSumDeviationQuotient.compareTo(this.thresholdSum) == -1)
+                    || (this.specificInsuredSumDeviationQuotient.compareTo(this.thresholdSum) == -1)
+                    || (this.deductibleDeviationQuotient.compareTo(this.thresholdDeductible) == -1)) 
+                    ? false 
+                    : true;
         }
 
     }
