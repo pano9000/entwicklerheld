@@ -573,7 +573,7 @@
       "id": "insurance-matcher",
       "idEH": "81cf6eb8-ca8f-46dd-a3fb-d008537dd962",
       "urlEH": "insurance-matching",
-      "urlSolution": "",
+      "urlSolution": "insurance-matcher",
       "dateSolved": "2024-04-27",
       "description": "Find the best match insurance based on user's preferences",
       "comment": ""
