@@ -568,6 +568,16 @@
       "dateSolved": "2024-04-24",
       "description": "Execute code tests coming from a NATS message broker and reply back with the test results",
       "comment": ""
+    },
+    {
+      "id": "insurance-matching",
+      "idEH": "81cf6eb8-ca8f-46dd-a3fb-d008537dd962",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-04-27",
+      "description": "Find the best match insurance based on user's preferences",
+      "comment": ""
     }
+    
   ]
 }
