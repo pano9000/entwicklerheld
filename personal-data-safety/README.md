@@ -6,10 +6,10 @@ My solution for the ['Personal Data Safety' Challenge](https://platform.entwickl
 Goal is to create a function that gets the personal data of a given `user_id`, and returns it either masked, or unmasked, depending on status of authentication.
 
 ## Challenge Info
-Data last updated: 2024-04-26
+Data last updated: 2024-04-27
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ███████░░░ 65% | 553 / 851 | 2022-05-02 | PHP
+▮▯▯▯ | ███████░░░ 65% | 553 / 852 | 2022-05-02 | PHP
 
 ## Comment
 Challenge was not in Javascript, but PHP, but I gave it a shot anyways. I'm not a PHP guy, so the solution might be clumsy.

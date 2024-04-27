@@ -8,10 +8,10 @@ Challenge consisted of extracting an Address from a scanned document. The scanne
 The first scenario was the 'easy' mode, which only contained perfectly aligned scans. The challenge allowed for a 'hard' mode, which also included scans, that were not correctly aligned, e.g. the letters were skewed slightly, either going up or down.
 
 ## Challenge Info
-Data last updated: 2024-04-26
+Data last updated: 2024-04-27
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ███░░░░░░░ 30% | 67 / 220 | 2023-09-03 | Java
+▮▮▯▯ | ███░░░░░░░ 31% | 68 / 220 | 2023-09-03 | Java
 
 ## Comment
 The easy mode was quickly solved, but I went for the 'hard' mode, which was quite a bit more challenging and required to throw away my first solution, that worked for the easy mode. Finally I ended up with a solution that groups the characters in Columns by their X position, then for each value of the first column, iterates through all the other columns to check, if the letter belongs to the same row, by calculating some distances between X/Y of the current and following characters.
