@@ -570,14 +570,22 @@
       "comment": ""
     },
     {
-      "id": "insurance-matching",
+      "id": "insurance-matcher",
       "idEH": "81cf6eb8-ca8f-46dd-a3fb-d008537dd962",
-      "urlEH": "",
+      "urlEH": "insurance-matching",
       "urlSolution": "",
       "dateSolved": "2024-04-27",
       "description": "Find the best match insurance based on user's preferences",
       "comment": ""
+    },
+    {
+      "id": "emoji-bot",
+      "idEH": "82ee47f5-36f9-4b61-8b1b-3aab8eca0ea5",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-04-27",
+      "description": "Process messages that may or may not contain emojis, and store them in a Redis instance",
+      "comment": ""
     }
-    
   ]
 }
