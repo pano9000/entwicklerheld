@@ -4,30 +4,32 @@ from trilateration_python.navigation_service import GPSService
 
 class Car(TrackableObject):
     def _calculate_position(self):
-        # implement this in scenario 1
-        available_sat = GPSService.get_available_satellites()
-        if len(available_sat) != 3:
-            raise Exception(f"3 GPS satellites are needed to calculate the position, but only received {len(available_sat)}")
 
-        # math inspiration from here: https://www.101computing.net/cell-phone-trilateration-algorithm/
+        satellites = GPSService.get_available_satellites()
 
-        sat_1 = available_sat[0].get_coordinates()
-        sat_2 = available_sat[1].get_coordinates()
-        sat_3 = available_sat[2].get_coordinates()
+        if len(satellites) != 3:
+            raise Exception(f"3 GPS satellites are needed to calculate the position, but only received {len(satellites)}")
 
-        A = 2 * sat_2.x - 2 * sat_1.x
-        B = 2 * sat_2.y - 2 * sat_1.y
 
-        C = available_sat[0].get_car_distance(self)**2 - available_sat[1].get_car_distance(self)**2 - sat_1.x**2 + sat_2.x**2 - sat_1.y**2 + sat_2.y**2
+        sat_coordinates = list(map(lambda satellite: satellite.get_coordinates(), satellites))
+        sat_car_distances = list(map(lambda satellite: satellite.get_car_distance(self), satellites))
 
-        D = 2 * sat_3.x - 2 * sat_2.x
-        E = 2 * sat_3.y - 2 * sat_2.y
-        F = available_sat[1].get_car_distance(self)**2 - available_sat[2].get_car_distance(self)**2 - sat_2.x**2 + sat_3.x**2 - sat_2.y**2 + sat_3.y**2
-        
-        x = (C*E - F*B) / (E*A - B*D)
-        y = (C*D - A*F) / (B*D - A*E)
-        self.x = x
-        self.y = y
+        sat_0, sat_1, sat_2 = sat_coordinates
+        satD_0, satD_1, satD_2 = sat_car_distances
+
+        # Math inspiration from here: https://www.101computing.net/cell-phone-trilateration-algorithm/
+        A = 2 * sat_1.x - 2 * sat_0.x
+        B = 2 * sat_1.y - 2 * sat_0.y
+
+        C = satD_0**2 - satD_1**2 - sat_0.x**2 + sat_1.x**2 - sat_0.y**2 + sat_1.y**2
+
+        D = 2 * sat_2.x - 2 * sat_1.x
+        E = 2 * sat_2.y - 2 * sat_1.y
+
+        F = satD_1**2 - satD_2**2 - sat_1.x**2 + sat_2.x**2 - sat_1.y**2 + sat_2.y**2
+
+        self.x = (C*E - F*B) / (E*A - B*D)
+        self.y = (C*D - A*F) / (B*D - A*E)
 
 
     def get_street(self):
@@ -65,5 +67,5 @@ class Car(TrackableObject):
                 results.append(street.name)
 
         results.sort()
-        
+
         return "" if (len(results) < 1) else  " / ".join(results)
