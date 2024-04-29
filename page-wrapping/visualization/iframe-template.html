@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script>
+const IDS = [];
+const ID_CHARS = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+function generateId() {
+  let time = (new Date()).getTime();
+  let i = 0;
+  let sid = '';
+
+  while ( time > 0 ) {
+    const j = time%ID_CHARS.length;
+    sid = ID_CHARS.charAt(j) + sid;
+    time = Math.floor(time/ID_CHARS.length);
+  }
+
+  if (IDS[sid]) {
+      i = IDS[sid] + 1;
+  }
+
+  IDS[sid] = i;
+  return sid + ( i > 0 ? i : '' );
+}
+
+class TextData {
+    constructor(text) {
+        this.id = generateId();
+        this.node = null;
+        this.text = text;
+    }
+    getNode(document) {
+        if (!this.node) {
+            this.node = document.createElement('div');
+            this.node.setAttribute('id', this.id);
+            this.node.innerHTML = this.text;
+        }
+        return this.node;
+    }
+    getWidth() {
+        if (!this.node) {
+            return 0;
+        }
+
+        return this.node.clientWidth;
+    }
+    getHeight() {
+        if (!this.node) {
+            return 0;
+        }
+        const computedStyle = window.getComputedStyle(this.node);
+        return this.node.clientHeight
+                + parseFloat(computedStyle.marginTop)
+                + parseFloat(computedStyle.marginBottom)
+                + parseFloat(computedStyle.borderTopWidth)
+                + parseFloat(computedStyle.borderBottomWidth);
+    }
+}
+
+function init(html) {
+    PAGED_DISPLAY.loadText(html);
+    PAGED_DISPLAY.show();
+}
+
+function handleKeyDown(event) {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight' && event.key !== 'Escape') {
+        return;
+    }
+    event.preventDefault();
+
+    if (event.key === 'ArrowLeft') {
+        PAGED_DISPLAY.highlightButton('prev-page', true);
+    }  else if (event.key === 'ArrowRight') {
+        PAGED_DISPLAY.highlightButton('next-page', true);
+    } else if (event.key === 'Escape') {
+        PAGED_DISPLAY.highlightButton('paged-close-button', true);
+    }
+}
+
+function handleKeyUp(event) {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight' && event.key !== 'Escape') {
+        return;
+    }
+    event.preventDefault();
+
+    if (event.key === 'ArrowLeft') {
+        PAGED_DISPLAY.highlightButton('prev-page', false);
+        PAGED_DISPLAY.gotoPage(-1);
+    }  else if (event.key === 'ArrowRight') {
+        PAGED_DISPLAY.highlightButton('next-page', false);
+        PAGED_DISPLAY.gotoPage(+1);
+    } else if (event.key === 'Escape') {
+        PAGED_DISPLAY.highlightButton('paged-close-button', false);
+        PAGED_DISPLAY.hide();
+    }
+}
+
+class PagedDisplay {
+    constructor() {
+        this.pages = [];
+        this.currentpage = -1;
+        this.pageHeight = 0;
+        this.isActive = false;
+        this.outerContainer = null;
+        this.pageSection = null;
+        this.pagedTocSection = null;
+        this.navigation = null;
+        this.hasToc = false;
+        this.tocNode = null;
+    }
+    loadText(htmlArray) {
+        this.updateSize();
+        const displayNode = document.createElement('div');
+        displayNode.style.position = 'absolute';
+        displayNode.style.top = '0';
+        displayNode.style.left = '0';
+        displayNode.style.display = 'block';
+        displayNode.style.width = `${this.pageSection.clientWidth}px`;
+        displayNode.style.maxHeight = `${this.pageHeight}px`;
+        displayNode.style.overflow = 'hidden';
+        displayNode.style.fontFamily = 'sans-serif';
+        displayNode.style.fontSize = '1.2rem';
+        document.body.appendChild(displayNode);
+
+        if (this.tocNode) {
+            this.tocNode.parentNode.removeChild(this.tocNode);
+            this.tocNode = null;
+        }
+
+        try {
+            const data = userModule.buildPages(htmlArray, displayNode, this.pageHeight);
+            this.setPages(data);
+        } catch (e) {
+            document.getElementById('error-display').innerHTML = e.message + '\\n' + e.stackTrace;
+        } finally {
+            displayNode.parentNode.removeChild(displayNode);
+        }
+    }
+    updateSize() {
+        this.setBodyScrollable(false);
+        const maxWidth = window.screen.availWidth * 0.6;
+        const maxHeight = window.screen.availHeight * 0.5;
+        const marginX = (window.screen.availWidth - maxWidth) * 0.25;
+        const marginY = (window.screen.availHeight - maxHeight) * 0.25;
+        this.outerContainer = document.getElementById('paged-outer-container');
+        this.outerContainer.classList.add('visible');
+
+        const innerContainer = document.getElementById('paged-inner-container');
+        innerContainer.style.width = `${maxWidth}px`;
+        innerContainer.style.maxHeight = `${maxHeight}px`;
+        innerContainer.style.margin = `${marginX}px ${marginY}px`;
+
+        this.pageSection = document.getElementById('paged-display');
+        this.pagedTocSection = document.getElementById('paged-toc-section');
+        this.navigation = document.getElementById('paged-navigation');
+        const wrapperHeight = maxHeight;
+        const navigationHeight = this.getHeight(this.navigation);
+        this.pageHeight = wrapperHeight - navigationHeight;
+        this.pageSection.style.maxHeight = `${this.pageHeight}px`;
+    }
+    highlightButton(id, isHighlighted) {
+        const node = document.getElementById(id);
+        if (isHighlighted) {
+            node.classList.add('highlighted');
+        } else {
+            node.classList.remove('highlighted');
+        }
+    }
+    updateNavigation() {
+        let node = document.getElementById('prev-page');
+        if (this.currentpage > 0) {
+            node.classList.remove('hidden');
+        } else {
+            node.classList.add('hidden');
+        }
+        node = document.getElementById('next-page');
+        if (this.currentpage + 1 < this.pages.length) {
+            node.classList.remove('hidden');
+        } else {
+            node.classList.add('hidden');
+        }
+        node = document.getElementById('current-page');
+        node.innerHTML = `${this.currentpage + 1} / ${this.pages.length}`;
+
+        if (this.hasToc) {
+            if (this.currentpage !== 0) {
+                this.pagedTocSection.classList.add('visible');
+            } else if (!this.tocNode) {
+                node = document.getElementById('paged-toc-node');
+                node.removeAttribute('id');
+                this.tocNode = node.cloneNode(true);
+                this.pagedTocSection.appendChild(this.tocNode);
+            } else {
+                this.pagedTocSection.classList.remove('visible');
+            }
+        } else if (this.tocNode) {
+            this.tocNode.parentNode.removeChild(this.tocNode);
+            this.tocNode = null;
+        }
+    }
+    show() {
+        if (this.isActive) return;
+
+        this.setBodyScrollable(false);
+        this.isActive = true;
+        this.outerContainer.classList.add('visible');
+        this.showPage(this.currentpage === -1 ? 0 : this.currentpage);
+    }
+    hide() {
+        if (!this.isActive) return;
+
+        this.setBodyScrollable(true);
+        this.isActive = false;
+        this.outerContainer.classList.remove('visible');
+    }
+    setBodyScrollable(isScrollable) {
+        if (isScrollable) {
+            document.getElementsByTagName('body')[0].style.overflow = null;
+            document.removeEventListener('keydown', handleKeyDown);
+            document.removeEventListener('keyup', handleKeyUp);
+        } else {
+            document.addEventListener('keydown', handleKeyDown);
+            document.addEventListener('keyup', handleKeyUp);
+            document.getElementsByTagName('body')[0].style.overflow = 'hidden';
+        }
+    }
+    gotoPage(d) {
+        const pageIndex = this.currentpage + d;
+        this.showPage(pageIndex);
+    }
+    showPage(pageIndex) {
+        pageIndex = Math.max(0, Math.min(pageIndex, this.pages.length - 1));
+        if (this.currentpage === pageIndex) return;
+
+        if (this.currentpage > -1) {
+            let pageNode = document.getElementById(`paged-page-${this.currentpage}`);
+            pageNode.classList.remove('visible');
+        }
+
+        this.pageSection.style.height = `${this.pageHeight}px`;
+
+        this.currentpage = pageIndex;
+        let pageNode = document.getElementById(`paged-page-${this.currentpage}`);
+        pageNode.classList.add('visible');
+
+        this.updateNavigation();
+    }
+    getHeight(node) {
+        const computedStyle = window.getComputedStyle(node);
+        return node.offsetHeight
+                + parseFloat(computedStyle.marginTop)
+                + parseFloat(computedStyle.marginBottom)
+                + parseFloat(computedStyle.borderTopWidth)
+                + parseFloat(computedStyle.borderBottomWidth);
+    }
+    setPages(data) {
+        this.isActive = true;
+        this.hasToc = data.hasToc;
+
+        if (this.tocNode) {
+            this.tocNode.parentNode.removeChild(this.tocNode);
+            this.tocNode = null;
+        }
+
+        this.tocNode = null;
+        this.pages = data.pages;
+        this.currentpage = -1;
+        this.pageSection.innerHTML = '';
+        for (const pageIndex in this.pages) {
+            const pageContent = this.pages[pageIndex].join('');
+            const page = `<div class="paged-page" id="paged-page-${pageIndex}">${pageContent}</div>`;
+           this.pageSection.innerHTML += page;
+        }
+        this.hide();
+    }
+}
+
+let PAGED_DISPLAY = new PagedDisplay();
+
+function toJSON(obj) {
+    return JSON.stringify(obj, null, 3)
+}
+function findHeading(toc, html, count, page = -1) {
+    const headingMatch = html.match(/^<(h[1-3])>/i);
+    if (headingMatch) {
+        const headingTag = headingMatch[1];
+        const headingEndTag = `</${headingTag}>`;
+        const index = html.indexOf(headingEndTag);
+        const heading = html.substring(0, index + headingEndTag.length);
+        if (toc.hasOwnProperty(heading)) {
+            toc[heading].page = page;
+        } else {
+            toc[heading] = {
+                'id': count,
+                'html': heading,
+                'tag': headingTag,
+                'page': page
+            };
+        }
+        return toc[heading];
+    }
+    return null;
+}
+
+let userModule = (function() {
+    ##CODE##
+    return {
+        buildPages: function (textDataOriginal, displayNode, pageHeight) {
+            return buildPages(textDataOriginal, displayNode, pageHeight);
+        }
+    };
+})();
+
+const html1 = [
+  new TextData("<h1>The Tale of Plumplori's Code Quest</h1>"),
+  new TextData("<p>Once upon a time, in the bustling world of programming, there lived a curious and determined Plumplori named Codey. Codey was known throughout the coding community for his insatiable appetite for problem-solving and his unwavering dedication to perfecting his craft.</p>"),
+  new TextData("<p>One fateful day, as Codey embarked on a new coding project, he encountered a vexing challenge—a stubborn little error that seemed to evade his every attempt to squash it. Despite his frustration, Codey refused to be deterred. With steely determination, he dove headfirst into the depths of his code, determined to unearth the elusive bug.</p>"),
+  new TextData("<p>Hours turned into days as Codey poured over lines of code, meticulously tracing each variable and function, searching for the source of the error. His eyes grew weary, his fingers cramped, but still, he persisted, fueled by his unwavering determination to conquer the code.</p>"),
+  new TextData("<p>And then, just when all hope seemed lost, a glimmer of insight struck Codey like a bolt of lightning. With a newfound clarity, he followed a hunch, scrutinizing a seemingly innocuous line of code that had eluded his attention thus far. And there it was, hidden in plain sight—a misplaced semicolon, the culprit behind all his woes.</p>"),
+  new TextData("<p>With a triumphant cry, Codey swiftly corrected the error, his fingers dancing across the keyboard as he eagerly compiled his code once more. And lo and behold, the error vanished, replaced by the sweet satisfaction of success.</p>"),
+  new TextData("<p>As Codey basked in the glow of his victory, he realized that the true reward lay not in the resolution of the error itself, but in the journey of discovery and perseverance that had led him there. And so, with renewed vigor and a newfound sense of accomplishment, Codey marched forward, ready to tackle whatever challenges lay ahead in his coding adventures.</p>")
+];
+const html2 = [
+    new TextData("<h1>Evolution of IT Systems</h1>"),
+    new TextData([
+        "<h2>Introduction</h2>",
+        "<p>Information Technology (IT) systems have undergone a remarkable evolution over the decades, reshaping how businesses operate and individuals interact with technology. This journey of transformation is marked by significant milestones, innovations, and paradigm shifts.</p>"
+    ].join("")),
+    new TextData([
+        "<h2>Early Beginnings</h2>",
+        "<p>The roots of IT systems trace back to the mid-20th century, with the advent of mainframe computers. These colossal machines were the pioneers in data processing, primarily used by large organizations for complex calculations and data management tasks. However, accessibility was limited, and interaction was confined to trained operators.</p>"
+    ].join("")),
+    new TextData([
+        "<h2>Rise of Personal Computing</h2>",
+        "<p>The 1970s witnessed a monumental shift with the emergence of personal computing. Innovations like the Altair 8800 and the Apple I brought computing power to individuals' homes and workplaces. This era marked the democratization of technology, empowering users to interact directly with computers through graphical user interfaces (GUIs) and operating systems like MS-DOS and Apple DOS.</p>"
+    ].join("")),
+    new TextData([
+        "<h2>Networking and Internet Revolution</h2>",
+        "<p>The late 20th century saw the proliferation of computer networks, culminating in the birth of the internet. This interconnected web of computers revolutionized communication, commerce, and collaboration on a global scale. Protocols such as TCP/IP became the backbone of internet communication, paving the way for the World Wide Web and e-commerce platforms.</p>"
+    ].join("")),
+    new TextData([
+        "<h2>Era of Enterprise Systems</h2>",
+        "<p>As businesses expanded globally, the demand for scalable and integrated IT solutions surged. Enterprise Resource Planning (ERP) systems emerged to streamline business processes, encompassing functions like finance, human resources, and supply chain management. Companies embraced Customer Relationship Management (CRM) systems to enhance customer interactions and loyalty.</p>"
+    ].join("")),
+    new TextData([
+        "<h2>Cloud Computing and Virtualization</h2>",
+        "<p>The 21st century ushered in the era of cloud computing, offering unprecedented scalability, flexibility, and cost-efficiency. Virtualization technologies enabled the efficient utilization of hardware resources, leading to the proliferation of cloud services from providers like Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP). Organizations migrated their infrastructure and applications to the cloud, accelerating innovation and digital transformation.</p>"
+    ].join("")),
+    new TextData([
+        "<h2>Emergence of Big Data and Analytics</h2>",
+        "<p>The exponential growth of data generated a pressing need for advanced analytics solutions. Big Data technologies like Hadoop and Spark emerged to process and derive insights from massive datasets. Predictive analytics, machine learning, and artificial intelligence became integral components of modern IT systems, empowering organizations to make data-driven decisions and gain a competitive edge.</p>"
+    ].join("")),
+    new TextData([
+        "<h2>Future Trends and Challenges</h2>",
+        "<p>The evolution of IT systems shows no signs of slowing down. Emerging technologies such as blockchain, Internet of Things (IoT), and edge computing are poised to reshape industries and redefine how we interact with technology. However, with innovation comes challenges, including cybersecurity threats, data privacy concerns, and ethical implications of AI. Addressing these challenges will be crucial in navigating the future landscape of IT systems.</p>"
+    ].join("")),
+    new TextData([
+        "<h2>Conclusion</h2>",
+        "<p>From the early days of mainframe computing to the era of cloud-native applications and AI-driven insights, the evolution of IT systems reflects humanity's relentless pursuit of innovation and progress. As we stand on the brink of a new technological frontier, it's essential to learn from the past, adapt to changing landscapes, and harness the power of technology responsibly for the betterment of society.</p>"
+    ].join(""))
+];
+const html3 = [
+  new TextData([
+    "<h1>The Power and Potential of Artificial Intelligence (AI)</h1>",
+    "<p>Artificial Intelligence (AI) has emerged as one of the most transformative technologies of the 21st century, revolutionizing industries, enhancing productivity, and reshaping our daily lives. From intelligent virtual assistants to autonomous vehicles, AI applications are ubiquitous and continue to evolve at a rapid pace.</p>"
+  ].join("")),
+  new TextData([
+    "<h2>Understanding Artificial Intelligence</h2>",
+    "<p>At its core, AI refers to the simulation of human intelligence in machines, enabling them to perform tasks that typically require human cognitive functions such as learning, problem-solving, and decision-making. Unlike traditional computer programs, AI systems can analyze vast amounts of data, identify patterns, and make predictions or recommendations based on that analysis.</p>"
+  ].join("")),
+  new TextData([
+    "<h3>Types of Artificial Intelligence</h3>",
+    "<p>There are various categories of AI, ranging from narrow AI, which is designed to perform specific tasks, to general AI, which exhibits human-like intelligence across a wide range of activities. Machine learning, a subset of AI, enables systems to improve their performance over time by learning from data without being explicitly programmed.</p>"
+  ].join("")),
+  new TextData([
+    "<h3>Applications of Artificial Intelligence</h3>",
+    "<p>The applications of AI span across diverse domains, including healthcare, finance, transportation, retail, and entertainment. In healthcare, AI-powered systems are used for medical imaging analysis, drug discovery, and personalized treatment recommendations. In finance, AI algorithms drive trading strategies, fraud detection, and risk management.</p>"
+  ].join("")),
+  new TextData([
+    "<h2>Challenges and Ethical Considerations</h2>",
+    "<p>Despite its immense potential, AI also presents significant challenges and ethical considerations. Concerns about job displacement due to automation, algorithmic bias, and the misuse of AI for surveillance or manipulation have sparked debates about regulation and responsible AI development. Ensuring transparency, fairness, and accountability in AI systems is paramount to building trust and mitigating risks.</p>"
+  ].join("")),
+  new TextData([
+    "<h3>The Future of Artificial Intelligence</h3>",
+    "<p>Looking ahead, the future of AI holds boundless possibilities. Advancements in deep learning, natural language processing, and robotics are poised to unlock new capabilities and applications. As AI technologies continue to mature, collaboration between industry, academia, and policymakers will be essential to harnessing its benefits while addressing its challenges.</p>"
+  ].join("")),
+  new TextData([
+    "<h2>Conclusion</h2>",
+    "<p>Artificial Intelligence represents a paradigm shift in how we perceive and interact with technology. As AI continues to permeate every aspect of our society, it's crucial to approach its development and deployment with foresight, responsibility, and a commitment to ethical principles. By leveraging the power of AI responsibly, we can unlock its full potential to create a better, more equitable future for all.</p>"
+  ].join(""))
+];
+        </script>
+       <style type="text/css">
+.btn {
+    transition: all 0.2s ease-in-out;
+    border-radius: 7px;
+    border: none;
+    font-size: 107%;
+    text-transform: uppercase;
+    letter-spacing: .025em;
+    font-weight: 600;
+    padding: 6px 10px;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    word-break: break-word;
+    white-space: normal;
+    text-align: center;
+    cursor: pointer;
+    transform: scale(0.8);
+}
+.btn:hover {
+    transform: scale(1);
+}
+.btn-secondary {
+    background-color: #EDF5FC;
+    color: #061a2d;
+    border: none;
+}
+.action-button {
+    max-width: 17rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+}
+#paged-outer-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    background-color: #0008;
+    overflow: hidden;
+    font-family: sans-serif;
+    transition: all 0.25s ease-in-out;
+}
+#paged-outer-container.visible {
+    width: 100%;
+    height: 100%;
+}
+#paged-inner-container {
+    display: block;
+    background-color: #fff;
+    border: 1px solid #333;
+    border-radius: 1rem;
+    padding: 2rem 3rem;
+}
+#paged-inner-container .paged-close-button {
+    display: inline-block;
+    position: absolute;
+    top: -3rem;
+    right: -4rem;
+    width: 2rem;
+    height: 2rem;
+    padding: 0.1rem;
+    background-color: #fff;
+    border: 1px solid #333;
+    border-radius: 50%;
+    transition: all 0.25s ease-in-out;
+    transform: scale(0.8);
+    cursor: pointer;
+    text-align: center;
+    font-size: 1.8rem;
+}
+#paged-inner-container .paged-close-button.highlighted,
+#paged-inner-container .paged-close-button:hover {
+    transform: scale(1);
+}
+.paged-wrapper {
+    position: relative;
+    display: grid;
+    grid-template-rows: max-content 3rem;
+    padding: 0;
+    margin: 0;
+}
+.paged-display {
+    display: block;
+    overflow: hidden;
+    width: 85%;
+    font-size: 1rem;
+}
+.paged-display p,
+.paged-display dd {
+    text-align: justify;
+}
+.paged-toc-h1 {
+    font-size: 1.3rem;
+    margin: 0.5rem 1rem;
+}
+.paged-toc {
+    display: grid;
+    align-items: end;
+    grid-template-columns: auto max-content;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    transition: all 0.25s ease-in-out;
+}
+.paged-toc:hover {
+    background-color: #eee;
+    border-color: #3333;
+    cursor: pointer;
+}
+.paged-toc h1 {
+    font-size: 1.2rem;
+    margin: 0.5rem 1rem;
+}
+.paged-toc h2 {
+    font-size: 1.1rem;
+    margin: 0.5rem 0 0.5rem 2rem;
+}
+.paged-toc div,
+.paged-toc h3 {
+    font-size: 1rem;
+    margin: 0.5rem 1rem 0.5rem 4rem;
+}
+.paged-toc-section {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    background-color: transparent;
+    padding: 1rem;
+    margin: 0rem;
+    width: auto;
+    z-index: 9000;
+    transform: scale(0);
+    transition: all 0.25s ease-in-out;
+    transform-origin: right top;
+}
+.paged-toc-section.visible {
+    background-color: #fff;
+    border-color: #333;
+    transform: scale(0.25);
+}
+.paged-toc-section.visible:hover {
+    transform: scale(1);
+}
+.paged-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    opacity: 0;
+    transition: all 0.25s ease-in-out;
+}
+.paged-page * {
+    opacity: 0;
+    transition: all 0.25s ease-in-out;
+}
+.paged-page.visible {
+    opacity: 1;
+    width: 80%;
+    transition-delay: 0.25s;
+}
+.paged-page.visible * {
+    opacity: 1;
+    transition-delay: 0.25s;
+}
+.paged-navigation {
+    margin: 0;
+    padding: 1rem 0;
+    width: 100%;
+    font-size: 1.5rem;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    justify-content:center;
+}
+.paged-navigation .paged-navigation-button {
+    display: block;
+    width: 3rem;
+}
+.paged-navigation #current-page {
+    display: block;
+    cursor: default;
+    margin: 0 2rem;
+    min-width: 10rem;
+}
+.paged-navigation #prev-page,
+.paged-navigation #next-page,
+.paged-navigation #current-page {
+    display: block;
+}
+.paged-navigation #prev-page,
+.paged-navigation #next-page {
+    transform: scale(0.8);
+    transition: all 0.25s ease-in-out;
+    transform-origin: center center;
+    border-radius: 50%;
+    padding: 0.2rem;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}
+.paged-navigation #prev-page.highlighted,
+.paged-navigation #prev-page:hover,
+.paged-navigation #next-page.highlighted,
+.paged-navigation #next-page:hover {
+    transform: scale(1);
+    background-color: #fff3;
+}
+.paged-navigation #prev-page.hidden,
+.paged-navigation #next-page.hidden {
+    display: none;
+}
+
+.dark #paged-inner-container,
+.dark #paged-inner-container .paged-close-button,
+.dark .paged-toc-section.visible,
+.dark .paged-toc-section.visible:hover,
+.dark .paged-toc:hover {
+    background-color: #282828;
+    color: whitesmoke;
+    border-color: whitesmoke;
+}
+body.dark {
+    background-color: #282828;
+    color: whitesmoke;
+}
+#error-display {
+    color: #800;
+    font-family: monospace;
+}
+        </style>
+        <title>Paged Display</title>
+    </head>
+    <body class="dark" onload="init(html1);">
+        <div style="position: absolute; left: 0; top: 0; margin: 5rem;">
+            <div class="btn btn-secondary action-button" onclick="init(html1);">Show Text 1</div>
+            <div class="btn btn-secondary action-button" onclick="init(html2);">Show Text 2</div>
+            <div class="btn btn-secondary action-button" onclick="init(html3);">Show Text 3</div>
+            <pre id="error-display"></pre>
+        </div>
+        <div id="paged-outer-container">
+            <div id="paged-inner-container">
+                <div id="paged-wrapper" class="paged-wrapper">
+                    <div id="paged-close-button" class="paged-close-button" onclick="PAGED_DISPLAY.hide();">X</div>
+                    <div id="paged-display" class="paged-display"></div>
+                    <div id="paged-toc-section" class="paged-toc-section"></div>
+                    <div id="paged-navigation" class="paged-navigation">
+                        <div class="paged-navigation-button">
+                            <div id="prev-page" onclick="PAGED_DISPLAY.gotoPage(-1);"><</div>
+                        </div>
+                        <div id="current-page"></div>
+                        <div class="paged-navigation-button">
+                            <div id="next-page" onclick="PAGED_DISPLAY.gotoPage(+1);">></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

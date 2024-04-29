@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="text-data.js"></script>
+        <script src="page-wrapping-js.js"></script>
+        <script src="paged-display.js"></script>
+        <link rel="stylesheet" type="text/css" href="paged-display.css" />
+        <title>Document</title>
+    </head>
+    <body class="dark">
+        <p>
+            <div class="btn btn-secondary action-button" onclick="return PAGED_DISPLAY.show();">Show text</div>
+        </p>
+        <div id="paged-outer-container">
+            <div id="paged-inner-container">
+                <div id="paged-wrapper" class="paged-wrapper">
+                    <div id="paged-close-button" class="paged-close-button" onclick="PAGED_DISPLAY.hide();">X</div>
+                    <div id="paged-display" class="paged-display"></div>
+                    <div id="paged-toc-section" class="paged-toc-section"></div>
+                    <div id="paged-navigation" class="paged-navigation">
+                        <div class="paged-navigation-button">
+                            <div id="prev-page" onclick="PAGED_DISPLAY.gotoPage(-1);">&lt;</div>
+                        </div>
+                        <div id="current-page"></div>
+                        <div class="paged-navigation-button">
+                            <div id="next-page" onclick="PAGED_DISPLAY.gotoPage(+1);">&gt;</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
