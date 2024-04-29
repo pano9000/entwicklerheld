@@ -586,6 +586,24 @@
       "dateSolved": "2024-04-27",
       "description": "Process messages that may or may not contain emojis, and store them in a Redis instance",
       "comment": ""
+    },
+    {
+      "id": "gps-navigation",
+      "idEH": "05510bdc-d255-4776-b182-f352f74c50b1",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-04-28",
+      "description": "Implement a trilateration method, which uses satellites to calculate the position of the car.",
+      "comment": "Very 'geometrical' task, for which I needed to get some inspiration from people with better Math/Geometry skills :-)"
+    },
+    {
+      "id": "weigh-the-slow-loris",
+      "idEH": "50c10b58-9a4f-4c86-abdd-32d81551d5ac",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-04-29",
+      "description": "Write an algorithm which receives a target weight and some available masses, and then returns a valid combination of these masses",
+      "comment": "Classic 'howSum' or 'bestSum' problem. Here I reused my solution from the 'change-calculator' task, which was essentially identical."
     }
   ]
 }
