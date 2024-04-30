@@ -604,6 +604,15 @@
       "dateSolved": "2024-04-29",
       "description": "Write an algorithm which receives a target weight and some available masses, and then returns a valid combination of these masses",
       "comment": "Classic 'howSum' or 'bestSum' problem. Here I reused my solution from the 'change-calculator' task, which was essentially identical."
+    },
+    {
+      "id": "page-wrapping",
+      "idEH": "e6596dad-510d-42a5-ae54-313a6d092e3e",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-04-30",
+      "description": "Write a pagination feature, splitting text content into pages, based on content height, and add a ToC based on present H1-H3 headings",
+      "comment": "Bit of a weird challenge description, which was not really helpful in figuring out, what the task really expects you to do."
     }
   ]
 }
