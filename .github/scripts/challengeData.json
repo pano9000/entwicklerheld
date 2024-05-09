@@ -613,6 +613,15 @@
       "dateSolved": "2024-04-30",
       "description": "Write a pagination feature, splitting text content into pages, based on content height, and add a ToC based on present H1-H3 headings",
       "comment": "Bit of a weird challenge description, which was not really helpful in figuring out, what the task really expects you to do."
+    },
+    {
+      "id": "markdown-parser-refactoring",
+      "idEH": "3f07f810-d35c-47f2-b40b-0b361f0c8203",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-05-09",
+      "description": "Refactor a Class that parses Markdown formatted text into HTML tags, where the current version contained some bugs",
+      "comment": ""
     }
   ]
 }
