@@ -6,7 +6,7 @@ My solution for the ['Hacking a Slot Machine' Challenge](https://platform.entwic
 Change the behaviour of a slot machine to become a bit more 'unfair' after a few special cases
 
 ## Challenge Info
-Data last updated: 2024-05-09
+Data last updated: 2024-05-10
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▮▯▯ | ████░░░░░░ 37% | 330 / 895 | 2024-03-17 | Python
