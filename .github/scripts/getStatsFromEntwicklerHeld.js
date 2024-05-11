@@ -16,7 +16,7 @@ function writeReadmeMd(file, content) {
     writeFileSync(file, content);
   }
   catch(err) {
-    console.err(err);
+    console.error(err);
     throw err;
   }
 }
