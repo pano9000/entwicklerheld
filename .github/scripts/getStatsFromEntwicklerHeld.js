@@ -106,10 +106,10 @@ function createOverviewMarkdownFile(data) {
   lines.push("▮▯▯▯ = `Easy`", "", "▮▮▯▯ = `Medium`", "", "▮▮▮▯ = `Hard`", "", "▮▮▮▮ = `Hardcore`", "");
   lines.push("## Overview");
   lines.push(`Total Number of Solved Challenges: ${data.length}`);
-  lines.push(`Language | Solved Challenges`);
+  lines.push(`Language | Total | ▮▯▯▯ | ▮▮▯▯ | ▮▮▮▯ | ▮▮▮▮`);
   lines.push(getTableHeadingMarkdown(lines));
   getCountGroupedByLanguage(data).forEach(group => {
-    lines.push(`${group[0]} | ${group[1]}`);
+    lines.push(`${group[0]} | ${Array.from(group[1].values()).join(" | ")}`);
   });
   lines.push("## Solved Challenges Sorted by Solution Date");
   lines.push("");
@@ -179,12 +179,27 @@ function getTableHeadingMarkdown(lines) {
 
 function getCountGroupedByLanguage(data) {
   const counts = data.reduce((counts, current) => {
-    return counts.set(
-      current.language,
-      (counts.get(current.language) ?? 0) + 1
-    )
+
+    if (!counts.has(current.language)) {
+      counts.set(
+        current.language,
+        new Map([
+          ["total", 0],
+          [1, 0],
+          [2, 0],
+          [3, 0],
+          [4, 0],
+        ])
+      )
+    }
+
+    const currMap = counts.get(current.language);
+    currMap.set("total", currMap.get("total") + 1)
+    currMap.set(current.difficulty.complexity, currMap.get(current.difficulty.complexity) + 1)
+
+    return counts
   }, new Map());
-  return Array.from(counts).sort((a, b) => b[1] - a[1]);
+  return Array.from(counts).sort((a, b) => b[1].get("total") - a[1].get("total"));
 
 }
 
