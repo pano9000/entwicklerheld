@@ -622,6 +622,15 @@
       "dateSolved": "2024-05-09",
       "description": "Refactor a Class that parses Markdown formatted text into HTML tags, where the current version contained some bugs",
       "comment": ""
+    },
+    {
+      "id": "sportly-webapp-add-the-leaderboard",
+      "idEH": "fe7b8b35-1e38-458c-bdb0-77a66dccd444",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-05-15",
+      "description": "Create a leaderboard for a webapp that tracks sports activities",
+      "comment": "First time using Symfony and I find the ORM a bit weird to use in comparison to straight SQL, so I went with using a DQL query with Doctrine ORM here."
     }
   ]
 }
