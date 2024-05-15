@@ -4,7 +4,7 @@ I use this repository to save and present my solutions for the challenges on the
 
 Click on the challenge names for more details and to see the solution.
 
-List Last updated: **2024-05-10**
+List Last updated: **2024-05-11**
 
 ### Difficulty Levels (According to EntwicklerHeld)
 
@@ -18,14 +18,23 @@ List Last updated: **2024-05-10**
 
 ## Overview
 Total Number of Solved Challenges: 69
+Language | Total | ▮▯▯▯ | ▮▮▯▯ | ▮▮▮▯ | ▮▮▮▮
+---|---|---|---|---|---|
+JavaScript | 26 | 15 | 9 | 1 | 1
+Java | 16 | 6 | 9 | 1 | 0
+Python | 15 | 6 | 8 | 1 | 0
+PHP | 6 | 6 | 0 | 0 | 0
+Cpp | 4 | 2 | 2 | 0 | 0
+PowerShell | 1 | 0 | 1 | 0 | 0
+Kotlin | 1 | 1 | 0 | 0 | 0
 ## Solved Challenges Sorted by Solution Date
 
 Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|---|
 [Anagram](https://github.com/pano9000/entwicklerheld/tree/main/anagram) | ▮▯▯▯ | ████████░░ 84% | 1060 / 1264 | 2022-04-24 | JavaScript
-[FizzBuzz](https://github.com/pano9000/entwicklerheld/tree/main/fizzbuzz) | ▮▯▯▯ | ███████░░░ 69% | 3289 / 4747 | 2022-04-24 | JavaScript
+[FizzBuzz](https://github.com/pano9000/entwicklerheld/tree/main/fizzbuzz) | ▮▯▯▯ | ███████░░░ 69% | 3290 / 4748 | 2022-04-24 | JavaScript
 [Pascal's Triangle](https://github.com/pano9000/entwicklerheld/tree/main/pascals-triangle) | ▮▯▯▯ | ████████░░ 80% | 821 / 1032 | 2022-04-27 | JavaScript
-[Scary JavaScript](https://github.com/pano9000/entwicklerheld/tree/main/scary-javascript) | ▮▯▯▯ | ██████░░░░ 60% | 653 / 1090 | 2022-04-27 | JavaScript
+[Scary JavaScript](https://github.com/pano9000/entwicklerheld/tree/main/scary-javascript) | ▮▯▯▯ | ██████░░░░ 60% | 653 / 1091 | 2022-04-27 | JavaScript
 [Bricks and Water](https://github.com/pano9000/entwicklerheld/tree/main/bricks-and-water) | ▮▯▯▯ | ████░░░░░░ 44% | 727 / 1666 | 2022-05-01 | JavaScript
 [TV Channel](https://github.com/pano9000/entwicklerheld/tree/main/tv-channel) | ▮▯▯▯ | ████░░░░░░ 42% | 766 / 1823 | 2022-05-01 | JavaScript
 [Personal Data Safety](https://github.com/pano9000/entwicklerheld/tree/main/personal-data-safety) | ▮▯▯▯ | ███████░░░ 65% | 553 / 852 | 2022-05-02 | PHP
@@ -40,7 +49,7 @@ Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted
 [Build a Clock](https://github.com/pano9000/entwicklerheld/tree/main/build-a-clock) | ▮▯▯▯ | ███████░░░ 66% | 329 / 496 | 2023-05-07 | JavaScript
 [Matching brackets](https://github.com/pano9000/entwicklerheld/tree/main/matching-brackets) | ▮▯▯▯ | ███████░░░ 72% | 376 / 522 | 2023-05-24 | JavaScript
 [Reverse SMS](https://github.com/pano9000/entwicklerheld/tree/main/reverse-sms-javascript) | ▮▮▯▯ | ██░░░░░░░░ 19% | 29 / 149 | 2023-06-23 | JavaScript
-[Flatten Arrays](https://github.com/pano9000/entwicklerheld/tree/main/flatten-arrays) | ▮▯▯▯ | ████████░░ 76% | 722 / 948 | 2023-06-26 | Python
+[Flatten Arrays](https://github.com/pano9000/entwicklerheld/tree/main/flatten-arrays) | ▮▯▯▯ | ████████░░ 76% | 723 / 949 | 2023-06-26 | Python
 [Scary Python](https://github.com/pano9000/entwicklerheld/tree/main/scary-python) | ▮▯▯▯ | ██████░░░░ 63% | 1173 / 1855 | 2023-06-27 | Python
 [Say Numbers](https://github.com/pano9000/entwicklerheld/tree/main/say-numbers) | ▮▮▯▯ | ██████░░░░ 58% | 291 / 503 | 2023-06-30 | Java
 [GDV Extraction](https://github.com/pano9000/entwicklerheld/tree/main/gdv-extraction) | ▮▮▯▯ | ████░░░░░░ 39% | 71 / 184 | 2023-07-02 | JavaScript
@@ -59,14 +68,14 @@ Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted
 [Bowling](https://github.com/pano9000/entwicklerheld/tree/main/bowling) | ▮▯▯▯ | █████░░░░░ 54% | 133 / 246 | 2023-09-15 | JavaScript
 [Tracking Cyber Threats: The IP Location Task](https://github.com/pano9000/entwicklerheld/tree/main/ip-location-powershell) | ▮▮▯▯ | █████░░░░░ 46% | 76 / 166 | 2023-10-09 | PowerShell
 [Run Length Encoding](https://github.com/pano9000/entwicklerheld/tree/main/run-length-encoding) | ▮▯▯▯ | █████████░ 86% | 326 / 381 | 2023-10-19 | JavaScript
-[Number conversion](https://github.com/pano9000/entwicklerheld/tree/main/number-conversion) | ▮▯▯▯ | ███████░░░ 73% | 351 / 478 | 2024-02-11 | Cpp
+[Number conversion](https://github.com/pano9000/entwicklerheld/tree/main/number-conversion) | ▮▯▯▯ | ███████░░░ 73% | 352 / 479 | 2024-02-11 | Cpp
 [Binary Search](https://github.com/pano9000/entwicklerheld/tree/main/binary-search-js) | ▮▯▯▯ | ██████░░░░ 59% | 110 / 186 | 2024-02-29 | JavaScript
-[Grains](https://github.com/pano9000/entwicklerheld/tree/main/grains) | ▮▯▯▯ | █████████░ 85% | 479 / 564 | 2024-03-06 | Java
-[Robot Simulator](https://github.com/pano9000/entwicklerheld/tree/main/robot-simulator) | ▮▯▯▯ | ████████░░ 78% | 350 / 451 | 2024-03-09 | Cpp
+[Grains](https://github.com/pano9000/entwicklerheld/tree/main/grains) | ▮▯▯▯ | █████████░ 85% | 480 / 565 | 2024-03-06 | Java
+[Robot Simulator](https://github.com/pano9000/entwicklerheld/tree/main/robot-simulator) | ▮▯▯▯ | ████████░░ 78% | 352 / 453 | 2024-03-09 | Cpp
 [Word Counter](https://github.com/pano9000/entwicklerheld/tree/main/word-counter) | ▮▮▯▯ | ████░░░░░░ 38% | 512 / 1362 | 2024-03-09 | Cpp
-[ISBN Verifier](https://github.com/pano9000/entwicklerheld/tree/main/isbn-verifier) | ▮▯▯▯ | ███████░░░ 74% | 112 / 152 | 2024-03-11 | Kotlin
+[ISBN Verifier](https://github.com/pano9000/entwicklerheld/tree/main/isbn-verifier) | ▮▯▯▯ | ███████░░░ 73% | 112 / 153 | 2024-03-11 | Kotlin
 [Longest Substring](https://github.com/pano9000/entwicklerheld/tree/main/longest-substring) | ▮▯▯▯ | █████░░░░░ 53% | 123 / 230 | 2024-03-12 | JavaScript
-[Client number validation](https://github.com/pano9000/entwicklerheld/tree/main/client-number-validation) | ▮▯▯▯ | ████████░░ 78% | 124 / 160 | 2024-03-13 | JavaScript
+[Client number validation](https://github.com/pano9000/entwicklerheld/tree/main/client-number-validation) | ▮▯▯▯ | ████████░░ 78% | 125 / 161 | 2024-03-13 | JavaScript
 [Hacking a Slot Machine](https://github.com/pano9000/entwicklerheld/tree/main/hacking-a-slot-machine) | ▮▮▯▯ | ████░░░░░░ 37% | 330 / 895 | 2024-03-17 | Python
 [Airport Runway Direction](https://github.com/pano9000/entwicklerheld/tree/main/airport-runway-direction) | ▮▮▯▯ | ███░░░░░░░ 33% | 540 / 1651 | 2024-03-17 | Python
 [EntwicklerHeld Celebration](https://github.com/pano9000/entwicklerheld/tree/main/entwicklerheld-celebration) | ▮▯▯▯ | ███████░░░ 70% | 1232 / 1765 | 2024-03-18 | Python
@@ -74,15 +83,15 @@ Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted
 [Fibonacci Numbers](https://github.com/pano9000/entwicklerheld/tree/main/fibonacci-numbers) | ▮▯▯▯ | ████████░░ 77% | 839 / 1089 | 2024-03-26 | Python
 [Selfies in Copenhagen](https://github.com/pano9000/entwicklerheld/tree/main/selfies-in-copenhagen) | ▮▮▯▯ | ████░░░░░░ 41% | 145 / 352 | 2024-03-27 | Python
 [Ancient Encryption](https://github.com/pano9000/entwicklerheld/tree/main/ancient-encryption) | ▮▮▯▯ | ███████░░░ 74% | 409 / 555 | 2024-03-28 | Python
-[Prime Test](https://github.com/pano9000/entwicklerheld/tree/main/prime-test) | ▮▯▯▯ | ██████████ 95% | 505 / 534 | 2024-04-03 | Java
+[Prime Test](https://github.com/pano9000/entwicklerheld/tree/main/prime-test) | ▮▯▯▯ | █████████░ 94% | 505 / 535 | 2024-04-03 | Java
 [Circuit Breaker](https://github.com/pano9000/entwicklerheld/tree/main/circuit-breaker) | ▮▮▯▯ | ████░░░░░░ 43% | 70 / 161 | 2024-04-05 | JavaScript
 [Filling Area (Hard Mode)](https://github.com/pano9000/entwicklerheld/tree/main/filling-area-hard-mode) | ▮▮▮▯ | ██████░░░░ 60% | 362 / 601 | 2024-04-07 | Python
 [Meter readings](https://github.com/pano9000/entwicklerheld/tree/main/meter-readings) | ▮▯▯▯ | ████░░░░░░ 44% | 304 / 686 | 2024-04-09 | PHP
 [Sportly Webapp - Getting Started](https://github.com/pano9000/entwicklerheld/tree/main/sportly-webapp-getting-started) | ▮▯▯▯ | ███░░░░░░░ 31% | 169 / 548 | 2024-04-13 | PHP
 [Easy Storage](https://github.com/pano9000/entwicklerheld/tree/main/easy-storage) | ▮▯▯▯ | ██████░░░░ 63% | 1246 / 1978 | 2024-04-15 | Java
 [Candidates](https://github.com/pano9000/entwicklerheld/tree/main/candidates) | ▮▮▯▯ | ███░░░░░░░ 31% | 26 / 84 | 2024-04-15 | JavaScript
-[Santa's Cookie-Finder Magic](https://github.com/pano9000/entwicklerheld/tree/main/santas-cookies) | ▮▮▯▯ | ████░░░░░░ 36% | 44 / 122 | 2024-04-18 | Cpp
-[Message Distribution Network](https://github.com/pano9000/entwicklerheld/tree/main/message-distribution-network) | ▮▮▯▯ | ███████░░░ 68% | 199 / 294 | 2024-04-19 | Java
+[Santa's Cookie-Finder Magic](https://github.com/pano9000/entwicklerheld/tree/main/santas-cookies) | ▮▮▯▯ | ████░░░░░░ 36% | 44 / 123 | 2024-04-18 | Cpp
+[Message Distribution Network](https://github.com/pano9000/entwicklerheld/tree/main/message-distribution-network) | ▮▮▯▯ | ███████░░░ 67% | 199 / 296 | 2024-04-19 | Java
 [Vendor's Box](https://github.com/pano9000/entwicklerheld/tree/main/vendors-box) | ▮▮▯▯ | ██████░░░░ 62% | 328 / 527 | 2024-04-21 | Java
 [Windshield Wiper Check](https://github.com/pano9000/entwicklerheld/tree/main/windshield-wiper-check) | ▮▮▯▯ | ███░░░░░░░ 26% | 48 / 188 | 2024-04-24 | Python
 [Insurance Matching](https://github.com/pano9000/entwicklerheld/tree/main/insurance-matcher) | ▮▮▯▯ | ████░░░░░░ 40% | 256 / 638 | 2024-04-27 | Java
@@ -103,8 +112,8 @@ Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted
 [Insurance Matching](https://github.com/pano9000/entwicklerheld/tree/main/insurance-matcher) | ▮▮▯▯ | ████░░░░░░ 40% | 256 / 638 | 2024-04-27 | Java
 [Windshield Wiper Check](https://github.com/pano9000/entwicklerheld/tree/main/windshield-wiper-check) | ▮▮▯▯ | ███░░░░░░░ 26% | 48 / 188 | 2024-04-24 | Python
 [Vendor's Box](https://github.com/pano9000/entwicklerheld/tree/main/vendors-box) | ▮▮▯▯ | ██████░░░░ 62% | 328 / 527 | 2024-04-21 | Java
-[Message Distribution Network](https://github.com/pano9000/entwicklerheld/tree/main/message-distribution-network) | ▮▮▯▯ | ███████░░░ 68% | 199 / 294 | 2024-04-19 | Java
-[Santa's Cookie-Finder Magic](https://github.com/pano9000/entwicklerheld/tree/main/santas-cookies) | ▮▮▯▯ | ████░░░░░░ 36% | 44 / 122 | 2024-04-18 | Cpp
+[Message Distribution Network](https://github.com/pano9000/entwicklerheld/tree/main/message-distribution-network) | ▮▮▯▯ | ███████░░░ 67% | 199 / 296 | 2024-04-19 | Java
+[Santa's Cookie-Finder Magic](https://github.com/pano9000/entwicklerheld/tree/main/santas-cookies) | ▮▮▯▯ | ████░░░░░░ 36% | 44 / 123 | 2024-04-18 | Cpp
 [Candidates](https://github.com/pano9000/entwicklerheld/tree/main/candidates) | ▮▮▯▯ | ███░░░░░░░ 31% | 26 / 84 | 2024-04-15 | JavaScript
 [Circuit Breaker](https://github.com/pano9000/entwicklerheld/tree/main/circuit-breaker) | ▮▮▯▯ | ████░░░░░░ 43% | 70 / 161 | 2024-04-05 | JavaScript
 [Ancient Encryption](https://github.com/pano9000/entwicklerheld/tree/main/ancient-encryption) | ▮▮▯▯ | ███████░░░ 74% | 409 / 555 | 2024-03-28 | Python
@@ -135,23 +144,23 @@ Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted
 [Easy Storage](https://github.com/pano9000/entwicklerheld/tree/main/easy-storage) | ▮▯▯▯ | ██████░░░░ 63% | 1246 / 1978 | 2024-04-15 | Java
 [Sportly Webapp - Getting Started](https://github.com/pano9000/entwicklerheld/tree/main/sportly-webapp-getting-started) | ▮▯▯▯ | ███░░░░░░░ 31% | 169 / 548 | 2024-04-13 | PHP
 [Meter readings](https://github.com/pano9000/entwicklerheld/tree/main/meter-readings) | ▮▯▯▯ | ████░░░░░░ 44% | 304 / 686 | 2024-04-09 | PHP
-[Prime Test](https://github.com/pano9000/entwicklerheld/tree/main/prime-test) | ▮▯▯▯ | ██████████ 95% | 505 / 534 | 2024-04-03 | Java
+[Prime Test](https://github.com/pano9000/entwicklerheld/tree/main/prime-test) | ▮▯▯▯ | █████████░ 94% | 505 / 535 | 2024-04-03 | Java
 [Fibonacci Numbers](https://github.com/pano9000/entwicklerheld/tree/main/fibonacci-numbers) | ▮▯▯▯ | ████████░░ 77% | 839 / 1089 | 2024-03-26 | Python
 [EntwicklerHeld Celebration](https://github.com/pano9000/entwicklerheld/tree/main/entwicklerheld-celebration) | ▮▯▯▯ | ███████░░░ 70% | 1232 / 1765 | 2024-03-18 | Python
-[Client number validation](https://github.com/pano9000/entwicklerheld/tree/main/client-number-validation) | ▮▯▯▯ | ████████░░ 78% | 124 / 160 | 2024-03-13 | JavaScript
+[Client number validation](https://github.com/pano9000/entwicklerheld/tree/main/client-number-validation) | ▮▯▯▯ | ████████░░ 78% | 125 / 161 | 2024-03-13 | JavaScript
 [Longest Substring](https://github.com/pano9000/entwicklerheld/tree/main/longest-substring) | ▮▯▯▯ | █████░░░░░ 53% | 123 / 230 | 2024-03-12 | JavaScript
-[ISBN Verifier](https://github.com/pano9000/entwicklerheld/tree/main/isbn-verifier) | ▮▯▯▯ | ███████░░░ 74% | 112 / 152 | 2024-03-11 | Kotlin
-[Robot Simulator](https://github.com/pano9000/entwicklerheld/tree/main/robot-simulator) | ▮▯▯▯ | ████████░░ 78% | 350 / 451 | 2024-03-09 | Cpp
-[Grains](https://github.com/pano9000/entwicklerheld/tree/main/grains) | ▮▯▯▯ | █████████░ 85% | 479 / 564 | 2024-03-06 | Java
+[ISBN Verifier](https://github.com/pano9000/entwicklerheld/tree/main/isbn-verifier) | ▮▯▯▯ | ███████░░░ 73% | 112 / 153 | 2024-03-11 | Kotlin
+[Robot Simulator](https://github.com/pano9000/entwicklerheld/tree/main/robot-simulator) | ▮▯▯▯ | ████████░░ 78% | 352 / 453 | 2024-03-09 | Cpp
+[Grains](https://github.com/pano9000/entwicklerheld/tree/main/grains) | ▮▯▯▯ | █████████░ 85% | 480 / 565 | 2024-03-06 | Java
 [Binary Search](https://github.com/pano9000/entwicklerheld/tree/main/binary-search-js) | ▮▯▯▯ | ██████░░░░ 59% | 110 / 186 | 2024-02-29 | JavaScript
-[Number conversion](https://github.com/pano9000/entwicklerheld/tree/main/number-conversion) | ▮▯▯▯ | ███████░░░ 73% | 351 / 478 | 2024-02-11 | Cpp
+[Number conversion](https://github.com/pano9000/entwicklerheld/tree/main/number-conversion) | ▮▯▯▯ | ███████░░░ 73% | 352 / 479 | 2024-02-11 | Cpp
 [Run Length Encoding](https://github.com/pano9000/entwicklerheld/tree/main/run-length-encoding) | ▮▯▯▯ | █████████░ 86% | 326 / 381 | 2023-10-19 | JavaScript
 [Bowling](https://github.com/pano9000/entwicklerheld/tree/main/bowling) | ▮▯▯▯ | █████░░░░░ 54% | 133 / 246 | 2023-09-15 | JavaScript
 [Fizz Buzz without 'if'](https://github.com/pano9000/entwicklerheld/tree/main/fizzbuzz-without-if) | ▮▯▯▯ | ████████░░ 80% | 881 / 1095 | 2023-08-07 | Python
 [IoT Office Sensors](https://github.com/pano9000/entwicklerheld/tree/main/iot-office-sensors) | ▮▯▯▯ | ██████░░░░ 56% | 176 / 312 | 2023-07-07 | Java
 [Non Repeating Characters](https://github.com/pano9000/entwicklerheld/tree/main/non-repeating-characters) | ▮▯▯▯ | ███████░░░ 72% | 1688 / 2349 | 2023-07-05 | Python
 [Scary Python](https://github.com/pano9000/entwicklerheld/tree/main/scary-python) | ▮▯▯▯ | ██████░░░░ 63% | 1173 / 1855 | 2023-06-27 | Python
-[Flatten Arrays](https://github.com/pano9000/entwicklerheld/tree/main/flatten-arrays) | ▮▯▯▯ | ████████░░ 76% | 722 / 948 | 2023-06-26 | Python
+[Flatten Arrays](https://github.com/pano9000/entwicklerheld/tree/main/flatten-arrays) | ▮▯▯▯ | ████████░░ 76% | 723 / 949 | 2023-06-26 | Python
 [Matching brackets](https://github.com/pano9000/entwicklerheld/tree/main/matching-brackets) | ▮▯▯▯ | ███████░░░ 72% | 376 / 522 | 2023-05-24 | JavaScript
 [Build a Clock](https://github.com/pano9000/entwicklerheld/tree/main/build-a-clock) | ▮▯▯▯ | ███████░░░ 66% | 329 / 496 | 2023-05-07 | JavaScript
 [Mails to Santa](https://github.com/pano9000/entwicklerheld/tree/main/mails-to-santa) | ▮▯▯▯ | ████░░░░░░ 43% | 134 / 312 | 2022-10-11 | PHP
@@ -161,6 +170,6 @@ Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted
 [Bricks and Water](https://github.com/pano9000/entwicklerheld/tree/main/bricks-and-water) | ▮▯▯▯ | ████░░░░░░ 44% | 727 / 1666 | 2022-05-01 | JavaScript
 [TV Channel](https://github.com/pano9000/entwicklerheld/tree/main/tv-channel) | ▮▯▯▯ | ████░░░░░░ 42% | 766 / 1823 | 2022-05-01 | JavaScript
 [Pascal's Triangle](https://github.com/pano9000/entwicklerheld/tree/main/pascals-triangle) | ▮▯▯▯ | ████████░░ 80% | 821 / 1032 | 2022-04-27 | JavaScript
-[Scary JavaScript](https://github.com/pano9000/entwicklerheld/tree/main/scary-javascript) | ▮▯▯▯ | ██████░░░░ 60% | 653 / 1090 | 2022-04-27 | JavaScript
+[Scary JavaScript](https://github.com/pano9000/entwicklerheld/tree/main/scary-javascript) | ▮▯▯▯ | ██████░░░░ 60% | 653 / 1091 | 2022-04-27 | JavaScript
 [Anagram](https://github.com/pano9000/entwicklerheld/tree/main/anagram) | ▮▯▯▯ | ████████░░ 84% | 1060 / 1264 | 2022-04-24 | JavaScript
-[FizzBuzz](https://github.com/pano9000/entwicklerheld/tree/main/fizzbuzz) | ▮▯▯▯ | ███████░░░ 69% | 3289 / 4747 | 2022-04-24 | JavaScript
+[FizzBuzz](https://github.com/pano9000/entwicklerheld/tree/main/fizzbuzz) | ▮▯▯▯ | ███████░░░ 69% | 3290 / 4748 | 2022-04-24 | JavaScript
