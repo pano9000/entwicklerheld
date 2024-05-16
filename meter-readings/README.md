@@ -6,7 +6,7 @@ My solution for the ['Meter readings' Challenge](https://platform.entwicklerheld
 Implement a simple parser and validator for a CSV file containing meter readings
 
 ## Challenge Info
-Data last updated: 2024-05-11
+Data last updated: 2024-05-15
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▯▯▯ | ████░░░░░░ 44% | 304 / 686 | 2024-04-09 | PHP

@@ -6,9 +6,9 @@ My solution for the ['Number conversion' Challenge](https://platform.entwicklerh
 Challenge consisted of creating functions that convert an (unsigned) integer to different base representations.
 
 ## Challenge Info
-Data last updated: 2024-05-11
+Data last updated: 2024-05-15
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ███████░░░ 73% | 352 / 479 | 2024-02-11 | Cpp
+▮▯▯▯ | ███████░░░ 74% | 354 / 481 | 2024-02-11 | Cpp
 
 ## Comment
