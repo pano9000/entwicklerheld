@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\User;
 use App\Entity\Ticket;
+use App\Entity\Orders;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use phpDocumentor\Reflection\Types\Integer;
@@ -27,7 +28,18 @@ class UserRepository extends ServiceEntityRepository
      */
     public function getUserByName(String $name): ?User
     {
-        throw new RuntimeException("Not implemented");
+        $entityManager = $this->getEntityManager();
+
+        return $entityManager
+            ->createQuery("
+                SELECT 
+                    u
+                FROM
+                    App\Entity\User u
+                WHERE
+                    u.name = :name")
+            ->setParameter("name", $name)
+            ->getSingleResult();
     }
 
     /**
@@ -35,6 +47,24 @@ class UserRepository extends ServiceEntityRepository
      */
     public function getUserByTicket(int $id): ?User
     {
-        throw new RuntimeException("Not implemented");
+
+        $entityManager = $this->getEntityManager();
+
+        return $entityManager
+            ->createQuery("
+                SELECT
+                    o
+                FROM
+                    App\Entity\Orders o
+                JOIN
+                    o.tickets t
+                WITH
+                    t.id = :ticketId
+               ")
+            ->setParameter("ticketId", $id)
+            ->getSingleResult()
+            ->getUser();
+
+        return $res;
     }
 }
