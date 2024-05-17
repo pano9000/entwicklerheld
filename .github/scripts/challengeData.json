@@ -631,6 +631,15 @@
       "dateSolved": "2024-05-15",
       "description": "Create a leaderboard for a webapp that tracks sports activities",
       "comment": "First time using Symfony and I find the ORM a bit weird to use in comparison to straight SQL, so I went with using a DQL query with Doctrine ORM here."
+    },
+    {
+      "id": "armstrong-numbers",
+      "idEH": "a8cf39d4-0637-4ce2-b774-0be832336052",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-05-17",
+      "description": "Check if the provided number is an 'Armstrong Number'",
+      "comment": ""
     }
   ]
 }
