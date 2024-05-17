@@ -9,6 +9,6 @@ With a given 2D array of strings, consisting of spaces or '*' ( with '*' represe
 Data last updated: 2024-05-17
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ████░░░░░░ 35% | 44 / 126 | 2024-04-18 | Cpp
+▮▮▯▯ | ████░░░░░░ 35% | 45 / 127 | 2024-04-18 | Cpp
 
 ## Comment
