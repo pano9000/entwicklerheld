@@ -640,6 +640,33 @@
       "dateSolved": "2024-05-17",
       "description": "Check if the provided number is an 'Armstrong Number'",
       "comment": ""
+    },
+    {
+      "id": "armstrong-numbers-java",
+      "idEH": "bb1012f8-8aa3-4531-b769-5d310c27c0da",
+      "urlEH": "armstrong-numbers",
+      "urlSolution": "",
+      "dateSolved": "2024-05-17",
+      "description": "Check if the provided number is an 'Armstrong Number'",
+      "comment": ""
+    },
+    {
+      "id": "armstrong-numbers-python",
+      "idEH": "2f03dc32-87a7-4465-a401-15d27929d5ca",
+      "urlEH": "armstrong-numbers",
+      "urlSolution": "",
+      "dateSolved": "2024-05-17",
+      "description": "Check if the provided number is an 'Armstrong Number'",
+      "comment": ""
+    },
+    {
+      "id": "armstrong-numbers-csharp",
+      "idEH": "8c7cbb35-01b1-4a10-85f8-49e5e62e3c69",
+      "urlEH": "armstrong-numbers",
+      "urlSolution": "",
+      "dateSolved": "2024-05-17",
+      "description": "Check if the provided number is an 'Armstrong Number'",
+      "comment": ""
     }
   ]
 }
