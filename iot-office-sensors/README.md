@@ -9,7 +9,7 @@ Goal was to work with byte data and converting these to integer values, taking c
 Data last updated: 2024-05-17
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ██████░░░░ 56% | 176 / 312 | 2023-07-07 | Java
+▮▯▯▯ | ██████░░░░ 57% | 176 / 311 | 2023-07-07 | Java
 
 ## Comment
 Interesting look into working with bitshifting and the signed/unsigned topic :-)

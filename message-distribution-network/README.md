@@ -9,7 +9,7 @@ Send incoming messages to the correct Kafka topic, after detecting the language 
 Data last updated: 2024-05-17
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ███████░░░ 67% | 200 / 297 | 2024-04-19 | Java
+▮▮▯▯ | ███████░░░ 68% | 201 / 297 | 2024-04-19 | Java
 
 ## Comment
 This was relatively easy, not sure why this was originally ranked as a 'Medium' level task.
