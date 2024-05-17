@@ -667,6 +667,15 @@
       "dateSolved": "2024-05-17",
       "description": "Check if the provided number is an 'Armstrong Number'",
       "comment": ""
+    },
+    {
+      "id": "luhn-checksum",
+      "idEH": "24cc388d-376f-433a-abbc-c0334cdc7e9c",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-05-17",
+      "description": "Check if the provided number is a valid Luhn Number",
+      "comment": ""
     }
   ]
 }
