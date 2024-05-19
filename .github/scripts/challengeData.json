@@ -685,6 +685,15 @@
       "dateSolved": "2024-05-19",
       "description": "Use Symfony to create (a small part of) a 'ticket ordering' webapp",
       "comment": ""
+    },
+    {
+      "id": "allergies",
+      "idEH": "e274e324-a189-45f6-9607-741e1188a7d2",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-05-19",
+      "description": "Determine if a given allergen is present in a person's allergy score.",
+      "comment": "After reading up on Bitmasks and how to use them, this was easily solvable :-)"
     }
   ]
 }
