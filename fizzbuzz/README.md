@@ -15,6 +15,6 @@ Goal is to create a function that:\
 Data last updated: 2024-05-19
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ███████░░░ 69% | 3293 / 4754 | 2022-04-24 | JavaScript
+▮▯▯▯ | ███████░░░ 69% | 3294 / 4755 | 2022-04-24 | JavaScript
 
 ## Comment

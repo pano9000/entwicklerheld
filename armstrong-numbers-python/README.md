@@ -9,6 +9,6 @@ Check if the provided number is an 'Armstrong Number'
 Data last updated: 2024-05-19
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ████████░░ 80% | 32 / 40 | 2024-05-17 | Python
+▮▯▯▯ | ████████░░ 82% | 36 / 44 | 2024-05-17 | Python
 
 ## Comment

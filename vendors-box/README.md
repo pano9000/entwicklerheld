@@ -9,6 +9,6 @@ Filter a list of Vendors for the best matching vendor in regards to price, shipp
 Data last updated: 2024-05-19
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ██████░░░░ 62% | 328 / 527 | 2024-04-21 | Java
+▮▮▯▯ | ██████░░░░ 62% | 329 / 527 | 2024-04-21 | Java
 
 ## Comment
