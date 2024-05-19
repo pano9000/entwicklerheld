@@ -105,7 +105,6 @@ function createOverviewMarkdownFile(data) {
   lines.push("");
   lines.push("▮▯▯▯ = `Easy`", "", "▮▮▯▯ = `Medium`", "", "▮▮▮▯ = `Hard`", "", "▮▮▮▮ = `Hardcore`", "");
   lines.push("## Overview");
-  lines.push(`Total Number of Solved Challenges: ${data.length}`);
   lines.push(`Language | Total | ▮▯▯▯ | ▮▮▯▯ | ▮▮▮▯ | ▮▮▮▮`);
   lines.push(getTableHeadingMarkdown(lines));
   getCountGroupedByLanguage(data).forEach(group => {
@@ -178,28 +177,45 @@ function getTableHeadingMarkdown(lines) {
 }
 
 function getCountGroupedByLanguage(data) {
-  const counts = data.reduce((counts, current) => {
 
-    if (!counts.has(current.language)) {
-      counts.set(
-        current.language,
-        new Map([
-          ["total", 0],
-          [1, 0],
-          [2, 0],
-          [3, 0],
-          [4, 0],
-        ])
-      )
-    }
 
-    const currMap = counts.get(current.language);
-    currMap.set("total", currMap.get("total") + 1)
-    currMap.set(current.difficulty.complexity, currMap.get(current.difficulty.complexity) + 1)
+  // create a map for the counts, with 1-4 representing the difficulty levels
+  const getInitCountMap = () => {
+    return new Map([
+      ["total", 0],
+      [1, 0],
+      [2, 0],
+      [3, 0],
+      [4, 0],
+    ])
+  };
 
-    return counts
-  }, new Map());
-  return Array.from(counts).sort((a, b) => b[1].get("total") - a[1].get("total"));
+  const totalsLabel = "**Totals**";
+
+  const counts = data.reduce(
+    (counts, current) => {
+
+      if (!counts.has(current.language)) counts.set(current.language, getInitCountMap());
+
+      // update current Language Entry and Totals Entry
+      [counts.get(current.language), counts.get(totalsLabel)].forEach(entry => {
+        entry.set("total", entry.get("total") + 1)
+        entry.set(current.difficulty.complexity, entry.get(current.difficulty.complexity) + 1)
+      });
+
+      return counts;
+    },
+    new Map([[totalsLabel, getInitCountMap()]])
+  );
+
+  // add bold formatting for totals
+  counts.get(totalsLabel).forEach((val, key, map) => map.set(key, `**${val}**`));
+
+  // temporary remove Totals, so that we can add it later to the end of the sorted list
+  const totals = new Map([[totalsLabel, counts.get(totalsLabel)]]);
+  counts.delete(totalsLabel);
+
+  return [...Array.from(counts).sort((a, b) => b[1].get("total") - a[1].get("total")), ...Array.from(totals)];
 
 }
 
