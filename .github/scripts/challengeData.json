@@ -676,6 +676,15 @@
       "dateSolved": "2024-05-17",
       "description": "Check if the provided number is a valid Luhn Number",
       "comment": ""
+    },
+    {
+      "id": "tickets-for-the-city-tower",
+      "idEH": "50872c32-a42f-4251-9bfd-5b49b6e57f45",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-05-19",
+      "description": "Use Symfony to create (a small part of) a 'ticket ordering' webapp",
+      "comment": ""
     }
   ]
 }
