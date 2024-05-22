@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 
 @RestController
 public class AccessPersonController {
@@ -24,7 +22,16 @@ public class AccessPersonController {
 
     @RequestMapping(value = "/check-person", method = RequestMethod.POST)
     public ResponseEntity<MessageResponse> checkPerson(@RequestBody CheckPersonRequestObject request) {
-        throw new NotImplementedException();
+        
+        MessageResponse responseMsg = new MessageResponse();
+
+        if (!this.personCatalog.persons.contains(request.personName) || request.personName.isEmpty()) {
+            responseMsg.message = "Captain is unknown. Defense system activated!";
+            return new ResponseEntity<>(responseMsg, HttpStatus.FORBIDDEN);
+        }
+
+        responseMsg.message = "Access granted. Welcome back!";
+        return new ResponseEntity<>(responseMsg, HttpStatus.OK);
     }
 }
 
