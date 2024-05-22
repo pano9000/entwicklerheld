@@ -20,14 +20,14 @@ List Last updated: **2024-05-22**
 Language | Total | ▮▯▯▯ | ▮▮▯▯ | ▮▮▮▯ | ▮▮▮▮
 ---|---|---|---|---|---|
 JavaScript | 27 | 16 | 9 | 1 | 1
-Java | 17 | 7 | 9 | 1 | 0
+Java | 18 | 7 | 10 | 1 | 0
 Python | 16 | 7 | 8 | 1 | 0
 PHP | 8 | 6 | 2 | 0 | 0
 Cpp | 4 | 2 | 2 | 0 | 0
 CSharp | 3 | 3 | 0 | 0 | 0
 Kotlin | 2 | 2 | 0 | 0 | 0
 PowerShell | 1 | 0 | 1 | 0 | 0
-**Totals** | **78** | **43** | **31** | **3** | **1**
+**Totals** | **79** | **43** | **32** | **3** | **1**
 ## Solved Challenges Sorted by Solution Date
 
 Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
@@ -102,14 +102,15 @@ Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted
 [Page Wrapping](https://github.com/pano9000/entwicklerheld/tree/main/page-wrapping) | ▮▯▯▯ | ██░░░░░░░░ 18% | 17 / 93 | 2024-04-30 | JavaScript
 [Markdown Parser Refactoring](https://github.com/pano9000/entwicklerheld/tree/main/markdown-parser-refactoring) | ▮▯▯▯ | ███░░░░░░░ 31% | 63 / 206 | 2024-05-09 | PHP
 [Sportly Webapp - Add the Leaderboard](https://github.com/pano9000/entwicklerheld/tree/main/sportly-webapp-add-the-leaderboard) | ▮▮▯▯ | ████░░░░░░ 41% | 92 / 222 | 2024-05-15 | PHP
-[Armstrong Numbers](https://github.com/pano9000/entwicklerheld/tree/main/armstrong-numbers) | ▮▯▯▯ | ██████░░░░ 63% | 17 / 27 | 2024-05-17 | Kotlin
-[Armstrong Numbers](https://github.com/pano9000/entwicklerheld/tree/main/armstrong-numbers-java) | ▮▯▯▯ | ███████░░░ 70% | 30 / 43 | 2024-05-17 | Java
-[Armstrong Numbers](https://github.com/pano9000/entwicklerheld/tree/main/armstrong-numbers-python) | ▮▯▯▯ | █████████░ 87% | 49 / 56 | 2024-05-17 | Python
-[Armstrong Numbers](https://github.com/pano9000/entwicklerheld/tree/main/armstrong-numbers-csharp) | ▮▯▯▯ | ████████░░ 75% | 33 / 44 | 2024-05-17 | CSharp
+[Armstrong Numbers](https://github.com/pano9000/entwicklerheld/tree/main/armstrong-numbers) | ▮▯▯▯ | ██████░░░░ 62% | 18 / 29 | 2024-05-17 | Kotlin
+[Armstrong Numbers](https://github.com/pano9000/entwicklerheld/tree/main/armstrong-numbers-java) | ▮▯▯▯ | ███████░░░ 73% | 33 / 45 | 2024-05-17 | Java
+[Armstrong Numbers](https://github.com/pano9000/entwicklerheld/tree/main/armstrong-numbers-python) | ▮▯▯▯ | █████████░ 88% | 51 / 58 | 2024-05-17 | Python
+[Armstrong Numbers](https://github.com/pano9000/entwicklerheld/tree/main/armstrong-numbers-csharp) | ▮▯▯▯ | ████████░░ 76% | 34 / 45 | 2024-05-17 | CSharp
 [Luhn Checksum](https://github.com/pano9000/entwicklerheld/tree/main/luhn-checksum) | ▮▯▯▯ | ████████░░ 77% | 283 / 369 | 2024-05-17 | CSharp
 [Tickets for the City Tower](https://github.com/pano9000/entwicklerheld/tree/main/tickets-for-the-city-tower) | ▮▮▯▯ | ███░░░░░░░ 30% | 76 / 257 | 2024-05-19 | PHP
 [Allergies](https://github.com/pano9000/entwicklerheld/tree/main/allergies) | ▮▯▯▯ | ██████░░░░ 57% | 122 / 213 | 2024-05-19 | CSharp
 [Christmas Tree of Hanoi](https://github.com/pano9000/entwicklerheld/tree/main/christmas-tree-of-hanoi) | ▮▯▯▯ | ██████░░░░ 62% | 178 / 286 | 2024-05-22 | JavaScript
+[New Spaceship validation when entering the motherships](https://github.com/pano9000/entwicklerheld/tree/main/new-spaceship-validation) | ▮▮▯▯ | ███░░░░░░░ 33% | 343 / 1051 | 2024-05-22 | Java
 ## Solved Challenges Sorted by Difficulty, then Solution Date
 
 Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
@@ -118,6 +119,7 @@ Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted
 [Filling Area (Hard Mode)](https://github.com/pano9000/entwicklerheld/tree/main/filling-area-hard-mode) | ▮▮▮▯ | ██████░░░░ 60% | 361 / 600 | 2024-04-07 | Python
 [Maps and Polygons](https://github.com/pano9000/entwicklerheld/tree/main/maps-and-polygons) | ▮▮▮▯ | ███░░░░░░░ 29% | 51 / 177 | 2023-07-20 | Java
 [Happy Subnetting](https://github.com/pano9000/entwicklerheld/tree/main/happy-subnetting) | ▮▮▮▯ | ██░░░░░░░░ 24% | 55 / 228 | 2022-09-19 | JavaScript
+[New Spaceship validation when entering the motherships](https://github.com/pano9000/entwicklerheld/tree/main/new-spaceship-validation) | ▮▮▯▯ | ███░░░░░░░ 33% | 343 / 1051 | 2024-05-22 | Java
 [Tickets for the City Tower](https://github.com/pano9000/entwicklerheld/tree/main/tickets-for-the-city-tower) | ▮▮▯▯ | ███░░░░░░░ 30% | 76 / 257 | 2024-05-19 | PHP
 [Sportly Webapp - Add the Leaderboard](https://github.com/pano9000/entwicklerheld/tree/main/sportly-webapp-add-the-leaderboard) | ▮▮▯▯ | ████░░░░░░ 41% | 92 / 222 | 2024-05-15 | PHP
 [GPS Navigation](https://github.com/pano9000/entwicklerheld/tree/main/gps-navigation) | ▮▮▯▯ | ███░░░░░░░ 32% | 102 / 317 | 2024-04-28 | Python
@@ -151,10 +153,10 @@ Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted
 [Advent Bakery](https://github.com/pano9000/entwicklerheld/tree/main/advent-bakery) | ▮▮▯▯ | ████░░░░░░ 40% | 116 / 289 | 2022-06-16 | JavaScript
 [Christmas Tree of Hanoi](https://github.com/pano9000/entwicklerheld/tree/main/christmas-tree-of-hanoi) | ▮▯▯▯ | ██████░░░░ 62% | 178 / 286 | 2024-05-22 | JavaScript
 [Allergies](https://github.com/pano9000/entwicklerheld/tree/main/allergies) | ▮▯▯▯ | ██████░░░░ 57% | 122 / 213 | 2024-05-19 | CSharp
-[Armstrong Numbers](https://github.com/pano9000/entwicklerheld/tree/main/armstrong-numbers) | ▮▯▯▯ | ██████░░░░ 63% | 17 / 27 | 2024-05-17 | Kotlin
-[Armstrong Numbers](https://github.com/pano9000/entwicklerheld/tree/main/armstrong-numbers-java) | ▮▯▯▯ | ███████░░░ 70% | 30 / 43 | 2024-05-17 | Java
-[Armstrong Numbers](https://github.com/pano9000/entwicklerheld/tree/main/armstrong-numbers-python) | ▮▯▯▯ | █████████░ 87% | 49 / 56 | 2024-05-17 | Python
-[Armstrong Numbers](https://github.com/pano9000/entwicklerheld/tree/main/armstrong-numbers-csharp) | ▮▯▯▯ | ████████░░ 75% | 33 / 44 | 2024-05-17 | CSharp
+[Armstrong Numbers](https://github.com/pano9000/entwicklerheld/tree/main/armstrong-numbers) | ▮▯▯▯ | ██████░░░░ 62% | 18 / 29 | 2024-05-17 | Kotlin
+[Armstrong Numbers](https://github.com/pano9000/entwicklerheld/tree/main/armstrong-numbers-java) | ▮▯▯▯ | ███████░░░ 73% | 33 / 45 | 2024-05-17 | Java
+[Armstrong Numbers](https://github.com/pano9000/entwicklerheld/tree/main/armstrong-numbers-python) | ▮▯▯▯ | █████████░ 88% | 51 / 58 | 2024-05-17 | Python
+[Armstrong Numbers](https://github.com/pano9000/entwicklerheld/tree/main/armstrong-numbers-csharp) | ▮▯▯▯ | ████████░░ 76% | 34 / 45 | 2024-05-17 | CSharp
 [Luhn Checksum](https://github.com/pano9000/entwicklerheld/tree/main/luhn-checksum) | ▮▯▯▯ | ████████░░ 77% | 283 / 369 | 2024-05-17 | CSharp
 [Markdown Parser Refactoring](https://github.com/pano9000/entwicklerheld/tree/main/markdown-parser-refactoring) | ▮▯▯▯ | ███░░░░░░░ 31% | 63 / 206 | 2024-05-09 | PHP
 [Page Wrapping](https://github.com/pano9000/entwicklerheld/tree/main/page-wrapping) | ▮▯▯▯ | ██░░░░░░░░ 18% | 17 / 93 | 2024-04-30 | JavaScript

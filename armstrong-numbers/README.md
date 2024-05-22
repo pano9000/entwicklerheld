@@ -9,6 +9,6 @@ Check if the provided number is an 'Armstrong Number'
 Data last updated: 2024-05-22
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ██████░░░░ 63% | 17 / 27 | 2024-05-17 | Kotlin
+▮▯▯▯ | ██████░░░░ 62% | 18 / 29 | 2024-05-17 | Kotlin
 
 ## Comment
