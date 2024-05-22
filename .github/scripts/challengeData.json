@@ -703,6 +703,16 @@
       "dateSolved": "2024-05-22",
       "description": "Write a function that captures all needed moves to solve the 'Christmas Trees of Hanoi' (better know as 'Towers of Hanoi') problem.",
       "comment": ""
+    },
+    {
+      "id": "new-spaceship-validation",
+      "idEH": "f2e99daa-133a-4b9a-b1d8-bb6cdc587b8b",
+      "urlEH": "new-spaceship-validation-when-entering-the-motherships",
+      "urlSolution": "new-spaceship-validation",
+      "dateSolved": "2024-05-22",
+      "description": "Validate incoming ship IDs and return JSON repsonses with Java Spring Boot",
+      "comment": "That was surprisingly easy, not sure, why this one was rated as 'medium' difficulty and only has comparatively low success rates"
     }
   ]
 }
+
