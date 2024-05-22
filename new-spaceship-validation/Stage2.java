@@ -15,6 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.http.HttpStatus;
+
 
 import static org.junit.Assert.assertEquals;
 
@@ -30,7 +32,24 @@ public class PersonCheckTest {
 
     @Test
     public void verifyPersonNotInCatalog() throws UnirestException, JSONException {
-        // write your code here
+
+        JSONObject personJSON = new JSONObject();
+        personJSON.put("personName", "Testperson Person");
+
+        String endpointUrl = String.format("http://localhost:%1$d/check-person", this.port);
+        System.out.println(endpointUrl);
+        HttpResponse<JsonNode> resp = Unirest.post(endpointUrl)
+            .header("Content-Type", "application/json")
+            .body(personJSON)
+            .asJson();
+
+        int responseStatus = resp.getStatus();
+
+        assertEquals(
+            String.format("You let a hostile ship with captain '%1$s' inside the mothership. Game over!", personJSON.get("personName")),
+            HttpStatus.FORBIDDEN, 
+            responseStatus
+        );
     }
 }
 
