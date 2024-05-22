@@ -6,9 +6,9 @@ My solution for the ['Armstrong Numbers' Challenge](https://platform.entwicklerh
 Check if the provided number is an 'Armstrong Number'
 
 ## Challenge Info
-Data last updated: 2024-05-19
+Data last updated: 2024-05-22
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ██████░░░░ 63% | 15 / 24 | 2024-05-17 | Kotlin
+▮▯▯▯ | ██████░░░░ 63% | 17 / 27 | 2024-05-17 | Kotlin
 
 ## Comment
