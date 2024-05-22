@@ -694,6 +694,15 @@
       "dateSolved": "2024-05-19",
       "description": "Determine if a given allergen is present in a person's allergy score.",
       "comment": "After reading up on Bitmasks and how to use them, this was easily solvable :-)"
+    },
+    {
+      "id": "christmas-tree-of-hanoi",
+      "idEH": "26a2682d-a536-42e7-8c17-50031cb079bd",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-05-22",
+      "description": "Write a function that captures all needed moves to solve the 'Christmas Trees of Hanoi' (better know as 'Towers of Hanoi') problem.",
+      "comment": ""
     }
   ]
 }
