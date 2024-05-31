@@ -6,9 +6,9 @@ My solution for the ['Pascal's Triangle' Challenge](https://platform.entwicklerh
 
 
 ## Challenge Info
-Data last updated: 2024-05-24
+Data last updated: 2024-05-31
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ████████░░ 80% | 821 / 1032 | 2022-04-27 | JavaScript
+▮▯▯▯ | ████████░░ 80% | 822 / 1033 | 2022-04-27 | JavaScript
 
 ## Comment

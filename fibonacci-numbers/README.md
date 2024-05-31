@@ -6,10 +6,10 @@ My solution for the ['Fibonacci Numbers' Challenge](https://platform.entwicklerh
 Implement an algorithm that return the n-th Fibonacci number
 
 ## Challenge Info
-Data last updated: 2024-05-24
+Data last updated: 2024-05-31
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ████████░░ 77% | 844 / 1094 | 2024-03-26 | Python
+▮▯▯▯ | ████████░░ 77% | 845 / 1095 | 2024-03-26 | Python
 
 ## Comment
 I went with a recursive solution, and utilized a memo dictionary for memoization purposed, to avoid recalculating the same values again and again
