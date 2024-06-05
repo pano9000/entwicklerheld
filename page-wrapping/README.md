@@ -6,10 +6,10 @@ My solution for the ['Page Wrapping' Challenge](https://platform.entwicklerheld.
 Write a pagination feature, splitting text content into pages, based on content height, and add a ToC based on present H1-H3 headings
 
 ## Challenge Info
-Data last updated: 2024-05-31
+Data last updated: 2024-06-05
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ██░░░░░░░░ 18% | 18 / 100 | 2024-04-30 | JavaScript
+▮▯▯▯ | ██░░░░░░░░ 17% | 18 / 103 | 2024-04-30 | JavaScript
 
 ## Comment
 Bit of a weird challenge description, which was not really helpful in figuring out, what the task really expects you to do.

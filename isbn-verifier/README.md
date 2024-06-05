@@ -6,10 +6,10 @@ My solution for the ['ISBN Verifier' Challenge](https://platform.entwicklerheld.
 Write a function that checks if a supplied string is a valid ISBN number
 
 ## Challenge Info
-Data last updated: 2024-05-31
+Data last updated: 2024-06-05
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ███████░░░ 74% | 121 / 164 | 2024-03-11 | Kotlin
+▮▯▯▯ | ███████░░░ 74% | 125 / 168 | 2024-03-11 | Kotlin
 
 ## Comment
 First time meddling with Kotlin, did not feel too weird as a language :-)
