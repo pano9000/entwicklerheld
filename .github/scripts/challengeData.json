@@ -712,6 +712,15 @@
       "dateSolved": "2024-05-22",
       "description": "Validate incoming ship IDs and return JSON repsonses with Java Spring Boot",
       "comment": "That was surprisingly easy, not sure, why this one was rated as 'medium' difficulty and only has comparatively low success rates"
+    },
+    {
+      "id": "handle-the-shopping-cart",
+      "idEH": "9a0f5fe6-1186-49bd-963f-78e25acff3f7",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-05-06",
+      "description": "Implement a shopping cart feature and a very simple recommendation engine",
+      "comment": "The recommendation part should've been separate classes, it feels weird to have them in the same file as the CartService, but there was no way to make it work on EntwicklerHeld platform otherwise"
     }
   ]
 }
