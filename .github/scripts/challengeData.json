@@ -730,6 +730,15 @@
       "dateSolved": "2024-06-06",
       "description": "Implement the pop, push, shift and unshift methods of a doubly linked list",
       "comment": ""
+    },
+    {
+      "id": "camelcase-to-snakecase",
+      "idEH": "c662143b-407f-4533-8008-e7907160979a",
+      "urlEH": "camelcase-to-snake_case",
+      "urlSolution": "camelcase-to-snakecase",
+      "dateSolved": "2024-06-06",
+      "description": "Rename all keys of a given map from camelCase to snake_case",
+      "comment": ""
     }
   ]
 }
