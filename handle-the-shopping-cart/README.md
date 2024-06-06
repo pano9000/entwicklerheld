@@ -6,10 +6,10 @@ My solution for the ['Handle the shopping cart' Challenge](https://platform.entw
 Implement a shopping cart feature and a very simple recommendation engine
 
 ## Challenge Info
-Data last updated: 2024-06-05
+Data last updated: 2024-06-06
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ███░░░░░░░ 32% | 124 / 389 | 2024-05-06 | Java
+▮▮▯▯ | ███░░░░░░░ 32% | 125 / 389 | 2024-06-05 | Java
 
 ## Comment
 The recommendation part should've been separate classes, it feels weird to have them in the same file as the CartService, but there was no way to make it work on EntwicklerHeld platform otherwise
