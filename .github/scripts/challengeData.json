@@ -718,9 +718,18 @@
       "idEH": "9a0f5fe6-1186-49bd-963f-78e25acff3f7",
       "urlEH": "",
       "urlSolution": "",
-      "dateSolved": "2024-05-06",
+      "dateSolved": "2024-06-05",
       "description": "Implement a shopping cart feature and a very simple recommendation engine",
       "comment": "The recommendation part should've been separate classes, it feels weird to have them in the same file as the CartService, but there was no way to make it work on EntwicklerHeld platform otherwise"
+    },
+    {
+      "id": "doubly-linked-list",
+      "idEH": "911431cd-505c-4cf0-aaaf-c9d79529e04b",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-06-06",
+      "description": "Implement the pop, push, shift and unshift methods of a doubly linked list",
+      "comment": ""
     }
   ]
 }
