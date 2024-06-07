@@ -739,6 +739,15 @@
       "dateSolved": "2024-06-06",
       "description": "Rename all keys of a given map from camelCase to snake_case",
       "comment": ""
+    },
+    {
+      "id": "resistor-color-trio",
+      "idEH": "e61ea27f-85b2-4d00-97e4-7eb0e1fcd25f",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-06-07",
+      "description": "Create a resistance color decoder that return a formatted string",
+      "comment": ""
     }
   ]
 }
