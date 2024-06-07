@@ -6,7 +6,7 @@ My solution for the ['Fibonacci Numbers' Challenge](https://platform.entwicklerh
 Implement an algorithm that return the n-th Fibonacci number
 
 ## Challenge Info
-Data last updated: 2024-06-06
+Data last updated: 2024-06-07
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▯▯▯ | ████████░░ 77% | 849 / 1098 | 2024-03-26 | Python
