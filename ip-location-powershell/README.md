@@ -9,6 +9,6 @@ Challenge consisted of creatign a Powershell script that reads IP addresses from
 Data last updated: 2024-06-07
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | █████░░░░░ 45% | 77 / 170 | 2023-10-09 | PowerShell
+▮▮▯▯ | █████░░░░░ 45% | 77 / 171 | 2023-10-09 | PowerShell
 
 ## Comment

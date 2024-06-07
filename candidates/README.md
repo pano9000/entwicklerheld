@@ -9,6 +9,6 @@ Efficiently pair list of job offers with a list of possible candidates and selec
 Data last updated: 2024-06-07
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ███░░░░░░░ 32% | 29 / 91 | 2024-04-15 | JavaScript
+▮▮▯▯ | ███░░░░░░░ 32% | 29 / 92 | 2024-04-15 | JavaScript
 
 ## Comment
