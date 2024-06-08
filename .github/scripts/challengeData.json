@@ -748,6 +748,15 @@
       "dateSolved": "2024-06-07",
       "description": "Create a resistance color decoder that return a formatted string",
       "comment": ""
+    },
+    {
+      "id": "knapsack",
+      "idEH": "a404ba77-ad2b-4b12-9046-d6ceed35e7a5",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-06-08",
+      "description": "Try to pack a bag as 'efficient' as possible based on certain weighted critera",
+      "comment": ""
     }
   ]
 }
