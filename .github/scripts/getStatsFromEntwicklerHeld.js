@@ -131,6 +131,18 @@ function createOverviewMarkdownFile(data) {
     lines.push(`[${entry.title}](${entry.urlSolution}) | ${entry.difficulty.bar} | ${entry.statistics.succesRateBar} ${entry.statistics.succesRate}% | ${entry.statistics.solutionsCount} / ${entry.statistics.acceptancesCount} | ${entry.dateSolved} | ${entry.language}`)
   })
 
+  lines.push("## Solved Challenges Sorted by Success Rate, then Solution Date")
+  lines.push("")
+  lines.push("Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language")
+  lines.push(getTableHeadingMarkdown(lines));
+
+  // sort descending by succesRate Ascending first, then by solution date
+  data.sort( (a, b) => a.statistics.succesRate - b.statistics.succesRate || new Date(b.dateSolved) - new Date(a.dateSolved));
+
+  data.forEach(entry => {
+    lines.push(`[${entry.title}](${entry.urlSolution}) | ${entry.difficulty.bar} | ${entry.statistics.succesRateBar} ${entry.statistics.succesRate}% | ${entry.statistics.solutionsCount} / ${entry.statistics.acceptancesCount} | ${entry.dateSolved} | ${entry.language}`)
+  })
+
 
 
   const content = lines.join("\n");
