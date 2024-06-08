@@ -1,4 +1,4 @@
-using System;
+using System;
 
 namespace AllergiesCsharpImplementation
 {
@@ -20,22 +20,33 @@ namespace AllergiesCsharpImplementation
 
         public static Allergies CreateAllergy(Allergen[] allergens)
         {
-            // scenario 3
-            throw new NotImplementedException("You need to implement this function.");
+            int score = 0;
+            foreach (Allergen allergen in allergens) {
+                score += allergen.GetHashCode();
+            }
+
+            return new Allergies(score);
         }
 
         public Allergies(int score) => this.score = score;
 
         public bool IsAllergicTo(Allergen allergen)
         {
-            // scenario 1
-            throw new NotImplementedException("You need to implement this function.");
+            return Convert.ToBoolean(this.score & allergen.GetHashCode());
         }
 
         public Allergen[] List()
         {
-            // scenario 2
-            throw new NotImplementedException("You need to implement this function.");
+
+            var allergenList = new System.Collections.Generic.List<Allergen>();
+            foreach (Allergen allergen in Enum.GetValues(typeof(Allergen))) {
+                if (this.IsAllergicTo(allergen)) {
+                    allergenList.Add(allergen);
+                }
+            }  
+
+            return allergenList.ToArray();
+
         }
     }
 }
