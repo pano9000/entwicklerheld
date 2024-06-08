@@ -9,6 +9,6 @@ Try to pack a bag as 'efficient' as possible based on certain weighted critera
 Data last updated: 2024-06-08
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | █░░░░░░░░░ 13% | 14 / 111 | 2024-06-08 | Java
+▮▮▯▯ | █░░░░░░░░░ 14% | 15 / 111 | 2024-06-08 | Java
 
 ## Comment
