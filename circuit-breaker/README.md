@@ -6,7 +6,7 @@ My solution for the ['Circuit Breaker' Challenge](https://platform.entwicklerhel
 Implement a circuit breaker pattern, that prevents function executions, via timeouts, if previous attempts failed
 
 ## Challenge Info
-Data last updated: 2024-06-08
+Data last updated: 2024-06-09
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▮▯▯ | ████░░░░░░ 43% | 70 / 162 | 2024-04-05 | JavaScript

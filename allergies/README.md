@@ -6,7 +6,7 @@ My solution for the ['Allergies' Challenge](https://platform.entwicklerheld.de/c
 Determine if a given allergen is present in a person's allergy score.
 
 ## Challenge Info
-Data last updated: 2024-06-08
+Data last updated: 2024-06-09
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▯▯▯ | ██████░░░░ 58% | 130 / 225 | 2024-05-19 | CSharp
