@@ -7,16 +7,30 @@ import java.lang.annotation.Target;
 
 class Stage1 {
 
-    // STAGE 1
-
+    @Retention(RetentionPolicy.RUNTIME)
+    @Target(ElementType.METHOD)
+    @interface Test{
+        boolean ignore() default false;
+    }
     public static class Assert {
 
         public static void assertEquals(final Object expected, final Object actual, final String message) {
-            // STAGE 1
+
+            if (!(expected == actual || (expected != null && expected.equals(actual)))) {
+
+                throw new AssertionError(
+                    String.format("%s. Expected: %s, but got: %s",
+                        message,
+                        expected,
+                        actual
+                    )
+                );
+            }
+            
         }
 
         public static void fail(final String message) {
-            // STAGE 1
+            throw new AssertionError(message);
         }
 
     }
