@@ -757,6 +757,15 @@
       "dateSolved": "2024-06-08",
       "description": "Try to pack a bag as 'efficient' as possible based on certain weighted critera",
       "comment": ""
+    },
+    {
+      "id": "life-insurance",
+      "idEH": "5a3402e8-1afb-457b-8b84-4a6c591262b1",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-06-09",
+      "description": "Calculate payout amounts for a life insurance taking into account different surcharges based on user's risk groups",
+      "comment": ""
     }
   ]
 }
