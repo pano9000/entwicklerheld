@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon"
+          href="https://res.cloudinary.com/dspi5zyaa/image/upload/v1640168864/eh-platform/logos/eh-fav-icon.png">
+    <title>WhatsApp GPT-3 Chatbot by Twilio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://platform.entwicklerheld.de/assets/css/global.css">
+    <style type="text/css">
+        a {
+            color: #F22F46;
+            text-decoration: underline;
+        }
+
+        .jumbotron {
+            background-color: #F22F46;
+            color: #fff;
+            margin-top: 1rem;
+            padding-top: 3rem;
+        }
+
+        .btn-primary:hover {
+            background-color: #16161D !important;
+        }
+
+        .btn-primary {
+            background-color: #F22F46;
+        }
+
+        .twilio-logo {
+            width: 130px;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron">
+        <img src="https://res.cloudinary.com/dspi5zyaa/image/upload/v1679566240/eh-platform/challenges/reverse-sms/twilio-white.png"
+             class="twilio-logo"/>
+        <h1 class="display-4">Whatsapp ChatGPT-like Service</h1>
+        <p class="lead">With this service you can easily add your challenge code to the Twilio Platform. Everything can be tried with the free Whatsapp Sandbox.</p>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+
+                <h5 class="card-header">How to try it with your phone</h5>
+                <div class="card-body">
+
+                    <p>1. Create a Twilio account here: <a href="https://company.platform.entwicklerheld.de/link/try-twilio">https://www.twilio.com/try-twilio</a>. If you have problems with the phone verification look into this StackOverFlow Thread:
+                        <a href="https://stackoverflow.com/questions/76342480/twilio-verification-code-immediately-expired-and-leads-to-too-many-attempts-er">Problems with phone verification.</a>
+                        The trial account has <a href="https://www.twilio.com/docs/usage/tutorials/how-to-use-your-free-trial-account#trial-account-restrictions-and-limitations">some restrictions</a>, if you want you can upgrade it for free with the promotion code <code>{{promotion_code}}</code> and get a balance of $20 for free. You do not need to enter any credit card information.
+                    </p>
+                    <p>2. Get your <strong>Account SID</strong> and <strong>Auth Token</strong> in your account
+                        settings and enter it in the fields below. You can find more information about the credentials
+                        <a href="https://www.twilio.com/docs/iam/credentials/api">here</a>. We do not save any
+                        credentials you enter here - you can look into
+                        the complete code in the challenge. We only cache the data in the local storage of the browser.
+                    </p>
+                    <p>3. <a
+                            href="https://www.twilio.com/docs/whatsapp/sandbox">Connect to the Whatsapp Sandbox with your phone in the Twilio Plattform.</a> You will need to scan a QR Code and send a message to join the sandbox. Add the Webhook-URL from below to the Sandbox-Settings. It should look like in this picture: <a href="https://res.cloudinary.com/dspi5zyaa/image/upload/v1689259859/eh-platform/challenges/whatsapp-chatgpt/sandbox-twilio.png">Sandbox Settings</a>
+                        <br/><a href="https://console.twilio.com/us1/develop/sms/try-it-out/whatsapp-learn?frameUrl=%2Fconsole%2Fsms%2Fwhatsapp%2Flearn%3Fx-target-region%3Dus1" target="_blank" class="btn btn-primary" style="text-decoration: none; font-size: 70%;">Take me to the sandbox</a>
+                    </p>
+                    <p>4. Enter your <strong>Account SID</strong> and <strong>Auth Token</strong>. Then click <strong>Save and Restart</strong> to restart your service. Your saved local variables may be deleted when restarting.</p>
+                    <p>5. If the code in your challenge works you can now Chat with GPT-3 😍</p>
+                    <p>6. Have fun <3</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4 mt-4">
+        <div class="col-12">
+
+            <form method="post" onsubmit="return submitForm()" class="card">
+                <h5 class="card-header">Send your data</h5>
+                <fieldset class="card-body">
+
+                    <div class="form-group row">
+                        <label for="accountSID" class="col-sm-2 col-form-label">Twilio Account SID</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="accountSID" name="accountSID" placeholder="SID"
+                                   required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="authToken" class="col-sm-2 col-form-label">Twilio Auth Token</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="authToken" name="authToken"
+                                   placeholder="Auth Token" required value="{{ auth_token }}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="webhook" class="col-sm-2 col-form-label">Webhook URL:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="webhook" name="webhook-url"
+                                   disabled="disabled"/>
+                            <small>Add this to the Whatsapp Sandbox in your Twilio account to allow Chatting. This will send requests from Whatsapp to your Challenge Code.</small>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-10 offset-sm-2">
+                            <button type="submit" class="btn btn-primary btn-lg">Save and Restart</button>
+                        </div>
+                    </div>
+                    {% if status_code %}
+                        <div class="alert alert-{% if status_code == 200 %}success{% else %}danger{% endif %}"
+                             role="alert">
+                            Saved! \o/
+                        </div>
+                    {% endif %}
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <div class="col-12 mb-3 text-center">
+        <img src="https://res.cloudinary.com/dspi5zyaa/image/upload/w_50/eh-website/eh_logo_developer_small.png"
+             style="filter: grayscale(1) opacity(25%)" class="" alt="EntwicklerHeld Logo">
+    </div>
+</div>
+<script type="application/javascript">
+    function submitForm() {
+        localStorage.setItem('accountSID', document.getElementById('accountSID').value);
+        localStorage.setItem('fromPhoneNumber', document.getElementById('fromPhoneNumber').value);
+        localStorage.setItem('toPhoneNumber', document.getElementById('toPhoneNumber').value);
+        localStorage.setItem('sms', document.getElementById('sms').value);
+
+        return true;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById('accountSID').value = localStorage.getItem('accountSID');
+        document.getElementById('webhook').value = window.location.href + 'api/receive_message';
+        document.getElementById('webhook-text').innerHTML = window.location.href + 'api/receive_message';
+    });
+</script>
+</body>
+</html>
