@@ -6,7 +6,7 @@ My solution for the ['Filling Area (Hard Mode)' Challenge](https://platform.entw
 Implement an algorithm that detects 'connected' areas of 0s with 1s and fills these area with 1s
 
 ## Challenge Info
-Data last updated: 2024-06-09
+Data last updated: 2024-06-12
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▮▮▯ | ██████░░░░ 60% | 362 / 601 | 2024-04-07 | Python
