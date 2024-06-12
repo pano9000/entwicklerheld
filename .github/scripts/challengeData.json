@@ -766,6 +766,15 @@
       "dateSolved": "2024-06-09",
       "description": "Calculate payout amounts for a life insurance taking into account different surcharges based on user's risk groups",
       "comment": ""
+    },
+    {
+      "id": "make-the-world-a-better-place",
+      "idEH": "6e348d15-c061-4eb7-b7dc-088bbfe1c1b0",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-06-12",
+      "description": "Create a simple Test Runner/Framework",
+      "comment": "Interesting insight into working with Java's Reflections and Annotations"
     }
   ]
 }
