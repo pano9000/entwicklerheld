@@ -775,6 +775,15 @@
       "dateSolved": "2024-06-12",
       "description": "Create a simple Test Runner/Framework",
       "comment": "Interesting insight into working with Java's Reflections and Annotations"
+    },
+    {
+      "id": "chatgpt-whatsapp-bot",
+      "idEH": "a4fed36d-0cde-4453-a2de-5f96ede01f16",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-06-13",
+      "description": "Create a simple 'WhatsApp Bot' using Twilio to get replies from ChatGPT'",
+      "comment": ""
     }
   ]
 }
