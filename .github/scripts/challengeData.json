@@ -784,6 +784,15 @@
       "dateSolved": "2024-06-13",
       "description": "Create a simple 'WhatsApp Bot' using Twilio to get replies from ChatGPT'",
       "comment": ""
+    },
+    {
+      "id": "lottery-sim",
+      "idEH": "3fcb497e-53a2-4566-87bf-57cbf0ff03ac",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-06-14",
+      "description": "Simulate a simple lottery",
+      "comment": "Submitted under time pressure, to be the first one to submit, after challenge goes online, and successfully managed to do so :-)"
     }
   ]
 }
