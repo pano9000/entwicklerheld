@@ -9,7 +9,7 @@ Simulate a simple lottery
 Data last updated: 2024-06-14
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ███░░░░░░░ 25% | 1 / 4 | 2024-06-14 | JavaScript
+▮▮▯▯ | ██████░░░░ 64% | 7 / 11 | 2024-06-14 | JavaScript
 
 ## Comment
 Submitted under time pressure, to be the first one to submit, after challenge goes online, and successfully managed to do so :-)

@@ -9,7 +9,7 @@ Write a pagination feature, splitting text content into pages, based on content 
 Data last updated: 2024-06-14
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ██░░░░░░░░ 17% | 19 / 110 | 2024-04-30 | JavaScript
+▮▯▯▯ | ██░░░░░░░░ 17% | 19 / 111 | 2024-04-30 | JavaScript
 
 ## Comment
 Bit of a weird challenge description, which was not really helpful in figuring out, what the task really expects you to do.

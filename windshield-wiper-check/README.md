@@ -9,6 +9,6 @@ Execute code tests coming from a NATS message broker and reply back with the tes
 Data last updated: 2024-06-14
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ███░░░░░░░ 25% | 50 / 197 | 2024-04-24 | Python
+▮▮▯▯ | ███░░░░░░░ 25% | 50 / 198 | 2024-04-24 | Python
 
 ## Comment
