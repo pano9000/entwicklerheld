@@ -6,7 +6,7 @@ My solution for the ['Weigh the Slow Loris' Challenge](https://platform.entwickl
 Write an algorithm which receives a target weight and some available masses, and then returns a valid combination of these masses
 
 ## Challenge Info
-Data last updated: 2024-06-12
+Data last updated: 2024-06-13
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▯▯▯ | ██████░░░░ 62% | 1399 / 2263 | 2024-04-29 | Java
