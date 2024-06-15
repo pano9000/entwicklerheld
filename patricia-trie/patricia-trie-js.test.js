@@ -1,9 +1,12 @@
-import {PatriciaTrie, TrieNode} from "../patricia-trie-js";
+import {PatriciaTrie, TrieNode} from "./patricia-trie-js.js";
 import {testData_1_2, testData_3} from "./testdata.js";
-let fs = require('fs');
+import {expect} from "chai";
+import test from 'node:test';
+
+//let fs = require('fs');
 let json = [];
 let visData = [];
-
+/*
 beforeEach(() => {
     visData = [];
     console.log("##polylith[testStarted");
@@ -13,23 +16,24 @@ afterEach(() => {
     console.log("##polylith[testFinished");
 
     if (visData.length > 0) {
-        writeVisualisation();
+        //writeVisualisation();
     }
 });
 
-afterAll(() => {
+afterEach(() => {
     let result = JSON.stringify(json);
-    fs.writeFileSync('visualization-data.json', result);
-});
+    //fs.writeFileSync('visualization-data.json', result);
+});*/
 
-test('test_1_1', () => {
+test('test_1_1', (t) => {
     const word = "hello";
     const trie = new PatriciaTrie();
     trie.insert(word);
     const actual = search(trie, word);
     const expected = true;
-    expect(actual, `The word '${word}' has not been stored properly in the trie.`).toBe(expected);
+    expect(actual, `The word '${word}' has not been stored properly in the trie.`).to.eql(expected);
 });
+
 test('test_1_2', () => {
     const testData = testData_1_2;
     const trie = new PatriciaTrie();
@@ -48,7 +52,7 @@ test('test_1_2', () => {
             const message = expected
                 ? `The word '${word}' has not been stored properly in the trie.`
                 : `The word '${word}' should not be stored in the trie.`;
-            expect(actual, message).toBe(expected);
+            expect(actual, message).to.eql(expected);
         }
     }
 });
@@ -58,7 +62,7 @@ test('test_2_1', () => {
     trie.insert(word);
     const actual = trie.search(word);
     const expected = true;
-    expect(actual, `The word '${word}' has not been found or stored properly in the trie.`).toBe(expected);
+    expect(actual, `The word '${word}' has not been found or stored properly in the trie.`).to.eql(expected);
 });
 test('test_2_2', () => {
     const testData = testData_1_2;
@@ -81,7 +85,7 @@ test('test_2_2', () => {
                 : `The word '${word}' should not be found in the trie.`
                 )
                 + showData(testData[i]);
-            expect(actual, message).toBe(expected);
+            expect(actual, message).to.eql(expected);
         }
     }
 });
@@ -113,7 +117,7 @@ test('test_3_1', () => {
             )
             + showData({inserts: inserts, deletes: deletes, search: search});
 
-        expect(actual, message).toBe(expected);
+        expect(actual, message).to.eql(expected);
     }
 });
 test('test_3_2', () => {
@@ -134,7 +138,7 @@ test('test_3_2', () => {
 
         let messages = doSearch(trie, {inserts: inserts, deletes: deletes, search: search});
         if (messages.length !== 0) {
-            expect(false, messages.join('\n')).toBe(true);
+            expect(false, messages.join('\n')).to.eql(true);
         }
     }
 });
@@ -200,7 +204,7 @@ function search(trie, word) {
 function toJSON(obj) {
     return JSON.stringify(obj, null, 3);
 }
-
+/*
 function writeVisualisation() {
     const scenarioId = visData[0];
     const sentenceId = visData[1];
@@ -227,4 +231,4 @@ function writeVisualisation() {
         "content": visualizationContent
     });
     // fs.writeFileSync(`visualization-${scenarioId}-${sentenceId}.html`, visualizationContent);
-}
+}*/
