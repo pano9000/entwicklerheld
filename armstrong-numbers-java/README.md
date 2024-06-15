@@ -9,6 +9,6 @@ Check if the provided number is an 'Armstrong Number'
 Data last updated: 2024-06-14
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ████████░░ 78% | 77 / 99 | 2024-05-17 | Java
+▮▯▯▯ | ████████░░ 78% | 78 / 100 | 2024-05-17 | Java
 
 ## Comment

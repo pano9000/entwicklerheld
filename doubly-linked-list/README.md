@@ -9,6 +9,6 @@ Implement the pop, push, shift and unshift methods of a doubly linked list
 Data last updated: 2024-06-14
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | █████░░░░░ 54% | 55 / 101 | 2024-06-06 | Java
+▮▯▯▯ | ██████░░░░ 55% | 56 / 101 | 2024-06-06 | Java
 
 ## Comment

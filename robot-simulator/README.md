@@ -9,6 +9,6 @@ Goal was to implement a simple program that moves a 'robot' in a 2D plane, based
 Data last updated: 2024-06-14
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ████████░░ 78% | 361 / 462 | 2024-03-09 | Cpp
+▮▯▯▯ | ████████░░ 78% | 362 / 463 | 2024-03-09 | Cpp
 
 ## Comment
