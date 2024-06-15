@@ -793,6 +793,15 @@
       "dateSolved": "2024-06-14",
       "description": "Simulate a simple lottery",
       "comment": "Submitted under time pressure, to be the first one to submit, after challenge goes online, and successfully managed to do so :-)"
+    },
+    {
+      "id": "patricia-trie",
+      "idEH": "5d7468b7-5abc-4f37-8a41-e5baf2f774e4",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-06-15",
+      "description": "Implement insert, search and delete of words into a Patricia Trie",
+      "comment": "Interesting challenga, where the tests were a bit too lax -> i.e. they also allowed solutions, where the orphaned nodes were not deleted, which IMHO shouldn't be accepted"
     }
   ]
 }
