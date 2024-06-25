@@ -8,49 +8,39 @@ namespace StringCalculationCsharpImplementation
         public static int Answer(string prompt)
         {
 
-            //regex matching group
-            MatchCollection tokens = Regex.Matches(prompt.ToLower(), @"((?<=what +is +)(?'operand'-{0,1}\d+)(?=\?*$))|(?<=what +is +)(?'operand'-{0,1}\d+)( +(?'operation'plus|minus|multiplied +by|divided +by) +(?'operand'-{0,1}\d+))+ *(?=\?)");
+            Match tokens = Regex.Match(prompt.ToLower(), @"((?<=what +is +)(?'operand'-{0,1}\d+)(?=\?*$))|(?<=what +is +)(?'operand'-{0,1}\d+)( +(?'operation'plus|minus|multiplied +by|divided +by) +(?'operand'-{0,1}\d+))+ *(?=\?)");
+            
+            CaptureCollection operandCaptures = tokens.Groups["operand"].Captures;
+            CaptureCollection operationCaptures = tokens.Groups["operation"].Captures;
 
-            // tokens should always be 1, everything else would be unexpected
-            if (tokens.Count != 1)
+            // operationCount must be (operationCount - 1) to be valid prompt
+            if (operationCaptures.Count != operandCaptures.Count - 1)
             {
-                throw new ArgumentException("Unsupported prompt: The prompt did not contain anything that can be calculated.");
+                throw new ArgumentException("Unsupported prompt: The prompt did not contain anything that can be calculated or not a valid operation/operand combination");
+            }
+
+
+            // handle single number w/o operation 
+            if (operandCaptures.Count == 1) 
+            {
+                return int.Parse(operandCaptures[0].Value);
             }
 
             int result = 0;
+            for (int i = 0; i < operandCaptures.Count; i++)
+            {
 
-            foreach (Match tokenMatch in tokens)
-            {   
-
-                CaptureCollection operandCapCol = tokenMatch.Groups["operand"].Captures;
-                CaptureCollection operationCapCol = tokenMatch.Groups["operation"].Captures;
-
-                // handle single number w/o operation 
-                if (operationCapCol.Count < 1 && operandCapCol.Count == 1) 
+                if (i == 0)
                 {
-                    return int.Parse(operandCapCol[0].Value);
+                    result = int.Parse(operandCaptures[i].Value);
                 }
 
-                // invalid operand / operation counts -> one operation always needs 2 operands
-                if (!((operandCapCol.Count - 1) == operationCapCol.Count))
+                if (i == operandCaptures.Count - 1)
                 {
-                    throw new ArgumentException("Not a valid operation/operand combination");
+                    break;
                 }
 
-                for (int i = 0; i < operandCapCol.Count; i++)
-                {
-
-                    if (i == 0)
-                    {
-                        result = int.Parse(operandCapCol[i].Value);
-                    }
-                    
-                    if (!(i == operandCapCol.Count - 1))
-                    {
-                        result = Calculate(result, operationCapCol[i].Value, int.Parse(operandCapCol[i + 1].Value));
-                    }
-
-                }
+                result = Calculate(result, operationCaptures[i].Value, int.Parse(operandCaptures[i + 1].Value));
 
             }
 
