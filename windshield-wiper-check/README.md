@@ -6,7 +6,7 @@ My solution for the ['Windshield Wiper Check' Challenge](https://platform.entwic
 Execute code tests coming from a NATS message broker and reply back with the test results
 
 ## Challenge Info
-Data last updated: 2024-06-21
+Data last updated: 2024-06-25
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▮▯▯ | ███░░░░░░░ 25% | 50 / 199 | 2024-04-24 | Python
