@@ -802,6 +802,15 @@
       "dateSolved": "2024-06-15",
       "description": "Implement insert, search and delete of words into a Patricia Trie",
       "comment": "Interesting challenga, where the tests were a bit too lax -> i.e. they also allowed solutions, where the orphaned nodes were not deleted, which IMHO shouldn't be accepted"
+    },
+    {
+      "id": "string-calculation",
+      "idEH": "eed5ed77-baad-455d-89ce-7d44f365a631",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-06-25",
+      "description": "Implement a parser that does calculations based on the input string",
+      "comment": "Went with a RegExp Matching Groups based solution - there probably are more simpler solutions though"
     }
   ]
 }
