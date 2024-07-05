@@ -811,6 +811,15 @@
       "dateSolved": "2024-06-25",
       "description": "Implement a parser that does calculations based on the input string",
       "comment": "Went with a RegExp Matching Groups based solution - there probably are more simpler solutions though"
+    },
+    {
+      "id": "analyse-the-plant",
+      "idEH": "2b93cfa7-5495-4a0f-96fc-a4c4b57a9f33",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-07-05",
+      "description": "Challenge that dives into the world of workcenters, jobs, tasks. Consisting of two Stages: \\\\n1) Required the implementation of a visual representation of tasks on a workcenter.\\\\n2) Required the implementation of an optimized job/task schedule across the two workcenters, by using the Johnson's Rules method.",
+      "comment": ""
     }
   ]
 }
