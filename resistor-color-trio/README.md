@@ -9,6 +9,6 @@ Create a resistance color decoder that return a formatted string
 Data last updated: 2024-07-05
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ███████░░░ 71% | 123 / 174 | 2024-06-07 | Python
+▮▯▯▯ | ███████░░░ 70% | 123 / 175 | 2024-06-07 | Python
 
 ## Comment

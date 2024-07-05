@@ -9,6 +9,6 @@ Count the grains of rice on a chessboard at a given field, where the rice grains
 Data last updated: 2024-07-05
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | █████████░ 86% | 500 / 582 | 2024-03-06 | Java
+▮▯▯▯ | █████████░ 86% | 501 / 584 | 2024-03-06 | Java
 
 ## Comment

@@ -9,7 +9,7 @@ Change the behaviour of a slot machine to become a bit more 'unfair' after a few
 Data last updated: 2024-07-05
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ████░░░░░░ 37% | 331 / 904 | 2024-03-17 | Python
+▮▮▯▯ | ████░░░░░░ 37% | 331 / 905 | 2024-03-17 | Python
 
 ## Comment
 This should've been easily solved, but the tests cases were a bit weird/illogic, which made life unnecessarily harder:

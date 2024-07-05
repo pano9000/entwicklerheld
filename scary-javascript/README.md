@@ -9,6 +9,6 @@ Goal was to mainly fix some "common Javascript mistakes" in the given code, rela
 Data last updated: 2024-07-05
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ██████░░░░ 60% | 655 / 1096 | 2022-04-27 | JavaScript
+▮▯▯▯ | ██████░░░░ 60% | 656 / 1096 | 2022-04-27 | JavaScript
 
 ## Comment
