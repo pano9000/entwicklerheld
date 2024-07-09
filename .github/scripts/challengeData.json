@@ -820,6 +820,15 @@
       "dateSolved": "2024-07-05",
       "description": "Challenge that dives into the world of workcenters, jobs, tasks. Consisting of two Stages: \\\\n1) Required the implementation of a visual representation of tasks on a workcenter.\\\\n2) Required the implementation of an optimized job/task schedule across the two workcenters, by using the Johnson's Rules method.",
       "comment": ""
+    },
+    {
+      "id": "a-small-dumb-chatbot",
+      "idEH": "69015cfc-c452-4a09-96dd-e1b73c062f5b",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-07-09",
+      "description": "Create a a small dumb chatbot",
+      "comment": ""
     }
   ]
 }
