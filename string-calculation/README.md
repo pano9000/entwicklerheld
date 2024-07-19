@@ -6,7 +6,7 @@ My solution for the ['String Calculation' Challenge](https://platform.entwickler
 Implement a parser that does calculations based on the input string
 
 ## Challenge Info
-Data last updated: 2024-07-12
+Data last updated: 2024-07-19
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▯▯▯ | █████░░░░░ 49% | 238 / 482 | 2024-06-25 | CSharp
