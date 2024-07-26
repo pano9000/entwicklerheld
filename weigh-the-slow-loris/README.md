@@ -6,10 +6,10 @@ My solution for the ['Weigh the Slow Loris' Challenge](https://platform.entwickl
 Write an algorithm which receives a target weight and some available masses, and then returns a valid combination of these masses
 
 ## Challenge Info
-Data last updated: 2024-07-19
+Data last updated: 2024-07-26
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ██████░░░░ 62% | 1402 / 2266 | 2024-04-29 | Java
+▮▯▯▯ | ██████░░░░ 62% | 1403 / 2266 | 2024-04-29 | Java
 
 ## Comment
 Classic 'howSum' or 'bestSum' problem. Here I reused my solution from the 'change-calculator' task, which was essentially identical.
