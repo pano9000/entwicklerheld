@@ -6,7 +6,7 @@ My solution for the ['Christmas Tree of Hanoi' Challenge](https://platform.entwi
 Write a function that captures all needed moves to solve the 'Christmas Trees of Hanoi' (better know as 'Towers of Hanoi') problem.
 
 ## Challenge Info
-Data last updated: 2024-07-26
+Data last updated: 2024-08-02
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▯▯▯ | ██████░░░░ 63% | 183 / 291 | 2024-05-22 | JavaScript

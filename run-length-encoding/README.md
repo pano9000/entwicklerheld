@@ -6,10 +6,10 @@ My solution for the ['Run Length Encoding' Challenge](https://platform.entwickle
 Challenge consisted of creating a 'Run Length Encoding' function that encodes/compresses a text string.
 
 ## Challenge Info
-Data last updated: 2024-07-26
+Data last updated: 2024-08-02
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | █████████░ 86% | 350 / 406 | 2023-10-19 | JavaScript
+▮▯▯▯ | █████████░ 87% | 355 / 409 | 2023-10-19 | JavaScript
 
 ## Comment
 I added a small bonus decode function, which is a bit flawed, as it will not work for any run lengths > 9 - maybe to be fixed at a later point.

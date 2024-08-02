@@ -6,7 +6,7 @@ My solution for the ['Easy Storage' Challenge](https://platform.entwicklerheld.d
 Implement a program that helps 'store' items in repositories.
 
 ## Challenge Info
-Data last updated: 2024-07-26
+Data last updated: 2024-08-02
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▯▯▯ | ██████░░░░ 63% | 1247 / 1978 | 2024-04-15 | Java

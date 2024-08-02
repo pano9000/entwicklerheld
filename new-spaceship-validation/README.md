@@ -6,7 +6,7 @@ My solution for the ['New Spaceship validation when entering the motherships' Ch
 Validate incoming ship IDs and return JSON repsonses with Java Spring Boot
 
 ## Challenge Info
-Data last updated: 2024-07-26
+Data last updated: 2024-08-02
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▮▯▯ | ███░░░░░░░ 33% | 345 / 1051 | 2024-05-22 | Java

@@ -6,9 +6,9 @@ My solution for the ['Life Insurance' Challenge](https://platform.entwicklerheld
 Calculate payout amounts for a life insurance taking into account different surcharges based on user's risk groups
 
 ## Challenge Info
-Data last updated: 2024-07-26
+Data last updated: 2024-08-02
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ██████░░░░ 58% | 575 / 986 | 2024-06-09 | Java
+▮▮▯▯ | ██████░░░░ 58% | 576 / 987 | 2024-06-09 | Java
 
 ## Comment
