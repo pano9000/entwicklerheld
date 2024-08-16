@@ -6,10 +6,10 @@ My solution for the ['Happy Subnetting' Challenge](https://platform.entwicklerhe
 
 
 ## Challenge Info
-Data last updated: 2024-08-09
+Data last updated: 2024-08-16
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▮▯ | ██░░░░░░░░ 24% | 55 / 230 | 2022-09-19 | JavaScript
+▮▮▮▯ | ██░░░░░░░░ 24% | 56 / 230 | 2022-09-19 | JavaScript
 
 ## Comment
 In retrospect, my approach to solve this was a bit crude, especially in regards to all of those bit calculations. Using actual bit shifting would probably have been a better/nicer/faster approach.

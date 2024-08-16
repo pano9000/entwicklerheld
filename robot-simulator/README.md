@@ -6,9 +6,9 @@ My solution for the ['Robot Simulator' Challenge](https://platform.entwicklerhel
 Goal was to implement a simple program that moves a 'robot' in a 2D plane, based on its bearing position
 
 ## Challenge Info
-Data last updated: 2024-08-09
+Data last updated: 2024-08-16
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ████████░░ 79% | 382 / 484 | 2024-03-09 | Cpp
+▮▯▯▯ | ████████░░ 79% | 385 / 487 | 2024-03-09 | Cpp
 
 ## Comment

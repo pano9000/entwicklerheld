@@ -6,9 +6,9 @@ My solution for the ['TV Channel' Challenge](https://platform.entwicklerheld.de/
 
 
 ## Challenge Info
-Data last updated: 2024-08-09
+Data last updated: 2024-08-16
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ████░░░░░░ 42% | 768 / 1827 | 2022-05-01 | JavaScript
+▮▯▯▯ | ████░░░░░░ 42% | 768 / 1828 | 2022-05-01 | JavaScript
 
 ## Comment
