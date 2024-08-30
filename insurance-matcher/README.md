@@ -6,7 +6,7 @@ My solution for the ['Insurance Matching' Challenge](https://platform.entwickler
 Find the best match insurance based on user's preferences
 
 ## Challenge Info
-Data last updated: 2024-08-23
+Data last updated: 2024-08-30
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▮▯▯ | ████░░░░░░ 40% | 258 / 639 | 2024-04-27 | Java
