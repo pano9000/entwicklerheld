@@ -6,7 +6,7 @@ My solution for the ['CamelCase to snake_case' Challenge](https://platform.entwi
 Rename all keys of a given map from camelCase to snake_case
 
 ## Challenge Info
-Data last updated: 2024-09-13
+Data last updated: 2024-09-20
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▯▯▯ | █████░░░░░ 53% | 160 / 304 | 2024-06-06 | Kotlin
