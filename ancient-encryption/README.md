@@ -6,9 +6,9 @@ My solution for the ['Ancient Encryption' Challenge](https://platform.entwickler
 Implement a class the can encode and decode Vigenère cipher
 
 ## Challenge Info
-Data last updated: 2024-09-27
+Data last updated: 2024-10-04
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ███████░░░ 74% | 411 / 556 | 2024-03-28 | Python
+▮▮▯▯ | ███████░░░ 74% | 412 / 557 | 2024-03-28 | Python
 
 ## Comment

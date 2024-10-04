@@ -6,7 +6,7 @@ My solution for the ['Client number validation' Challenge](https://platform.entw
 Write a function that validates a 10 digit client number with a parity bit
 
 ## Challenge Info
-Data last updated: 2024-09-27
+Data last updated: 2024-10-04
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▯▯▯ | ████████░░ 76% | 147 / 194 | 2024-03-13 | JavaScript
