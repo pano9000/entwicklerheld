@@ -6,9 +6,9 @@ My solution for the ['Candidates' Challenge](https://platform.entwicklerheld.de/
 Efficiently pair list of job offers with a list of possible candidates and select the best matching candidates.
 
 ## Challenge Info
-Data last updated: 2024-10-04
+Data last updated: 2024-10-11
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ███░░░░░░░ 34% | 37 / 109 | 2024-04-15 | JavaScript
+▮▮▯▯ | ████░░░░░░ 35% | 38 / 109 | 2024-04-15 | JavaScript
 
 ## Comment

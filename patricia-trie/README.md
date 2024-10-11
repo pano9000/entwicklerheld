@@ -6,10 +6,10 @@ My solution for the ['Patricia-Trie' Challenge](https://platform.entwicklerheld.
 Implement insert, search and delete of words into a Patricia Trie
 
 ## Challenge Info
-Data last updated: 2024-10-04
+Data last updated: 2024-10-11
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | █████░░░░░ 52% | 36 / 69 | 2024-06-15 | JavaScript
+▮▮▯▯ | █████░░░░░ 51% | 36 / 70 | 2024-06-15 | JavaScript
 
 ## Comment
 Interesting challenga, where the tests were a bit too lax -> i.e. they also allowed solutions, where the orphaned nodes were not deleted, which IMHO shouldn't be accepted
