@@ -6,7 +6,7 @@ My solution for the ['ISBN Verifier' Challenge](https://platform.entwicklerheld.
 Write a function that checks if a supplied string is a valid ISBN number
 
 ## Challenge Info
-Data last updated: 2024-10-25
+Data last updated: 2024-11-01
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▯▯▯ | ███████░░░ 74% | 159 / 214 | 2024-03-11 | Kotlin

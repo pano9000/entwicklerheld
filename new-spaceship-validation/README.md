@@ -6,10 +6,10 @@ My solution for the ['New Spaceship validation when entering the motherships' Ch
 Validate incoming ship IDs and return JSON repsonses with Java Spring Boot
 
 ## Challenge Info
-Data last updated: 2024-10-25
+Data last updated: 2024-11-01
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ███░░░░░░░ 33% | 347 / 1053 | 2024-05-22 | Java
+▮▮▯▯ | ███░░░░░░░ 33% | 348 / 1054 | 2024-05-22 | Java
 
 ## Comment
 That was surprisingly easy, not sure, why this one was rated as 'medium' difficulty and only has comparatively low success rates

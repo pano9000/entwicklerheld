@@ -6,10 +6,10 @@ My solution for the ['Filling Area (Hard Mode)' Challenge](https://platform.entw
 Implement an algorithm that detects 'connected' areas of 0s with 1s and fills these area with 1s
 
 ## Challenge Info
-Data last updated: 2024-10-25
+Data last updated: 2024-11-01
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▮▯ | ██████░░░░ 60% | 365 / 604 | 2024-04-07 | Python
+▮▮▮▯ | ██████░░░░ 61% | 367 / 605 | 2024-04-07 | Python
 
 ## Comment
 I have added some additional difficulty here for myself, by also requiring 'multiple' boxes to be filled, if they are in the area. The original EH task only was testing for single boxes.

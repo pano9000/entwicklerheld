@@ -6,10 +6,10 @@ My solution for the ['Lottery Sim' Challenge](https://platform.entwicklerheld.de
 Simulate a simple lottery
 
 ## Challenge Info
-Data last updated: 2024-10-25
+Data last updated: 2024-11-01
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ████████░░ 76% | 70 / 92 | 2024-06-14 | JavaScript
+▮▮▯▯ | ████████░░ 76% | 71 / 93 | 2024-06-14 | JavaScript
 
 ## Comment
 Submitted under time pressure, to be the first one to submit, after challenge goes online, and successfully managed to do so :-)
