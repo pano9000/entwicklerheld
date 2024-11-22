@@ -6,9 +6,9 @@ My solution for the ['Grains' Challenge](https://platform.entwicklerheld.de/chal
 Count the grains of rice on a chessboard at a given field, where the rice grains double with each field.
 
 ## Challenge Info
-Data last updated: 2024-11-15
+Data last updated: 2024-11-22
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | █████████░ 86% | 531 / 619 | 2024-03-06 | Java
+▮▯▯▯ | █████████░ 86% | 532 / 621 | 2024-03-06 | Java
 
 ## Comment

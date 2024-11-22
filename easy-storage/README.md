@@ -6,10 +6,10 @@ My solution for the ['Easy Storage' Challenge](https://platform.entwicklerheld.d
 Implement a program that helps 'store' items in repositories.
 
 ## Challenge Info
-Data last updated: 2024-11-15
+Data last updated: 2024-11-22
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ██████░░░░ 63% | 1255 / 1983 | 2024-04-15 | Java
+▮▯▯▯ | ██████░░░░ 63% | 1255 / 1984 | 2024-04-15 | Java
 
 ## Comment
 Just required some very basic HashMap related methods

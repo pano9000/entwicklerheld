@@ -10,9 +10,9 @@ Challenge that dives into the world of workcenters, jobs, tasks. Consisting of t
 2) Required the implementation of an optimized job/task schedule across the two workcenters, by using the Johnson's Rules method.
 
 ## Challenge Info
-Data last updated: 2024-11-15
+Data last updated: 2024-11-22
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ███░░░░░░░ 34% | 126 / 372 | 2024-07-05 | Java
+▮▮▯▯ | ███░░░░░░░ 34% | 126 / 373 | 2024-07-05 | Java
 
 ## Comment
