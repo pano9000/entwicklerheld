@@ -6,9 +6,9 @@ My solution for the ['Prime Test' Challenge](https://platform.entwicklerheld.de/
 Implement a program that checks, if a given number is a prime number
 
 ## Challenge Info
-Data last updated: 2024-11-22
+Data last updated: 2024-11-29
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | █████████░ 94% | 597 / 635 | 2024-04-03 | Java
+▮▯▯▯ | █████████░ 94% | 598 / 637 | 2024-04-03 | Java
 
 ## Comment
