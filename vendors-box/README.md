@@ -6,9 +6,9 @@ My solution for the ['Vendor's Box' Challenge](https://platform.entwicklerheld.d
 Filter a list of Vendors for the best matching vendor in regards to price, shipping time, etc.
 
 ## Challenge Info
-Data last updated: 2024-11-29
+Data last updated: 2024-12-06
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ██████░░░░ 63% | 331 / 528 | 2024-04-21 | Java
+▮▮▯▯ | ██████░░░░ 63% | 332 / 528 | 2024-04-21 | Java
 
 ## Comment

@@ -6,7 +6,7 @@ My solution for the ['EntwicklerHeld Celebration' Challenge](https://platform.en
 Calculate how many times 'glasses' have clinked at a party
 
 ## Challenge Info
-Data last updated: 2024-11-29
+Data last updated: 2024-12-06
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▯▯▯ | ███████░░░ 70% | 1239 / 1773 | 2024-03-18 | Python
