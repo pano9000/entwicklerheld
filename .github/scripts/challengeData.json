@@ -829,6 +829,15 @@
       "dateSolved": "2024-07-09",
       "description": "Create a a small dumb chatbot",
       "comment": ""
+    },
+    {
+      "id": "high-scores",
+      "idEH": "4b07b532-222f-48fe-91f1-8c742afc5e4e",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2024-12-08",
+      "description": "Work with a list of scores from multiple gaming sessions to extract meaningful data, such as the latest score, the personal best, and the top three scores.",
+      "comment": ""
     }
   ]
 }
