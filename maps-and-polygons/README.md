@@ -12,7 +12,7 @@ Challenge consists of two scenarios:
 
 
 ## Challenge Info
-Data last updated: 2024-12-13
+Data last updated: 2024-12-20
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▮▮▯ | ███░░░░░░░ 31% | 59 / 193 | 2023-07-20 | Java

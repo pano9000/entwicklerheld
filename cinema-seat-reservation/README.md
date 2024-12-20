@@ -6,7 +6,7 @@ My solution for the ['Cinema Seat Reservation' Challenge](https://platform.entwi
 
 
 ## Challenge Info
-Data last updated: 2024-12-13
+Data last updated: 2024-12-20
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▮▮▮ | █░░░░░░░░░ 12% | 58 / 475 | 2022-10-08 | JavaScript
