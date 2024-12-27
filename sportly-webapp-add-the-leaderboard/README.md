@@ -6,7 +6,7 @@ My solution for the ['Sportly Webapp - Add the Leaderboard' Challenge](https://p
 Create a leaderboard for a webapp that tracks sports activities
 
 ## Challenge Info
-Data last updated: 2024-12-20
+Data last updated: 2024-12-27
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▮▯▯ | ████░░░░░░ 41% | 93 / 225 | 2024-05-15 | PHP

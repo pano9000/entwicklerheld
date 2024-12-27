@@ -6,9 +6,9 @@ My solution for the ['Markdown Parser Refactoring' Challenge](https://platform.e
 Refactor a Class that parses Markdown formatted text into HTML tags, where the current version contained some bugs
 
 ## Challenge Info
-Data last updated: 2024-12-20
+Data last updated: 2024-12-27
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ████░░░░░░ 35% | 83 / 237 | 2024-05-09 | PHP
+▮▯▯▯ | ████░░░░░░ 36% | 85 / 239 | 2024-05-09 | PHP
 
 ## Comment

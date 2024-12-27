@@ -6,7 +6,7 @@ My solution for the ['Run Length Encoding' Challenge](https://platform.entwickle
 Challenge consisted of creating a 'Run Length Encoding' function that encodes/compresses a text string.
 
 ## Challenge Info
-Data last updated: 2024-12-20
+Data last updated: 2024-12-27
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▯▯▯ | █████████░ 88% | 371 / 424 | 2023-10-19 | JavaScript
