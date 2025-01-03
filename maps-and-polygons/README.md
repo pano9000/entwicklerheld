@@ -12,10 +12,10 @@ Challenge consists of two scenarios:
 
 
 ## Challenge Info
-Data last updated: 2024-12-27
+Data last updated: 2025-01-03
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▮▯ | ███░░░░░░░ 30% | 59 / 194 | 2023-07-20 | Java
+▮▮▮▯ | ███░░░░░░░ 30% | 59 / 195 | 2023-07-20 | Java
 
 ## Comment
 Interesting challenge for me, as I did not really pay any attention during my Maths classes :-).

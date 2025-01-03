@@ -6,7 +6,7 @@ My solution for the ['Lottery Sim' Challenge](https://platform.entwicklerheld.de
 Simulate a simple lottery
 
 ## Challenge Info
-Data last updated: 2024-12-27
+Data last updated: 2025-01-03
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▮▯▯ | ████████░░ 76% | 71 / 93 | 2024-06-14 | JavaScript

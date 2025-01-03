@@ -6,9 +6,9 @@ My solution for the ['Knapsack' Challenge](https://platform.entwicklerheld.de/ch
 Try to pack a bag as 'efficient' as possible based on certain weighted critera
 
 ## Challenge Info
-Data last updated: 2024-12-27
+Data last updated: 2025-01-03
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ██░░░░░░░░ 22% | 29 / 129 | 2024-06-08 | Java
+▮▮▯▯ | ██░░░░░░░░ 23% | 30 / 129 | 2024-06-08 | Java
 
 ## Comment
