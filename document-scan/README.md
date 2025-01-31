@@ -8,7 +8,7 @@ Challenge consisted of extracting an Address from a scanned document. The scanne
 The first scenario was the 'easy' mode, which only contained perfectly aligned scans. The challenge allowed for a 'hard' mode, which also included scans, that were not correctly aligned, e.g. the letters were skewed slightly, either going up or down.
 
 ## Challenge Info
-Data last updated: 2025-01-24
+Data last updated: 2025-01-31
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▮▯▯ | ███░░░░░░░ 31% | 73 / 239 | 2023-09-03 | Java
