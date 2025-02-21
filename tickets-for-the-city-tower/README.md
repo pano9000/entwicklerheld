@@ -6,7 +6,7 @@ My solution for the ['Tickets for the City Tower' Challenge](https://platform.en
 Use Symfony to create (a small part of) a 'ticket ordering' webapp
 
 ## Challenge Info
-Data last updated: 2025-02-14
+Data last updated: 2025-02-21
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▮▯▯ | ███░░░░░░░ 30% | 78 / 258 | 2024-05-19 | PHP

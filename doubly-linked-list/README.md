@@ -6,9 +6,9 @@ My solution for the ['Doubly Linked List' Challenge](https://platform.entwickler
 Implement the pop, push, shift and unshift methods of a doubly linked list
 
 ## Challenge Info
-Data last updated: 2025-02-14
+Data last updated: 2025-02-21
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ██████░░░░ 61% | 113 / 185 | 2024-06-06 | Java
+▮▯▯▯ | ██████░░░░ 61% | 114 / 186 | 2024-06-06 | Java
 
 ## Comment
