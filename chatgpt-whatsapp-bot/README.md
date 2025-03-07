@@ -6,7 +6,7 @@ My solution for the ['ChatGPT WhatsApp Bot' Challenge](https://platform.entwickl
 Create a simple 'WhatsApp Bot' using Twilio to get replies from ChatGPT'
 
 ## Challenge Info
-Data last updated: 2025-02-28
+Data last updated: 2025-03-07
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▯▯▯ | ████░░░░░░ 37% | 84 / 224 | 2024-06-13 | Python
