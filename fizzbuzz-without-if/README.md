@@ -6,7 +6,7 @@ My solution for the ['Fizz Buzz without 'if'' Challenge](https://platform.entwic
 Well known FizzBuzz challenge, but with a slight constraint of not using 'if' statements :-)
 
 ## Challenge Info
-Data last updated: 2025-03-21
+Data last updated: 2025-03-28
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▯▯▯ | ████████░░ 81% | 919 / 1140 | 2023-08-07 | Python
