@@ -6,9 +6,9 @@ My solution for the ['Tracking Cyber Threats: The IP Location Task' Challenge](h
 Challenge consisted of creatign a Powershell script that reads IP addresses from a file, sends these to an external IP Lookup service and then output that information as a CSV.
 
 ## Challenge Info
-Data last updated: 2025-03-28
+Data last updated: 2025-04-04
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | █████░░░░░ 47% | 93 / 199 | 2023-10-09 | PowerShell
+▮▮▯▯ | █████░░░░░ 47% | 94 / 200 | 2023-10-09 | PowerShell
 
 ## Comment
