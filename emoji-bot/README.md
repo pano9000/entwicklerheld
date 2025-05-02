@@ -6,7 +6,7 @@ My solution for the ['Emoji Bot' Challenge](https://platform.entwicklerheld.de/c
 Process messages that may or may not contain emojis, and store them in a Redis instance
 
 ## Challenge Info
-Data last updated: 2025-04-25
+Data last updated: 2025-05-02
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▯▯▯ | ████░░░░░░ 39% | 473 / 1204 | 2024-04-27 | Java
