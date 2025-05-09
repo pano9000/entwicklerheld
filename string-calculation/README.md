@@ -6,10 +6,10 @@ My solution for the ['String Calculation' Challenge](https://platform.entwickler
 Implement a parser that does calculations based on the input string
 
 ## Challenge Info
-Data last updated: 2025-05-02
+Data last updated: 2025-05-09
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | █████░░░░░ 51% | 270 / 527 | 2024-06-25 | CSharp
+▮▯▯▯ | █████░░░░░ 51% | 270 / 529 | 2024-06-25 | CSharp
 
 ## Comment
 Went with a RegExp Matching Groups based solution - there probably are more simpler solutions though
