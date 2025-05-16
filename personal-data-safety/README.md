@@ -6,7 +6,7 @@ My solution for the ['Personal Data Safety' Challenge](https://platform.entwickl
 Goal is to create a function that gets the personal data of a given `user_id`, and returns it either masked, or unmasked, depending on status of authentication.
 
 ## Challenge Info
-Data last updated: 2025-05-09
+Data last updated: 2025-05-16
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▯▯▯ | ███████░░░ 65% | 557 / 858 | 2022-05-02 | PHP
