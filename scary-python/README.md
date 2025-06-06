@@ -6,9 +6,9 @@ My solution for the ['Scary Python' Challenge](https://platform.entwicklerheld.d
 
 
 ## Challenge Info
-Data last updated: 2025-05-30
+Data last updated: 2025-06-06
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ██████░░░░ 63% | 1205 / 1900 | 2023-06-27 | Python
+▮▯▯▯ | ██████░░░░ 63% | 1205 / 1899 | 2023-06-27 | Python
 
 ## Comment
