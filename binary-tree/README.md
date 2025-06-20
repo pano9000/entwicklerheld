@@ -12,10 +12,10 @@ Challenge consisted of working with binary trees and three scenarios:
 3) Reverse/Mirror a given binary tree
 
 ## Challenge Info
-Data last updated: 2025-06-13
+Data last updated: 2025-06-20
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ███████░░░ 65% | 607 / 935 | 2023-07-28 | JavaScript
+▮▮▯▯ | ███████░░░ 65% | 606 / 934 | 2023-07-28 | JavaScript
 
 ## Comment
 I opted to try to solve the challenge with the use of a JavaScript generator that prints out every next value, Breadth First.

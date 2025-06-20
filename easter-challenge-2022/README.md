@@ -6,10 +6,10 @@ My solution for the ['Easter Challenge 2022' Challenge](https://platform.entwick
 Goal is to create a function that can calculate the Easter holidays for any given year
 
 ## Challenge Info
-Data last updated: 2025-06-13
+Data last updated: 2025-06-20
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ██████░░░░ 63% | 144 / 228 | 2022-06-02 | PHP
+▮▯▯▯ | ██████░░░░ 63% | 144 / 229 | 2022-06-02 | PHP
 
 ## Comment
 Challenge was not in Javascript, but PHP, but I gave it a shot anyways. I'm not a PHP guy, so the solution might be clumsy.
