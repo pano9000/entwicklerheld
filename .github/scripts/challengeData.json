@@ -838,6 +838,15 @@
       "dateSolved": "2024-12-08",
       "description": "Work with a list of scores from multiple gaming sessions to extract meaningful data, such as the latest score, the personal best, and the top three scores.",
       "comment": ""
+    },
+    {
+      "id": "emojis",
+      "idEH": "060352c1-1c5f-4b01-aefc-27877293b71b",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2025-08-03",
+      "description": "Convert emoji codes like :happy: into HTML – but only if they’re valid!",
+      "comment": ""
     }
   ]
 }
