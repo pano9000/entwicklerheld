@@ -1,3 +1,4 @@
+#from typing import List
 import csv
 
 def read_file_content(fname):
@@ -9,7 +10,6 @@ def read_file_content(fname):
         return None
 
 def calculate_totals(shares):
-
     totals = {
         "overall": 0.0,
         "fair_share": 0.0,
@@ -20,17 +20,31 @@ def calculate_totals(shares):
         current_person_name = row["name"]
 
         if not current_person_name in totals["persons"]:
-            totals["persons"][current_person_name] = 0.0
+            totals["persons"][current_person_name] = {
+                "person": current_person_name,
+                "total": 0.0,
+                "refund": 0.0
+            }
 
-        totals["persons"][current_person_name] += float(row["amount"])
+        totals["persons"][current_person_name]["total"] += float(row["amount"])
         totals["overall"] += float(row["amount"])
 
+    return totals
+
+def calculate_fair_share(totals):
     number_of_persons = len(totals["persons"])
 
     if number_of_persons > 0:
         totals["fair_share"] = totals["overall"] / number_of_persons
 
-    return totals
+def calculate_refund_per_person(totals):
+    for person in totals["persons"]:
+        current_person = totals["persons"][person]
+        current_person["refund"] = current_person["total"] - totals["fair_share"]
+
+
+def get_formatted_output(totals):
+    return list(map(lambda person : totals["persons"][person], list(totals["persons"])))
 
 
 def calculate_refunds(fname):
@@ -39,15 +53,8 @@ def calculate_refunds(fname):
     if file_contents == None:
         raise Error
 
-
     totals = calculate_totals(file_contents)
+    calculate_fair_share(totals)
+    calculate_refund_per_person(totals)
 
-    return_value = []
-    for person in totals["persons"]:
-        return_value.append({
-            "person": person,
-            "total": totals["persons"][person],
-            "refund": totals["persons"][person] - totals["fair_share"]
-        })
-
-    return return_value
+    return get_formatted_output(totals)
