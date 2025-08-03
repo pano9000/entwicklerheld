@@ -1,60 +1,60 @@
 #from typing import List
 import csv
 
-def read_file_content(fname):
-    try:
-        with open(fname) as file:
-            return list(csv.DictReader(file, delimiter=";", fieldnames=["type", "name", "amount"]))
-    except Exception as err:
-        print(f"An error occured trying to read the file: ${err}")
-        return None
+class FairShareCalculator:
+    def __init__(self, filename):
+        self.filename = filename
+        self.raw_shares = []
+        self.totals = {
+            "overall": 0.0,
+            "fair_share": 0.0,
+            "persons": {},
+        }
 
-def calculate_totals(shares):
-    totals = {
-        "overall": 0.0,
-        "fair_share": 0.0,
-        "persons": {},
-    }
+    def read_file_content(self):
+        try:
+            with open(self.filename) as file:
+                self.raw_shares = list(csv.DictReader(file, delimiter=";", fieldnames=["type", "name", "amount"]))
+        except Exception as err:
+            print(f"An error occured trying to read the file: ${err}")
+            raise Exception
 
-    for row in shares:
-        current_person_name = row["name"]
+    
+    def calculate_totals(self):
 
-        if not current_person_name in totals["persons"]:
-            totals["persons"][current_person_name] = {
-                "person": current_person_name,
-                "total": 0.0,
-                "refund": 0.0
-            }
+        for row in self.raw_shares:        
+            current_person_name = row["name"]
 
-        totals["persons"][current_person_name]["total"] += float(row["amount"])
-        totals["overall"] += float(row["amount"])
+            if not current_person_name in self.totals["persons"]:
+                self.totals["persons"][current_person_name] = {
+                    "person": current_person_name,
+                    "total": 0.0,
+                    "refund": 0.0
+                }
 
-    return totals
+            self.totals["persons"][current_person_name]["total"] += float(row["amount"])
+            self.totals["overall"] += float(row["amount"])    
 
-def calculate_fair_share(totals):
-    number_of_persons = len(totals["persons"])
+    def calculate_fair_share(self):
+        number_of_persons = len(self.totals["persons"])
 
-    if number_of_persons > 0:
-        totals["fair_share"] = totals["overall"] / number_of_persons
+        if number_of_persons > 0:
+            self.totals["fair_share"] = self.totals["overall"] / number_of_persons
 
-def calculate_refund_per_person(totals):
-    for person in totals["persons"]:
-        current_person = totals["persons"][person]
-        current_person["refund"] = current_person["total"] - totals["fair_share"]
+    def calculate_refund_per_person(self):
+        for person in self.totals["persons"]:
+            current_person = self.totals["persons"][person]
+            current_person["refund"] = current_person["total"] - self.totals["fair_share"]
 
 
-def get_formatted_output(totals):
-    return list(map(lambda person : totals["persons"][person], list(totals["persons"])))
+    def get_formatted_output(self):
+        return list(map(lambda person : self.totals["persons"][person], list(self.totals["persons"])))
 
 
 def calculate_refunds(fname):
-    file_contents = read_file_content(fname)
-
-    if file_contents == None:
-        raise Error
-
-    totals = calculate_totals(file_contents)
-    calculate_fair_share(totals)
-    calculate_refund_per_person(totals)
-
-    return get_formatted_output(totals)
+    fairShareCalculator = FairShareCalculator(fname)
+    fairShareCalculator.read_file_content()
+    fairShareCalculator.calculate_totals()
+    fairShareCalculator.calculate_fair_share()
+    fairShareCalculator.calculate_refund_per_person()
+    return fairShareCalculator.get_formatted_output()
