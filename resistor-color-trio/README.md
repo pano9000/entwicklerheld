@@ -6,7 +6,7 @@ My solution for the ['Resistor Color Trio' Challenge](https://platform.entwickle
 Create a resistance color decoder that return a formatted string
 
 ## Challenge Info
-Data last updated: 2025-08-02
+Data last updated: 2025-08-03
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▯▯▯ | ████████░░ 76% | 232 / 304 | 2024-06-07 | Python
