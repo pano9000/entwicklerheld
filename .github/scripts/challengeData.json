@@ -847,6 +847,15 @@
       "dateSolved": "2025-08-03",
       "description": "Convert emoji codes like :happy: into HTML – but only if they’re valid!",
       "comment": ""
+    },
+    {
+      "id": "fair-share",
+      "idEH": "12b7b642-ae5e-4e70-ae42-53e8d6a2d4aa",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2025-08-03",
+      "description": "Fair Share – Who Pays What?You've been out with friends, and everyone paid for different activities. Now it's time to settle the costs fairly! Who overpaid? Who still owes money?Get ready to bring balance to shared payments!",
+      "comment": ""
     }
   ]
 }
