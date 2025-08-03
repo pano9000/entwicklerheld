@@ -856,6 +856,15 @@
       "dateSolved": "2025-08-03",
       "description": "Fair Share – Who Pays What?You've been out with friends, and everyone paid for different activities. Now it's time to settle the costs fairly! Who overpaid? Who still owes money?Get ready to bring balance to shared payments!",
       "comment": ""
+    },
+    {
+      "id": "space-age",
+      "idEH": "b0af9c1e-9ced-4cc7-81d9-9d06ac77a3f5",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2025-08-03",
+      "description": "Given an age in seconds, calculate how old someone is in terms of a given planet's solar years.",
+      "comment": ""
     }
   ]
 }
