@@ -9,6 +9,6 @@ Fair Share – Who Pays What?You've been out with friends, and everyone paid for
 Data last updated: 2025-08-03
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ██████░░░░ 62% | 95 / 153 | 2025-08-03 | Python
+▮▯▯▯ | ██████░░░░ 63% | 96 / 153 | 2025-08-03 | Python
 
 ## Comment
