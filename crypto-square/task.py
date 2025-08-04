@@ -4,48 +4,50 @@ from textwrap import wrap
 def normalize_text(plain_text):
     return re.sub(r"(?i)[^a-z0-9]", "", plain_text).lower()
 
-def calculate_rectangle_size(normalized_text):
-    text_len = len(normalized_text)
+
+def is_passing_rectangle_rules(rows, cols, text_len):
+    # in JS I would use '&&' for short-circuiting
+    return all([
+        (rows * cols >= text_len), 
+        (cols >= rows), 
+        (cols - rows <= 1)
+    ])
+
+
+def calculate_rectangle_size(text_normalized):
     rows = 1
     cols = 1
-
+    increment_cols = True
     match_found = False
-    i = 0
-    stop = False
-    alternate_state = 0
-    while match_found == False or stop == True:
-        print(f"rows: {rows} | cols: {cols} | i: {i}")
-        i += 1
-        req_1 = rows * cols >= text_len
-        req_2 = cols >= rows
-        req_3 = cols - rows <= 1
 
-        match_found = True if all([req_1, req_2, req_3]) else False
+    while match_found == False:
+        match_found = is_passing_rectangle_rules(rows, cols, len(text_normalized))
 
         if match_found:
             return { "rows": rows, "cols": cols }
 
-        if i > 300:
-            stop = True
-
-        if alternate_state == 0:
+        if increment_cols:
             cols += 1
-            alternate_state = 1
         else:
             rows += 1
-            alternate_state = 0
+
+        # alternate between incrementing cols and rows
+        increment_cols = not increment_cols
 
     return None
 
-def chunk_text(normalized_text, cols):
-    chunked_text = wrap(normalized_text, cols)
-    if (len(chunked_text) >= 1) and (len(chunked_text[-1]) < cols):
-        chunked_text[-1] = chunked_text[-1].ljust(cols, " ")
 
-    print(chunked_text)
-    return chunked_text
+# chunk up the text to desired column size
+def chunk_text(text_normalized, cols):
+    text_chunked = wrap(text_normalized, cols)
 
-# TODO rename
+    # pad last chunk with space, if it is less than the desired col size
+    if (len(text_chunked) >= 1) and (len(text_chunked[-1]) < cols):
+        text_chunked[-1] = text_chunked[-1].ljust(cols, " ")
+
+    return text_chunked
+
+
 def scramble_chunks(chunked_text, cols, rows):
     if len(chunked_text) < 1:
         return []
@@ -53,28 +55,20 @@ def scramble_chunks(chunked_text, cols, rows):
     for col in range(0, cols):
         scrambled_chunks.append("")
         for row in range(0, rows):
-            print("######", chunked_text)
-            print("######", row, rows)
-
             scrambled_chunks[col] += chunked_text[row][col]
 
     return scrambled_chunks
 
 
 def encrypt(plain_text):
+    text_normalized = normalize_text(plain_text)
+    rectangle_size = calculate_rectangle_size(text_normalized)
+    text_chunked = chunk_text(text_normalized, rectangle_size["cols"])
+    text_scrambled_chunked = scramble_chunks(text_chunked, rectangle_size["cols"], rectangle_size["rows"])
+    text_output = " ".join(text_scrambled_chunked)
 
-    normalized_text = normalize_text(plain_text)
-
-    rectangle_size = calculate_rectangle_size(normalized_text)
-    print(rectangle_size)
-
-    chunked_text = chunk_text(normalized_text, rectangle_size["cols"])
-    scrambled = scramble_chunks(chunked_text, rectangle_size["cols"], rectangle_size["rows"])
-    final_out = " ".join(scrambled)
-    print(f"final: {final_out}")
-    return final_out
+    return text_output
 
 
 def cipher_text(plain_text):
-    # TODO: implement this function
     return encrypt(plain_text)
