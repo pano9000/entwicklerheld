@@ -865,6 +865,15 @@
       "dateSolved": "2025-08-03",
       "description": "Given an age in seconds, calculate how old someone is in terms of a given planet's solar years.",
       "comment": ""
+    },
+    {
+      "id": "crypto-square",
+      "idEH": "b18dd9d5-cb3b-4665-95a9-d81de3a8ac5f",
+      "urlEH": "",
+      "urlSolution": "",
+      "dateSolved": "2025-08-04",
+      "description": "Implement a function to encrypt a given plaintext using the Crypto Square encryption method.",
+      "comment": ""
     }
   ]
 }
