@@ -6,9 +6,9 @@ My solution for the ['Santa's Cookie-Finder Magic' Challenge](https://platform.e
 With a given 2D array of strings, consisting of spaces or '*' ( with '*' representing a 'cookie') -> return an updated array of strings, where the spaces are replaced by a number representing, how many cookies the empty space has in its adjacency.
 
 ## Challenge Info
-Data last updated: 2025-08-08
+Data last updated: 2025-08-12
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ████░░░░░░ 39% | 65 / 166 | 2024-04-18 | Cpp
+▮▮▯▯ | ████░░░░░░ 39% | 65 / 167 | 2024-04-18 | Cpp
 
 ## Comment
