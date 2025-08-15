@@ -6,10 +6,10 @@ My solution for the ['Storing vehicle data' Challenge](https://platform.entwickl
 Challenge consisted of two parts ("stages"), which involved working with a SQLite database and storing/retrieving data related to VIN (Vehicle Identification Number) and later also optimizing database file size for "embedded devices".
 
 ## Challenge Info
-Data last updated: 2025-08-12
+Data last updated: 2025-08-15
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | █████░░░░░ 46% | 232 / 503 | 2023-07-14 | Java
+▮▮▯▯ | █████░░░░░ 46% | 232 / 504 | 2023-07-14 | Java
 
 ## Comment
 "Stage 1" was easily solved after reading the docs, on how to work with SQLite and Java.
