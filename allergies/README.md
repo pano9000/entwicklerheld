@@ -6,10 +6,10 @@ My solution for the ['Allergies' Challenge](https://platform.entwicklerheld.de/c
 Determine if a given allergen is present in a person's allergy score.
 
 ## Challenge Info
-Data last updated: 2025-08-15
+Data last updated: 2025-08-22
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ██████░░░░ 63% | 192 / 307 | 2024-05-19 | CSharp
+▮▯▯▯ | ██████░░░░ 62% | 192 / 308 | 2024-05-19 | CSharp
 
 ## Comment
 After reading up on Bitmasks and how to use them, this was easily solvable :-)
