@@ -6,7 +6,7 @@ My solution for the ['Sportly Webapp - Getting Started' Challenge](https://platf
 Implement a basic Laravel controller for an 'app'
 
 ## Challenge Info
-Data last updated: 2025-08-29
+Data last updated: 2025-09-05
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▯▯▯ | ███░░░░░░░ 31% | 172 / 550 | 2024-04-13 | PHP
