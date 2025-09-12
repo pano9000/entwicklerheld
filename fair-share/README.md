@@ -6,9 +6,9 @@ My solution for the ['Fair Share' Challenge](https://platform.entwicklerheld.de/
 Fair Share – Who Pays What?You've been out with friends, and everyone paid for different activities. Now it's time to settle the costs fairly! Who overpaid? Who still owes money?Get ready to bring balance to shared payments!
 
 ## Challenge Info
-Data last updated: 2025-09-05
+Data last updated: 2025-09-12
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ██████░░░░ 64% | 101 / 158 | 2025-08-03 | Python
+▮▯▯▯ | ██████░░░░ 64% | 102 / 159 | 2025-08-03 | Python
 
 ## Comment
