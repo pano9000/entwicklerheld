@@ -6,9 +6,9 @@ My solution for the ['Emojis' Challenge](https://platform.entwicklerheld.de/chal
 Convert emoji codes like :happy: into HTML – but only if they’re valid!
 
 ## Challenge Info
-Data last updated: 2025-09-12
+Data last updated: 2025-09-19
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | █████████░ 86% | 42 / 49 | 2025-08-03 | JavaScript
+▮▯▯▯ | █████████░ 87% | 45 / 52 | 2025-08-03 | JavaScript
 
 ## Comment
