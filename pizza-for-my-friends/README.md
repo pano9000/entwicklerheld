@@ -8,7 +8,7 @@ Goal of the challenge was to create two functions: One that matches a list of pi
 The other function was essentially the same, but the other way around: Matching a list of persons against a pizza's different toppings, to determine, which persons might like that particular pizza.
 
 ## Challenge Info
-Data last updated: 2025-09-19
+Data last updated: 2025-09-27
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▮▯▯ | ███░░░░░░░ 31% | 246 / 798 | 2023-07-04 | JavaScript
