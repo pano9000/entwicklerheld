@@ -6,9 +6,9 @@ My solution for the ['Crypto Square' Challenge](https://platform.entwicklerheld.
 Implement a function to encrypt a given plaintext using the Crypto Square encryption method.
 
 ## Challenge Info
-Data last updated: 2025-10-03
+Data last updated: 2025-10-10
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ██████░░░░ 61% | 208 / 342 | 2025-08-04 | Python
+▮▯▯▯ | ██████░░░░ 61% | 209 / 343 | 2025-08-04 | Python
 
 ## Comment
