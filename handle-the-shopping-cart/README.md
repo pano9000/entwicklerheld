@@ -6,7 +6,7 @@ My solution for the ['Handle the shopping cart' Challenge](https://platform.entw
 Implement a shopping cart feature and a very simple recommendation engine
 
 ## Challenge Info
-Data last updated: 2025-10-10
+Data last updated: 2025-10-17
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▮▯▯ | ███░░░░░░░ 33% | 128 / 393 | 2024-06-05 | Java
