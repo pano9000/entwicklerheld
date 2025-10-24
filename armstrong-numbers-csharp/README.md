@@ -6,9 +6,9 @@ My solution for the ['Armstrong Numbers' Challenge](https://platform.entwicklerh
 Check if the provided number is an 'Armstrong Number'
 
 ## Challenge Info
-Data last updated: 2025-10-17
+Data last updated: 2025-10-24
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ████████░░ 83% | 132 / 159 | 2024-05-17 | CSharp
+▮▯▯▯ | ████████░░ 83% | 134 / 161 | 2024-05-17 | CSharp
 
 ## Comment
