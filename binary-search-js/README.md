@@ -6,7 +6,7 @@ My solution for the ['Binary Search' Challenge](https://platform.entwicklerheld.
 Challenge consisted of writing a binary search function that also keeps track of how many 'steps' (or 'iterations') it took to get to the result.
 
 ## Challenge Info
-Data last updated: 2025-10-31
+Data last updated: 2025-11-07
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▯▯▯ | ██████░░░░ 59% | 160 / 269 | 2024-02-29 | JavaScript
