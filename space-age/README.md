@@ -6,9 +6,9 @@ My solution for the ['Space Age' Challenge](https://platform.entwicklerheld.de/c
 Given an age in seconds, calculate how old someone is in terms of a given planet's solar years.
 
 ## Challenge Info
-Data last updated: 2025-11-14
+Data last updated: 2025-11-21
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ████████░░ 82% | 189 / 231 | 2025-08-03 | Python
+▮▯▯▯ | ████████░░ 82% | 190 / 232 | 2025-08-03 | Python
 
 ## Comment
