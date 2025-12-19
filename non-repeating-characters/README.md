@@ -6,9 +6,9 @@ My solution for the ['Non Repeating Characters' Challenge](https://platform.entw
 Write a function that returns the first letter in a string, which is not repeated in the rest of the string
 
 ## Challenge Info
-Data last updated: 2025-12-12
+Data last updated: 2025-12-19
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ███████░░░ 73% | 1730 / 2383 | 2023-07-05 | Python
+▮▯▯▯ | ███████░░░ 73% | 1731 / 2384 | 2023-07-05 | Python
 
 ## Comment
