@@ -6,7 +6,7 @@ My solution for the ['Patricia-Trie' Challenge](https://platform.entwicklerheld.
 Implement insert, search and delete of words into a Patricia Trie
 
 ## Challenge Info
-Data last updated: 2025-12-26
+Data last updated: 2026-01-02
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▮▯▯ | █████░░░░░ 51% | 38 / 75 | 2024-06-15 | JavaScript

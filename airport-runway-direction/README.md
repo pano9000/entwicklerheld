@@ -6,7 +6,7 @@ My solution for the ['Airport Runway Direction' Challenge](https://platform.entw
 Calculate which runway is closest to the path of an incoming airplane
 
 ## Challenge Info
-Data last updated: 2025-12-26
+Data last updated: 2026-01-02
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▮▯▯ | ███░░░░░░░ 33% | 548 / 1662 | 2024-03-17 | Python
