@@ -6,7 +6,7 @@ My solution for the ['Make the world a better place' Challenge](https://platform
 Create a simple Test Runner/Framework
 
 ## Challenge Info
-Data last updated: 2026-01-02
+Data last updated: 2026-01-09
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▮▯▯ | ███░░░░░░░ 28% | 276 / 991 | 2024-06-12 | Java
