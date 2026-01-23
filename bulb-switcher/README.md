@@ -8,9 +8,9 @@ In each round i (from 1 to n), toggle all bulbs whose position is divisible by i
 Return the final bulb configuration as a string of 0s and 1s, where 1 means the bulb is on and 0 means it is off.
 
 ## Challenge Info
-Data last updated: 2026-01-16
+Data last updated: 2026-01-23
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ███████░░░ 72% | 63 / 88 | 2025-08-12 | Java
+▮▯▯▯ | ███████░░░ 72% | 64 / 89 | 2025-08-12 | Java
 
 ## Comment
