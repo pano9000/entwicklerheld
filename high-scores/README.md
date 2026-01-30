@@ -6,9 +6,9 @@ My solution for the ['High Scores' Challenge](https://platform.entwicklerheld.de
 Work with a list of scores from multiple gaming sessions to extract meaningful data, such as the latest score, the personal best, and the top three scores.
 
 ## Challenge Info
-Data last updated: 2026-01-23
+Data last updated: 2026-01-30
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | █████████░ 92% | 237 / 259 | 2024-12-08 | Python
+▮▯▯▯ | █████████░ 92% | 238 / 260 | 2024-12-08 | Python
 
 ## Comment

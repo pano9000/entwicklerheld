@@ -6,10 +6,10 @@ My solution for the ['Hacking a Slot Machine' Challenge](https://platform.entwic
 Change the behaviour of a slot machine to become a bit more 'unfair' after a few special cases
 
 ## Challenge Info
-Data last updated: 2026-01-23
+Data last updated: 2026-01-30
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ███░░░░░░░ 33% | 338 / 1015 | 2024-03-17 | Python
+▮▮▯▯ | ███░░░░░░░ 33% | 338 / 1016 | 2024-03-17 | Python
 
 ## Comment
 This should've been easily solved, but the tests cases were a bit weird/illogic, which made life unnecessarily harder:
