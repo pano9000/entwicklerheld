@@ -6,7 +6,7 @@ My solution for the ['A small dumb Chatbot' Challenge](https://platform.entwickl
 Create a a small dumb chatbot
 
 ## Challenge Info
-Data last updated: 2026-02-06
+Data last updated: 2026-02-13
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▯▯▯ | █████░░░░░ 46% | 315 / 686 | 2024-07-09 | PHP
