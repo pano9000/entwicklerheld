@@ -6,10 +6,10 @@ My solution for the ['GPS Navigation' Challenge](https://platform.entwicklerheld
 Implement a trilateration method, which uses satellites to calculate the position of the car.
 
 ## Challenge Info
-Data last updated: 2026-02-20
+Data last updated: 2026-03-06
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▮▯▯ | ███░░░░░░░ 34% | 113 / 337 | 2024-04-28 | Python
+▮▮▯▯ | ███░░░░░░░ 34% | 113 / 336 | 2024-04-28 | Python
 
 ## Comment
 Very 'geometrical' task, for which I needed to get some inspiration from people with better Math/Geometry skills :-)

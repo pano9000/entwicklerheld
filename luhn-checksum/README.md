@@ -6,9 +6,9 @@ My solution for the ['Luhn Checksum' Challenge](https://platform.entwicklerheld.
 Check if the provided number is a valid Luhn Number
 
 ## Challenge Info
-Data last updated: 2026-02-20
+Data last updated: 2026-03-06
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ████████░░ 78% | 345 / 444 | 2024-05-17 | CSharp
+▮▯▯▯ | ████████░░ 78% | 344 / 443 | 2024-05-17 | CSharp
 
 ## Comment
