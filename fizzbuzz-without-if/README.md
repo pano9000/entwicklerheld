@@ -6,9 +6,9 @@ My solution for the ['Fizz Buzz without 'if'' Challenge](https://platform.entwic
 Well known FizzBuzz challenge, but with a slight constraint of not using 'if' statements :-)
 
 ## Challenge Info
-Data last updated: 2026-03-06
+Data last updated: 2026-03-13
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ████████░░ 81% | 937 / 1153 | 2023-08-07 | Python
+▮▯▯▯ | ████████░░ 81% | 938 / 1154 | 2023-08-07 | Python
 
 ## Comment
