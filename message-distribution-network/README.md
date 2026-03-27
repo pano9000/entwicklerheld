@@ -6,7 +6,7 @@ My solution for the ['Message Distribution Network' Challenge](https://platform.
 Send incoming messages to the correct Kafka topic, after detecting the language of the message. Additionally send a POST message to a server, if the message contains certain keywords.
 
 ## Challenge Info
-Data last updated: 2026-03-20
+Data last updated: 2026-03-27
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
 ▮▮▯▯ | ███████░░░ 69% | 250 / 363 | 2024-04-19 | Java

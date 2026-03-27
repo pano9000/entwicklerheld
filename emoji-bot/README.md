@@ -6,9 +6,9 @@ My solution for the ['Emoji Bot' Challenge](https://platform.entwicklerheld.de/c
 Process messages that may or may not contain emojis, and store them in a Redis instance
 
 ## Challenge Info
-Data last updated: 2026-03-20
+Data last updated: 2026-03-27
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ████░░░░░░ 39% | 471 / 1207 | 2024-04-27 | Java
+▮▯▯▯ | ████░░░░░░ 39% | 471 / 1208 | 2024-04-27 | Java
 
 ## Comment
