@@ -4,7 +4,7 @@ I use this repository to save and present my solutions for the challenges on the
 
 Click on the challenge names for more details and to see the solution.
 
-List Last updated: **2026-05-01**
+List Last updated: **2026-05-08**
 
 ### Difficulty Levels (According to EntwicklerHeld)
 
@@ -108,7 +108,7 @@ Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted
 [Armstrong Numbers](https://github.com/pano9000/entwicklerheld/tree/main/armstrong-numbers-csharp) | ▮▯▯▯ | ████████░░ 83% | 145 / 174 | 2024-05-17 | CSharp
 [Luhn Checksum](https://github.com/pano9000/entwicklerheld/tree/main/luhn-checksum) | ▮▯▯▯ | ████████░░ 78% | 345 / 445 | 2024-05-17 | CSharp
 [Tickets for the City Tower](https://github.com/pano9000/entwicklerheld/tree/main/tickets-for-the-city-tower) | ▮▮▯▯ | ███░░░░░░░ 30% | 78 / 259 | 2024-05-19 | PHP
-[Allergies](https://github.com/pano9000/entwicklerheld/tree/main/allergies) | ▮▯▯▯ | ██████░░░░ 62% | 199 / 319 | 2024-05-19 | CSharp
+[Allergies](https://github.com/pano9000/entwicklerheld/tree/main/allergies) | ▮▯▯▯ | ██████░░░░ 62% | 199 / 320 | 2024-05-19 | CSharp
 [Christmas Tree of Hanoi](https://github.com/pano9000/entwicklerheld/tree/main/christmas-tree-of-hanoi) | ▮▯▯▯ | ██████░░░░ 63% | 187 / 298 | 2024-05-22 | JavaScript
 [New Spaceship validation when entering the motherships](https://github.com/pano9000/entwicklerheld/tree/main/new-spaceship-validation) | ▮▮▯▯ | ███░░░░░░░ 33% | 348 / 1056 | 2024-05-22 | Java
 [Handle the shopping cart](https://github.com/pano9000/entwicklerheld/tree/main/handle-the-shopping-cart) | ▮▮▯▯ | ███░░░░░░░ 33% | 130 / 395 | 2024-06-05 | Java
@@ -119,7 +119,7 @@ Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted
 [Life Insurance](https://github.com/pano9000/entwicklerheld/tree/main/life-insurance) | ▮▮▯▯ | ██████░░░░ 58% | 576 / 989 | 2024-06-09 | Java
 [Make the world a better place](https://github.com/pano9000/entwicklerheld/tree/main/make-the-world-a-better-place) | ▮▮▯▯ | ███░░░░░░░ 28% | 276 / 990 | 2024-06-12 | Java
 [ChatGPT WhatsApp Bot](https://github.com/pano9000/entwicklerheld/tree/main/chatgpt-whatsapp-bot) | ▮▯▯▯ | ████░░░░░░ 37% | 83 / 223 | 2024-06-13 | Python
-[Lottery Sim](https://github.com/pano9000/entwicklerheld/tree/main/lottery-sim) | ▮▮▯▯ | ████████░░ 76% | 71 / 94 | 2024-06-14 | JavaScript
+[Lottery Sim](https://github.com/pano9000/entwicklerheld/tree/main/lottery-sim) | ▮▮▯▯ | ████████░░ 77% | 72 / 94 | 2024-06-14 | JavaScript
 [Patricia-Trie](https://github.com/pano9000/entwicklerheld/tree/main/patricia-trie) | ▮▮▯▯ | █████░░░░░ 50% | 38 / 76 | 2024-06-15 | JavaScript
 [String Calculation](https://github.com/pano9000/entwicklerheld/tree/main/string-calculation) | ▮▯▯▯ | █████░░░░░ 52% | 283 / 545 | 2024-06-25 | CSharp
 [Analyse the Plant](https://github.com/pano9000/entwicklerheld/tree/main/analyse-the-plant) | ▮▮▯▯ | ███░░░░░░░ 34% | 128 / 373 | 2024-07-05 | Java
@@ -140,7 +140,7 @@ Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted
 [Happy Subnetting](https://github.com/pano9000/entwicklerheld/tree/main/happy-subnetting) | ▮▮▮▯ | ███░░░░░░░ 26% | 60 / 229 | 2022-09-19 | JavaScript
 [Analyse the Plant](https://github.com/pano9000/entwicklerheld/tree/main/analyse-the-plant) | ▮▮▯▯ | ███░░░░░░░ 34% | 128 / 373 | 2024-07-05 | Java
 [Patricia-Trie](https://github.com/pano9000/entwicklerheld/tree/main/patricia-trie) | ▮▮▯▯ | █████░░░░░ 50% | 38 / 76 | 2024-06-15 | JavaScript
-[Lottery Sim](https://github.com/pano9000/entwicklerheld/tree/main/lottery-sim) | ▮▮▯▯ | ████████░░ 76% | 71 / 94 | 2024-06-14 | JavaScript
+[Lottery Sim](https://github.com/pano9000/entwicklerheld/tree/main/lottery-sim) | ▮▮▯▯ | ████████░░ 77% | 72 / 94 | 2024-06-14 | JavaScript
 [Make the world a better place](https://github.com/pano9000/entwicklerheld/tree/main/make-the-world-a-better-place) | ▮▮▯▯ | ███░░░░░░░ 28% | 276 / 990 | 2024-06-12 | Java
 [Life Insurance](https://github.com/pano9000/entwicklerheld/tree/main/life-insurance) | ▮▮▯▯ | ██████░░░░ 58% | 576 / 989 | 2024-06-09 | Java
 [Knapsack](https://github.com/pano9000/entwicklerheld/tree/main/knapsack) | ▮▮▯▯ | ███░░░░░░░ 25% | 33 / 132 | 2024-06-08 | Java
@@ -190,7 +190,7 @@ Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted
 [Doubly Linked List](https://github.com/pano9000/entwicklerheld/tree/main/doubly-linked-list) | ▮▯▯▯ | ███████░░░ 65% | 130 / 201 | 2024-06-06 | Java
 [CamelCase to snake_case](https://github.com/pano9000/entwicklerheld/tree/main/camelcase-to-snakecase) | ▮▯▯▯ | ██████░░░░ 55% | 174 / 319 | 2024-06-06 | Kotlin
 [Christmas Tree of Hanoi](https://github.com/pano9000/entwicklerheld/tree/main/christmas-tree-of-hanoi) | ▮▯▯▯ | ██████░░░░ 63% | 187 / 298 | 2024-05-22 | JavaScript
-[Allergies](https://github.com/pano9000/entwicklerheld/tree/main/allergies) | ▮▯▯▯ | ██████░░░░ 62% | 199 / 319 | 2024-05-19 | CSharp
+[Allergies](https://github.com/pano9000/entwicklerheld/tree/main/allergies) | ▮▯▯▯ | ██████░░░░ 62% | 199 / 320 | 2024-05-19 | CSharp
 [Armstrong Numbers](https://github.com/pano9000/entwicklerheld/tree/main/armstrong-numbers) | ▮▯▯▯ | ████████░░ 76% | 74 / 97 | 2024-05-17 | Kotlin
 [Armstrong Numbers](https://github.com/pano9000/entwicklerheld/tree/main/armstrong-numbers-java) | ▮▯▯▯ | ████████░░ 83% | 142 / 172 | 2024-05-17 | Java
 [Armstrong Numbers](https://github.com/pano9000/entwicklerheld/tree/main/armstrong-numbers-python) | ▮▯▯▯ | █████████░ 87% | 209 / 240 | 2024-05-17 | Python
@@ -291,7 +291,7 @@ Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted
 [Scary JavaScript](https://github.com/pano9000/entwicklerheld/tree/main/scary-javascript) | ▮▯▯▯ | ██████░░░░ 60% | 670 / 1119 | 2022-04-27 | JavaScript
 [Crypto Square](https://github.com/pano9000/entwicklerheld/tree/main/crypto-square) | ▮▯▯▯ | ██████░░░░ 61% | 211 / 345 | 2025-08-04 | Python
 [Filling Area (Hard Mode)](https://github.com/pano9000/entwicklerheld/tree/main/filling-area-hard-mode) | ▮▮▮▯ | ██████░░░░ 61% | 370 / 609 | 2024-04-07 | Python
-[Allergies](https://github.com/pano9000/entwicklerheld/tree/main/allergies) | ▮▯▯▯ | ██████░░░░ 62% | 199 / 319 | 2024-05-19 | CSharp
+[Allergies](https://github.com/pano9000/entwicklerheld/tree/main/allergies) | ▮▯▯▯ | ██████░░░░ 62% | 199 / 320 | 2024-05-19 | CSharp
 [Weigh the Slow Loris](https://github.com/pano9000/entwicklerheld/tree/main/weigh-the-slow-loris) | ▮▯▯▯ | ██████░░░░ 62% | 1415 / 2274 | 2024-04-29 | Java
 [Christmas Tree of Hanoi](https://github.com/pano9000/entwicklerheld/tree/main/christmas-tree-of-hanoi) | ▮▯▯▯ | ██████░░░░ 63% | 187 / 298 | 2024-05-22 | JavaScript
 [Vendor's Box](https://github.com/pano9000/entwicklerheld/tree/main/vendors-box) | ▮▮▯▯ | ██████░░░░ 63% | 336 / 530 | 2024-04-21 | Java
@@ -314,9 +314,9 @@ Challenge Name | Difficulty | Overall Success Rate @EH | Overall Solved/Accepted
 [Matching brackets](https://github.com/pano9000/entwicklerheld/tree/main/matching-brackets) | ▮▯▯▯ | ███████░░░ 74% | 401 / 544 | 2023-05-24 | JavaScript
 [Client number validation](https://github.com/pano9000/entwicklerheld/tree/main/client-number-validation) | ▮▯▯▯ | ████████░░ 75% | 176 / 235 | 2024-03-13 | JavaScript
 [Number conversion](https://github.com/pano9000/entwicklerheld/tree/main/number-conversion) | ▮▯▯▯ | ████████░░ 75% | 403 / 535 | 2024-02-11 | Cpp
-[Lottery Sim](https://github.com/pano9000/entwicklerheld/tree/main/lottery-sim) | ▮▮▯▯ | ████████░░ 76% | 71 / 94 | 2024-06-14 | JavaScript
 [Armstrong Numbers](https://github.com/pano9000/entwicklerheld/tree/main/armstrong-numbers) | ▮▯▯▯ | ████████░░ 76% | 74 / 97 | 2024-05-17 | Kotlin
 [ISBN Verifier](https://github.com/pano9000/entwicklerheld/tree/main/isbn-verifier) | ▮▯▯▯ | ████████░░ 76% | 180 / 237 | 2024-03-11 | Kotlin
+[Lottery Sim](https://github.com/pano9000/entwicklerheld/tree/main/lottery-sim) | ▮▮▯▯ | ████████░░ 77% | 72 / 94 | 2024-06-14 | JavaScript
 [Luhn Checksum](https://github.com/pano9000/entwicklerheld/tree/main/luhn-checksum) | ▮▯▯▯ | ████████░░ 78% | 345 / 445 | 2024-05-17 | CSharp
 [Fibonacci Numbers](https://github.com/pano9000/entwicklerheld/tree/main/fibonacci-numbers) | ▮▯▯▯ | ████████░░ 78% | 909 / 1160 | 2024-03-26 | Python
 [Resistor Color Trio](https://github.com/pano9000/entwicklerheld/tree/main/resistor-color-trio) | ▮▯▯▯ | ████████░░ 79% | 249 / 317 | 2024-06-07 | Python
