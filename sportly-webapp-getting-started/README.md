@@ -6,10 +6,10 @@ My solution for the ['Sportly Webapp - Getting Started' Challenge](https://platf
 Implement a basic Laravel controller for an 'app'
 
 ## Challenge Info
-Data last updated: 2026-05-08
+Data last updated: 2026-05-15
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ███░░░░░░░ 32% | 174 / 550 | 2024-04-13 | PHP
+▮▯▯▯ | ███░░░░░░░ 32% | 175 / 550 | 2024-04-13 | PHP
 
 ## Comment
 First time using Laravel, and it felt a bit weird, when compared to express.js, what I am used to. Interesting experience though.

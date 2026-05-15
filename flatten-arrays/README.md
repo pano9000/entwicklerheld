@@ -6,9 +6,9 @@ My solution for the ['Flatten Arrays' Challenge](https://platform.entwicklerheld
 Given a nested list, flatten it to a single-level list by removing any nesting.
 
 ## Challenge Info
-Data last updated: 2026-05-08
+Data last updated: 2026-05-15
 Difficulty | Overall Success Rate @EH | Overall Solved/Accepted @EH | Date Solved | Language
 ---|---|---|---|---|
-▮▯▯▯ | ████████░░ 80% | 874 / 1094 | 2023-06-26 | Python
+▮▯▯▯ | ████████░░ 80% | 875 / 1095 | 2023-06-26 | Python
 
 ## Comment
